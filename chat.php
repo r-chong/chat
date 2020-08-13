@@ -1,5 +1,7 @@
 <?php
 
+include 'config.php';
+
 //$query_string = $_POST;
 //$query_string = 'action=save&savestring=[Reese]: php test'; # I use this so that I can test the script in the dos commandline, I can see more errors this way
 //query_string = 'action=getchat&apikey=12' # I use this so that I can test the script in the dos commandline, I can see more errors this way
@@ -22,10 +24,6 @@ if(isset($_REQUEST['chatstring']))
 
 //var_dump($action);
 
-$host="localhost";
-$database="gn_chat";
-$user="gnchat";
-$password="kingboome";
 
 
 $db = mysqli_connect($host, $user, $password, $database);
