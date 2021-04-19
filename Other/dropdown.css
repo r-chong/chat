@@ -1,0 +1,141 @@
+.dark .dropbtn {
+  color: black;
+  padding: 3px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: grey;
+}
+.dropdown:hover .dropdown-content {
+  display: inline-block;
+}
+.dropdown-content:hover .dropbtn {
+  background-color: black;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /*background-color of the dropdown*/
+  min-width: 200px;
+  max-width: 300px;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 4px;
+  z-index: 1;
+  overflow-y:scroll;
+}
+/*--*/
+/*CSS Styling to make buttons within the dropdown to look NOICE*/
+.button {
+  min-width: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: black;
+  padding: 2.5px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  opacity: 0.7;
+}
+.button:hover {
+  opacity: 1;
+}
+
+/*--*/
+/*CSS Styling to make Quick Acess buttons look NOICE (quick acess includes chat flush and chat clear*/
+.qabutton {
+  /*quick access buttons (chat flush/clear)*/
+  min-width: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 2.5px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+/*--*/
+/*CSS Styling to make text look nice (e.g text within the dropdown)*/
+.randomText {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 17px;
+  height: 5px;
+}
+/*--*/
+/* CSS Styling to make the buttons in the toolbar be side by side and NOICE*/
+.btn-group button {
+  border: 1.5px solid black;
+  color: black;
+  padding: 10px 10px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+/* Clear floats (clearfix hack) (? from w3schools code)*/
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Add a background color on hover */
+.btn-group button:hover {
+  color: white;
+}
+/*--*/
+/* CSS Code to make the reload button go 360 degrees */
+.rotate:hover {
+  animation: rotate 2s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+/*--*/
+/*--*/
+/* CSS Code for custom context menu*/
+.menu {
+  width: 300px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  position: fixed;
+  display: none;
+  overflow: auto;
+}
+
+.menu-item {
+  height: 20px;
+  color: white;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.menu-item:hover {
+  color: black;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
+}

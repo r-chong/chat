@@ -1,0 +1,52 @@
+#mainpg {width:55%; margin-left:5%;}
+#container {width: 150%;position:fixed;}
+/* Modes*/
+
+body {background-color: white;color: #343a42;touch-action:manipulation;}
+
+.dark {background-color: #343a42;color: #8492ae;}
+
+.mo {background-color: #ff69b4;color:black;}
+.radioButton {font-size:105%;}
+
+/* login */
+
+#login {text-align:center;margin: auto;width:90%; max-width: 400px; margin-top:2%;border:2px solid #d1d1d1; border-radius: 5%; background-color:White;padding-bottom:15px;}
+.loginInput {font-size: 60%;color:SlateGray;border: 2px solid #d1d1d1;border-radius: 5%; padding:4%;}
+#loginSubmit {font-size:120%;margin-left:67%;font-family:verdana;color:DarkGray;background-color:GhostWhite;border: 2px solid #d1d1d1; border-radius: 5px; padding:3%;}
+
+#logout {padding:5%; width:95%; font-size: 100%;}
+
+/* misc */
+
+textarea {font-size:120%;}
+a {color:Gray;}
+h1 {text-align:center;font-size:75;}
+#titleMNCW {display:none;}
+#changelogLink {display:none;}
+
+#controlBox {position:absolute; bottom:0;height:15%;width:40%;}
+
+#titleMNCW {display:none}
+.dark #titleMNCW {display:none}
+.mo #titleMNCW {display:none}
+
+/* colour modes */
+
+.dark input[type=button]  {color:#596988;}
+
+.tab {overflow:hidden;}
+
+.active {background-color:c2f5ff;}
+
+.tablinks {font-size:110%;height:75;width:23%;}
+
+#reload {width:25%;height:72;display:inline;float:right;}
+
+#memberList {width:15%; float:right;height:50%; text-align:center; border: 1px solid gray; font-size:80%}
+
+.Online {color:MediumSeaGreen;}
+
+.Idle {color:Goldenrod;}
+
+.Offline {color:Silver;}

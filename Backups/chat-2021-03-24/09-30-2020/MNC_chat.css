@@ -1,0 +1,64 @@
+body {
+  background-color: white;
+  color: #343a42;
+}
+
+.dark {
+
+  background-color: #343a42;
+  color: #8492ae;
+  /*different color for buttons and overlay
+  */
+}
+
+.mo {
+  background-color: #ff69b4;
+  color:black;
+    
+}
+
+textarea {
+	font-size:120%;
+}
+
+a {
+	color:Gray;
+}
+
+buttons {
+	border: 2px solid Black; 
+	border-radius: 30px;
+}
+
+/*loginpg {
+	text-align:center;margin:0 auto;width:27%;margin-top:5%;border:2px solid #d1d1d1; border-radius: 30px; background-color:White;padding-bottom:15px;
+}
+
+loginpg > p{
+	font-size: 20px;color:SlateGray;border: 2px solid #d1d1d1;border-radius: 5px;
+}
+
+loginpg > button {
+	font-size:120%;margin-left:67%;font-family:verdana;color:DarkGray;background-color:GhostWhite;border: 2px solid #d1d1d1; border-radius: 5px;
+}
+
+.flex-containerV {
+	display:flex;
+	flex-direction: column;
+	justify-content:flex-start;*/
+}
+/* palettes
+
+dark mode: 
+cool grey 8492ae
+queen blue 596988
+gunmetal 343a42
+charcoal 3f4650
+
+mohammad
+
+ff69b4
+
+*/
+
+/*addclass(), removeclass()*/

@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set ('America/Toronto');
+
 include 'config.php';
 
 //$query_string = $_POST;
@@ -62,7 +64,7 @@ if ($action == 'getchat')
 function save_chatstring($db, $chatstring)
 {
 	//2020-07-19 23:43:08
-	$date = date("Y-m-d g:ia");
+	$date = date("M d, h:ia");
 	$sql = "INSERT INTO chatlog (chatstring, note, `date`) VALUE (\"$chatstring\", '', \"$date\")";
 	$result = mysqli_query ($db, $sql);
 	echo $sql;	

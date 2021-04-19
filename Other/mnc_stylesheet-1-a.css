@@ -1,0 +1,15 @@
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: #1d2429;
+  color: #5f85db;
+}
+
+.mo-mode {
+  background-color: #ff69b4;
+  color: white;
