@@ -40,12 +40,12 @@ if ($action == 'save')
 	$savestring = $_POST['savestring'];
 	//echo 'i am saving';
 	save_chatstring($db, $savestring);
-	
+
 	//echo 'i am reloading';
 	load_chatlog($db);
 }
-	
-	
+
+
 //$action = $_POST['action'];
 //$apikey = $_POST['apikey'];
 
@@ -54,7 +54,7 @@ if ($action == 'getchat')
 	//$savestring = $_POST['savestring'];
 	//echo 'loading chat';
 	load_chatlog($db);
-	
+
 }
 
 
@@ -67,10 +67,10 @@ function save_chatstring($db, $chatstring)
 	$date = date("M d, h:ia");
 	$sql = "INSERT INTO chatlog (chatstring, note, `date`) VALUE (\"$chatstring\", '', \"$date\")";
 	$result = mysqli_query ($db, $sql);
-	echo $sql;	
-	//return $result;	
+	echo $sql;
+	//return $result;
 
-} 
+}
 
 function load_chatlog($db)
 {
@@ -79,22 +79,22 @@ function load_chatlog($db)
 	//$sql = "SELECT chatstring, ID, `date` FROM (SELECT chatstring, ID, `date` FROM chatlog ORDER BY id DESC LIMIT 100) sub ORDER BY id ASC";
 	$result = mysqli_query ($db, $sql);
 	//var_dump($result);
-	
+
 	while ($row[] = mysqli_fetch_assoc($result))
 	{
-		
+
 	}
 	array_pop($row);
-	
+
 	//var_dump($row);
-	
+
 	echo json_encode($row); // send back a json string -  - make sure all other echos are off for js receipt of info
-	
+
 	//myresult = mycursor.fetchall()
 	#return (myresult)
-	
+
 	#date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
-	
+
 	#myresult_json = myresult #json.dumps(myresult)
 	//myresult_json = json.dumps(myresult)
 	#print(type(myresult[1][2]))
@@ -102,11 +102,11 @@ function load_chatlog($db)
 	#print(type(myresult))
 	#print('end chatlog')
 	#print(json.dumps(myresult))
-	
-	
+
+
 	#for x in myresult:
 	#  print(x)
-	  
+
 	# send back the values in json
-}	
+}
 ?>
