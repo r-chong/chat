@@ -358,14 +358,12 @@ body .dropdown-content{background-color:lightgrey;}
 .emote {
 font-family:monospace;
 min-width: 30px;
+min-height:30px;
+padding: 2.5px 2px;
 border: 1px solid #596988;
-background-color:transparent;
+background-color: transparent;
 border-radius: 7px;
 color: black;
-padding: 2.5px 2px;
-font-size: 20px;
-cursor: pointer;
-outline: none;
 }
 .emote:hover {
 background-color:#343a42;
@@ -374,21 +372,6 @@ background-color:#343a42;
 	background-color:black;
 }
 
-#doge1
-#doge2
-#lolol
-#hmmmm
-#wgat
-#oof
-#tesla
-#YEEEE
-#doge3
-#hyper
-#read2
-#bruhh
-#egg
-#ummmm
-#shrug
 
 /*--*/
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
