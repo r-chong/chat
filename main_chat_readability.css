@@ -359,7 +359,6 @@ body .dropdown-content{background-color:lightgrey;}
 font-family:monospace;
 min-width: 30px;
 border: 1px solid #596988;
-background-color:transparent;
 border-radius: 7px;
 color: black;
 padding: 2.5px 2px;
@@ -374,21 +373,21 @@ background-color:#343a42;
 	background-color:black;
 }
 
-#doge1
-#doge2
-#lolol
-#hmmmm
-#wgat
-#oof
-#tesla
-#YEEEE
-#doge3
-#hyper
-#read2
-#bruhh
-#egg
-#ummmm
-#shrug
+#doge1 {background:url("Assets/dogeputin.png");background-size: cover;  background-position: center;}
+#doge2 {background: url("Assets/dogeputinHD.png");}
+#lolol {background: url("Assets/lmao.png/");}
+#hmmmm {background: url("Assets/thonk.png/");}
+#wgat {background: url("Assets/wat.ico/");}
+#oof {backgroun\d: url("sets/bigoof.png/");}
+#tesla {background: url("Assets/elonloltransparent/");}
+#YEEEE {background: url("Assets/yee.jpg/");}
+#doge3 {background: url("Assets/dogedance.gif/");}
+/* #hyper {background-image:"Assets//"}
+#read2 {background-image:"Assets//"}
+#bruhh {background-image:"Assets//"}
+#egg {background-image:"Assets//"}
+#ummmm {background-image:"Assets//"}
+#shrug {background-image:"Assets//"} */
 
 /*--*/
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
