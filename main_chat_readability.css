@@ -288,7 +288,7 @@ a {color:Steelblue;}
 }
 /*Dropdown Code for emoji toolbar*/
 
-.dropbtn {
+.emote-dropdown__emoji-icon {
 color: black;
 background-image:url("Assets/lmao.png");
 background-size:cover;
@@ -303,21 +303,21 @@ height:3rem;
 opacity:10%;
 }
 /*remove that annoying white space around dropbtn*/
-body .dropbtn {background-color:black;}
-.dark .dropbtn{background-color:#596988;}
-.mo .dropbtn{background-color:black;}
+body ..emote-dropdown__emoji-icon {background-color:black;}
+.dark ..emote-dropdown__emoji-icon{background-color:#596988;}
+.mo ..emote-dropdown__emoji-icon{background-color:black;}
 
-.dropbtn:hover {
+.emote-dropdown__emoji-icon:hover {
   opacity:100%;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .emote-dropdown__dropdown-content {
 display: inline-block;
 margin: auto;
 }
 
 /*emotes*/
-.drop-emote {
+.emote-dropdown__sticker-icon {
   color: black;
   background-image: url("Assets/dogeputinMedium.png");
   background-size: cover;
@@ -331,11 +331,11 @@ margin: auto;
   height: 3rem;
   opacity: 10%;
 }
-.drop-emote:hover {
+.emote-dropdown__sticker-icon:hover {
   opacity: 100%;
 }
 
-.dropdown-content {
+.emote-dropdown__dropdown-content {
 display: none;
 position: absolute;
 min-width: 200px;
@@ -348,9 +348,9 @@ overflow-y: scroll;
 z-index: 1;
 }
 /*background-color of the dropdown/*/
-body .dropdown-content{background-color:lightgrey;}
-.dark .dropdown-content{background-color:#596988;}
-.mo .dropdown-content{background-color:black;}
+body .emote-dropdown__dropdown-content{background-color:lightgrey;}
+.dark .emote-dropdown__dropdown-content{background-color:#596988;}
+.mo .emote-dropdown__dropdown-content{background-color:black;}
 
 
 /*--*/
@@ -375,7 +375,7 @@ background-color:#343a42;
 
 /*--*/
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
-.qabutton {
+.quick-access {
 min-width: 40px;
 min-height: 43px;
 border-style: solid;
@@ -388,7 +388,7 @@ font-size: 16px;
 cursor: pointer;
 }
 /* CSS Styling to make the buttons in the toolbar be side by side and NOICE*/
-.btn-group button {
+.emote-dropdown__button-group button {
 	display: flex;
 	flex-wrap: wrap;
 	float:left;
