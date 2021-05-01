@@ -118,6 +118,25 @@
 						</div>
 
 						<div class="dropdown">
+<<<<<<< HEAD
+					      <button class="drop-emote"></button>
+					      <div class="dropdown-content">
+					        <img class="emote" onclick="getEmoji(this)" style="background-image:url("Assets/bigoof.png/")" name=":dogeputin:"/>
+					        <!-- <img id="doge2" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":dogeputinXL:"/>
+					        <img id="lolol" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":lmao:"/>
+					        <img id="hmmmm" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":thonk:"/>
+					        <img id="wgat" class="emote" onclick="getEmoji(this)"  src="/Assets/lmao.png/" name=":wgat:"/>
+					        <img id="oof" class="emote" onclick="getEmoji(this)"  src="/Assets/lmao.png/" name=":bigoof:"/>
+					        <img id="tesla" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":elonlol:"/>
+					        <img id="YEEEE" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":yee:"/>
+					        <img id="doge3" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":dogedance:"/>
+					        <img id="hyper" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":hyperthink:"/>
+					        <img id="read2" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":readtwice:"/>
+					        <img id="bruhh" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":nosense:"/>
+					        <img id="egg" class="emote" onclick="getEmoji(this)"  src="/Assets/lmao.png/" name=":egg:"/>
+					        <img id="ummmm" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":um:"/>
+					        <img id="shrug" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name="¯\_(ツ)_/¯"> -->
+=======
 					      <button class="emote-dropdown__sticker-icon"></button>
 					      <div class="emote-dropdown__dropdown-content">
 					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
@@ -135,6 +154,7 @@
 					        <input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:"/>
 					        <input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:"/>
 					        <input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
+>>>>>>> 2b2722f21f5558b08b641328669b3c529319b476
 					      </div>
 					    </div>
 				</div>
