@@ -85,8 +85,8 @@
 
 						<div class="btn-group">
 							<div class="dropdown">
-							  <button class="dropbtn"></button>
-							  <div class="dropdown-content">
+							  <button class="emote-dropdown__emoji-icon"></button>
+							  <div class="emote-dropdown__dropdown-content">
 								  <input type="button" value="&#129315;"name="&#129315;" onclick="getEmoji(this)" class="emote" title="ROFL, developed by Mo"/>
 								  <input type="button" value="&#128526;"name="&#128526;" onclick="getEmoji(this)" class="emote" title="Sunglasses, developed by Mo"/>
 								  <input type="button" value="&#128557;" name="&#128557;" onclick="getEmoji(this)" class="emote" title="Loudly crying"/>
@@ -118,8 +118,8 @@
 						</div>
 
 						<div class="dropdown">
-					      <button class="drop-emote"></button>
-					      <div class="dropdown-content">
+					      <button class="emote-dropdown__sticker-icon"></button>
+					      <div class="emote-dropdown__dropdown-content">
 					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
 					        <input type="button" value="doge2" class="emote" onclick="getEmoji(this)" name=":dogeputinXL:"title="Much Big Doge" />
 					        <input type="button" value="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:"/>
