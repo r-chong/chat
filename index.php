@@ -61,9 +61,9 @@
 					<div class="tabcontent view2"> <!-- Top banner -->
 
 						<!--tablinks / button that go to each page-->
-							<input type="button" class="tablinks active" onclick="openTab2()" id="Chat" value="Chat">
-							<input type="button" class="tablinks" onclick="openTab2()" 	id="Sections" value="Resources">
-							<input type="button" class="tablinks" onclick="openTab2()" 	id="Other" value="Settings">
+							<input type="button" class="tab__button active" onclick="openTab()" id="Chat" value="Chat">
+							<input type="button" class="tab__button" onclick="openTab()" 	id="Sections" value="Resources">
+							<input type="button" class="tab__button" onclick="openTab()" 	id="Other" value="Settings">
 										<!--reload button-->
 							<!--input type="image" class="view2" id="reload" width="100%" height="100%" src="Assets/reload.svg" /-->
 							<input type="image" id="reload" src="Assets/reload.svg">

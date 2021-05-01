@@ -6,7 +6,7 @@
 [Table of Contents]
 
 * Desktop Stylesheet
-    + Global Themes & Modes
+    + Global Themes, Patterns, & Modes
 	+ Default body
     + UI Elements
     + Inner Chat Markup
@@ -98,11 +98,11 @@ body #titleMNCW {
 	text-shadow: 0px 4px 4px #282828;
 }
 
-#quotesDiv {
+#quotes-div {
 	display:block;
 }
 
-#controlBox {
+#mode-control-box {
 	position:absolute;
 	bottom:0;
 	height:auto;
@@ -122,6 +122,10 @@ body #titleMNCW {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	}
+
+.tab__button {
+	-webkit-text-stroke: 1px black;
+}
 /*////////////////////////////////
 		    CHAT UI
 ////////////////////////////////*/
@@ -173,7 +177,7 @@ body #titleMNCW {
 	margin-top:15px;
 	}
 
-.radioButton {
+.radio-button {
 	font-size:100%;
 	}
 

@@ -30,16 +30,16 @@
 		//opentab
 		/////////////////////////////
 
-			function openTab2()
+			function openTab()
 			{
-				console.log('opentab2');
+				console.log('opentab');
 				console.log(this.document.activeElement);
 				var el = this.document.activeElement;
 				var tabname = el.id;
 
 
 				//declare all variables
-				var tabindex, tabcontent, tablinks;
+				var tabindex, tabcontent, tab_button;
 
 				//finds all tabcontent
 				tabcontent = document.getElementsByClassName("tabcontent");
@@ -49,7 +49,7 @@
 					tabcontent[tabindex].style.display = "none"; // making it so the tabcontent is not displayed
 				}
 
-				clearActiveTablinks();
+				clearActiveTabs();
 
 				// display the tabcontent that is selected
 				//document.getElementById(tabname).style.display = "block";  // not sure why this is here... this is what is throwing off the tabs when clicked
@@ -62,20 +62,20 @@
 
 			}
 
-			function clearActiveTablinks()
+			function clearActiveTabs()
 			{
 				// clear active from the tablinks
-				tablinks = document.getElementsByClassName("tablinks");
+				tab_button = document.getElementsByClassName("tab__button");
 				//console.log('tablinks');
 				//console.log(tablinks);
 
-				for (tabindex = 0; tabindex < tablinks.length; tabindex++) {
-					console.log(tablinks[tabindex].className);
+				for (tabindex = 0; tabindex < tab_button.length; tabindex++) {
+					console.log(tab_button[tabindex].className);
 					//tablinks[tabindex].classList.remove("active"); // alternative command
 					//console.log('here');
 					//console.log(tablinks[tabindex].className.replace("active", ""));
-					tablinks[tabindex].className = tablinks[tabindex].className.replace(" active", "");  // this one needs to be assigned back to the element
-					tablinks[tabindex].className = tablinks[tabindex].className.replace(" pattern__stripes-1", "");  // this one needs to be assigned back to the element
+					tab_button[tabindex].className = tab_button[tabindex].className.replace(" active", "");  // this one needs to be assigned back to the element
+					tab_button[tabindex].className = tab_button[tabindex].className.replace(" pattern__stripes-1", "");  // this one needs to be assigned back to the element
 
 					//tablinks[tabindex].className = "";
 				}
