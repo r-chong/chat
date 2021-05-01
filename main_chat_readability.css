@@ -32,12 +32,12 @@ twitter blue #1da1f2
 /* --- GLOBAL CLASSES --- */
 .hidden {display:none;}
 
-.background-image__pattern-1 {
+.pattern__stripes-1 {
 	background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%);
 	background-size: 5.66px 5.66px;
 }
 
-.background-image__pattern-2 {
+.pattern__stripes-2 {
 	background-image: linear-gradient(135deg, #343a42 12.50%, #8492ae 12.50%, #8492ae 50%, #343a42 50%, #343a42 62.50%, #8492ae 62.50%, #8492ae 100%);
 	background-size: 5.66px 5.66px;
 }
@@ -372,15 +372,12 @@ min-width: 30px;
 min-height:30px;
 padding: 2.5px 2px;
 border: 1px solid #596988;
-<<<<<<< HEAD
-=======
 background-color: transparent;
->>>>>>> BEM
 border-radius: 7px;
 color: black;
 }
 .emote:hover {
-/* border:1px solid #343a42; */
+border:1px solid #343a42;
 }
 .emote:active {
 	background-color:#343a42;
