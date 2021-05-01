@@ -85,8 +85,8 @@
 
 						<div class="btn-group">
 							<div class="dropdown">
-							  <button class="dropbtn"></button>
-							  <div class="dropdown-content">
+							  <button class="emote-dropdown__emoji-icon"></button>
+							  <div class="emote-dropdown__dropdown-content">
 								  <input type="button" value="&#129315;"name="&#129315;" onclick="getEmoji(this)" class="emote" title="ROFL, developed by Mo"/>
 								  <input type="button" value="&#128526;"name="&#128526;" onclick="getEmoji(this)" class="emote" title="Sunglasses, developed by Mo"/>
 								  <input type="button" value="&#128557;" name="&#128557;" onclick="getEmoji(this)" class="emote" title="Loudly crying"/>
@@ -118,23 +118,23 @@
 						</div>
 
 						<div class="dropdown">
-					      <button class="drop-emote"></button>
-					      <div class="dropdown-content">
-					        <div type="button" id="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
-					        <div type="button" id="doge2" class="emote" onclick="getEmoji(this)" name=":dogeputinXL:"title="Much Big Doge" />
-					        <div type="button" id="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:"/>
-					        <div type="button" id="hmmmm" class="emote" onclick="getEmoji(this)" name=":thonk:"/>
-					        <div type="button" id="wgat" class="emote" onclick="getEmoji(this)" name=":wgat:"title="Huh" />
-					        <div type="button" id="oof" class="emote" onclick="getEmoji(this)" name=":bigoof:"/>
-					        <div type="button" id="tesla" class="emote" onclick="getEmoji(this)" name=":elonlol:"/>
-					        <div type="button" id="YEEEE" class="emote" onclick="getEmoji(this)" name=":yee:"/>
-					        <div type="button" id="doge3" class="emote" onclick="getEmoji(this)" name=":dogedance:"/>
-					        <div type="button" id="hyper" class="emote" onclick="getEmoji(this)" name=":hyperthink:"/>
-					        <div type="button" id="read2" class="emote" onclick="getEmoji(this)" name=":readtwice:"/>
-					        <div type="button" id="bruhh" class="emote" onclick="getEmoji(this)" name=":nosense:"/>
-					        <div type="button" id="egg" class="emote" onclick="getEmoji(this)" name=":egg:"/>
-					        <div type="button" id="ummmm" class="emote" onclick="getEmoji(this)" name=":um:"/>
-					        <div type="button" id="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
+					      <button class="emote-dropdown__sticker-icon"></button>
+					      <div class="emote-dropdown__dropdown-content">
+					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
+					        <input type="button" value="doge2" class="emote" onclick="getEmoji(this)" name=":dogeputinXL:"title="Much Big Doge" />
+					        <input type="button" value="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:"/>
+					        <input type="button" value="hmmmm" class="emote" onclick="getEmoji(this)" name=":thonk:"/>
+					        <input type="button" value="wgat?" class="emote" onclick="getEmoji(this)" name=":wgat:"title="Huh" />
+					        <input type="button" value="oof.." class="emote" onclick="getEmoji(this)" name=":bigoof:"/>
+					        <input type="button" value="tesla" class="emote" onclick="getEmoji(this)" name=":elonlol:"/>
+					        <input type="button" value="YEEEE" class="emote" onclick="getEmoji(this)" name=":yee:"/>
+					        <input type="button" value="doge3" class="emote" onclick="getEmoji(this)" name=":dogedance:"/>
+					        <input type="button" value="hyper" class="emote" onclick="getEmoji(this)" name=":hyperthink:"/>
+					        <input type="button" value="read2" class="emote" onclick="getEmoji(this)" name=":readtwice:"/>
+					        <input type="button" value="bruhh" class="emote" onclick="getEmoji(this)" name=":nosense:"/>
+					        <input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:"/>
+					        <input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:"/>
+					        <input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
 					      </div>
 					    </div>
 				</div>
