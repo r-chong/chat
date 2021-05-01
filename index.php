@@ -85,8 +85,8 @@
 
 						<div class="btn-group">
 							<div class="dropdown">
-							  <button class="dropbtn"></button>
-							  <div class="dropdown-content">
+							  <button class="emote-dropdown__emoji-icon"></button>
+							  <div class="emote-dropdown__dropdown-content">
 								  <input type="button" value="&#129315;"name="&#129315;" onclick="getEmoji(this)" class="emote" title="ROFL, developed by Mo"/>
 								  <input type="button" value="&#128526;"name="&#128526;" onclick="getEmoji(this)" class="emote" title="Sunglasses, developed by Mo"/>
 								  <input type="button" value="&#128557;" name="&#128557;" onclick="getEmoji(this)" class="emote" title="Loudly crying"/>
@@ -118,6 +118,7 @@
 						</div>
 
 						<div class="dropdown">
+<<<<<<< HEAD
 					      <button class="drop-emote"></button>
 					      <div class="dropdown-content">
 					        <img class="emote" onclick="getEmoji(this)" style="background-image:url("Assets/bigoof.png/")" name=":dogeputin:"/>
@@ -135,6 +136,25 @@
 					        <img id="egg" class="emote" onclick="getEmoji(this)"  src="/Assets/lmao.png/" name=":egg:"/>
 					        <img id="ummmm" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name=":um:"/>
 					        <img id="shrug" class="emote" onclick="getEmoji(this)" src="/Assets/lmao.png/"  name="¯\_(ツ)_/¯"> -->
+=======
+					      <button class="emote-dropdown__sticker-icon"></button>
+					      <div class="emote-dropdown__dropdown-content">
+					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
+					        <input type="button" value="doge2" class="emote" onclick="getEmoji(this)" name=":dogeputinXL:"title="Much Big Doge" />
+					        <input type="button" value="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:"/>
+					        <input type="button" value="hmmmm" class="emote" onclick="getEmoji(this)" name=":thonk:"/>
+					        <input type="button" value="wgat?" class="emote" onclick="getEmoji(this)" name=":wgat:"title="Huh" />
+					        <input type="button" value="oof.." class="emote" onclick="getEmoji(this)" name=":bigoof:"/>
+					        <input type="button" value="tesla" class="emote" onclick="getEmoji(this)" name=":elonlol:"/>
+					        <input type="button" value="YEEEE" class="emote" onclick="getEmoji(this)" name=":yee:"/>
+					        <input type="button" value="doge3" class="emote" onclick="getEmoji(this)" name=":dogedance:"/>
+					        <input type="button" value="hyper" class="emote" onclick="getEmoji(this)" name=":hyperthink:"/>
+					        <input type="button" value="read2" class="emote" onclick="getEmoji(this)" name=":readtwice:"/>
+					        <input type="button" value="bruhh" class="emote" onclick="getEmoji(this)" name=":nosense:"/>
+					        <input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:"/>
+					        <input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:"/>
+					        <input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
+>>>>>>> 2b2722f21f5558b08b641328669b3c529319b476
 					      </div>
 					    </div>
 				</div>
