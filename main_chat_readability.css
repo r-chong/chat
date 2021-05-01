@@ -102,7 +102,7 @@ body #titleMNCW {
 	display:block;
 }
 
-#mode-control-box {
+#mode__control-box {
 	position:absolute;
 	bottom:0;
 	height:auto;
@@ -177,7 +177,7 @@ body #titleMNCW {
 	margin-top:15px;
 	}
 
-.radio-button {
+.mode__radio-button {
 	font-size:100%;
 	}
 
@@ -387,25 +387,6 @@ border:1px solid #343a42;
 	background-color:#343a42;
 }
 
-<<<<<<< HEAD
-#doge1 {background:url("Assets/dogeputin.png");background-size: cover;  background-position: center;}
-#doge2 {background: url("Assets/dogeputinHD.png");}
-#lolol {background: url("Assets/lmao.png/");}
-#hmmmm {background: url("Assets/thonk.png/");}
-#wgat {background: url("Assets/wat.ico/");}
-#oof {backgroun\d: url("sets/bigoof.png/");}
-#tesla {background: url("Assets/elonloltransparent/");}
-#YEEEE {background: url("Assets/yee.jpg/");}
-#doge3 {background: url("Assets/dogedance.gif/");}
-/* #hyper {background-image:"Assets//"}
-#read2 {background-image:"Assets//"}
-#bruhh {background-image:"Assets//"}
-#egg {background-image:"Assets//"}
-#ummmm {background-image:"Assets//"}
-#shrug {background-image:"Assets//"} */
-
-=======
->>>>>>> BEM
 /*--*/
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
 .quick-access {
