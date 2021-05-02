@@ -250,11 +250,13 @@
 			function(){ $(this).removeClass('pattern__stripes-1') }
 		);
 
-		$(".emote").on('click', function(event){
-		    event.stopPropagation();
-		    event.stopImmediatePropagation();
-			console.log("pattern stripes 2 should happen here")
+		$(document).ready(function() {
+		  $(".emote").click(function () {
+			$(this).addClass('pattern__stripes-2');
+			$(this).removeClass('pattern__stripes-2');
+		  });
 		});
+
 		/////////////////////////////////////////////////////////////////////////
 
 		document.getElementById("SectionsContent").style.display = "none";
