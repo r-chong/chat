@@ -42,6 +42,10 @@ twitter blue #1da1f2
 	background-size: 5.66px 5.66px;
 }
 
+.pattern__zig-zag-1 {
+	background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='pattern' width='15' height='15' viewBox='0 0 40 40' patternUnits='userSpaceOnUse'%3E%3Crect id='pattern-background' width='400%25' height='400%25' fill='rgba(42, 67, 101,0)'%3E%3C/rect%3E%3Cpath fill='%231a202c' d='M-20 30.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20zM-20-9.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20zM-20 70.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20z '%3E%3C/path%3E%3Cpath fill='%23ecc94b' d='M-20 30.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20zM-20-9.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20zM-20 70.5l20-20l20 20l20-20l20 20l20-20l20 20v-1l-20-20l-20 20l-20-20l-20 20l-20-20l-20 20z '%3E%3C/path%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23pattern)' height='100%25' width='100%25'%3E%3C/rect%3E%3C/svg%3E")
+}
+
 /* --- MODES --- */
 
 	body {
@@ -124,7 +128,7 @@ body #titleMNCW {
 	}
 
 .tab__button {
-	-webkit-text-stroke: 1px black;
+	-webkit-text-shadow: 2px #343a42;
 	font-size: 20;
 	font-weight:30px;
 	height: 75;

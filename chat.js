@@ -193,10 +193,6 @@
 				return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
 			 });
 			*/
-			    $('.emote').hover(
-			         function(){ $(this).addClass('pattern__stripes-1') },
-			         function(){ $(this).removeClass('pattern__stripes-1') }
-			    )
 
 			function hashtag(){
 				console.log('test123');
@@ -241,6 +237,24 @@
 
 		 //});
 
+		/////////////////////////////////////////////////////////////////////////
+		//jQuery hover and click - background-image --> pattern (this could not be done in CSS)
+
+		 $('.emote').hover(
+		 	 function(){ $(this).addClass('pattern__stripes-1') },
+		 	 function(){ $(this).removeClass('pattern__stripes-1') }
+		 );
+
+		 $("#reload").hover(
+			function(){ $(this).addClass('pattern__stripes-1') },
+			function(){ $(this).removeClass('pattern__stripes-1') }
+		);
+
+		$(".emote").on('click', function(event){
+		    event.stopPropagation();
+		    event.stopImmediatePropagation();
+			console.log("pattern stripes 2 should happen here")
+		});
 		/////////////////////////////////////////////////////////////////////////
 
 		document.getElementById("SectionsContent").style.display = "none";
