@@ -33,7 +33,9 @@ twitter blue #1da1f2
 .hidden {display:none;}
 
 .pattern__stripes-1 {
-	background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%);
+	/*opaque version*//* background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%); */
+	/*transparent version*/background-image: linear-gradient(135deg, #8492ae 12.50%, #343a4200 12.50%, #343a4200 50%, #8492ae 50%, #8492ae 62.50%, #343a4200 62.50%, #343a4200 100%);
+	/*black version*/background-image: linear-gradient(135deg, #000000 12.50%, #343a4200 12.50%, #343a4200 50%, #000000 50%, #000000 62.50%, #343a4200 62.50%, #343a4200 100%);
 	background-size: 5.66px 5.66px;
 }
 
@@ -134,6 +136,7 @@ body #titleMNCW {
 	height: 75;
 	width: 25%;
 }
+
 /*////////////////////////////////
 		    CHAT UI
 ////////////////////////////////*/
@@ -364,16 +367,15 @@ position: absolute;
 min-width: 200px;
 max-width: 300px;
 height:4rem;
-border-style: solid;
-border-width: 4px;
+border: 2px solid;
 border-radius: 7px;
 overflow-y: scroll;
 z-index: 1;
 }
 /*background-color of the dropdown/*/
 body .emote-dropdown__dropdown-content{background-color:lightgrey;}
-.dark .emote-dropdown__dropdown-content{background-color:#596988;}
-.mo .emote-dropdown__dropdown-content{background-color:black;}
+.dark .emote-dropdown__dropdown-content{background-color:#59698870;}
+.mo .emote-dropdown__dropdown-content{background-color:#ffbadd;}
 
 
 /*--*/
@@ -390,6 +392,7 @@ color: black;
 }
 .emote:hover {
 border:1px solid #343a42;
+color:black;
 }
 .emote:active {
 	background-color:#343a42;

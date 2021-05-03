@@ -246,12 +246,13 @@
 		 );
 
 		 $("#reload").hover(
-			function(){ $(this).addClass('pattern__stripes-1') },
-			function(){ $(this).removeClass('pattern__stripes-1') }
+			function(){$(this).addClass('pattern__stripes-1') },
+			function(){$(this).removeClass('pattern__stripes-1') }
 		);
 
 		$(document).ready(function() {
 		  $(".emote").click(function () {
+		 	// $(this).toggleClass("pattern__stripes-2");
 			$(this).addClass('pattern__stripes-2');
 			$(this).removeClass('pattern__stripes-2');
 		  });
