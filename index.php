@@ -61,7 +61,7 @@
 					<div class="tabcontent view2"> <!-- Top banner -->
 
 						<!--tablinks / button that go to each page-->
-							<input type="button" class="tab__button active" onclick="openTab()" id="Chat" value="Chat">
+							<input type="button" class="tab__button active pattern__stripes-1" onclick="openTab()" id="Chat" value="Chat">
 							<input type="button" class="tab__button" onclick="openTab()" 	id="Sections" value="Resources">
 							<input type="button" class="tab__button" onclick="openTab()" 	id="Other" value="Settings">
 										<!--reload button-->

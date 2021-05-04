@@ -169,7 +169,7 @@
 
 		function getEmoji(y) {
 			var x = document.getElementById("textbox");
-			console.log(y.value);
+			//console.log(y.value);
 			x.value += y.name;
 		}
 
@@ -245,17 +245,26 @@
 		 	 function(){ $(this).removeClass('pattern__stripes-1') }
 		 );
 
-		 $("#reload").hover(
-			function(){$(this).addClass('pattern__stripes-1') },
-			function(){$(this).removeClass('pattern__stripes-1') }
-		);
+		// $(document).ready(function() {
+		//   $(".emote").click(function () {
+		//  	// $(this).toggleClass("pattern__stripes-2");
+		// 	$(this).addClass('pattern__stripes-2');
+		// 	$(this).removeClass('pattern__stripes-2');
+		//   });
+		// });
 
-		$(document).ready(function() {
-		  $(".emote").click(function () {
-		 	// $(this).toggleClass("pattern__stripes-2");
-			$(this).addClass('pattern__stripes-2');
-			$(this).removeClass('pattern__stripes-2');
-		  });
+		$("#reload").hover(
+		   function(){$(this).addClass('pattern__stripes-1') },
+		   function(){$(this).removeClass('pattern__stripes-1') }
+	   );
+
+	   $(document).ready(function() {
+		   	$(document).on('click', '.emote', function(){
+				console.log("heafsj")
+				$(this).removeClass('pattern__stripes-1');
+				$(this).addClass('pattern__stripes-2')
+			   	$(this).removeClass('pattern__stripes-2');
+			});
 		});
 
 		/////////////////////////////////////////////////////////////////////////

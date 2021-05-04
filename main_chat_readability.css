@@ -39,6 +39,8 @@ twitter blue #1da1f2
 	background-size: 5.66px 5.66px;
 }
 
+.dark .pattern__stripes-1 {background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%);}
+
 .pattern__stripes-2 {
 	background-image: linear-gradient(135deg, #343a42 12.50%, #8492ae 12.50%, #8492ae 50%, #343a42 50%, #343a42 62.50%, #8492ae 62.50%, #8492ae 100%);
 	background-size: 5.66px 5.66px;
