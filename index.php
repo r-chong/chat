@@ -66,7 +66,7 @@
 							<input type="button" class="tab__button" onclick="openTab()" 	id="Other" value="Settings">
 										<!--reload button-->
 							<!--input type="image" class="view2" id="reload" width="100%" height="100%" src="Assets/reload.svg" /-->
-							<input type="image" id="reload" src="Assets/reload.svg">
+							<input type="image" id="reload" class="" src="Assets/reload.svg">
 					</div>
 
 

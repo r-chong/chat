@@ -253,15 +253,24 @@
 		//   });
 		// });
 
-		$("#reload").hover(
-		   function(){$(this).addClass('pattern__stripes-1') },
-		   function(){$(this).removeClass('pattern__stripes-1') }
-	   );
+		// $("#reload").mouseenter(
+		//    function(){$(this).addClass('pattern__stripes-1') },
+		//    function(){$(this).removeClass('pattern__stripes-1') }
+	   // );
+
+	   $( "#reload" ).mouseenter(function() {
+		   $("#reload").addClass('pattern__stripes-1');
+		});
+		$( "#reload" ).mouseleave(function() {
+ 		   $("#reload").removeClass('pattern__stripes-1');
+ 		});
+		$( "#reload" ).mousedown(function() {
+ 		   $("#reload").addClass('pattern__stripes-2');
+ 		});
 
 	   $(document).ready(function() {
 		   	$(document).on('click', '.emote', function(){
 				console.log("heafsj")
-				$(this).removeClass('pattern__stripes-1');
 				$(this).addClass('pattern__stripes-2')
 			   	$(this).removeClass('pattern__stripes-2');
 			});
