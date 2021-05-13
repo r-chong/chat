@@ -265,7 +265,11 @@
  		   $("#reload").removeClass('pattern__stripes-1');
  		});
 		$( "#reload" ).mousedown(function() {
- 		   $("#reload").addClass('pattern__stripes-2');
+		   $("#reload").removeClass('pattern__stripes-1');
+		   $("#reload").addClass('pattern__stripes-2');
+ 		});
+		$( "#reload" ).mouseup(function() {
+		   $("#reload").removeClass('pattern__stripes-2');
  		});
 
 	   $(document).ready(function() {
