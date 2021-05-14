@@ -169,7 +169,7 @@
 
 		function getEmoji(y) {
 			var x = document.getElementById("textbox");
-			console.log(y.value);
+			//console.log(y.value);
 			x.value += y.name;
 		}
 
@@ -193,10 +193,6 @@
 				return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
 			 });
 			*/
-			    $('.emote').hover(
-			         function(){ $(this).addClass('pattern__stripes-1') },
-			         function(){ $(this).removeClass('pattern__stripes-1') }
-			    )
 
 			function hashtag(){
 				console.log('test123');
@@ -240,6 +236,49 @@
 
 
 		 //});
+
+		/////////////////////////////////////////////////////////////////////////
+		//jQuery hover and click - background-image --> pattern (this could not be done in CSS)
+
+		 $('.emote').hover(
+		 	 function(){ $(this).addClass('pattern__stripes-1') },
+		 	 function(){ $(this).removeClass('pattern__stripes-1') }
+		 );
+
+		// $(document).ready(function() {
+		//   $(".emote").click(function () {
+		//  	// $(this).toggleClass("pattern__stripes-2");
+		// 	$(this).addClass('pattern__stripes-2');
+		// 	$(this).removeClass('pattern__stripes-2');
+		//   });
+		// });
+
+		// $("#reload").mouseenter(
+		//    function(){$(this).addClass('pattern__stripes-1') },
+		//    function(){$(this).removeClass('pattern__stripes-1') }
+	   // );
+
+	   $( "#reload" ).mouseenter(function() {
+		   $("#reload").addClass('pattern__stripes-1');
+		});
+		$( "#reload" ).mouseleave(function() {
+ 		   $("#reload").removeClass('pattern__stripes-1');
+ 		});
+		$( "#reload" ).mousedown(function() {
+		   $("#reload").removeClass('pattern__stripes-1');
+		   $("#reload").addClass('pattern__stripes-2');
+ 		});
+		$( "#reload" ).mouseup(function() {
+		   $("#reload").removeClass('pattern__stripes-2');
+ 		});
+
+	   $(document).ready(function() {
+		   	$(document).on('click', '.emote', function(){
+				console.log("heafsj")
+				$(this).addClass('pattern__stripes-2')
+			   	$(this).removeClass('pattern__stripes-2');
+			});
+		});
 
 		/////////////////////////////////////////////////////////////////////////
 
@@ -416,7 +455,7 @@
 			clean = clean.replace(/\"/g,'\\"');
 			clean = clean.replace(/\&/g,'%26');
 			clean = clean.replace(/\:-/g,'\−');
-			//Custom Emojis
+			//Custom Emojis (stickers)
 			clean = clean.replace(":dogeputin:","<img src='Assets/dogeputinMicro.png' class='customEmoji'>")
 			clean = clean.replace(":dogeputinXL:","<img src='Assets/dogeputinMedium.png'")
 			clean = clean.replace(":lmao:","<img src='Assets/lmao.png' class='customEmoji'")

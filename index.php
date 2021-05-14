@@ -49,7 +49,7 @@
 			<div id="mainpg" class="view">
 						<h1 title="RIP Master Notes Collaboration Website" id="titleMNCW">U.G.C.W.</h1>
 
-						<div id="quotesDiv" style="text-align:center;">
+						<div id="quotes-div" style="text-align:center;">
 							<i id="quotes" rel="javascript" style="font-size:150%;"></i>
 							<br>
 							<div id="author">
@@ -61,12 +61,12 @@
 					<div class="tabcontent view2"> <!-- Top banner -->
 
 						<!--tablinks / button that go to each page-->
-							<input type="button" class="tab__button active" onclick="openTab()" id="Chat" value="Chat">
+							<input type="button" class="tab__button active pattern__stripes-1" onclick="openTab()" id="Chat" value="Chat">
 							<input type="button" class="tab__button" onclick="openTab()" 	id="Sections" value="Resources">
 							<input type="button" class="tab__button" onclick="openTab()" 	id="Other" value="Settings">
 										<!--reload button-->
 							<!--input type="image" class="view2" id="reload" width="100%" height="100%" src="Assets/reload.svg" /-->
-							<input type="image" id="reload" src="Assets/reload.svg">
+							<input type="image" id="reload" class="" src="Assets/reload.svg">
 					</div>
 
 
@@ -245,10 +245,10 @@
 					<button id="loginSubmit" style="">submit</button>
 			</div>
 
-		<div class=view2 id="controlBox"> <!--Modes + Logout-->
-				<label class="radioButton"><input type="radio" name="mode" id="modeDefault" checked value="Default mode">Default mode</label><br>
-				<label class="radioButton"><input type="radio" name="mode" id="modeDark" value="Dark mode">Dark mode</label><br>
-				<label class="radioButton"><input type="radio" name="mode" id="modeMo" value="Mo(de)">Mo(de)<label><br>
+		<div class=view2 id="mode__control-box"> <!--Modes + Logout-->
+				<label class="mode__radio-button"><input type="radio" name="mode" id="modeDefault" checked value="Default mode">Default mode</label><br>
+				<label class="mode__radio-button"><input type="radio" name="mode" id="modeDark" value="Dark mode">Dark mode</label><br>
+				<label class="mode__radio-button"><input type="radio" name="mode" id="modeMo" value="Mo(de)">Mo(de)<label><br>
 		</div>
 
 	</body>
