@@ -455,7 +455,7 @@
 			clean = clean.replace(/\"/g,'\\"');
 			clean = clean.replace(/\&/g,'%26');
 			clean = clean.replace(/\:-/g,'\−');
-			//Custom Emojis
+			//Custom Emojis (stickers)
 			clean = clean.replace(":dogeputin:","<img src='Assets/dogeputinMicro.png' class='customEmoji'>")
 			clean = clean.replace(":dogeputinXL:","<img src='Assets/dogeputinMedium.png'")
 			clean = clean.replace(":lmao:","<img src='Assets/lmao.png' class='customEmoji'")
