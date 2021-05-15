@@ -118,7 +118,11 @@
 						</div>
 
 						<div class="dropdown">
+
 					      <div class="dropdown-content">
+
+
+
 					      <button class="emote-dropdown__sticker-icon"></button>
 					      <div class="emote-dropdown__dropdown-content">
 					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
@@ -136,6 +140,7 @@
 					        <input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:"/>
 					        <input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:"/>
 					        <input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
+
 					      </div>
 					    </div>
 				</div>
