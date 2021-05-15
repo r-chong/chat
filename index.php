@@ -119,10 +119,6 @@
 
 						<div class="dropdown">
 
-					      <div class="dropdown-content">
-
-
-
 					      <button class="emote-dropdown__sticker-icon"></button>
 					      <div class="emote-dropdown__dropdown-content">
 					        <input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"title="Miny Doge" />
