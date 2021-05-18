@@ -140,7 +140,8 @@ body #titleMNCW {
 	}
 
 .tab__button {
-	-webkit-text-shadow: 2px #343a42;
+	/* -webkit-text-shadow: 2px #343a42; */
+	-webkit-text-shadow: 2px black;
 	font-size: 20;
 	font-weight:30px;
 	height: 75;
@@ -261,18 +262,18 @@ input:checked + .slider:before {
 }
 
 /* --- Resource links --- */
-/*replace all .lynk with resource__link*/
+/*replace all .lynk with resource-link*/
 
-.resource__link {text-decoration:none;}
+.resource-link {text-decoration:none;}
 #SectionsContentTop {display:block;}
 
-a.resource__link:hover {background-color:gainsboro;color:#343a42;}
-.dark a.resource__link:hover {background-color:#8492ae;color:black;}
-.mo a.resource__link:hover {background-color:#ffbadd;color:black;}
+a.resource-link:hover {background-color:gainsboro;color:#343a42;}
+.dark a.resource-link:hover {background-color:#8492ae;color:black;}
+.mo a.resource-link:hover {background-color:#ffbadd;color:black;}
 
-a.resource__link {padding:5px;border:1px solid #343a42;border-radius:6px;color:#343a42;}
-.dark a.resource__link {padding:5px;border:1px solid #8492ae;border-radius:6px;color:#8492ae;}
-.mo a.resource__link {padding:5px;border:1px solid black;border-radius:6px;color:black;}
+a.resource-link {padding:5px;border:1px solid #343a42;border-radius:6px;color:#343a42;}
+.dark a.resource-link {padding:5px;border:1px solid #8492ae;border-radius:6px;color:#8492ae;}
+.mo a.resource-link {padding:5px;border:1px solid black;border-radius:6px;color:black;}
 
 /*//////////////////////////////*/
 

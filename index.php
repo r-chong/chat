@@ -157,11 +157,9 @@
 
 					<div style="margin-top:30;text-align:center;">
 
-						<hr class="borderlineInsanity"></hr>
 							<div>
 								<p>Chess</p>
 								<a target="_blank" class="lynk" href="https://lichess.org/">Lichess</a>
-								<a target="_blank" class="lynk" href="https://www.chess.com/home">Chess.com</a>
 								<a target="_blank" class="lynk" href="https://lichess.org/training/daily">POTD</a>
 							</div>
 
@@ -180,7 +178,6 @@
 							</div>
 
 							<br><br>
-						<hr class="borderlineInsanity"></hr>
 					</div>
 				</div>
 

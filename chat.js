@@ -450,7 +450,7 @@
 			var textbox = document.getElementById("textbox");  // this references the textbox OBJECT
 			var dirty = textbox.value;
 			//var clean = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style','img','div','video','source','input','picture','label','canvas','legend','form','button',]}); //clean that yucky stuff
-			var clean = DOMPurify.sanitize(dirty, {ALLOWED_TAGS: ['b','em','strong','mark','del','a','ins','code','sup','sub','progress','h1','h2','h3','h4'], FORBID_ATTR: ['style','class','id','href','src','onclick']}); //clean that yucky stuff
+			var clean = DOMPurify.sanitize(dirty, {ALLOWED_TAGS: ['b','em','strong','mark','del','a','ins','code','sup','sub','progress','ol','ul','li','h1','h2','h3','h4'], FORBID_ATTR: ['style','class','id','href','src','onclick']}); //clean that yucky stuff
 			clean = clean.replace(/\+/g,'%2b');
 			clean = clean.replace(/\"/g,'\\"');
 			clean = clean.replace(/\&/g,'%26');
