@@ -330,6 +330,7 @@ text-align: center;
 width:3rem;
 height:3rem;
 opacity:10%;
+cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
 }
 /*remove that annoying white space around dropbtn*/
 body ..emote-dropdown__emoji-icon {background-color:black;}
@@ -359,6 +360,7 @@ margin: auto;
   width: 3rem;
   height: 3rem;
   opacity: 10%;
+  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
 }
 .emote-dropdown__sticker-icon:hover {
   opacity: 100%;
