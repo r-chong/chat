@@ -141,7 +141,7 @@ body #titleMNCW {
 
 .tab__button {
 	/* -webkit-text-shadow: 2px #343a42; */
-	-webkit-text-shadow: 2px black;
+	text-shadow: 2px 2px 5px black;
 	font-size: 20;
 	font-weight:30px;
 	height: 75;
@@ -170,6 +170,7 @@ body #titleMNCW {
 	font-size:20;
 	width:15%;
 	float:right;
+	cursor: pointer;
 	}
 
 #textbox{
@@ -391,10 +392,12 @@ border: 1px solid #596988;
 background-color: transparent;
 border-radius: 7px;
 color: black;
+box-shadow: 1px 4px 10px black;
 }
 .emote:hover {
 border:1px solid #343a42;
 color:black;
+cursor: pointer;
 }
 .emote:active {
 	background-color:#343a42;
