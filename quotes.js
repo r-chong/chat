@@ -560,7 +560,7 @@
 		['Carpe diem','Latin proverb'],
 		['CODING GO BRRRRRRRRR','Mo'],
 		['I dreamed about UGCW all night long, not even joking','Pogrammer Mo'],
-		['Whatchu kno&#39s &#39sbout rolling down in the deep','Masked Wolf'],
+		['80% of your success comes from 20% of your ventures','The Pareto Principle (paraphrased)'],
 		['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum),'UGCW Developers'],
 	]
 
