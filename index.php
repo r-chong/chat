@@ -10,7 +10,7 @@
 		<!--Calling all external files-->
 		<!--Creature report-->
 		<script src="chat.js" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" media ="only screen and (min-width: 320px)" href="mobile_chat.css" >
+		<link rel="stylesheet" type="text/css" media ="only screen and (min-width: 320px)" href="mobile_chat_readability.css" >
 		<link rel="stylesheet" type="text/css" media ="only screen and (min-height: 768px)" href="main_chat_readability.css" >
 		<!-- <link rel="stylesheet" type="text/css" media ="only screen and (min-height: 768px)" href="main_chat.css" > -->
 		<link rel="shortcut icon" type="image/x-icon" href="Assets/bigoof.png" />
@@ -147,8 +147,8 @@
 
 					<div id="SectionsContentTop" style="text-align:center;margin-top:60px;margin-bottom:10px;">
 						<div style="font-size:150%;padding-bottom:10%;">
-							<a target="_blank" class="lynk" style="float:left;width:45%;" href="https://tinyurl.com/y5l9tpda" target="_blank" id="vHist" title="Made from a broken sleep schedule">UGCW Version 2.0</a>
-							<a target="_blank" class="lynk" style="float:left;width:45%;margin-left:5%" href="https://docs.google.com/document/d/1o0s6VEspQCCtux_TkCuhYoz1H7ZIqLISpJwRRR9Jdmk/edit?usp=sharing">UGC Document</a>
+							<a target="_blank" class="resource-link" style="float:left;width:45%;" href="https://tinyurl.com/y5l9tpda" target="_blank" id="vHist" title="Made from a broken sleep schedule">UGCW Version 2.0</a>
+							<a target="_blank" class="resource-link" style="float:left;width:45%;margin-left:5%" href="https://docs.google.com/document/d/1o0s6VEspQCCtux_TkCuhYoz1H7ZIqLISpJwRRR9Jdmk/edit?usp=sharing">UGC Document</a>
 							<!-- The text field -->
 						</div>
 						<!--a target="_blank" href="https://invite.duolingo.com/BDHTZTB5CWWKTXIDI7IOHXECIE">Duolingo referral link</a> <br><br>
@@ -159,22 +159,22 @@
 
 							<div>
 								<p>Chess</p>
-								<a target="_blank" class="lynk" href="https://lichess.org/">Lichess</a>
-								<a target="_blank" class="lynk" href="https://lichess.org/training/daily">POTD</a>
+								<a target="_blank" class="resource-link" href="https://lichess.org/">Lichess</a>
+								<a target="_blank" class="resource-link" href="https://lichess.org/training/daily">POTD</a>
 							</div>
 
 							<div>
 								<p>French</p>
-								<a target="_blank" class="lynk" href="https://www.wordreference.com/">WordReference</a>
-								<a target="_blank" class="lynk" href="https://www.duolingo.com/dictionary/fr">Duo Translate</a>
-								<a target="_blank" class="lynk" href="https://feeds.feedblitz.com/french-word-of-the-day&x=1">WOTD-fr</a>
+								<a target="_blank" class="resource-link" href="https://www.wordreference.com/">WordReference</a>
+								<a target="_blank" class="resource-link" href="https://www.duolingo.com/dictionary/fr">Duo Translate</a>
+								<a target="_blank" class="resource-link" href="https://feeds.feedblitz.com/french-word-of-the-day&x=1">WOTD-fr</a>
 							</div>
 
 							<div>
 								<p>Other</p>
-								<a target="_blank" class="lynk" href="https://snapdrop.net/">Snapdrop.net</a>
-								<a target="_blank" class="lynk" href="https://app.myblueprint.ca/student/dashboard/activities">myBlueprint</a>
-								<a target="_blank" class="lynk" href="https://feeds.feedblitz.com/japanese-word-of-the-day&x=1">WOTD-jp</a>
+								<a target="_blank" class="resource-link" href="https://snapdrop.net/">Snapdrop.net</a>
+								<a target="_blank" class="resource-link" href="https://app.myblueprint.ca/student/dashboard/activities">myBlueprint</a>
+								<a target="_blank" class="resource-link" href="https://feeds.feedblitz.com/japanese-word-of-the-day&x=1">WOTD-jp</a>
 							</div>
 
 							<br><br>

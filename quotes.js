@@ -40,7 +40,7 @@
 		['Land on Mars, a round-trip ticket - half a million dollars. It can be done.','Elon Musk',],
 		['The problem with being faster than light is that you can only live in darkness.','Meme, Unknown author',],
 		['If you don&#39;t innovate, you will fall behind.'],
-		['It is better to keep your mouth closed and let people think you are a fool than to open it and remove all doubt.','Mark Twain',],
+		['It is better to remain silent and be thought a fool, than to speak and remove all doubt.','Maurice Switzer (paraphrased)',],
 		['When all else is lost, the future still remains.','Christian Nestell Bovee',],
 		['There are basically two types of people.<br>People who accomplish things, and people who claim to have accomplished things.<br>The first group is less crowded.','Mark Twain',],
 		['I am a servant of the Secret Fire, wielder of the flame of Anwar.<br>YOU SHALL NOT PASS','Mo',],
