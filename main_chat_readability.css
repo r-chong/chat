@@ -312,6 +312,13 @@ a {color:Steelblue;}
 .dark a {color: Steelblue;}
 .mo a {color:purple;}
 
+.customEmoji {
+	display:inline;
+	margin-bottom:-4px;
+	width: 18px;
+	height: 18px;
+	}
+
 /*/////////////////////////////////////////////////////////////////////
 						EMOJI TOOLBAR
 /////////////////////////////////////////////////////////////////////*/
@@ -354,7 +361,7 @@ display: inline-block;
 margin: auto;
 }
 
-/*emotes*/
+/*emotes buttons*/
 .emote-dropdown__sticker-icon {
   color: black;
   background-image: url("Assets/dogeputinMedium.png");
@@ -393,7 +400,7 @@ body .emote-dropdown__dropdown-content{background-color:lightgrey;}
 
 /*--*/
 /*CSS Styling to make buttons within the dropdown to look NOICE*/
-.emote {
+.emote { /*this is a button, see .customEmote for inline emote styling*/
 font-family:monospace;
 min-width: 30px;
 min-height:30px;
