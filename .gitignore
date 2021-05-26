@@ -1,6 +1,5 @@
 config.php
-Assets/
-Backups/
-DOMPurify-main/
-Other/
-tests/
+Assets
+Backups
+Other
+tests
