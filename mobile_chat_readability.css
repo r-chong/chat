@@ -166,14 +166,14 @@ body #titleMNCW {
 	max-height:50vh;
 	}
 
-#submit {
+#chatSubmit {
 	font-size:20;
 	width:15%;
 	float:right;
 	cursor: pointer;
 	}
 
-#textbox{
+#chatTextbox{
 	height:29;
 	width:84.9%
 	}
@@ -278,8 +278,8 @@ a.resource-link {padding:5px;border:1px solid #343a42;border-radius:6px;color:#3
 
 /*//////////////////////////////*/
 
-/* --- Login --- */
-#login {text-align:center;margin: auto;width:27%;margin-top:5%;border:2px solid #d1d1d1; border-radius: 30px; background-color:White;padding-bottom:15px;}
+/* --- loginContainer --- */
+#loginContainer {text-align:center;margin: auto;width:27%;margin-top:5%;border:2px solid #d1d1d1; border-radius: 30px; background-color:White;padding-bottom:15px;}
 .loginInput {font-size: 60%; width: 50%; color:SlateGray;border: 2px solid #d1d1d1;border-radius: 5px; padding:0%;}
 #loginSubmit {font-size:120%;margin-left:67%;font-family:verdana;color:DarkGray;background-color:GhostWhite;border: 2px solid #d1d1d1; border-radius: 5px; padding:0%;}
 
