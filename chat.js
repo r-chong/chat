@@ -86,11 +86,11 @@ function clearActiveTabs() {
 }
 
 /*
-      function getTabIndex(tabName)
-      {
-        document.getElementBy
-      }
-      */
+			function getTabIndex(tabName)
+			{
+				document.getElementBy
+			}
+			*/
 
 //this part messed it up for some reason
 ////to here
@@ -151,17 +151,18 @@ function READ_details_toggle() {
     }
   }
 }
-
-function passwordVisibility() {
-  var x = document.getElementById("loginPass");
-  if (x.type == "text") {
-    x.type = "password";
-    //$("#password_container_text").text("hide");
+var pass_visiblity_eye = document.getElementById("password_visiblity");
+pass_visiblity_eye.addEventListener("click", function () {
+  var pass_input = document.getElementById("loginPass");
+  if (pass_input.type == "text") {
+    pass_input.type = "password";
+    pass_visiblity_eye.className = "fa fa-eye";
   } else {
-    x.type = "text";
-    //$("#password_container_text").text("show");
+    pass_input.type = "text";
+    pass_visiblity_eye.className = "fa fa-eye-slash";
   }
-}
+});
+
 /////////////////////////////
 //misc
 /////////////////////////////
@@ -172,7 +173,7 @@ function scrollBottom() {
 }
 
 function getEmoji(y) {
-  var x = document.getElementById("textbox");
+  var x = chatTextbox;
   //console.log(y.value);
   x.value += y.name;
 }
@@ -191,10 +192,10 @@ window.onload = function () {
   //$(document).ready(function(){
 
   /*
-         $("#mainpg #log").html(function(_, html){
-          return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
-         });
-        */
+			   $("#mainpg #log").html(function(_, html){
+				  return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
+			   });
+			  */
 
   function hashtag() {
     console.log("test123");
@@ -240,16 +241,6 @@ window.onload = function () {
   //});
 
   /////////////////////////////////////////////////////////////////////////
-  //jQuery hover and click - background-image --> pattern (this could not be done in CSS)
-
-  $(".emote").hover(
-    function () {
-      $(this).addClass("pattern__stripes-1");
-    },
-    function () {
-      $(this).removeClass("pattern__stripes-1");
-    }
-  );
 
   // $(document).ready(function() {
   //   $(".emote").click(function () {
@@ -300,7 +291,7 @@ window.onload = function () {
   }
 
   var ui_logout = document.getElementById("logout");
-  var ui_login = document.getElementById("login");
+  var ui_login_container = document.getElementById("loginContainer");
   var ui_container = document.getElementById("container");
   var ui_loginSubmit = document.getElementById("loginSubmit");
 
@@ -319,13 +310,13 @@ window.onload = function () {
     //document.getElementById('container').className = '';
     ui_container.classList.remove("hide");
 
-    document.getElementById("login").classList.add("hide");
+    document.getElementById("loginContainer").classList.add("hide");
     document.getElementById("logout").classList.remove("hide");
   }
 
   function logout() {
     ui_logout.classList.add("hide");
-    ui_login.classList.remove("hide");
+    ui_login_container.classList.remove("hide");
     ui_container.classList.add("hide");
     document.cookie = "logged_in=0";
   }
@@ -344,7 +335,7 @@ window.onload = function () {
       // not logged in
       console.log("you are not logged in");
       //alert("incorrect password"); //error msg?
-      // show login page
+      // show loginContainer page
 
       //ui_container.classList.remove('hide');
       ui_container.classList.add("hide");
@@ -356,30 +347,20 @@ window.onload = function () {
     }
   }
 
-  ui_loginSubmit.onclick = function () {
+  ui_loginSubmit.addEventListener("click", function () {
     console.log("you clicked submit");
-
     var user = document.getElementById("loginUser").value;
     var pass = document.getElementById("loginPass").value;
-
     //console.log(pass);
-
     getAuth(user, pass);
+  });
 
-    //pauseMe();
-
-    //check_auth(logincookie);
-  };
-
-  ui_login.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
+  ui_login_container.addEventListener("keyup", function (event) {
+    if (event.code === "Enter") {
       console.log("you pressed enter");
-
       var user = document.getElementById("loginUser").value;
       var pass = document.getElementById("loginPass").value;
-
       console.log(pass);
-
       getAuth(user, pass);
     }
   });
@@ -392,18 +373,16 @@ window.onload = function () {
   ////////////////////////////////////
   // CHAT AREA
   ////////////////////////////////////
-
+  var chatTextbox = document.getElementById("chatTextbox");
+  var chatReload = document.getElementById("reload");
   // when the submit button is hit
-  document.getElementById("submit").onclick = function () {
+  document.getElementById("chatSubmit").addEventListener("click", function () {
     sendString();
     getChatFromDB();
-  };
+  });
 
-  // when enter is pressed
-  var textbox = document.getElementById("textbox");
-
-  textbox.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
+  chatTextbox.addEventListener("keyup", function (event) {
+    if (event.code === "Enter") {
       event.preventDefault();
       sendString();
       //document.getElementById("myBtn").click();
@@ -411,24 +390,24 @@ window.onload = function () {
   });
 
   // Logout
-  ui_logout.onclick = function () {
+  ui_logout.addEventListener("click", function () {
     logout();
-  };
+  });
 
   function enlargeReload() {
     //document.getElementById("reload").width = "110%";
-    var el = document.getElementById("reload");
-    console.log(el);
+    //var el = document.getElementById("reload");
+    console.log(chatReload);
     //el.style.width="12%";
     //el.style.height="7.5%";
-    el.style.backgroundColor = "#c2f5ff";
+    chatReload.style.backgroundColor = "#c2f5ff";
   }
 
   //reload		// reload chat
-  document.getElementById("reload").onclick = function () {
+  chatReload.addEventListener("click", function () {
     console.log("reload clicked");
     getChatFromDB();
-  };
+  });
 
   document.getElementById("reload").onmousedown = function () {
     enlargeReload();
@@ -444,9 +423,7 @@ window.onload = function () {
 
   function sendString() {
     console.log("sendstring");
-
-    var textbox = document.getElementById("textbox"); // this references the textbox OBJECT
-    var dirty = textbox.value;
+    var dirty = chatTextbox.value;
     //var clean = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style','img','div','video','source','input','picture','label','canvas','legend','form','button',]}); //clean that yucky stuff
     var clean = DOMPurify.sanitize(dirty, {
       ALLOWED_TAGS: [
@@ -541,19 +518,16 @@ window.onload = function () {
       // get saved chat to enter into thelog
       // returned_log
       //getChatFromDB();
-
       // update the chat log
       //var thelog = document.getElementById("log");
-
       //console.log('the log 54')
       //console.log(thelog);
       //alert(thelog);
       //console.log(thelog.value);
-
       //console.log(thelog);
 
       // set the textbox to empty
-      textbox.value = "";
+      chatTextbox.value = "";
     }
     scrollBottom();
   }
@@ -764,8 +738,8 @@ window.onload = function () {
       "Sections",
       "Chat",
       "Other",
-      "textbox",
-      "submit",
+      "chatTextbox",
+      "chatSubmit",
       "vHist",
       "logout",
     ];
@@ -807,11 +781,11 @@ window.onload = function () {
     //var loopClassList;
 
     /*
-        for (loopClassList = 0; loopClassList < 6; loopClassList++) {
-          //ele[loopClassList].classList.add(modeClass);
-          document.getElementById(ele[loopClassList]).add(modeClass);
-        }
-        */
+				for (loopClassList = 0; loopClassList < 6; loopClassList++) {
+				  //ele[loopClassList].classList.add(modeClass);
+				  document.getElementById(ele[loopClassList]).add(modeClass);
+				}
+				*/
 
     //console.log(mode);
     //document.getElementById.
@@ -819,15 +793,6 @@ window.onload = function () {
 
   checkPreferredMode();
   set_mode();
-
-  $("#emote").hover(
-    function () {
-      $(this).addClass("pattern__stripes-1");
-    },
-    function () {
-      $(this).removeClass("hover");
-    }
-  );
 
   function testApi() {
     var xhttp = new XMLHttpRequest();
@@ -849,74 +814,87 @@ window.onload = function () {
     xhttp.send(poststring); // post
 
     /*
-        xhttp.open("GET", "chat.php?action=test", true);
-        xhttp.send();
-        console.log('saved to db');
-        */
+			  xhttp.open("GET", "chat.php?action=test", true);
+			  xhttp.send();
+			  console.log('saved to db');
+			  */
   }
-  var emojis = [
-    "&#129315;",
-    "&#128526;",
-    "&#128557;",
-    "&#128561;",
-    "&#128530;",
-    "&#128527;",
-    "&#128564;",
-    "&#128548;",
-    "&#128545;",
-    "&#129488;",
-    "&#129318;",
-    "&#128373;",
-    "&#128077;",
-    "&#128076;",
-    "&#128075;",
-    "&#128064;",
-    "&#128175;",
-    "&#128293;",
-    "&#128169;",
-    "&#127754;",
-    "&#9992;",
-    "&#129504;",
-    "👁️&#128068;👁️",
+  var emoji_data = [
+    ["Rolling on Floor Laughing", "&#129315;"],
+    ["Sunglasses, developed by Mo", "&#128526;"],
+    ["Loudly crying", "&#128557;"],
+    ["Shocked", "&#128561;"],
+    ["Unamused", "&#128530;"],
+    ["Smirking", "&#128527;"],
+    ["Sleeping, RIP Mo's sleep", "&#128564;"],
+    ["Mad", "&#128548;"],
+    ["Madder", "&#128544;"],
+    ["MADDEST", "&#128545;"],
+    ["MAD AS AHEN QUOTE", "&#129324;"],
+    ["The YIP have arrived.", "&#129488;"],
+    ["BRUV, AHEN QUOTE.", "&#129318;"],
+    ["The YIP have arrived, again.", "&#128373;"],
+    ["Thumbs up, developed by Mo", "&#128077;"],
+    ["NOICE", "&#128076;"],
+    ["Hello! Bye! I'm waving.", "&#128075;"],
+    ["Eyes, the YIP is watching you..", "&#128064;"],
+    ["One + ninety-nine = hundred", "&#128175;"],
+    ["Fire Nation", "&#128293;"],
+    ["Earth Nation (no offense, we love Earth)", "&#128169;"],
+    ["Water Nation", "&#127754;"],
+    ["Air Nation", "&#9992;"],
+    ["BIG BRAIN", "&#129504;"],
+    ["Helpless...", "&#128065;&#128068;&#128065;"],
   ];
-  var emoji_titles = [
-    "Rolling on Floor Laughing",
-    "Sunglasses, developed by Mo",
-    "Loudly crying",
-    "Shocked",
-    "Unamused",
-    "Smirking",
-    "Sleeping, RIP Mo's sleep",
-    "Mad",
-    "Madder",
-    "MAD AS AHEN QUOTE",
-    "The YIP have arrived.",
-    "BRUV, AHEN QUOTE.",
-    "The YIP have arrived, again.",
-    "Thumbs up, developed by Mo",
-    "NOICE",
-    "Hello! Bye! I'm waving.",
-    "Eyes, the YIP is watching you..",
-    "One + ninety-nine = hundred",
-    "Fire Nation",
-    "Earth Nation (no offense, we love Earth)",
-    "Water Nation",
-    "Air Nation",
-    "BIG BRAIN",
-    "Helpless...",
-  ];
-  for (var i = 0; i < emojis.length; i++) {
-    var btn = document.createElement("BUTTON");
-    btn.className = "emote";
-    btn.innerHTML = emojis[i];
-    console.log(emojis[i]);
-    document.getElementById("emote_dropdown").appendChild(btn);
+  function dyanmic_button_creation(object_class, injection_location, data) {
+    for (var i = 0; i < data.length; i++) {
+      var btn = document.createElement("BUTTON");
+      btn.className = object_class;
+      var button_data = data[i];
+      btn.innerHTML = button_data[1];
+      btn.value = button_data[1];
+      btn.title = button_data[0];
+      document.getElementById(injection_location).appendChild(btn);
+    }
+    var unprocessed_elements = document.getElementsByClassName(object_class);
+    for (var i = 0; i < unprocessed_elements.length; i++) {
+      unprocessed_elements[i].addEventListener("click", function (object) {
+        if (object.target.value.indexOf("&#") !== -1) {
+          chatTextbox.value += object.target.innerHTML;
+        } else if (object.target.value.indexOf(":") !== -1) {
+          chatTextbox.value += object.target.value;
+        }
+      });
+      unprocessed_elements[i].addEventListener("mouseenter", function (object) {
+        object.target.classList.add("pattern__stripes-1");
+      });
+      unprocessed_elements[i].addEventListener("mouseleave", function (object) {
+        object.target.classList.remove("pattern__stripes-1");
+      });
+    }
   }
+  //Dyanmically create emoji dropdown buttons
+  dyanmic_button_creation("emote", "emote_dropdown", emoji_data);
 
-  var emoji = document.getElementsByClassName("emote");
-  for (var i = 0; i < emoji.length; i++) {
-    emoji[i].addEventListener("click", function (object) {
-      document.getElementById("textbox").value += object.target.innerHTML;
-    });
-  }
+  //jquery code to add pattern stripes, does not work for emoji buttons replaced with eventlistener
+  //DISCUSS IN NEXT MEETING
+  /*
+  $("#emote").hover(
+    function () {
+      $(this).addClass("pattern__stripes-1");
+    },
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+  //jQuery hover and click - background-image --> pattern (this could not be done in CSS)
+  $(".emote").hover(
+    function () {
+      $(this).addClass("pattern__stripes-1");
+    },
+    function () {
+      $(this).removeClass("pattern__stripes-1");
+    }
+  );
+  */
 };
