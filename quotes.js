@@ -225,7 +225,7 @@
 		['No bird soars too high if he soars with his own wings.','William Blake'],
 		['You know that helicopter mom? That&#39;s me','Mme. Labrakos'],
 		['Think like dev! Think like dev!','Mo'],
-		['Programming in class…<del>even tho I shouldn&#39;t</del>like I should be','Mo & Reese'],
+		['Programming in class <del>even tho I shouldn&#39;t</del> like I should be','Mo & Reese'],
 		['Easy peasy lemon smokey','Reese Chong'],
 		['Okie dokie lemon smokey','Reese Chong'],
 		['As steel sharpens steel, comrade sharpens comrade.','YIP'],
@@ -571,7 +571,7 @@
 	//console.log(quoteArray.length);
 	document.getElementById("quotes").innerHTML = quoteArray[random_number][0];
 
-	document.getElementById("author").innerHTML = "-" + quoteArray[random_number][1];
+	document.getElementById("author").innerHTML = " - " + quoteArray[random_number][1];
 
 	//console.log(quoteArray[random_number][0])
 	//console.log(quoteArray[random_number][1])
