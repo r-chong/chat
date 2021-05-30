@@ -1,7 +1,6 @@
 /////////////////////////////
 //cookies
 /////////////////////////////
-
 function setCookie(cname, cvalue, exdays) {
   //sets the cookie name, the cookie itself, and the days until expiry
   var d = new Date(); //makes new date function
@@ -33,8 +32,8 @@ function getCookie(cname) {
 /////////////////////////////
 
 function openTab() {
-  ////console.log("opentab");
-  ////console.log(this.document.activeElement);
+  console.log("opentab");
+  console.log(this.document.activeElement);
   var el = this.document.activeElement;
   var tabname = el.id;
 
@@ -43,7 +42,7 @@ function openTab() {
 
   //finds all tabcontent
   tabcontent = document.getElementsByClassName("tabcontent");
-  ////console.log('tabcontent');
+  //console.log('tabcontent');
 
   for (tabindex = 0; tabindex < tabcontent.length; tabindex++) {
     tabcontent[tabindex].style.display = "none"; // making it so the tabcontent is not displayed
@@ -54,27 +53,28 @@ function openTab() {
   // display the tabcontent that is selected
   //document.getElementById(tabname).style.display = "block";  // not sure why this is here... this is what is throwing off the tabs when clicked
   tabcontent[0].style.display = "block";
-  ////console.log(evt);
+  //console.log(evt);
   el.className += " active";
   el.className += " pattern__stripes-1";
 
   document.getElementById(tabname + "Content").style.display = "block"; // I added ids of tabname+"Content" to each tab content to get them to be callable with their tabname
   if (tabname == "Chat") {
     document.getElementById("chatTextbox").focus();
+    console.log("FOCUS");
   }
 }
 
 function clearActiveTabs() {
   // clear active from the tablinks
   tab_button = document.getElementsByClassName("tab__button");
-  ////console.log('tablinks');
-  ////console.log(tablinks);
+  //console.log('tablinks');
+  //console.log(tablinks);
 
   for (tabindex = 0; tabindex < tab_button.length; tabindex++) {
-    //console.log(tab_button[tabindex].className);
+    console.log(tab_button[tabindex].className);
     //tablinks[tabindex].classList.remove("active"); // alternative command
-    ////console.log('here');
-    ////console.log(tablinks[tabindex].className.replace("active", ""));
+    //console.log('here');
+    //console.log(tablinks[tabindex].className.replace("active", ""));
     tab_button[tabindex].className = tab_button[tabindex].className.replace(
       " active",
       ""
@@ -101,7 +101,7 @@ function clearActiveTabs() {
 //
 //ui_chat.onclick = function(){
 //	//test();
-//	//console.log(ui_chat);
+//	console.log(ui_chat);
 //	openTab(ui_chat, ui_chat.value);
 //
 //};
@@ -112,28 +112,28 @@ function clearActiveTabs() {
 
 var toggle = true;
 function details_toggle() {
-  //console.log(toggle);
+  console.log(toggle);
   var element = document.getElementsByClassName("details");
-  ////console.log(object);
+  //console.log(object);
   if (toggle == false) {
     //if it is off, turn on --> remove hide
-    ////console.log(element);
+    //console.log(element);
     toggle = true;
 
     // Iterate through the retrieved elements and remove hidden
     for (var i = 0; i < element.length; i++) {
       element[i].classList.remove("hidden");
-      //console.log(element[i].className);
+      console.log(element[i].className);
     }
   } else {
     //if on, turn off --> add hide
     toggle = false;
-    //console.log("nay");
+    console.log("nay");
 
     // Iterate through the retrieved elements and add hidden
     for (var i = 0; i < element.length; i++) {
       element[i].classList.add("hidden");
-      //console.log(element[i].className);
+      console.log(element[i].className);
     }
   }
 }
@@ -144,13 +144,13 @@ function READ_details_toggle() {
     //check if details off, hide details
     for (var i = 0; i < element.length; i++) {
       element[i].classList.add("hidden");
-      //console.log(element[i].className);
+      console.log(element[i].className);
     }
   } else {
     //if details off, show details
     for (var i = 0; i < element.length; i++) {
       element[i].classList.remove("hidden");
-      //console.log(element[i].className);
+      console.log(element[i].className);
     }
   }
 }
@@ -177,18 +177,17 @@ function scrollBottom() {
 
 function getEmoji(y) {
   var x = chatTextbox;
-  ////console.log(y.value);
+  //console.log(y.value);
   x.value += y.name;
 }
 
 /////////////////////////////
 //window.onload
 /////////////////////////////
-
-//console.log("load");
+console.log("load");
 
 //run functions on startup
-//console.log(toggle);
+console.log(toggle);
 READ_details_toggle();
 scrollBottom();
 //$(document).ready(function(){
@@ -200,11 +199,11 @@ scrollBottom();
 			  */
 
 function hashtag() {
-  //console.log("test123");
+  console.log("test123");
 
   //var tempray = $("#mainpg #log").html();
 
-  ////console.log(tempray);
+  //console.log(tempray);
 
   $("#mainpg #log").html(function (_, html) {
     return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
@@ -212,12 +211,12 @@ function hashtag() {
 }
 
 function findlinks() {
-  //console.log("test345");
+  console.log("test345");
   //OLD var regex = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig
   var hrefURL = "";
 
   //var tempray = $("#mainpg #log").html();
-  ////console.log(tempray);
+  //console.log(tempray);
 
   $("#mainpg #log").html(function (_, html) {
     // "<a class=\"txtlink\" href=\"\">$1</a>"
@@ -258,15 +257,15 @@ function findlinks() {
 // );
 /////////////////////////////////////////////////////////////////////////
 
-document.getElementById("SectionsContent").style.display = "none";
-document.getElementById("OtherContent").style.display = "none";
+document.getElementById("ResourcesContent").style.display = "none";
+document.getElementById("SettingsContent").style.display = "none";
 
 ////////////////////////////
 //main js
 ////////////////////////////
 
 function test() {
-  //console.log("test");
+  console.log("test");
 }
 
 var ui_logout = document.getElementById("logout");
@@ -286,7 +285,7 @@ setInterval(function () {
 }, 60 * 1000); // 60 * 1000 milsec (every 60 seconds)
 
 function login_setup() {
-  //console.log("you are logged in");
+  console.log("you are logged in");
   //document.getElementById('container').className = '';
   ui_container.classList.remove("hide");
   ui_login_container.classList.add("hide");
@@ -301,10 +300,10 @@ function logout() {
 }
 
 function check_auth(apikey) {
-  //console.log("check_auth");
+  console.log("check_auth");
   //var logged_in = getCookie("logged_in");
   var logged_in = apikey;
-  ////console.log(logged_in);
+  //console.log(logged_in);
   //return;
 
   if (
@@ -312,7 +311,7 @@ function check_auth(apikey) {
     "bf44550db31d8f59b5da10e3a00a5072a481810b0dadfc6cfcc1f948b5f170f8"
   ) {
     // not logged in
-    //console.log("you are not logged in");
+    console.log("you are not logged in");
     //alert("incorrect password"); //error msg?
     // show loginContainer page
 
@@ -327,27 +326,27 @@ function check_auth(apikey) {
 }
 
 ui_loginSubmit.addEventListener("click", function () {
-  //console.log("you clicked submit");
+  console.log("you clicked submit");
   var user = ui_loginUser.value;
   var pass = ui_loginPass.value;
-  ////console.log(pass);
+  //console.log(pass);
   getAuth(user, pass);
   chatTextbox.focus();
 });
 
 ui_login_container.addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
-    //console.log("you pressed enter");
+    console.log("you pressed enter");
     var user = ui_loginUser.value;
     var pass = ui_loginPass.value;
-    //console.log(pass);
+    console.log(pass);
     getAuth(user, pass);
   }
 });
 
 async function pauseMe() {
   await sleep(2000);
-  //console.log("MS since start:", Date.now() - start);
+  console.log("MS since start:", Date.now() - start);
 }
 
 ////////////////////////////////////
@@ -377,7 +376,7 @@ ui_logout.addEventListener("click", function () {
 function enlargeReload() {
   //document.getElementById("reload").width = "110%";
   //var el = document.getElementById("reload");
-  //console.log(chatReload);
+  console.log(chatReload);
   //el.style.width="12%";
   //el.style.height="7.5%";
   chatReload.style.backgroundColor = "#c2f5ff";
@@ -385,7 +384,7 @@ function enlargeReload() {
 
 //reload		// reload chat
 chatReload.addEventListener("click", function () {
-  ////console.log("reload clicked");
+  //console.log("reload clicked");
   getChatFromDB();
   chatTextbox.focus();
 });
@@ -411,7 +410,7 @@ chatReload.addEventListener("mouseenter", function () {
 });
 
 function sendString() {
-  //console.log("sendstring");
+  console.log("sendstring");
   var dirty = chatTextbox.value;
   //var clean = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style','img','div','video','source','input','picture','label','canvas','legend','form','button',]}); //clean that yucky stuff
   var clean = DOMPurify.sanitize(dirty, {
@@ -436,7 +435,7 @@ function sendString() {
       "h4",
     ],
     FORBID_ATTR: ["style", "class", "id", "href", "src", "onclick"],
-  }); //clean that yucky stuff
+  }); //clean that yucky stufffunction parseMarkdown(markdownText) {
   clean = clean.replace(/\_(.*)\_/gim, "<em>$1</em>");
   clean = clean.replace(/\-(.*)\-/gim, "<del>$1</del>");
   clean = clean.replace(/\*\*(.*)\*\*/gim, "<b>$1</b>");
@@ -445,7 +444,6 @@ function sendString() {
   clean = clean.replace(/\"/g, '\\"');
   clean = clean.replace(/\&/g, "%26");
   clean = clean.replace(/\:-/g, "−");
-
   //Custom Emojis (stickers)
   clean = clean.replace(
     /\:(dogeputin)\:/gim,
@@ -492,11 +490,10 @@ function sendString() {
   );
   clean = clean.replace(":egg:", "<img src='Assets/gifs/thinkegg.gif'");
   clean = clean.replace(":um:", "<img src='Assets/gifs/um_actually.gif'");
-
   var savestring = clean;
   //var savestring = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style']}); //clean that yucky stuff
 
-  ////console.log(savestring);
+  //console.log(savestring);
   if (savestring != "") {
     var username = getCookie("user");
     // the updated save string [user] + savestring
@@ -511,11 +508,11 @@ function sendString() {
     //getChatFromDB();
     // update the chat log
     //var thelog = document.getElementById("log");
-    ////console.log('the log 54')
-    ////console.log(thelog);
+    //console.log('the log 54')
+    //console.log(thelog);
     //alert(thelog);
-    ////console.log(thelog.value);
-    ////console.log(thelog);
+    //console.log(thelog.value);
+    //console.log(thelog);
 
     // set the textbox to empty
     chatTextbox.value = "";
@@ -530,18 +527,18 @@ function saveToDB(savestring, onSuccess) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //document.getElementById("demo").innerHTML = this.responseText;
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       onSuccess();
     }
   };
 
   var apikey = getCookie("logged_in");
   var poststring = "action=save&savestring=" + savestring + "&apikey=" + apikey;
-  //console.log(poststring);
+  console.log(poststring);
   xhttp.open("POST", "chat.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
-  //console.log("saved to db");
+  console.log("saved to db");
 }
 
 function getChatFromDB() {
@@ -551,12 +548,12 @@ function getChatFromDB() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //document.getElementById("log").innerHTML = this.responseText; // this.responseText should be from python
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       var responses = JSON.parse(this.responseText);
-      //console.log("js responses: ");
-      //console.log(responses);
-      ////console.log(typeof(responses));
-      ////console.log(responses[0][0]);
+      console.log("js responses: ");
+      console.log(responses);
+      //console.log(typeof(responses));
+      //console.log(responses[0][0]);
       //responses.forEach()
 
       var formatted_chatlog = "";
@@ -566,7 +563,7 @@ function getChatFromDB() {
       //var mentionRegex = /\@/g;
 
       for (i = 0; i < responses.length; i++) {
-        ////console.log(responses[i]["ID"]);
+        //console.log(responses[i]["ID"]);
         formatted_chatlog =
           formatted_chatlog +
           '<div class="chatline">' +
@@ -578,7 +575,7 @@ function getChatFromDB() {
           "</div>"; //\n";
         compiled_chatlog = formatted_chatlog;
         //	mentions = compiled_chatlog.search(mentionRegex+You);
-        //	//console.log(mentions);
+        //	console.log(mentions);
         //	if (mentions > 0) {
         //		mentions.classList.add("mention");
         //	}
@@ -598,16 +595,16 @@ function getChatFromDB() {
     }
   };
 
-  ////console.log(getCookie("logged_in"));
+  //console.log(getCookie("logged_in"));
   var poststring = "action=getchat&apikey=" + getCookie("logged_in");
-  ////console.log(poststring);
+  //console.log(poststring);
   xhttp.open("POST", "chat.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
 }
 
 function getAuth(user, pass) {
-  //console.log("getAuth");
+  console.log("getAuth");
 
   var xhttp = new XMLHttpRequest();
 
@@ -616,24 +613,24 @@ function getAuth(user, pass) {
     if (this.readyState == 4 && this.status == 200) {
       // what to do if this request works
 
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       var responses = JSON.parse(this.responseText); //  use if response is json
       //var responses = this.responseText;
 
-      ////console.log('js responses: ');
-      ////console.log(responses);
-      ////console.log(typeof(responses));
-      ////console.log(responses[0][0]);
+      //console.log('js responses: ');
+      //console.log(responses);
+      //console.log(typeof(responses));
+      //console.log(responses[0][0]);
       //responses.forEach()
 
       // set cookie
       document.cookie = "logged_in=" + responses.apikey;
       document.cookie = "user=" + responses.user;
-      ////console.log(document.cookie);
+      //console.log(document.cookie);
 
       //document.cookie = "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 
-      ////console.log(document.cookie);
+      //console.log(document.cookie);
 
       var logged_in = getCookie("logged_in");
       check_auth(responses.apikey);
@@ -647,7 +644,7 @@ function getAuth(user, pass) {
   };
 
   var poststring = "user=" + user + "&pass=" + pass;
-  //console.log(poststring);
+  console.log(poststring);
   xhttp.open("POST", "auth.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
@@ -661,7 +658,7 @@ document.getElementById("modeMo").addEventListener("change", set_mode);
 // find which one is pressed/active
 
 function tell_me_the_mode() {
-  var ele = document.getElementsByClassName("mode__radio-button");
+  var ele = document.getElementsByName("mode");
 
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
@@ -670,7 +667,7 @@ function tell_me_the_mode() {
   }
 
   return mode;
-  ////console.log(mode);
+  //console.log(mode);
 }
 
 // set the body class to the appropriate mode
@@ -680,20 +677,20 @@ var previousMode2 = "body";
 
 function setPreferredMode() {
   var currentMode = tell_me_the_mode();
-  //console.log("below is active element");
-  //console.log(currentMode);
+  console.log("below is active element");
+  console.log(currentMode);
   setCookie("mode", currentMode, 365); //sets cookie
 }
 
 function checkPreferredMode() {
   var preferredMode = getCookie("mode"); //finds mode
-  //console.log(preferredMode);
+  console.log(preferredMode);
 
   if (preferredMode != "") {
     //if not empty
     //alert("your preferred mode is "+preferredMode);
-    ////console.log("here");
-    ////console.log(preferredMode);
+    //console.log("here");
+    //console.log(preferredMode);
     document.getElementById(preferredMode).checked = true; //set mode to preferredMode
   } else {
     //alert("no cookie found");
@@ -703,8 +700,8 @@ function checkPreferredMode() {
 }
 
 function set_mode() {
-  //console.log("previousMode2 below");
-  //console.log(previousMode2);
+  console.log("previousMode2 below");
+  console.log(previousMode2);
 
   var mode = tell_me_the_mode();
 
@@ -735,7 +732,7 @@ function set_mode() {
   ];
 
   var eleLength = ele.length;
-  ////console.log(eleLength);
+  //console.log(eleLength);
 
   //remove class name from body
   //////////////////////////////////////////////////////////////////////////////
@@ -750,17 +747,17 @@ function set_mode() {
     //adding mode to ele array
     //ele[loopClassName].className = '';
     var eleClass = document.getElementById(ele[loopClassName]);
-    ////console.log(typeof(eleClass));
+    //console.log(typeof(eleClass));
 
     //var currentIndex = previousMode[];
-    ////console.log(currentIndex);
+    //console.log(currentIndex);
     var modeClassReplaced = eleClass.classList.remove(previousMode2);
     //eleClass.className = modeClassReplaced;
 
     //eleClass.className = 'tablinks ';
     eleClass.classList.add(modeClass);
 
-    ////console.log(eleClass.classList);
+    //console.log(eleClass.classList);
   }
   previousMode2 = modeClass;
   //add class name to body
@@ -777,7 +774,7 @@ function set_mode() {
 				}
 				*/
 
-  ////console.log(mode);
+  //console.log(mode);
   //document.getElementById.
 }
 
@@ -791,8 +788,8 @@ function testApi() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //document.getElementById("demo").innerHTML = this.responseText;
-      ////console.log('api response: ');
-      ////console.log(this.responseText);
+      //console.log('api response: ');
+      //console.log(this.responseText);
       //onSuccess();
     }
   };
@@ -805,7 +802,7 @@ function testApi() {
   /*
 			  xhttp.open("GET", "chat.php?action=test", true);
 			  xhttp.send();
-			  //console.log('saved to db');
+			  console.log('saved to db');
 			  */
 }
 var emoji_data = [
@@ -887,9 +884,10 @@ dyanmic_button_creation("emote", "emote_dropdown", emoji_data);
     function () {
       $(this).removeClass("pattern__stripes-1");
     }
-  );  $(document).ready(function () {
-    $(document).on("click", ".emote", function () {
-    //console.log("heafsj");
+  );
+  $(document).ready(function () {
+  $(document).on("click", ".emote", function () {
+    console.log("heafsj");
     $(this).addClass("pattern__stripes-2");
     $(this).removeClass("pattern__stripes-2");
   });
