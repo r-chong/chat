@@ -41,13 +41,6 @@ android green #78C257
 .hidden {
   display: none;
 }
-.view {
-  border: 0px solid white;
-}
-
-.view2 {
-  border: 0px solid red;
-}
 
 textarea#log {
   width: 100%;

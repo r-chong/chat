@@ -31,13 +31,6 @@ twitter blue #1da1f2
 
 /* --- GLOBAL CLASSES --- */
 .hidden {display:none;}
-.view {
-  border: 0px solid white;
-}
-
-.view2 {
-  border: 0px solid red;
-}
 
 textarea#log {
   width: 100%;
