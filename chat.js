@@ -1,3 +1,65 @@
+//Variables
+//Login Page
+var uiPassVisiblityEye = document.getElementById("password_visiblity");
+var uiLoginContainer = document.getElementById("loginContainer");
+var uiLoginButton = document.getElementById("loginSubmit");
+var uiLoginUserField = document.getElementById("loginUser");
+var uiLoginPassField = document.getElementById("loginPass");
+var uiLoginUserFieldValue = uiLoginUserField.value;
+var uiLoginPassFieldValue = uiLoginPassField.value;
+//Tabs(Settings, Resources, Chat)
+var uiMainContainer = document.getElementById("container");
+var uiChatLog = document.getElementById("chatLog");
+var uiChatTextbox = document.getElementById("chatTextbox");
+var uiChatReload = document.getElementById("reload");
+var uiChatSubmit = document.getElementById("chatSubmit");
+var uiLogout = document.getElementById("logout");
+/////////////////////////
+//Data's (such as stickers/emoji arrays, etc)
+var emojiData = [
+  ["Rolling on Floor Laughing", "&#129315;"],
+  ["Sunglasses, developed by Mo", "&#128526;"],
+  ["Loudly crying", "&#128557;"],
+  ["Shocked", "&#128561;"],
+  ["Unamused", "&#128530;"],
+  ["Smirking", "&#128527;"],
+  ["Sleeping, RIP Mo's sleep", "&#128564;"],
+  ["Mad", "&#128548;"],
+  ["Madder", "&#128544;"],
+  ["MADDEST", "&#128545;"],
+  ["MAD AS AHEN QUOTE", "&#129324;"],
+  ["The YIP have arrived.", "&#129488;"],
+  ["BRUV, AHEN QUOTE.", "&#129318;"],
+  ["The YIP have arrived, again.", "&#128373;"],
+  ["Thumbs up, developed by Mo", "&#128077;"],
+  ["NOICE", "&#128076;"],
+  ["Hello! Bye! I'm waving.", "&#128075;"],
+  ["Eyes, the YIP is watching you..", "&#128064;"],
+  ["One + ninety-nine = hundred", "&#128175;"],
+  ["Fire Nation", "&#128293;"],
+  ["Earth Nation (no offense, we love Earth)", "&#128169;"],
+  ["Water Nation", "&#127754;"],
+  ["Air Nation", "&#9992;"],
+  ["BIG BRAIN", "&#129504;"],
+  ["Helpless...", "👁️&#128068👁️"],
+];
+
+//Example Sticker Array (WIP for UGCW 3.30 or smth)
+var stickerData = [
+  ["stickerChatName", "stickerName", "stickerFilename", "stickerTitle"],
+  [
+    ":dogeputin:",
+    "doge1",
+    "<img src='Assets/dogeputinMicro.png' class='customEmoji'>",
+    "Miny Doge",
+  ],
+  [
+    ":dogeputinXL",
+    "doge2",
+    "<img src='Assets/dogeputinMedium.png' class='customEmoji'>",
+    "Much Big Doge",
+  ],
+];
 /////////////////////////////
 //cookies
 /////////////////////////////
@@ -60,7 +122,7 @@ function openTab() {
 
   document.getElementById(tabname + "Content").style.display = "block"; // I added ids of tabname+"Content" to each tab content to get them to be callable with their tabname
   if (tabname == "Chat") {
-    document.getElementById("chatTextbox").focus();
+    document.getElementById("uiChatTextbox").focus();
   }
 }
 
@@ -89,22 +151,14 @@ function clearActiveTabs() {
 }
 
 /*
-			function getTabIndex(tabName)
-			{
-				document.getElementBy
-			}
-			*/
-
-//this part messed it up for some reason
-////to here
-//var ui_chat = document.getElementById("Chat");
-//
-//ui_chat.onclick = function(){
-//	//test();
+function getTabIndex(tabName){document.getElementBy}
+this part messed it up for some reason
+var ui_chat = document.getElementById("Chat");
+ui_chat.onclick = function(){
 //	//console.log(ui_chat);
-//	openTab(ui_chat, ui_chat.value);
-//
-//};
+openTab(ui_chat, ui_chat.value);
+};
+*/
 
 /////////////////////////////
 //details
@@ -119,7 +173,6 @@ function details_toggle() {
     //if it is off, turn on --> remove hide
     ////console.log(element);
     toggle = true;
-
     // Iterate through the retrieved elements and remove hidden
     for (var i = 0; i < element.length; i++) {
       element[i].classList.remove("hidden");
@@ -137,7 +190,6 @@ function details_toggle() {
     }
   }
 }
-
 function READ_details_toggle() {
   var element = document.getElementsByClassName("details");
   if (toggle == false) {
@@ -154,15 +206,15 @@ function READ_details_toggle() {
     }
   }
 }
-var pass_visiblity_eye = document.getElementById("password_visiblity");
-pass_visiblity_eye.addEventListener("click", function () {
-  var pass_input = ui_loginPass;
+//Login Page Password Visibility Event Listener
+uiPassVisiblityEye.addEventListener("click", function () {
+  var pass_input = uiLoginPassField;
   if (pass_input.type == "text") {
     pass_input.type = "password";
-    pass_visiblity_eye.className = "fa fa-eye";
+    uiPassVisiblityEye.className = "fa fa-eye";
   } else {
     pass_input.type = "text";
-    pass_visiblity_eye.className = "fa fa-eye-slash";
+    uiPassVisiblityEye.className = "fa fa-eye-slash";
   }
 });
 
@@ -176,8 +228,7 @@ function scrollBottom() {
 }
 
 function getEmoji(y) {
-  var x = chatTextbox;
-  ////console.log(y.value);
+  var x = uiChatTextbox;
   x.value += y.name;
 }
 
@@ -193,19 +244,14 @@ READ_details_toggle();
 scrollBottom();
 //$(document).ready(function(){
 
-/*
-			   $("#mainpg #log").html(function(_, html){
-				  return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
-			   });
-			  */
+/*$("#mainpg #log").html(function(_, html){
+ return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
+});*/
 
 function hashtag() {
   //console.log("test123");
-
   //var tempray = $("#mainpg #log").html();
-
   ////console.log(tempray);
-
   $("#mainpg #log").html(function (_, html) {
     return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
   });
@@ -215,10 +261,8 @@ function findlinks() {
   //console.log("test345");
   //OLD var regex = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig
   var hrefURL = "";
-
   //var tempray = $("#mainpg #log").html();
   ////console.log(tempray);
-
   $("#mainpg #log").html(function (_, html) {
     // "<a class=\"txtlink\" href=\"\">$1</a>"
 
@@ -239,42 +283,24 @@ function findlinks() {
 //	$("#mainpg #log").html(function(_, html){
 //	return html.replace(linkRx);
 //}
-
 //});
-
-/////////////////////////////////////////////////////////////////////////
-
 // $(document).ready(function() {
 //   $(".emote").click(function () {
 //  	// $(this).toggleClass("pattern__stripes-2");
 // 	$(this).addClass('pattern__stripes-2');
 // 	$(this).removeClass('pattern__stripes-2');
 //   });
-// });
-
+// })
 // $("#reload").mouseenter(
 //    function(){$(this).addClass('pattern__stripes-1') },
 //    function(){$(this).removeClass('pattern__stripes-1') }
 // );
 /////////////////////////////////////////////////////////////////////////
-
 document.getElementById("SectionsContent").style.display = "none";
 document.getElementById("OtherContent").style.display = "none";
-
-////////////////////////////
+//////////////////////////
 //main js
 ////////////////////////////
-
-function test() {
-  //console.log("test");
-}
-
-var ui_logout = document.getElementById("logout");
-var ui_login_container = document.getElementById("loginContainer");
-var ui_container = document.getElementById("container");
-var ui_loginSubmit = document.getElementById("loginSubmit");
-var ui_loginUser = document.getElementById("loginUser");
-var ui_loginPass = document.getElementById("loginPass");
 // if logged_in cookie not set - show log in screen
 var logincookie = getCookie("logged_in");
 check_auth(logincookie);
@@ -288,15 +314,15 @@ setInterval(function () {
 function login_setup() {
   //console.log("you are logged in");
   //document.getElementById('container').className = '';
-  ui_container.classList.remove("hide");
-  ui_login_container.classList.add("hide");
-  ui_logout.classList.remove("hide");
+  uiMainContainer.classList.remove("hide");
+  uiLoginContainer.classList.add("hide");
+  uiLogout.classList.remove("hide");
 }
 
 function logout() {
-  ui_logout.classList.add("hide");
-  ui_login_container.classList.remove("hide");
-  ui_container.classList.add("hide");
+  uiLogout.classList.add("hide");
+  uiLoginContainer.classList.remove("hide");
+  uiMainContainer.classList.add("hide");
   document.cookie = "logged_in=0";
 }
 
@@ -316,32 +342,23 @@ function check_auth(apikey) {
     //alert("incorrect password"); //error msg?
     // show loginContainer page
 
-    //ui_container.classList.remove('hide');
-    ui_container.classList.add("hide");
+    //uiMainContainer.classList.remove('hide');
+    uiMainContainer.classList.add("hide");
   } // logged in
   else {
     login_setup();
-
     getChatFromDB();
   }
 }
 
-ui_loginSubmit.addEventListener("click", function () {
-  //console.log("you clicked submit");
-  var user = ui_loginUser.value;
-  var pass = ui_loginPass.value;
-  ////console.log(pass);
-  getAuth(user, pass);
-  chatTextbox.focus();
+uiLoginButton.addEventListener("click", function () {
+  getAuth(uiLoginUserFieldValue, uiLoginPassFieldValue);
+  uiChatTextbox.focus();
 });
 
-ui_login_container.addEventListener("keyup", function (event) {
+uiLoginContainer.addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
-    //console.log("you pressed enter");
-    var user = ui_loginUser.value;
-    var pass = ui_loginPass.value;
-    //console.log(pass);
-    getAuth(user, pass);
+    getAuth(uiLoginUserFieldValue, uiLoginPassFieldValue);
   }
 });
 
@@ -353,66 +370,62 @@ async function pauseMe() {
 ////////////////////////////////////
 // CHAT AREA
 ////////////////////////////////////
-var chatTextbox = document.getElementById("chatTextbox");
-var chatReload = document.getElementById("reload");
 // when the submit button is hit
-document.getElementById("chatSubmit").addEventListener("click", function () {
+uiChatSubmit.addEventListener("click", function () {
   sendString();
   getChatFromDB();
 });
 
-chatTextbox.addEventListener("keyup", function (event) {
+uiChatTextbox.addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
     event.preventDefault();
     sendString();
-    //document.getElementById("myBtn").click();
   }
 });
 
 // Logout
-ui_logout.addEventListener("click", function () {
+uiLogout.addEventListener("click", function () {
   logout();
 });
 
 function enlargeReload() {
   //document.getElementById("reload").width = "110%";
   //var el = document.getElementById("reload");
-  //console.log(chatReload);
+  //console.log(uiChatReload);
   //el.style.width="12%";
   //el.style.height="7.5%";
-  chatReload.style.backgroundColor = "#c2f5ff";
+  uiChatReload.style.backgroundColor = "#c2f5ff";
 }
 
 //reload		// reload chat
-chatReload.addEventListener("click", function () {
-  ////console.log("reload clicked");
+uiChatReload.addEventListener("click", function () {
   getChatFromDB();
-  chatTextbox.focus();
+  uiChatTextbox.focus();
 });
 
-chatReload.addEventListener("mousedown", function () {
+uiChatReload.addEventListener("mousedown", function () {
   enlargeReload();
-  chatReload.classList.remove("pattern__stripes-1");
-  chatReload.classList.add("pattern__stripes-2");
+  uiChatReload.classList.remove("pattern__stripes-1");
+  uiChatReload.classList.add("pattern__stripes-2");
 });
 
-chatReload.addEventListener("mouseup", function () {
-  chatReload.style.backgroundColor = "initial";
-  chatReload.classList.remove("pattern__stripes-2");
+uiChatReload.addEventListener("mouseup", function () {
+  uiChatReload.style.backgroundColor = "initial";
+  uiChatReload.classList.remove("pattern__stripes-2");
 });
 
-chatReload.addEventListener("mouseleave", function () {
-  chatReload.style.backgroundColor = "initial";
-  chatReload.classList.remove("pattern__stripes-1");
+uiChatReload.addEventListener("mouseleave", function () {
+  uiChatReload.style.backgroundColor = "initial";
+  uiChatReload.classList.remove("pattern__stripes-1");
 });
 
-chatReload.addEventListener("mouseenter", function () {
-  chatReload.classList.add("pattern__stripes-1");
+uiChatReload.addEventListener("mouseenter", function () {
+  uiChatReload.classList.add("pattern__stripes-1");
 });
 
 function sendString() {
   //console.log("sendstring");
-  var dirty = chatTextbox.value;
+  var dirty = uiChatTextbox.value;
   //var clean = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style','img','div','video','source','input','picture','label','canvas','legend','form','button',]}); //clean that yucky stuff
   var clean = DOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
@@ -451,49 +464,59 @@ function sendString() {
     /\:(dogeputin)\:/gim,
     "<img src='Assets/dogeputinMicro.png' class='customEmoji'>"
   );
+
   clean = clean.replace(
-    ":dogeputinXL:",
-    "<img src='Assets/dogeputinMedium.png'"
+    /\:(dogeputinXL)\:/gim,
+    "<img src='Assets/dogeputinMedium.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":lmao:",
-    "<img src='Assets/lmao.png' class='customEmoji'"
+    /\:(lmao)\:/gim,
+    "<img src='Assets/lmao.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":thonk:",
-    "<img src='Assets/thooonk.png' class='customEmoji'"
+    /\:(thonk)\:/gim,
+    "<img src='Assets/thooonk.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":wgat:",
-    "<img src='Assets/wat.ico' class='customEmoji'"
+    /\:(wgat)\:/gim,
+    "<img src='Assets/wat.ico' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":bigoof:",
-    "<img src='Assets/bigoof.png' class='customEmoji'"
+    /\:(bigoof)\:/gim,
+    "<img src='Assets/bigoof.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":elonlol:",
-    "<img src='Assets/elonloltransparent.png' class='customEmoji'"
+    /\:(elonlol)\:/gim,
+    "<img src='Assets/elonloltransparent.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    ":yee:",
-    "<img src='Assets/yee.jpg' style='height:40px;width:40px;'"
+    /\:(yee)\:/gim,
+    "<img src='Assets/yee.jpg' style='height:40px;width:40px;'>"
   );
   //gifs
-  clean = clean.replace(":dogedance:", "<img src='Assets/gifs/dogedance.gif'");
   clean = clean.replace(
-    ":hyperthink:",
-    "<img src='Assets/gifs/hyperthink.gif'"
+    /\:(dogedance)\:/gim,
+    "<img src='Assets/gifs/dogedance.gif'>"
   );
-  clean = clean.replace(":readtwice:", "<img src='Assets/gifs/nandato.gif'");
   clean = clean.replace(
-    ":nosense:",
-    "<img src='Assets/gifs/logic_fails_me.gif'"
+    /\:(hyperthink)\:/gim,
+    "<img src='Assets/gifs/hyperthink.gif'>"
   );
-  clean = clean.replace(":egg:", "<img src='Assets/gifs/thinkegg.gif'");
-  clean = clean.replace(":um:", "<img src='Assets/gifs/um_actually.gif'");
-
+  clean = clean.replace(
+    /\:(readtwice)\:/gim,
+    "<img src='Assets/gifs/nandato.gif'>"
+  );
+  clean = clean.replace(
+    /\:(nosense)\:/gim,
+    "<img src='Assets/gifs/logic_fails_me.gif'>"
+  );
+  clean = clean.replace(/\:(egg)\:/gim, "<img src='Assets/gifs/thinkegg.gif'>");
+  clean = clean.replace(
+    /\:(:um:)\:/gim,
+    "<img src='Assets/gifs/um_actually.gif'>"
+  );
   var savestring = clean;
+  //Why not just use clean? Wat?
   //var savestring = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style']}); //clean that yucky stuff
 
   ////console.log(savestring);
@@ -518,7 +541,7 @@ function sendString() {
     ////console.log(thelog);
 
     // set the textbox to empty
-    chatTextbox.value = "";
+    uiChatTextbox.value = "";
   }
   scrollBottom();
 }
@@ -562,7 +585,7 @@ function getChatFromDB() {
       var formatted_chatlog = "";
       var compiled_chatlog = "";
       var mentions = "";
-      var You = ui_loginUser.value;
+      var You = uiLoginUserField.value;
       //var mentionRegex = /\@/g;
 
       for (i = 0; i < responses.length; i++) {
@@ -584,11 +607,9 @@ function getChatFromDB() {
         //	}
         //
       }
+      uiChatLog.innerHTML = formatted_chatlog; // this.responseText should be from python
 
-      var ui_log = document.getElementById("log");
-      ui_log.innerHTML = formatted_chatlog; // this.responseText should be from python
-
-      ui_log.scrollTop = ui_log.scrollHeight; // this allows for the scrolling to the bottom of the textarea
+      uiChatLog.scrollTop = uiChatLog.scrollHeight; // this allows for the scrolling to the bottom of the textarea
 
       hashtag();
       findlinks();
@@ -704,7 +725,7 @@ function checkPreferredMode() {
 
 function set_mode() {
   //console.log("previousMode2 below");
-  //console.log(previousMode2);
+  console.log(previousMode2);
 
   var mode = tell_me_the_mode();
 
@@ -721,10 +742,10 @@ function set_mode() {
   }
 
   setPreferredMode();
-  //list of stuff to change mode VVVV
+  //list of stuff to change mode
   var ele = [
     "body",
-    "log",
+    "chatLog",
     "Sections",
     "Chat",
     "Other",
@@ -808,65 +829,39 @@ function testApi() {
 			  //console.log('saved to db');
 			  */
 }
-var emoji_data = [
-  ["Rolling on Floor Laughing", "&#129315;"],
-  ["Sunglasses, developed by Mo", "&#128526;"],
-  ["Loudly crying", "&#128557;"],
-  ["Shocked", "&#128561;"],
-  ["Unamused", "&#128530;"],
-  ["Smirking", "&#128527;"],
-  ["Sleeping, RIP Mo's sleep", "&#128564;"],
-  ["Mad", "&#128548;"],
-  ["Madder", "&#128544;"],
-  ["MADDEST", "&#128545;"],
-  ["MAD AS AHEN QUOTE", "&#129324;"],
-  ["The YIP have arrived.", "&#129488;"],
-  ["BRUV, AHEN QUOTE.", "&#129318;"],
-  ["The YIP have arrived, again.", "&#128373;"],
-  ["Thumbs up, developed by Mo", "&#128077;"],
-  ["NOICE", "&#128076;"],
-  ["Hello! Bye! I'm waving.", "&#128075;"],
-  ["Eyes, the YIP is watching you..", "&#128064;"],
-  ["One + ninety-nine = hundred", "&#128175;"],
-  ["Fire Nation", "&#128293;"],
-  ["Earth Nation (no offense, we love Earth)", "&#128169;"],
-  ["Water Nation", "&#127754;"],
-  ["Air Nation", "&#9992;"],
-  ["BIG BRAIN", "&#129504;"],
-  ["Helpless...", "&#128065;&#128068;&#128065;"],
-];
-function dyanmic_button_creation(object_class, injection_location, data) {
+function dyanmic_button_creation(buttonClass, injectionLocation, data) {
   for (var i = 0; i < data.length; i++) {
     var btn = document.createElement("BUTTON");
-    btn.className = object_class;
-    var button_data = data[i];
-    btn.innerHTML = button_data[1];
-    btn.value = button_data[1];
-    btn.title = button_data[0];
-    document.getElementById(injection_location).appendChild(btn);
+    btn.className = buttonClass;
+    var buttonData = data[i];
+    btn.innerHTML = buttonData[1];
+    btn.value = buttonData[1];
+    btn.title = buttonData[0];
+    document.getElementById(injectionLocation).appendChild(btn);
   }
-  var unprocessed_elements = document.getElementsByClassName(object_class);
-  for (var i = 0; i < unprocessed_elements.length; i++) {
-    unprocessed_elements[i].addEventListener("click", function (object) {
+  var unproccessedElements = document.getElementsByClassName(buttonClass);
+  for (var i = 0; i < unproccessedElements.length; i++) {
+    unproccessedElements[i].addEventListener("click", function (object) {
       if (object.target.value.indexOf("&#") !== -1) {
-        chatTextbox.value += object.target.innerHTML;
+        uiChatTextbox.value += object.target.innerHTML;
       } else if (object.target.value.indexOf(":") !== -1) {
-        chatTextbox.value += object.target.value;
+        uiChatTextbox.value += object.target.value;
       }
-      chatTextbox.focus();
+      uiChatTextbox.focus();
     });
-    unprocessed_elements[i].addEventListener("mouseenter", function (object) {
+    unproccessedElements[i].addEventListener("mouseenter", function (object) {
       object.target.classList.add("pattern__stripes-1");
-      chatTextbox.focus();
+      uiChatTextbox.focus();
     });
-    unprocessed_elements[i].addEventListener("mouseleave", function (object) {
+    unproccessedElements[i].addEventListener("mouseleave", function (object) {
       object.target.classList.remove("pattern__stripes-1");
-      chatTextbox.focus();
+      uiChatTextbox.focus();
     });
   }
 }
 //Dyanmically create emoji dropdown buttons
-dyanmic_button_creation("emote", "emote_dropdown", emoji_data);
+dyanmic_button_creation("emote", "emoji_dropdown", emojiData);
+//Dyanmically create emote dropdown buttons
 
 //jquery code to add pattern stripes, does not work for emoji buttons replaced with eventlistener
 //DISCUSS IN NEXT MEETING
@@ -898,4 +893,4 @@ dyanmic_button_creation("emote", "emote_dropdown", emoji_data);
   */
 
 //Finally focus on textbox
-chatTextbox.focus();
+uiChatTextbox.focus();

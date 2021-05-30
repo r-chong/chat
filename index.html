@@ -46,7 +46,7 @@
 				<div style="width:100%; float:left;">
 					<div class="log_container" id="log_cont">
 						<!--Remove reaodnly attribute for HTML5-->
-						<div id="log" name="chatlog" readonly style="left:400;top:279;height:50%;"></div>
+						<div id="chatLog" name="chatlog" readonly style="left:400;top:279;height:50%;"></div>
 					</div>
 				</div>
 				<!--Textbox has name="textbox" (leave for future ref)-->
@@ -58,12 +58,12 @@
 					<div class="btn-group">
 						<div class="dropdown">
 							<button class="emote-dropdown__emoji-icon"></button>
-							<div id="emote_dropdown" class="emote-dropdown__dropdown-content"></div>
+							<div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="emote-dropdown__sticker-icon"></button>
-						<div class="emote-dropdown__dropdown-content">
+						<div id="sticker_dropdown" class="emote-dropdown__dropdown-content">
 							<input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"
 								title="Miny Doge" />
 							<input type="button" value="doge2" class="emote" onclick="getEmoji(this)"
@@ -179,14 +179,14 @@
 		<p style="font-size:150%;">Password:<input required id="loginPass" class="loginInput" type=password>
 			<span id="password_visiblity" class="fa fa-eye"></span>
 		</p>
-		<button id="loginSubmit">Submit</button>
+		<button id="loginSubmit">Log In</button>
 	</form>
 	<noscript>
 		<h1>Please enable JavaScript, or use a different browser to allow UGCW to run!</h1>
 	</noscript>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="chat.js"></script>
+<script src="chat.js" defer="defer"></script>
 <script src="quotes.js"></script>
 <script src="DOMPurify-main/dist/purify.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
