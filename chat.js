@@ -5,8 +5,6 @@ var uiLoginContainer = document.getElementById("loginContainer");
 var uiLoginButton = document.getElementById("loginSubmit");
 var uiLoginUserField = document.getElementById("loginUser");
 var uiLoginPassField = document.getElementById("loginPass");
-var uiLoginUserFieldValue = uiLoginUserField.value;
-var uiLoginPassFieldValue = uiLoginPassField.value;
 //Tabs(Settings, Resources, Chat)
 var uiMainContainer = document.getElementById("container");
 var uiChatLog = document.getElementById("chatLog");
@@ -352,13 +350,13 @@ function check_auth(apikey) {
 }
 
 uiLoginButton.addEventListener("click", function () {
-  getAuth(uiLoginUserFieldValue, uiLoginPassFieldValue);
+  getAuth(uiLoginUserField.value, uiLoginPassField.value);
   uiChatTextbox.focus();
 });
 
 uiLoginContainer.addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
-    getAuth(uiLoginUserFieldValue, uiLoginPassFieldValue);
+    getAuth(uiLoginUserField.value, uiLoginPassField.value);
   }
 });
 
@@ -628,45 +626,34 @@ function getChatFromDB() {
 }
 
 function getAuth(user, pass) {
-  //console.log("getAuth");
-
+  //console.log('getAuth');
   var xhttp = new XMLHttpRequest();
-
   // run this when the readstate changes
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // what to do if this request works
-
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       var responses = JSON.parse(this.responseText); //  use if response is json
       //var responses = this.responseText;
-
-      ////console.log('js responses: ');
-      ////console.log(responses);
-      ////console.log(typeof(responses));
-      ////console.log(responses[0][0]);
+      //console.log('js responses: ');
+      //console.log(responses);
+      //console.log(typeof(responses));
+      //console.log(responses[0][0]);
       //responses.forEach()
-
       // set cookie
-      document.cookie = "logged_in=" + responses.apikey;
-      document.cookie = "user=" + responses.user;
-      ////console.log(document.cookie);
-
+      document.cookie = 'logged_in=' + responses.apikey;
+      document.cookie = 'user=' + responses.user;
+      //console.log(document.cookie);
       //document.cookie = "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-
-      ////console.log(document.cookie);
-
+      //console.log(document.cookie);
+      //CHECK THE var (logged_in) BELOW: Should we delete it?
       var logged_in = getCookie("logged_in");
       check_auth(responses.apikey);
-
       // change hide settings
-
       // load chat
-
       // to streamline, make this into a callable function
     }
   };
-
   var poststring = "user=" + user + "&pass=" + pass;
   //console.log(poststring);
   xhttp.open("POST", "auth.php", true);
@@ -725,7 +712,7 @@ function checkPreferredMode() {
 
 function set_mode() {
   //console.log("previousMode2 below");
-  console.log(previousMode2);
+  //console.log(previousMode2);
 
   var mode = tell_me_the_mode();
 
@@ -792,11 +779,11 @@ function set_mode() {
   //var loopClassList;
 
   /*
-				for (loopClassList = 0; loopClassList < 6; loopClassList++) {
-				  //ele[loopClassList].classList.add(modeClass);
-				  document.getElementById(ele[loopClassList]).add(modeClass);
-				}
-				*/
+        for (loopClassList = 0; loopClassList < 6; loopClassList++) {
+          //ele[loopClassList].classList.add(modeClass);
+          document.getElementById(ele[loopClassList]).add(modeClass);
+        }
+        */
 
   ////console.log(mode);
   //document.getElementById.
@@ -824,10 +811,10 @@ function testApi() {
   xhttp.send(poststring); // post
 
   /*
-			  xhttp.open("GET", "chat.php?action=test", true);
-			  xhttp.send();
-			  //console.log('saved to db');
-			  */
+        xhttp.open("GET", "chat.php?action=test", true);
+        xhttp.send();
+        //console.log('saved to db');
+        */
 }
 function dyanmic_button_creation(buttonClass, injectionLocation, data) {
   for (var i = 0; i < data.length; i++) {
