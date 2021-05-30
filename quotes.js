@@ -1,3 +1,5 @@
+//console.log("quotes operational")
+
 //math.random generates a number in between 0 and 1
 //math.floor rounds the math.random
 //multiply by # of quotes
@@ -566,7 +568,6 @@ var quoteNum = quoteArray.length
 
 var random_number = Math.floor(Math.random() * quoteNum);
 
-//console.log(quoteArray.length);
 document.getElementById("quotes").innerHTML = quoteArray[random_number][0];
 
 document.getElementById("author").innerHTML = " - " + quoteArray[random_number][1];
