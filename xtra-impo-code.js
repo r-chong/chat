@@ -5,7 +5,7 @@
 //RewriteEngine On
 //RewriteCond %{HTTP_HOST} ^ [NC]
 //RewriteCond %{SERVER_PORT} 80
-//RewriteRule ^(.*)$ https://goosenews.ca/chat/$1 [R,L]
+//RewriteRule ^(.*)$ https://goosenews.ca/chatx/$1 [R,L]
 
 //Code for notifications - rando testing ya know
 function notifyMe() {
