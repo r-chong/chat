@@ -561,6 +561,8 @@ var quoteArray = [
   ['CODING GO BRRRRRRRRR', 'Mo'],
   ['I dreamed about UGCW all night long, not even joking', 'Pogrammer Mo'],
   ['80% of your success comes from 20% of your ventures', 'The Pareto Principle (paraphrased)'],
+  ['The simple act of paying attention can take you a long way.','Keanu Reeves'],
+  ['Life is good when you have a good sandwich','Keanu Reeves'],
   ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'UGCW Developers'],
 ]
 
