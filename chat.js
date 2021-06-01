@@ -47,15 +47,15 @@ var stickerData = [
   ["stickerChatName", "stickerName", "stickerFilename", "stickerTitle"],
   [
     ":dogeputin:",
+    "Miny Doge",
     "doge1",
     "<img src='Assets/dogeputinMicro.png' class='customEmoji'>",
-    "Miny Doge",
   ],
   [
     ":dogeputinXL",
+    "Much Big Doge",
     "doge2",
     "<img src='Assets/dogeputinMedium.png' class='customEmoji'>",
-    "Much Big Doge",
   ],
 ];
 /////////////////////////////
@@ -120,7 +120,7 @@ function openTab() {
 
   document.getElementById(tabname + "Content").style.display = "block"; // I added ids of tabname+"Content" to each tab content to get them to be callable with their tabname
   if (tabname == "Chat") {
-    document.getElementById("uiChatTextbox").focus();
+    uiChatTextbox.focus();
   }
 }
 
@@ -315,6 +315,7 @@ function login_setup() {
   uiMainContainer.classList.remove("hide");
   uiLoginContainer.classList.add("hide");
   uiLogout.classList.remove("hide");
+  uiChatTextbox.focus();
 }
 
 function logout() {
@@ -328,7 +329,7 @@ function check_auth(apikey) {
   //console.log("check_auth");
   //var logged_in = getCookie("logged_in");
   var logged_in = apikey;
-  ////console.log(logged_in);
+  //console.log(logged_in);
   //return;
 
   if (
@@ -337,7 +338,7 @@ function check_auth(apikey) {
   ) {
     // not logged in
     //console.log("you are not logged in");
-    //alert("incorrect password"); //error msg?
+    //alert("Incorrect password, please try again."); //error msg?
     // show loginContainer page
 
     //uiMainContainer.classList.remove('hide');
@@ -350,13 +351,21 @@ function check_auth(apikey) {
 }
 
 uiLoginButton.addEventListener("click", function () {
-  getAuth(uiLoginUserField.value, uiLoginPassField.value);
-  uiChatTextbox.focus();
+  console.log("you clicked submit");
+  console.log(uiLoginUserField.value);
+  console.log(uiLoginPassField.value);
+  user = uiLoginUserField.value;
+  pass = uiLoginPassField.value;
+  getAuth(user, pass);
 });
 
 uiLoginContainer.addEventListener("keyup", function (event) {
   if (event.code === "Enter") {
-    getAuth(uiLoginUserField.value, uiLoginPassField.value);
+    console.log(uiLoginUserField.value);
+    console.log(uiLoginPassField.value);
+    user = uiLoginUserField.value;
+    pass = uiLoginPassField.value;
+    getAuth(user, pass);
   }
 });
 
@@ -517,7 +526,7 @@ function sendString() {
   //Why not just use clean? Wat?
   //var savestring = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style']}); //clean that yucky stuff
 
-  ////console.log(savestring);
+  //console.log(savestring);
   if (savestring != "") {
     var username = getCookie("user");
     // the updated save string [user] + savestring
@@ -532,11 +541,11 @@ function sendString() {
     //getChatFromDB();
     // update the chat log
     //var thelog = document.getElementById("log");
-    ////console.log('the log 54')
-    ////console.log(thelog);
+    //console.log('the log 54')
+    //console.log(thelog);
     //alert(thelog);
-    ////console.log(thelog.value);
-    ////console.log(thelog);
+    //console.log(thelog.value);
+    //console.log(thelog);
 
     // set the textbox to empty
     uiChatTextbox.value = "";
@@ -551,18 +560,18 @@ function saveToDB(savestring, onSuccess) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //document.getElementById("demo").innerHTML = this.responseText;
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       onSuccess();
     }
   };
 
   var apikey = getCookie("logged_in");
   var poststring = "action=save&savestring=" + savestring + "&apikey=" + apikey;
-  //console.log(poststring);
+  console.log(poststring);
   xhttp.open("POST", "chat.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
-  //console.log("saved to db");
+  console.log("saved to db");
 }
 
 function getChatFromDB() {
@@ -572,12 +581,12 @@ function getChatFromDB() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //document.getElementById("log").innerHTML = this.responseText; // this.responseText should be from python
-      ////console.log(this.responseText);
+      //console.log(this.responseText);
       var responses = JSON.parse(this.responseText);
-      //console.log("js responses: ");
-      //console.log(responses);
-      ////console.log(typeof(responses));
-      ////console.log(responses[0][0]);
+      console.log("js responses: ");
+      console.log(responses);
+      //console.log(typeof(responses));
+      //console.log(responses[0][0]);
       //responses.forEach()
 
       var formatted_chatlog = "";
@@ -587,7 +596,7 @@ function getChatFromDB() {
       //var mentionRegex = /\@/g;
 
       for (i = 0; i < responses.length; i++) {
-        ////console.log(responses[i]["ID"]);
+        //console.log(responses[i]["ID"]);
         formatted_chatlog =
           formatted_chatlog +
           '<div class="chatline">' +
@@ -597,9 +606,12 @@ function getChatFromDB() {
           " " +
           responses[i]["chatstring"] +
           "</div>"; //\n";
+        responses[i].addEventListener("click", function () {
+          alert("I am the Beta");
+        });
         compiled_chatlog = formatted_chatlog;
         //	mentions = compiled_chatlog.search(mentionRegex+You);
-        //	//console.log(mentions);
+        //console.log(mentions);
         //	if (mentions > 0) {
         //		mentions.classList.add("mention");
         //	}
@@ -617,45 +629,56 @@ function getChatFromDB() {
     }
   };
 
-  ////console.log(getCookie("logged_in"));
+  //console.log(getCookie("logged_in"));
   var poststring = "action=getchat&apikey=" + getCookie("logged_in");
-  ////console.log(poststring);
+  //console.log(poststring);
   xhttp.open("POST", "chat.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
 }
 
 function getAuth(user, pass) {
-  //console.log('getAuth');
+  console.log("getAuth");
+
   var xhttp = new XMLHttpRequest();
+
   // run this when the readstate changes
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // what to do if this request works
+
       //console.log(this.responseText);
       var responses = JSON.parse(this.responseText); //  use if response is json
       //var responses = this.responseText;
+
       //console.log('js responses: ');
       //console.log(responses);
       //console.log(typeof(responses));
       //console.log(responses[0][0]);
       //responses.forEach()
+
       // set cookie
-      document.cookie = 'logged_in=' + responses.apikey;
-      document.cookie = 'user=' + responses.user;
+      document.cookie = "logged_in=" + responses.apikey;
+      document.cookie = "user=" + responses.user;
       //console.log(document.cookie);
+
       //document.cookie = "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
       //console.log(document.cookie);
-      //CHECK THE var (logged_in) BELOW: Should we delete it?
+
       var logged_in = getCookie("logged_in");
       check_auth(responses.apikey);
+
       // change hide settings
+
       // load chat
+
       // to streamline, make this into a callable function
     }
   };
+
   var poststring = "user=" + user + "&pass=" + pass;
-  //console.log(poststring);
+  console.log(poststring);
   xhttp.open("POST", "auth.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
   xhttp.send(poststring);
@@ -878,6 +901,8 @@ dyanmic_button_creation("emote", "emoji_dropdown", emojiData);
 });
 
   */
-
-//Finally focus on textbox
-uiChatTextbox.focus();
+document
+  .getElementById("cookieAlertCloseBtn")
+  .addEventListener("click", function () {
+    document.getElementById("cookieAlert").remove();
+  });

@@ -14,13 +14,21 @@
 	<link rel="stylesheet" type="text/css" media="only screen and (min-height: 768px)" href="main_chat_readability.css">
 	<!-- <link rel="stylesheet" type="text/css" media ="only screen and (min-height: 768px)" href="main_chat.css" > -->
 	<link rel="shortcut icon" type="image/x-icon" href="Assets/bigoof.png" />
+	<!-- Apple Touch Icon (at least 200x200px) -->
+	<link rel="apple-touch-icon" href="Assets/bigoof.png">
+	<!-- To run web application in full-screen -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
 <body style="font-family: 'Times New Roman', Times, serif;" id="body">
 
 	<div id="container" class="hide" style="position:relative;">
 		<!--this is the main page-->
-
+		<div id="cookieAlert" class="cookie-alert">
+			<span id="cookieAlertCloseBtn" class="closebtn">&times;</span>
+			<p>This site uses only <strong>essential</strong> cookies, by continuing to use this site you agree to our
+				ToS and our usage of cookies.</p>
+		</div>
 		<div id="mainpg">
 			<h1 title="RIP Master Notes Collaboration Website" id="titleMNCW">U.G.C.W.</h1>
 
@@ -31,7 +39,7 @@
 			</div>
 			<br>
 
-			<div class="tabcontent">
+			<div class="tabcontent nav__sidebar">
 				<!--tablinks / button that go to each page-->
 				<input type="button" class="tab__button active pattern__stripes-1" onclick="openTab()" id="Chat"
 					value="Chat">
@@ -93,7 +101,7 @@
 			</div>
 
 			<div class="tabcontent" id="SectionsContent">
-				<div id="SectionsContentTop" style="text-align:center;margin-top:60px;margin-bottom:10px;">
+				<div id="SectionsContentTop" style="text-align:center;margin-left:60px;margin-bottom:10px;">
 					<div style="font-size:150%;padding-bottom:10%;">
 						<a rel="noopener noreferrer" target="_blank" class="resource-link" style="float:left;width:45%;"
 							href="https://tinyurl.com/y5l9tpda" id="vHist"
@@ -139,7 +147,7 @@
 			</div>
 
 			<div class="tabcontent" id="OtherContent">
-				<form style="margin-top:20;">
+				<form style="margin-top:20;margin-left:60px">
 					<label class="switch" id="checkbox1">
 						<input type="checkbox" checked onclick="details_toggle();">
 						<span class="slider"></span>
