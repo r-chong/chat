@@ -9,31 +9,34 @@
 
 //Code for notifications - rando testing ya know
 function notifyMe() {
-  // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
+    alert(
+      "This browser does not support desktop notification, please use a different browser!"
+    );
   }
-
-  // Let's check whether notification permissions have already been granted
+  //Check if notification permission has been granted
   else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
+    //Make notification
     var notification = new Notification("Hi there!");
   }
 
   // Otherwise, we need to ask the user for permission
   else if (Notification.permission !== "denied") {
+    //Ask for permission
     Notification.requestPermission().then(function (permission) {
-      // If the user accepts, let's create a notification
+      //Check if permission was granted
       if (permission === "granted") {
         var notification = new Notification("Hi there!");
       }
+      if (permission === "denied") {
+        alert(
+          "For UGCW to be able to notifiy you about new text messages, please enable notifications!"
+        );
+      }
     });
   }
-
-  // At last, if the user has denied notifications, and you
-  // want to be respectful there is no need to bother them any more.
 }
 
 /*
-User alert
+workin on reply to div
 */
