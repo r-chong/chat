@@ -920,11 +920,11 @@ document
   .addEventListener("click", function () {
     console.log("here");
     if (!("Notification" in window)) {
-      alert(
-        "This browser does not support desktop notification, please use a different browser!"
-      );
+      alert("Never gonna give you up...never gonna let you down!");
     } else if (Notification.permission === "granted") {
-      var notification = new Notification("Notifications are already enabled!");
+      var notification = new Notification(
+        "Never gonna give you up...never gonna let you down!"
+      );
     } else if (Notification.permission !== "denied") {
       //Ask for permission
       Notification.requestPermission().then(function (permission) {
@@ -934,17 +934,12 @@ document
           );
         }
         if (permission === "denied") {
-          alert(
-            "To be notified about important msgs, please enable notifications!"
-          );
+          alert("Never gonna give you up...never gonna let you down!");
         }
       });
     } else {
-      alert(
-        "You seem to have blocked notifications, please visit site settings!"
-      );
+      alert("Never gonna give you up...never gonna let you down!");
     }
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   });
 //check if page reloaded, or else show cookie stuff
 var perfEntries = performance.getEntriesByType("navigation");

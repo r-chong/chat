@@ -505,6 +505,7 @@ body .emote-dropdown__dropdown-content {
   /*slider container*/
   position: relative;
   width: 60px;
+  height: 34px;
   float: left;
   margin-top: 1%;
   margin-right: 10px;
