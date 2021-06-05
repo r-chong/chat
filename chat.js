@@ -67,7 +67,10 @@ function setCookie(cname, cvalue, exdays) {
   var d = new Date(); //makes new date function
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
   var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie =
+    cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Strict";
+  //samesite is needed for firefox compatibilty
+  ///document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
@@ -99,6 +102,7 @@ function openTab() {
   var tabname = el.id;
 
   //declare all variables
+  //is tab_button even needed?
   var tabindex, tabcontent, tab_button;
 
   //finds all tabcontent
@@ -126,7 +130,7 @@ function openTab() {
 
 function clearActiveTabs() {
   // clear active from the tablinks
-  tab_button = document.getElementsByClassName("tab__button");
+  tab_button = document.getElementsByClassName("nav__sidebar-content");
   ////console.log('tablinks');
   ////console.log(tablinks);
 
@@ -230,10 +234,6 @@ function getEmoji(y) {
   x.value += y.name;
 }
 
-/////////////////////////////
-//window.onload
-/////////////////////////////
-
 //console.log("load");
 
 //run functions on startup
@@ -296,6 +296,7 @@ function findlinks() {
 /////////////////////////////////////////////////////////////////////////
 document.getElementById("SectionsContent").style.display = "none";
 document.getElementById("OtherContent").style.display = "none";
+document.getElementById("SpiritContent").style.display = "none";
 //////////////////////////
 //main js
 ////////////////////////////
@@ -389,7 +390,6 @@ uiChatTextbox.addEventListener("keyup", function (event) {
     sendString();
   }
 });
-
 // Logout
 uiLogout.addEventListener("click", function () {
   logout();
@@ -457,6 +457,13 @@ function sendString() {
     ],
     FORBID_ATTR: ["style", "class", "id", "href", "src", "onclick"],
   }); //clean that yucky stuff
+  /******/
+  clean = clean.replace(
+    /\https:((.*)snipboard.io(.*))\.jpg/gim,
+    "<img src='$'><p>$</p>"
+  );
+  /***HIGHLY EXPERIMENTAL***/
+  /********/
   clean = clean.replace(/\_(.*)\_/gim, "<em>$1</em>");
   clean = clean.replace(/\-(.*)\-/gim, "<del>$1</del>");
   clean = clean.replace(/\*\*(.*)\*\*/gim, "<b>$1</b>");
@@ -465,7 +472,6 @@ function sendString() {
   clean = clean.replace(/\"/g, '\\"');
   clean = clean.replace(/\&/g, "%26");
   clean = clean.replace(/\:-/g, "−");
-
   //Custom Emojis (stickers)
   clean = clean.replace(
     /\:(dogeputin)\:/gim,
@@ -519,7 +525,7 @@ function sendString() {
   );
   clean = clean.replace(/\:(egg)\:/gim, "<img src='Assets/gifs/thinkegg.gif'>");
   clean = clean.replace(
-    /\:(:um:)\:/gim,
+    /\:(um)\:/gim,
     "<img src='Assets/gifs/um_actually.gif'>"
   );
   var savestring = clean;
@@ -606,9 +612,14 @@ function getChatFromDB() {
           " " +
           responses[i]["chatstring"] +
           "</div>"; //\n";
+        /***HIGHLY EXPERIMENTAL***/
+        /********/
         responses[i].addEventListener("click", function () {
-          alert("I am the Beta");
+          console.log("I am the Beta");
+          document.getElementById("uiChatTextbox").value += responses[i].value;
         });
+        /***HIGHLY EXPERIMENTAL***/
+        /********/
         compiled_chatlog = formatted_chatlog;
         //	mentions = compiled_chatlog.search(mentionRegex+You);
         //console.log(mentions);
@@ -759,9 +770,9 @@ function set_mode() {
     "Sections",
     "Chat",
     "Other",
+    "SpiritContent",
     "chatTextbox",
     "chatSubmit",
-    "vHist",
     "logout",
   ];
 
@@ -901,8 +912,47 @@ dyanmic_button_creation("emote", "emoji_dropdown", emojiData);
 });
 
   */
+/***HIGHLY EXPERIMENTAL***/
+/********/
+
 document
-  .getElementById("cookieAlertCloseBtn")
+  .getElementById("notificationSwitch")
   .addEventListener("click", function () {
-    document.getElementById("cookieAlert").remove();
+    console.log("here");
+    if (!("Notification" in window)) {
+      alert("Never gonna give you up...never gonna let you down!");
+    } else if (Notification.permission === "granted") {
+      var notification = new Notification(
+        "Never gonna give you up...never gonna let you down!"
+      );
+    } else if (Notification.permission !== "denied") {
+      //Ask for permission
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          var notification = new Notification(
+            "Never gonna give you up...never gonna let you down!"
+          );
+        }
+        if (permission === "denied") {
+          alert("Never gonna give you up...never gonna let you down!");
+        }
+      });
+    } else {
+      alert("Never gonna give you up...never gonna let you down!");
+    }
   });
+//check if page reloaded, or else show cookie stuff
+var perfEntries = performance.getEntriesByType("navigation");
+for (var i = 0; i < perfEntries.length; i++) {
+  var p = perfEntries[i];
+  //Events can be Reload, Navigate or backgforward
+  if (p.type == "reload") {
+    document.getElementById("cookieAlert").style.display = "none";
+  } else {
+    document
+      .getElementById("cookieAlertCloseBtn")
+      .addEventListener("click", function () {
+        document.getElementById("cookieAlert").remove();
+      });
+  }
+}

@@ -39,7 +39,7 @@ var quoteArray = [
   ['When we hit our lowest point, we are open to the greatest change.', 'Avatar Aang, Legend of Korra',],
   ['Land on Mars, a round-trip ticket - half a million dollars. It can be done.', 'Elon Musk',],
   ['The problem with being faster than light is that you can only live in darkness.', 'Meme, Unknown author',],
-  ['If you don&#39;t innovate, you will fall behind.'],
+  ['If you don&#39;t innovate, you will fall behind.', 'Genius Guy'],
   ['It is better to remain silent and be thought a fool, than to speak and remove all doubt.', 'Maurice Switzer (paraphrased)',],
   ['When all else is lost, the future still remains.', 'Christian Nestell Bovee',],
   ['There are basically two types of people.<br>People who accomplish things, and people who claim to have accomplished things.<br>The first group is less crowded.', 'Mark Twain',],
