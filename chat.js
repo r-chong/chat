@@ -457,17 +457,17 @@ function sendString() {
     ],
     FORBID_ATTR: ["style", "class", "id", "href", "src", "onclick"],
   }); //clean that yucky stuff
+  /***HIGHLY EXPERIMENTAL***/
   /******/
   clean = clean.replace(
     /\https:((.*)snipboard.io(.*))\.jpg/gim,
-    "<img src='$'><p>$</p>"
+    "<img src='https:$.jpg'><p>$</p>"
   );
-  /***HIGHLY EXPERIMENTAL***/
   /********/
-  clean = clean.replace(/\_(.*)\_/gim, "<em>$1</em>");
-  clean = clean.replace(/\-(.*)\-/gim, "<del>$1</del>");
+  clean = clean.replace(/\_\_(.*)\_\_/gim, "<em>$1</em>");
+  clean = clean.replace(/\-\-(.*)\-\-/gim, "<del>$1</del>");
   clean = clean.replace(/\*\*(.*)\*\*/gim, "<b>$1</b>");
-  clean = clean.replace(/\!(.*)\!/gim, "<h1>$1</h1>");
+  clean = clean.replace(/\!\!(.*)\!\!/gim, "<h1>$1</h1>");
   clean = clean.replace(/\+/g, "%2b");
   clean = clean.replace(/\"/g, '\\"');
   clean = clean.replace(/\&/g, "%26");
