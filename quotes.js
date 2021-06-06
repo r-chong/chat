@@ -561,6 +561,7 @@ var quoteArray = [
   ['CODING GO BRRRRRRRRR', 'Mo'],
   ['I dreamed about UGCW all night long, not even joking', 'Pogrammer Mo'],
   ['80% of your success comes from 20% of your ventures', 'The Pareto Principle (paraphrased)'],
+  ['Vision is nothing without a plan to execute it.','Kevin O\'leary'],
   ['Plans are nothing; planning is everything.','Dwight Eisenhower'],
   ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'UGCW Developers'],
 ]
