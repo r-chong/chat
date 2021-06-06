@@ -561,6 +561,16 @@ var quoteArray = [
   ['CODING GO BRRRRRRRRR', 'Mo'],
   ['I dreamed about UGCW all night long, not even joking', 'Pogrammer Mo'],
   ['80% of your success comes from 20% of your ventures', 'The Pareto Principle (paraphrased)'],
+  ['Vision is nothing without a plan to execute it.','Kevin O\'leary'],
+  ['Plans are nothing; planning is everything.','Dwight Eisenhower'],
+  ['Brevity is the soul of wit.','Polonius (Hamlet, II.2.86-92)'],
+  ['Wisely and slow. They stumble that run fast.','Friar Lawrence (Romeo and Juliet, II.3.101)'],
+  ['Strong reasons make strong actions','(King John, Idk the line number)'],
+  ['We know what we are but not know what we may be','(Hamlet)'],
+  ['Things won are done; joy&#39ss soul lies in the doing.','(Troilus and Cressida)'],
+  ['How far that little candle throws his beams!','(The Merchant of Venice)'],
+  ['How poor are they that have not patience? What wound did ever heal but by degrees?','(Othello)'],
+  ['And oftentimes excusing of a fault doth make the fault the worse by the excuse.','(King John)'],
   ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'UGCW Developers'],
 ]
 
