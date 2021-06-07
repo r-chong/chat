@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-	<title>U.G.C.W.</title>
+	<title>Genius Chat</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="A place for Geniusists to chat.">
 	<meta name="keywords" content="Chat, Genius">
@@ -14,109 +14,99 @@
 	<link rel="stylesheet" type="text/css" media="only screen and (min-height: 768px)" href="main_chat_readability.css">
 	<!-- <link rel="stylesheet" type="text/css" media ="only screen and (min-height: 768px)" href="main_chat.css" > -->
 	<link rel="shortcut icon" type="image/x-icon" href="Assets/bigoof.png" />
+	<!-- Apple Touch Icon (at least 200x200px) -->
+	<link rel="apple-touch-icon" href="Assets/bigoof.png">
+	<!-- To run web application in full-screen -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
-<body style="font-family: 'Times New Roman', Times, serif;" id="body">
-
-	<div id="container" class="hide" style="position:relative;">
+<body id="body">
+	<div id="container" class="main-container hide">
+		<header>
+			<div class="page__header">
+				<div class="page__header--title">
+					<p title="RIP Master Notes Collaboration Website" id="titleMNCW">Genius Chat</p>
+				</div>
+				<div class="page__header--quote" id="quotes-div">
+					<p id="quotes"></p>
+					<p id="author"></p>
+				</div>
+			</div>
+		</header>
 		<!--this is the main page-->
-
-		<div id="mainpg">
-			<h1 title="RIP Master Notes Collaboration Website" id="titleMNCW">U.G.C.W.</h1>
-
-			<div id="quotes-div" style="text-align:center;">
-				<i id="quotes" rel="javascript" style="font-size:150%;"></i>
-				<br>
-				<div id="author"></div>
-			</div>
-			<br>
-
-			<div class="tabcontent">
-				<!--tablinks / button that go to each page-->
-				<input type="button" class="tab__button active pattern__stripes-1" onclick="openTab()" id="Chat"
-					value="Chat">
-				<input type="button" class="tab__button" onclick="openTab()" id="Sections" value="Resources">
-				<input type="button" class="tab__button" onclick="openTab()" id="Other" value="Settings">
-				<!--reload button-->
-				<input type="image" alt="Reload the chat." id="reload" class="" src="Assets/reload.svg">
-			</div>
-
-			<!--chat content-->
-			<div class="tabcontent" id="ChatContent">
-				<div style="width:100%; float:left;">
-					<div class="log_container" id="log_cont">
-						<!--Remove reaodnly attribute for HTML5-->
-						<div id="chatLog" name="chatlog" readonly style="left:400;top:279;height:50%;"></div>
+		<div class="tabcontent nav__sidebar">
+			<!--tablinks / button that go to each page-->
+			<input type="button" class="nav__sidebar-content active pattern__stripes-1" onclick="openTab()" id="Chat"
+				value="Chat">
+			<input type="button" class="nav__sidebar-content" onclick="openTab()" id="Sections" value="Resources">
+			<input type="button" class="nav__sidebar-content" onclick=" openTab()" id="Other" value="Settings">
+			<input type="button" class="nav__sidebar-content" onclick="openTab()" id="Spirit" value="Spirit World">
+			<!--reload button-->
+			<input type="image" alt="Reload the chat." id="reload" class="nav__reload-btn" src="Assets/reload.svg">
+			<div class="emote-dropdown__container">
+				<div class="dropdown">
+					<button class="emote-dropdown__emoji-icon"></button>
+					<div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
+				</div>
+				<div class="dropdown">
+					<button class="emote-dropdown__sticker-icon"></button>
+					<div id="sticker_dropdown" class="emote-dropdown__dropdown-content">
+						<input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"
+							title="Miny Doge" />
+						<input type="button" value="doge2" class="emote" onclick="getEmoji(this)" name=":dogeputinXL:"
+							title="Much Big Doge" />
+						<input type="button" value="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:" />
+						<input type="button" value="hmmmm" class="emote" onclick="getEmoji(this)" name=":thonk:" />
+						<input type="button" value="wgat?" class="emote" onclick="getEmoji(this)" name=":wgat:"
+							title="Huh" />
+						<input type="button" value="oof.." class="emote" onclick="getEmoji(this)" name=":bigoof:" />
+						<input type="button" value="tesla" class="emote" onclick="getEmoji(this)" name=":elonlol:" />
+						<input type="button" value="YEEEE" class="emote" onclick="getEmoji(this)" name=":yee:" />
+						<input type="button" value="doge3" class="emote" onclick="getEmoji(this)" name=":dogedance:" />
+						<input type="button" value="hyper" class="emote" onclick="getEmoji(this)" name=":hyperthink:" />
+						<input type="button" value="read2" class="emote" onclick="getEmoji(this)" name=":readtwice:" />
+						<input type="button" value="bruhh" class="emote" onclick="getEmoji(this)" name=":nosense:" />
+						<input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:" />
+						<input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:" />
+						<input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
 					</div>
 				</div>
-				<!--Textbox has name="textbox" (leave for future ref)-->
-				<input type="text" id="chatTextbox" class="form" placeholder="Type something..." autocomplete="off"
-					autofocus />
-				<input type="submit" id="chatSubmit" value="Send">
-
-				<div class="flex-container">
-					<div class="btn-group">
-						<div class="dropdown">
-							<button class="emote-dropdown__emoji-icon"></button>
-							<div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
-						</div>
-					</div>
-					<div class="dropdown">
-						<button class="emote-dropdown__sticker-icon"></button>
-						<div id="sticker_dropdown" class="emote-dropdown__dropdown-content">
-							<input type="button" value="doge1" class="emote" onclick="getEmoji(this)" name=":dogeputin:"
-								title="Miny Doge" />
-							<input type="button" value="doge2" class="emote" onclick="getEmoji(this)"
-								name=":dogeputinXL:" title="Much Big Doge" />
-							<input type="button" value="lolol" class="emote" onclick="getEmoji(this)" name=":lmao:" />
-							<input type="button" value="hmmmm" class="emote" onclick="getEmoji(this)" name=":thonk:" />
-							<input type="button" value="wgat?" class="emote" onclick="getEmoji(this)" name=":wgat:"
-								title="Huh" />
-							<input type="button" value="oof.." class="emote" onclick="getEmoji(this)" name=":bigoof:" />
-							<input type="button" value="tesla" class="emote" onclick="getEmoji(this)"
-								name=":elonlol:" />
-							<input type="button" value="YEEEE" class="emote" onclick="getEmoji(this)" name=":yee:" />
-							<input type="button" value="doge3" class="emote" onclick="getEmoji(this)"
-								name=":dogedance:" />
-							<input type="button" value="hyper" class="emote" onclick="getEmoji(this)"
-								name=":hyperthink:" />
-							<input type="button" value="read2" class="emote" onclick="getEmoji(this)"
-								name=":readtwice:" />
-							<input type="button" value="bruhh" class="emote" onclick="getEmoji(this)"
-								name=":nosense:" />
-							<input type="button" value="egg!!" class="emote" onclick="getEmoji(this)" name=":egg:" />
-							<input type="button" value="ummmm" class="emote" onclick="getEmoji(this)" name=":um:" />
-							<input type="button" value="shrug" class="emote" onclick="getEmoji(this)" name="¯\_(ツ)_/¯">
-						</div>
-					</div>
+			</div>
+		</div>
+		<div id="mainpg" class="main-tabs__container">
+			<!--chat content-->
+			<div class="tabcontent" id="ChatContent">
+				<div class="log__container" id="log_cont">
+					<!--Remove reaodnly attribute for HTML5-->
+					<div id="chatLog" class="log__container--chat-log" name="chatlog" readonly></div>
+				</div>
+				<div class="chat__controls-container">
+					<input type="text" id="chatTextbox" class="chat__textbox" placeholder="Type something..."
+						autocomplete="off" autofocus />
+					<input id="chatSubmit" class="chat__textbox--submit-btn" value="&#xf1d9;" type="submit">
 				</div>
 			</div>
 
 			<div class="tabcontent" id="SectionsContent">
-				<div id="SectionsContentTop" style="text-align:center;margin-top:60px;margin-bottom:10px;">
-					<div style="font-size:150%;padding-bottom:10%;">
-						<a rel="noopener noreferrer" target="_blank" class="resource-link" style="float:left;width:45%;"
-							href="https://tinyurl.com/y5l9tpda" id="vHist"
-							title="Made from a broken sleep schedule">UGCW Version 3.2</a>
-						<a rel="noopener noreferrer" target="_blank" class="resource-link"
-							style="float:left;width:45%;margin-left:5%"
-							href="https://docs.google.com/document/d/1o0s6VEspQCCtux_TkCuhYoz1H7ZIqLISpJwRRR9Jdmk/edit?usp=sharing">UGC
-							Document</a>
-					</div>
+				<div class="page__resources" id="SectionsContentTop">
+					<h2>U.G.C. Content</h2>
+					<a rel="noopener noreferrer" target="_blank" class="resource-link"
+						href="https://docs.google.com/document/d/1zulDVUmrlcDuw76puMGtcvcwjAXL3J8udLga7K980wI/edit?usp=sharing"
+						title="Made from a broken sleep schedule">Genius Chat
+						Version 3.2</a>
+					<a rel="noopener noreferrer" target="_blank" class="resource-link"
+						href="https://docs.google.com/document/d/1o0s6VEspQCCtux_TkCuhYoz1H7ZIqLISpJwRRR9Jdmk/edit?usp=sharing">UGC
+						Document</a>
 					<!--a target="_blank" href="https://invite.duolingo.com/BDHTZTB5CWWKTXIDI7IOHXECIE">Duolingo referral link</a> <br><br>-->
-				</div>
-
-				<div style="margin-top:10;text-align:center;">
-					<div>
-						<p>Chess</p>
+					<section>
+						<h2>Chess</h2>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://lichess.org/">Lichess</a>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://lichess.org/training/daily">POTD</a>
-					</div>
-
-					<div>
-						<p>French</p>
+					</section>
+					<section>
+						<h2>French</h2>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://www.wordreference.com/">WordReference</a>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
@@ -124,22 +114,21 @@
 							Translate</a>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://feeds.feedblitz.com/french-word-of-the-day&x=1">WOTD-fr</a>
-					</div>
-
-					<div>
-						<p>Other</p>
+					</section>
+					<section>
+						<h2>Other</h2>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://snapdrop.net/">Snapdrop.net</a>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://app.myblueprint.ca/student/dashboard/activities">myBlueprint</a>
 						<a rel="noopener noreferrer" target="_blank" class="resource-link"
 							href="https://feeds.feedblitz.com/japanese-word-of-the-day&x=1">WOTD-jp</a>
-					</div>
+					</section>
 				</div>
 			</div>
 
-			<div class="tabcontent" id="OtherContent">
-				<form style="margin-top:20;">
+			<div class="tabcontent page__settings" id="OtherContent">
+				<form>
 					<label class="switch" id="checkbox1">
 						<input type="checkbox" checked onclick="details_toggle();">
 						<span class="slider"></span>
@@ -153,8 +142,14 @@
 					</label>
 					<p>Allow us to sell your data to third-parties</p>
 					<br>
+					<label class="switch" id="notificationSwitch">
+						<input type="checkbox">
+						<span class="slider"></span>
+					</label>
+					<p>Enable Notifications (Reese's task, test it out tho)</p>
+					<br>
 
-					<div>
+					<form>
 						<input type="radio" name="mode" class="mode__radio-button" id="modeDefault"
 							value="Default mode">
 						<label for="modeDefault">Default Mode</label>
@@ -164,29 +159,38 @@
 
 						<input type="radio" name="mode" class="mode__radio-button" id="modeMo" value="Mo(de)">
 						<label for="modeMo">Mo(de)</label>
-					</div>
-					<br>
-					<button id="logout" title="The YIP questions your loyalty to the union...">Logout</button>
-				</form>
+						<br>
+						<button id="logout" title="The YIP questions your loyalty to the union...">Logout</button>
+					</form>
 			</div>
-			<!--The div below closes to show the title on every page-->
+			<div class="tabcontent page__spirit" id="SpiritContent">
+				<h2>Jun 01, 12:09pm [YIP]: I am ahenquote launchin rockets there</h2>
+				<img src="https://vo.longbeardco.com/wp-content/uploads/2021/02/giphy.gif">
+			</div>
 		</div>
+		<!--The div below closes to show the title on every page also controls mode-->
 	</div>
 	<!--underneath is the login page, hidden upon login-->
-	<form class="loginpg" id="loginContainer">
-		<p style="font-size:200%;">Genius Collaborators' Website</p>
+	<div class="loginpg" id="loginContainer">
+		<p style="font-size:200%;">Genius Chat</p>
 		<p style="font-size:150%;">Username:<input required id="loginUser" class="loginInput" type=text></p>
 		<p style="font-size:150%;">Password:<input required id="loginPass" class="loginInput" type=password>
 			<span id="password_visiblity" class="fa fa-eye"></span>
 		</p>
 		<button id="loginSubmit">Log In</button>
-	</form>
+		<p>Pro Tip: If you have a small screen use UGCW at 80x zoom!</p>
+	</div>
 	<noscript>
 		<h1>Please enable JavaScript, or use a different browser to allow UGCW to run!</h1>
 	</noscript>
+	<div id="cookieAlert" class="cookie-alert">
+		<span id="cookieAlertCloseBtn" class="closebtn">&times;</span>
+		<p>This site uses only <strong>essential</strong> cookies, by continuing to use this site you agree to our
+			ToS and our usage of cookies.</p>
+	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="chat.js" defer="defer"></script>
+<script src="chat.js"></script>
 <script src="quotes.js"></script>
 <script src="DOMPurify-main/dist/purify.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
