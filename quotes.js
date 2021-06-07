@@ -571,6 +571,8 @@ var quoteArray = [
   ['How far that little candle throws his beams!','(The Merchant of Venice)'],
   ['How poor are they that have not patience? What wound did ever heal but by degrees?','(Othello)'],
   ['And oftentimes excusing of a fault doth make the fault the worse by the excuse.','(King John)'],
+  ['The simple act of paying attention can take you a long way.','Keanu Reeves'],
+  ['Life is good when you have a good sandwich','Keanu Reeves'],
   ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'UGCW Developers'],
 ]
 
