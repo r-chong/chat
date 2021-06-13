@@ -131,9 +131,9 @@ body {
   background-color: white;
   color: #343a42;
   overflow: hidden;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   width: 100%;
-  height: 100%;
+  height: 95%;
 }
 
 .dark {
@@ -173,14 +173,14 @@ h1 {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .main-tabs__container {
   width: 100%;
   height: 100%;
   margin-left: 12%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .tabcontent {
   width: 100%;
@@ -194,10 +194,10 @@ h1 {
   max-height: 200px;
 }
 .page__header--title {
-  min-width: 35%;
+  min-width: 40%;
   font-size: 4rem;
   text-align: center;
-  line-height: 0.5;
+  line-height: 1;
   vertical-align: middle;
   -webkit-text-stroke: 1px #282828;
   text-shadow: 0px 4px 4px #282828;
@@ -211,15 +211,23 @@ body .page__header--title {
 .mo .page__header--title {
   color: #ff69b4;
 }
-.page__header--quote {
-  min-width: 65%;
-  font-size: 1.7rem;
-  font-weight: 100;
-  margin-right: 1rem;
-  margin-top: 20px;
-  line-height: 1.2;
+.page__header-quote-cont {
+  min-width: 50%;
   vertical-align: middle;
   text-align: center;
+  margin-top: 3.5%;
+}
+.page__header--quote {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 1rem;
+  line-height: 1;
+}
+.page__header--auth {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 1rem;
+  line-height: 0.4;
 }
 /*////////////////////////////////
 		    CHAT UI
@@ -232,7 +240,8 @@ body .page__header--title {
   overflow-y: scroll;
   font-size: 1.2em;
   width: 86%;
-  min-height: 65%;
+  max-height: 65%;
+  /*MAX height is important*/
   margin-right: 0px;
   border-style: hidden;
 }
@@ -324,7 +333,7 @@ a {
   display: flex;
   flex-direction: column;
   max-width: 11%;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   overflow-x: hidden;
 }
@@ -354,7 +363,7 @@ a {
 .emote-dropdown__emoji-icon {
   /* previously "dropbtn" */
   color: black;
-  background-image: url("Assets/lmao.png");
+  background-image: url('Assets/lmao.png');
   background-size: cover;
   padding: 1px;
   font-size: 16px;
@@ -391,7 +400,7 @@ body .emote-dropdown__emoji-icon {
 /*emotes buttons*/
 .emote-dropdown__sticker-icon {
   color: black;
-  background-image: url("Assets/dogeputinMedium.png");
+  background-image: url('Assets/dogeputinMedium.png');
   background-size: cover;
   padding: 1px;
   font-size: 16px;
@@ -402,6 +411,9 @@ body .emote-dropdown__emoji-icon {
   height: 3rem;
   opacity: 10%;
   cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
+}
+.emote-dropdown__sticker-icon:hover {
+  opacity: 1;
 }
 .emote-dropdown__dropdown-content {
   display: none;
@@ -462,22 +474,25 @@ body .emote-dropdown__dropdown-content {
   font-size: 100%;
 }
 
-.dark input[type="button"] {
+.dark input[type='button'] {
   color: #596988;
 }
 
 .page__spirit {
   margin-left: 60px;
+  overflow-x: hidden;
 }
 .page__settings {
   margin-left: 60px;
+  overflow-x: hidden;
 }
 .page__resources {
   font-size: 1.5rem;
   text-align: center;
-  width: 70%;
+  width: 100%;
   height: 100%;
   margin-left: 60px;
+  overflow-x: hidden;
 }
 /*////////////////////////////////
 		SMOOTH SWITCH
@@ -515,7 +530,7 @@ body .emote-dropdown__dropdown-content {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -599,10 +614,14 @@ a.resource-link {
 .loginInput {
   font-size: 60%;
   width: 50%;
+  font-size: 1.4rem;
   color: SlateGray;
   border: 2px solid #d1d1d1;
   border-radius: 5px;
   padding: 0%;
+}
+#password_visiblity {
+  margin-left: -40px;
 }
 #loginSubmit {
   font-size: 120%;
@@ -626,16 +645,20 @@ a.resource-link {
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
 /*Leave for the mean time DO NOT DELETE*/
 .quick-access {
-  min-width: 40px;
+  max-width: 3rem;
   min-height: 43px;
   border-style: solid;
   border-width: 1px;
   border-radius: 7px;
-  padding: 6px;
+  padding: 6px 6px 6px 6px;
   text-align: center;
   display: inline-block;
-  font-size: 16px;
+  font-size: 25px;
   cursor: pointer;
+  opacity: 0.4;
+}
+.quick-access:hover {
+  opacity: 1;
 }
 .cookie-alert {
   padding: 20px;
@@ -667,9 +690,75 @@ a.resource-link {
 .dark .closebtn {
   color: white;
 }
+/*Highly Experimental*/
+.chatline {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 00px 10px 10px 10px;
+  max-width: 43%;
+}
+.chat-message__name {
+  word-wrap: break-word;
+  font-size: 1.4rem;
+}
+.chat-msg--me {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px 0px 10px 10px;
+  max-width: 43%;
+  position: relative;
+  left: 50%;
+  min-height: 2rem;
+}
 
-/* border: 1.5px solid black;
-color: black;
-padding: 10px 10px;
-cursor: pointer;
-float: left; */
+.chatline::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.chat__sticker {
+  max-height: 200;
+  max-width: 70%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(201, 201, 201);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #282828;
+}
+.mo ::-webkit-scrollbar-track {
+  background: #282828;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20%;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f4650;
+  border-radius: 20%;
+}
+.mo ::-webkit-scrollbar-thumb {
+  background: #7f9ac0;
+  border-radius: 20%;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

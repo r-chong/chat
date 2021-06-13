@@ -540,7 +540,7 @@ var quoteArray = [
   ['I type like an interesting person.', 'Neha Kasoju, 2021'],
   ['Yesterday is not ours to recover, but tomorrow is ours to win or lose.', 'Lyndon B. Johnson'],
   ['The measure of who we are is what we do with what we have.', 'Vince Lombardi'],
-  ['Don&#39st cry because it&#39ss over. Smile because it happened.', 'Dr. Seuss'],
+  ['Don&#39t cry because it&#39s over. Smile because it happened.', 'Dr. Seuss'],
   ['A smile is a curve that sets everything straight.', 'Phyllis Diller'],
   ['Dogecoin to the moon!', 'Elon Musk, SNL 2021/05/08'],
   ['Live life to the fullest, and focus on the positive.', 'Matt Cameron'],
