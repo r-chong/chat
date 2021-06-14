@@ -1,6 +1,6 @@
 config.php
-Assets
+Assets/
 Backups/
+DOMPurify-main/
 Other/
 tests/
-.htaccess
