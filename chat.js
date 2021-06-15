@@ -286,14 +286,21 @@ function findlinks() {
   });
 }
 //Formats chat messages to look like SMS but Geniusised
-function format_chat_messages() {
-  var chatMsgs = document.querySelectorAll('.chatline');
+function chatMessageFormatter() {
+  let chatMsgs = document.querySelectorAll('.chatline');
   for (let i = 0; i < chatMsgs.length; i++) {
     let username = getCookie('user');
     let msg = chatMsgs[i]['outerHTML'];
     if (msg.includes('<span class="chat-message__name">[' + username + ']:')) {
       chatMsgs[i].classList.add('chat-msg--me');
     }
+    let msg_box = chatMsgs[i];
+    msg_box.addEventListener('dblclick', function (e) {
+      console.log('DONT TOUCH MA SPAGET');
+      let msgTxtContent = e.target.textContent;
+      let finalMsg = '<code>' + msgTxtContent + '</code>';
+      uiChatTextbox.value = finalMsg;
+    });
     //use else if to add specific colors based on other usernames
   }
 }
@@ -330,6 +337,7 @@ setInterval(function () {
   if (logincookie != 0) {
     getChatFromDB();
   }
+  console.trace();
 }, 60 * 1000); // 60 * 1000 milsec (every 60 seconds)
 
 function login_setup() {
@@ -384,8 +392,8 @@ uiLoginButton.addEventListener('click', function () {
 
 uiLoginContainer.addEventListener('keyup', function (event) {
   if (event.code === 'Enter') {
-    console.log(uiLoginUserField.value);
-    console.log(uiLoginPassField.value);
+    //console.log(uiLoginUserField.value);
+    //console.log(uiLoginPassField.value);
     user = uiLoginUserField.value;
     pass = uiLoginPassField.value;
     getAuth(user, pass);
@@ -436,6 +444,11 @@ uiChatReload.addEventListener('click', function () {
   uiChatTextbox.focus();
 });
 
+uiChatReload.addEventListener('mouseover', function () {
+  getChatFromDB();
+  uiChatTextbox.focus();
+});
+
 uiChatReload.addEventListener('mousedown', function () {
   enlargeReload();
   uiChatReload.classList.remove('pattern__stripes-1');
@@ -480,16 +493,10 @@ function sendString() {
       'h2',
       'h3',
       'h4',
+      'code',
     ],
     FORBID_ATTR: ['style', 'class', 'id', 'href', 'src', 'onclick'],
   }); //clean that yucky stuff
-  /***HIGHLY EXPERIMENTAL***/
-  /******
-  clean = clean.replace(
-    /\https:((.*)snipboard.io(.*))\.jpg/gim,
-    "<img src='https:$.jpg'><p>$</p>"
-  );
-  ********/
   clean = clean.replace(/\_\_(.*)\_\_/gim, '<em>$1</em>');
   clean = clean.replace(/\-\-(.*)\-\-/gim, '<del>$1</del>');
   clean = clean.replace(/\*\*(.*)\*\*/gim, '<b>$1</b>');
@@ -509,8 +516,8 @@ function sendString() {
     "<img src='Assets/dogeputinMedium.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    /\:(lmao)\:/gim,
-    "<img src='Assets/lmao.png' class='customEmoji'>"
+    /\:(lmao)\:/gi,
+    "<img src='Assets/lmao.png' style='width:40px;height:40px;' class='customEmoji'>"
   );
   clean = clean.replace(
     /\:(thonk)\:/gim,
@@ -563,6 +570,10 @@ function sendString() {
     "<img class='chat__sticker' src='Assets/gifs/notsimple.gif'>"
   );
   clean = clean.replace(
+    /(brr)/gim,
+    "<img class='chat__sticker' src='Assets/gifs/brrr.gif'>"
+  );
+  clean = clean.replace(
     /\:(bye)\:/gim,
     "<img class='chat__sticker' src='Assets/gifs/bye.gif'>"
   );
@@ -593,6 +604,7 @@ function sendString() {
     // set the textbox to empty
     uiChatTextbox.value = '';
   }
+  chatMessageFormatter();
   scrollBottom();
 }
 
@@ -610,11 +622,11 @@ function saveToDB(savestring, onSuccess) {
 
   var apikey = getCookie('logged_in');
   var poststring = 'action=save&savestring=' + savestring + '&apikey=' + apikey;
-  console.log(poststring);
+  //console.log(poststring);
   xhttp.open('POST', 'chat.php', true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // php seems to need this
   xhttp.send(poststring);
-  console.log('saved to db');
+  //console.log('saved to db');
 }
 
 function getChatFromDB() {
@@ -654,7 +666,7 @@ function getChatFromDB() {
       uiChatLog.innerHTML = formatted_chatlog; // this.responseText should be from python
 
       uiChatLog.scrollTop = uiChatLog.scrollHeight; // this allows for the scrolling to the bottom of the textarea
-      format_chat_messages();
+      chatMessageFormatter();
       hashtag();
       findlinks();
       READ_details_toggle();
@@ -671,47 +683,36 @@ function getChatFromDB() {
 }
 
 function getAuth(user, pass) {
-  console.log('getAuth');
-
+  //console.log('getAuth');
   var xhttp = new XMLHttpRequest();
-
   // run this when the readstate changes
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // what to do if this request works
-
       //console.log(this.responseText);
       var responses = JSON.parse(this.responseText); //  use if response is json
       //var responses = this.responseText;
-
       //console.log('js responses: ');
       //console.log(responses);
       //console.log(typeof(responses));
       //console.log(responses[0][0]);
       //responses.forEach()
-
       // set cookie
       document.cookie = 'logged_in=' + responses.apikey;
       document.cookie = 'user=' + responses.user;
       //console.log(document.cookie);
-
       //document.cookie = "expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-
       //console.log(document.cookie);
-
       var logged_in = getCookie('logged_in');
       check_auth(responses.apikey);
-
       // change hide settings
-
       // load chat
-
       // to streamline, make this into a callable function
     }
   };
 
   var poststring = 'user=' + user + '&pass=' + pass;
-  console.log(poststring);
+  //console.log(poststring);
   xhttp.open('POST', 'auth.php', true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // php seems to need this
   xhttp.send(poststring);
@@ -883,9 +884,6 @@ function dyanmic_button_creation(buttonClass, injectionLocation, data) {
 //Dyanmically create emoji dropdown buttons
 dyanmic_button_creation('emote', 'emoji_dropdown', emojiData);
 //Dyanmically create emote dropdown buttons
-
-/***HIGHLY EXPERIMENTAL***/
-/********/
 document
   .getElementById('notificationSwitch')
   .addEventListener('click', function () {
@@ -928,8 +926,6 @@ for (let i = 0; i < perfEntries.length; i++) {
     uiChatLog.scrollTop = uiChatLog.scrollHeight;
   }
 }
-/***HIGHLY EXPERIMENTAL***/
-/********/
 uiChatFlush.addEventListener('click', function () {
   if (
     confirm(
@@ -946,12 +942,8 @@ uiChatFlush.addEventListener('click', function () {
   }
   uiChatLog.scrollTop = uiChatLog.scrollHeight;
 });
-
+console.clear();
 console.log(
   '%cWelcome to the place where all the Genius happens!',
   'color: red; font-size: 30px;'
 );
-//Doesnt work.....sigh
-window.addEventListener('DOMContentLoaded', (event) => {
-  uiChatLog.scrollTop = uiChatLog.scrollHeight;
-});

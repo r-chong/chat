@@ -165,7 +165,12 @@ h1 {
   text-align: center;
   font-size: 75;
 }
-
+/*I admit this goes against BEM (I think), 
+but for thors sake let it be, its needed in chat replies*/
+code {
+  background-color: #000000;
+  color: wheat;
+}
 /*/////////////////////////////////////////////////////////////////////
 				USER INTERFACE STATIC ELEMENTS
 /////////////////////////////////////////////////////////////////////*/
@@ -257,8 +262,10 @@ body .page__header--title {
   font-family: FontAwesome;
   font-size: 25px;
   height: 3rem;
-  min-width: 10%;
+  min-width: 5%;
+  max-width: 5%;
   float: right;
+  margin-left: -4%;
   cursor: pointer;
   background-color: transparent;
   border-radius: 7px;
@@ -266,21 +273,18 @@ body .page__header--title {
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
+  z-index: 1;
 }
 .chat__textbox--submit-btn:hover {
   border-radius: 7px;
   border-top-style: groove;
   border-right-style: groove;
   border-left-style: groove;
-  border-bottom-style: groove;
-}
-.chat__textbox--submit-btn:active {
-  height: 2.8rem;
-  min-width: 9.8%;
+  z-index: 1;
 }
 .chat__textbox {
   height: 3rem;
-  min-width: 90%;
+  min-width: 100%;
   font-size: 20px;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -323,8 +327,8 @@ a {
 .customEmoji {
   display: inline;
   margin-bottom: -4px;
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
 }
 /*/////////////////////////////////////////////////////////////////////
 					Navigation Sidebar
@@ -356,6 +360,16 @@ a {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+.nav__reload-btn:hover {
+  animation: rotate 2s;
+  animation-iteration-count: 2;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+
 /*/////////////////////////////////////////////////////////////////////
 						EMOJI TOOLBAR within Navigation Sidebar
 /////////////////////////////////////////////////////////////////////*/
@@ -488,10 +502,6 @@ body .emote-dropdown__dropdown-content {
 }
 .page__resources {
   font-size: 1.5rem;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  margin-left: 60px;
   overflow-x: hidden;
 }
 /*////////////////////////////////
@@ -725,7 +735,6 @@ a.resource-link {
   clear: both;
   display: table;
 }
-
 .chat__sticker {
   max-height: 200;
   max-width: 70%;
