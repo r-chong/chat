@@ -342,7 +342,7 @@ function detailsToggle() {
     uiShowDetailsText.textContent = "Show chat details"
   }
 }
-uiShowDetails.addEventListener("click", READ_details_toggle)
+uiShowDetails.addEventListener("click", detailsToggle)
 //Function to format user input and then send it to the DB
 function sendString() {
   //console.log("sendstring");
@@ -450,6 +450,19 @@ function sendString() {
   clean = clean.replace(
     /\:(bye)\:/gim,
     "<img class='chat__sticker' src='Assets/gifs/bye.gif'>"
+  );
+
+  clean = clean.replace(
+    /\:(vibe)\:/gim,
+    "<img class='chat__sticker' src='Assets/gifs/vibe.gif'>"
+  );
+  clean = clean.replace(
+    /\:(ugh)\:/gim,
+    "<img class='chat__sticker' src='Assets/gifs/ugh.gif'>"
+  );
+  clean = clean.replace(
+    /\:(huh)\:/gim,
+    "<img class='chat__sticker' src='Assets/huh.jpg'>"
   );
   var savestring = clean;
   //Why not just use var clean? Wat? Why make another variable?
