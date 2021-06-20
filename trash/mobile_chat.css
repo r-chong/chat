@@ -1,0 +1,204 @@
+/* script-wide */
+
+.hidden {display:none;}
+
+/*//////////////////////////////////*/
+
+#mainpg {width:90%; margin-left:5%;}
+#container {width:auto; height:120%;overflow:hidden;}
+
+/* chatlog <span> */
+
+.log_container {border: 1px solid gray; overflow-y:scroll;overflow-x:hidden;}
+
+.hashtag {color: #1da1f2;font-weight:900;}
+.mo .hashtag {color:#0000ff;font-weight:900;}
+
+.link {text-decoration: underline;color: Steelblue;}
+.link:hover {color:#1da1f2;}
+.mo .link:hover {color:blue;}
+
+a {color:Steelblue;}  
+.dark a {color: Steelblue;}
+.mo a {color:purple;}
+
+.tablinks {font-size:20;height:75;width:25%; background-color: #ffffff;}
+
+
+#memberList {width:15%; float:right;height:50%; text-align:center; border: 1px solid gray; font-size:100%}
+
+.scroll::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////// */
+									/*modes */
+/*/////////////////////////////////////////////////////////////////////////////////////// */
+
+/*mode colours*/
+
+	body {
+		background-color: white;
+		color: #343a42;
+		overflow:hidden;
+		transition: opacity 300ms;
+	}
+	
+	.dark {
+	background-color: #343a42;
+	color: #8492ae;
+	}
+
+	.mo {
+	background-color: #ff69b4;
+	color:black;
+	transition: opacity 300ms;
+	}
+
+/*tabs*/
+.active {background-color:#c2f5ff;}
+.dark .active {background-color:#c2f5ff;}
+.mo .active {background-color:#ffbadd};
+
+.radioButton {font-size:100%;}
+.dark input[type=button]  {color:#596988;}
+
+/* titleMNCW */
+
+body #titleMNCW {display:none;}
+.dark #titleMNCW {display:none;}
+.mo #titleMNCW {display:none;}
+
+/* loginContainer */
+
+#loginContainer {text-align:center;margin: auto;width:300px;margin-top:5%;border:2px solid #d1d1d1; border-radius: 30px; background-color:White;padding-bottom:15px;}
+.loginInput {font-size: 60%; width: 50%; color:SlateGray;border: 2px solid #d1d1d1;border-radius: 5px; padding:0%;}
+#loginSubmit {font-size:120%;margin-left:67%;font-family:verdana;color:DarkGray;background-color:GhostWhite;border: 2px solid #d1d1d1; border-radius: 5px; padding:0%;}
+
+#logout {padding:10px; width: 100%; font-size: 95%;}
+
+/*resource links*/
+
+.lynk {text-decoration:none;}
+#SectionsContentTop {display:none;}
+
+a.lynk:hover {background-color:gainsboro;color:#343a42;}
+.dark a.lynk:hover {background-color:#8492ae;color:black;}
+.mo a.lynk:hover {background-color:#ffbadd;color:black;}
+
+a.lynk {padding:5px;border:1px solid #343a42;border-radius:6px;color:#343a42;}
+.dark a.lynk {padding:5px;border:1px solid #8492ae;border-radius:6px;color:#8492ae;}
+.mo a.lynk {padding:5px;border:1px solid black;border-radius:6px;color:black;}
+
+/*emoji*/
+.emojiDiv {padding:4px;background-color:grey}
+
+/* misc */
+
+#quotesDiv {display:none;}
+textarea {font-size:100%;}
+a {color:Gray;}
+h1 {text-align:center;font-size:75;}
+.changelogLink {font-size:24;text-align:center;display:block;}
+.borderlineInsanity {border:1px solid grey;}
+#controlBox {position:absolute; bottom:0;height:auto;width:auto;}
+#reload {width:3rem;height: 4.5rem;display:inline;float:right;background-color:auto;}
+.reloadDown {background-color:grey;}
+#chatSubmit {font-size:20;width:5rem;float:right;}
+#chatTextbox {height:29;width:84.9%}
+
+
+.customEmoji {
+	display:inline;
+	margin-bottom:-4px;
+	width: 18px;
+	height: 18px;
+	}
+
+/*////////////////////////////////////////////////////*/
+
+.switch input { /*hide checkbox (html default)*/
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch { /*slider container*/
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  float:left;
+  margin-right:30px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+.dark input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+.mo input:checked + .slider {
+  background-color: blue;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.settings {padding-right:25%;margin-top:15px;}
+
+
+/* palette
+
+cool grey 8492ae
+queen blue 596988
+gunmetal 343a42
+charcoal 3f4650
+pink ff69b4
+
+twitter blue #1da1f2
+

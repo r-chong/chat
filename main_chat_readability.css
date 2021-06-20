@@ -133,7 +133,7 @@ body {
   overflow: hidden;
   font-family: 'Times New Roman', Times, serif;
   width: 100%;
-  height: 95%;
+  height: 100%;
 }
 
 .dark {
@@ -168,9 +168,14 @@ h1 {
 /*I admit this goes against BEM (I think), 
 but for thors sake let it be, its needed in chat replies*/
 code {
-  background-color: #000000;
-  color: wheat;
+  background-color: #00000098;
+  color: whitesmoke;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 3px;
+  display: block;
 }
+
 /*/////////////////////////////////////////////////////////////////////
 				USER INTERFACE STATIC ELEMENTS
 /////////////////////////////////////////////////////////////////////*/
@@ -344,8 +349,9 @@ a {
 .nav__sidebar-content {
   color: black;
   width: 100%;
-  height: 4.5rem;
+  height: 4rem;
   text-decoration: none;
+  border-radius: 0.5em;
   font-size: 20px;
   font-weight: 30px;
   text-shadow: 2px 2px 5px black;
@@ -354,6 +360,7 @@ a {
 .nav__reload-btn {
   width: 100%;
   height: 4.5rem;
+  border-radius: 0.5em;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
@@ -362,7 +369,7 @@ a {
 }
 .nav__reload-btn:hover {
   animation: rotate 2s;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
 }
 @keyframes rotate {
   0% {
@@ -657,15 +664,14 @@ a.resource-link {
 .quick-access {
   max-width: 3rem;
   min-height: 43px;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid transparent;
   border-radius: 7px;
   padding: 6px 6px 6px 6px;
   text-align: center;
   display: inline-block;
   font-size: 25px;
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .quick-access:hover {
   opacity: 1;
@@ -676,7 +682,8 @@ a.resource-link {
   color: black;
   position: fixed;
   bottom: 0;
-  width: 95%;
+  width: 97%;
+  z-index: 2;
 }
 .dark .cookie-alert {
   background-color: #8492ae;
@@ -696,6 +703,7 @@ a.resource-link {
   line-height: 20px;
   cursor: pointer;
   transition: 0.5s;
+  z-index: 2;
 }
 .dark .closebtn {
   color: white;
@@ -771,4 +779,37 @@ a.resource-link {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+/*--*/
+/* CSS Code for custom context menu*/
+.menu {
+  background-color: white;
+  width: 300px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: inherit;
+  padding: 3px;
+  display: none;
+  position: fixed;
+  overflow: auto;
+}
+.mo .menu {
+  background-color: #ff69b4;
+}
+.dark .menu {
+  background-color: #343a42;
+}
+.menu-item {
+  height: 20px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.mo .menu-item {
+  color: black;
+}
+.menu-item:hover {
+  cursor: pointer;
+  border-style: groove;
 }
