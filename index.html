@@ -208,25 +208,24 @@
 			<span id="password_visiblity" class="fa fa-eye"></span>
 		</p>
 		<button id="loginSubmit">Log In</button>
-		<p>Pro Tip: If you have a small screen use Genius Chat at 80x zoom!</p>
+		<p>Pro Tip: Use Genius Chat at 80x zoom!</p>
 	</div>
 	<noscript>
 		<h1>Please enable JavaScript, or use a different browser to run Genius Chat!</h1>
 	</noscript>
+	<!--Cookie Alert-->
 	<div id="cookieAlert" class="cookie-alert">
 		<span id="cookieAlertCloseBtn" class="closebtn">&times;</span>
 		<p>This site uses only <strong>essential</strong> cookies, by continuing to use this site you agree to
 			our ToS and our usage of cookies.</p>
 	</div>
-	<!--Context Menu-->
+	<!--Context Menu hidden until user chooses-->
 	<div id="replyContextMenu" class="menu">
 		<div id="replyButton" class="menu-item">Reply to Message</div>
 		<div onclick="getChatFromDB();" title="Reload the Chat, the YIP approves" class="menu-item">Reload the
 			Chat</div>
 	</div>
 	<div id="mainContextMenu" class="menu">
-		<div onclick="location.reload();" title="Reload the Page, we know you want more quotes."
-			class="menu-item"> Reload the Page</div>
 		<div onclick="getChatFromDB();" title="Reload the Chat, the YIP approves" class="menu-item">Reload the
 			Chat</div>
 		<div onclick="logout();" title="THE YIP IS WATCHING YOU" class="menu-item">Logout of U.G.C.W</div>
