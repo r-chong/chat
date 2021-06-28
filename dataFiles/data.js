@@ -1,5 +1,5 @@
-/* 
-This script is meant for emote data and dynamic emote creation.
+/*
+This script is meant for data and dynamic emote creation.
 Data within this file can be accessed within other JS files (kinda cool)
 */
 var emojiData = [
@@ -46,6 +46,7 @@ var stickerData = [
 		"<img src='Assets/dogeputinMedium.png' class='customEmoji'>",
 	],
 ];
+
 //Dynamic emoji button creation
 function dyanmic_button_creation(buttonClass, injectionLocation, data) {
 	for (let i = 0; i < data.length; i++) {

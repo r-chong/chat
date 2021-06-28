@@ -32,6 +32,10 @@ asana peach #FC636B
 discord blue #7289da
 android green #78C257
 .group/purpose__name-extra-details
+
+RULES:
+https://imgflip.com/i/5eh494
+border-radius: 0.3em; (Don't overdo it tho)
 -------------------------------------------------------------------*/
 
 /*/////////////////////////////////////////////////////////////////////
@@ -126,7 +130,10 @@ body .pattern__stripes-1 {
 }
 
 /* --- MODES --- */
-
+html {
+  width: 100%;
+  height: 100%;
+}
 body {
   background-color: white;
   color: #343a42;
@@ -287,6 +294,10 @@ body .page__header--title {
   border-left-style: groove;
   z-index: 1;
 }
+.chat__textbox--submit-btn:active {
+  margin-top: 0.2rem;
+  height: 2.75rem;
+}
 .chat__textbox {
   height: 3rem;
   min-width: 100%;
@@ -351,16 +362,17 @@ a {
   width: 100%;
   height: 4rem;
   text-decoration: none;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   font-size: 20px;
   font-weight: 30px;
   text-shadow: 2px 2px 5px black;
   -webkit-text-shadow: 2px #343a42;
+  margin-bottom: 2%;
 }
 .nav__reload-btn {
   width: 100%;
   height: 4.5rem;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
@@ -498,7 +510,7 @@ body .emote-dropdown__dropdown-content {
 .dark input[type='button'] {
   color: #596988;
 }
-
+/*All these should be replaced with an overarching class*/
 .page__spirit {
   margin-left: 60px;
   overflow-x: hidden;
@@ -508,6 +520,7 @@ body .emote-dropdown__dropdown-content {
   overflow-x: hidden;
 }
 .page__resources {
+  margin-left: 60px;
   font-size: 1.5rem;
   overflow-x: hidden;
 }
@@ -617,50 +630,107 @@ a.resource-link {
 
 /*//////////////////////////////*/
 
-/* --- loginContainer --- */
-#loginContainer {
-  text-align: center;
-  margin: auto;
-  width: 27%;
-  margin-top: 5%;
-  border: 2px solid #d1d1d1;
-  border-radius: 30px;
-  background-color: White;
-  padding-bottom: 15px;
+/* --- Login Container --- */
+.loginpg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.login-credentials__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 40%;
+  height: 100%;
+  padding: 1rem;
+}
+.login-image {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  height: 100%;
+}
+.login-credentials__title {
+  align-self: flex-start;
 }
 .loginInput {
-  font-size: 60%;
-  width: 50%;
-  font-size: 1.4rem;
-  color: SlateGray;
-  border: 2px solid #d1d1d1;
-  border-radius: 5px;
-  padding: 0%;
+  width: 80%;
+  height: 3rem;
+  font-size: 1rem;
+  background-color: inherit;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  border-radius: 0;
+  margin: 0.5rem;
+  color: black;
 }
-#password_visiblity {
+.loginInput:focus {
+  outline: none;
+}
+.mo .loginInput {
+  color: black;
+}
+.dark .loginInput {
+  color: #8492ae;
+}
+.loginInput:-webkit-autofill {
+  border-radius: 0;
+  box-shadow: inset;
+  color: black;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+/*When autofill happens the colors are messed up, the code below fixes it*/
+.mo .loginInput:-webkit-autofill {
+  box-shadow: inset;
+  -webkit-box-shadow: 0 0 0 1000px #ff69b4 inset !important;
+}
+.dark .loginInput:-webkit-autofill {
+  /*Doesn't work....the color of the text is black for some reason*/
+  color: #8492ae;
+  box-shadow: inset;
+  -webkit-box-shadow: 0 0 0 1000px #343a42 inset !important;
+}
+.login-credentials__pass-visibility {
   margin-left: -40px;
+  z-index: 1;
 }
-#loginSubmit {
-  font-size: 120%;
-  margin-left: 67%;
-  font-family: verdana;
-  color: DarkGray;
-  background-color: GhostWhite;
-  border: 2px solid #d1d1d1;
-  border-radius: 5px;
-  padding: 0%;
+.login-credentials__submit {
+  min-height: 4%;
+  max-height: 5%;
+  width: 80%;
+  font-size: 35px;
+  background-color: inherit;
+  margin: 0.5rem;
+  border-radius: 0.3em;
 }
-
+.login-credentials__submit:active {
+  margin-top: 0.65rem;
+  height: 2.75rem;
+}
+.login-submit__text {
+  margin-top: 0;
+  color: black;
+}
+.dark .login-submit__text {
+  color: #8492ae;
+}
 /* --- Log out button --- */
-#logout {
+.settings__logout-btn {
   padding: 10px;
-  width: 50%;
+  width: 30%;
   font-size: 95%;
   margin-top: 10px;
+  border-radius: 0.3em;
+}
+.settings__logout-btn:active {
+  margin-top: 0.2rem;
+  height: 2.75rem;
 }
 /*--*/
-/*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
-/*Leave for the mean time DO NOT DELETE*/
+/*Quick Access is for the chat flush (and later the textbox clear)*/
+
 .quick-access {
   max-width: 3rem;
   min-height: 43px;
@@ -766,15 +836,13 @@ a.resource-link {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 20%;
+  border-radius: 0.3em;
 }
 .dark ::-webkit-scrollbar-thumb {
   background: #3f4650;
-  border-radius: 20%;
 }
 .mo ::-webkit-scrollbar-thumb {
   background: #7f9ac0;
-  border-radius: 20%;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {

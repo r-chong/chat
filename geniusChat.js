@@ -6,6 +6,8 @@ var mainMenuDisplayed = false;
 var mainMenuBox = null;
 var replyMenuDisplayed = false;
 var replyMenuBox = null;
+var mainMenuReload = document.getElementById("contextMenuChatReload")
+var mainMenuLogout = document.getElementById("contextMenuLogout")
 //Login Page variables
 var uiPassVisiblityEye = document.getElementById('password_visiblity');
 var uiLoginContainer = document.getElementById('loginContainer');
@@ -21,8 +23,7 @@ var uiChatSubmit = document.getElementById('chatSubmit');
 var uiLogout = document.getElementById('logout');
 var uiChatFlush = document.getElementById('chatFlush');
 var uiPageTitle = document.getElementById('pageTitle')
-var uiShowDetails = document.getElementById("detailsToggle")
-var uiShowDetailsText = document.getElementById("detailsToggleText")
+var uiHideDetails = document.getElementById("detailsToggle")
 var uiChatTab = document.getElementById("chatTab")
 var uiResourcesTab = document.getElementById("resourcesTab")
 var uiSettingsTab = document.getElementById("settingsTab")
@@ -74,8 +75,8 @@ function check_auth(apikey) {
     //console.log("you are not logged in");
     //show loginContainer page
     uiMainContainer.classList.add('hide');
-  } // logged in
-  else {
+    uiLoginUserField.focus()
+  } else {
     login_setup();
     getChatFromDB();
   }
@@ -109,9 +110,11 @@ uiPassVisiblityEye.addEventListener('click', function () {
   if (pass_input.type == 'text') {
     pass_input.type = 'password';
     uiPassVisiblityEye.className = 'fa fa-eye';
+    uiPassVisiblityEye.setAttribute("z-index", "1")
   } else {
     pass_input.type = 'text';
     uiPassVisiblityEye.className = 'fa fa-eye-slash';
+    uiPassVisiblityEye.setAttribute("z-index", "1")
   }
 });
 ////////////////////
@@ -178,7 +181,7 @@ function clearActiveTabs() {
 }
 //For custom context menu (do not remove)
 //Displaying a context menu itself should be a function, but can't be
-function mainContextMenu(event) {
+function openContextMenu(event) {
   event.preventDefault()
   if (replyMenuDisplayed == true) {
     replyMenuBox.style.display = "none";
@@ -199,6 +202,17 @@ function mainContextMenu(event) {
     document.getElementById("replyButton").addEventListener("click", function () {
       uiChatTextbox.value = finalMsg;
     })
+  } else if ((event.target.parentElement.className.includes("loginpg")) || (event.target.parentElement.parentElement.className.includes("loginpg"))) {
+    var left = arguments[0].clientX;
+    var top = arguments[0].clientY;
+    mainMenuBox = document.getElementById("mainContextMenu");
+    mainMenuBox.style.left = left + "px";
+    mainMenuBox.style.top = top + "px";
+    mainMenuBox.style.display = "block";
+    arguments[0].preventDefault();
+    mainMenuDisplayed = true;
+    mainMenuReload.classList.add("hide")
+    mainMenuLogout.classList.add("hide")
   } else {
     var left = arguments[0].clientX;
     var top = arguments[0].clientY;
@@ -208,9 +222,11 @@ function mainContextMenu(event) {
     mainMenuBox.style.display = "block";
     arguments[0].preventDefault();
     mainMenuDisplayed = true;
+    mainMenuReload.classList.remove("hide")
+    mainMenuLogout.classList.remove("hide")
   }
 }
-document.getElementById("body").addEventListener('contextmenu', mainContextMenu, false);
+document.getElementById("body").addEventListener('contextmenu', openContextMenu, false);
 
 //For messages
 window.addEventListener("click", function () {
@@ -326,23 +342,21 @@ function chatMessageFormatter() {
 //Show or hide details
 function detailsToggle() {
   var element = document.getElementsByClassName('details');
-  if (uiShowDetails.checked == false) {
+  if (uiHideDetails.checked == false) {
     //if details off, show details
     for (let i = 0; i < element.length; i++) {
       element[i].classList.remove('hidden');
       //console.log(element[i].className);
     }
-    uiShowDetailsText.textContent = "Hide chat details"
-  } else if (uiShowDetails.checked == true) {
+  } else if (uiHideDetails.checked == true) {
     //check if details off, hide details
     for (let i = 0; i < element.length; i++) {
       element[i].classList.add('hidden');
       //console.log(element[i].className);
     }
-    uiShowDetailsText.textContent = "Show chat details"
   }
 }
-uiShowDetails.addEventListener("click", detailsToggle)
+uiHideDetails.addEventListener("click", detailsToggle)
 //Function to format user input and then send it to the DB
 function sendString() {
   //console.log("sendstring");
@@ -874,7 +888,7 @@ $("#mainpg #log").html(function(_, html){
 });
 */
 
-//Let this be
+/* //Let this be
 console.log(
   '%cWelcome to the place where all the Genius happens!',
   'color: red; font-size: 30px;'
@@ -898,7 +912,7 @@ console.log(`%c
 ░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌░░
 ░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀░░░
 ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░
-░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░`, "font-family:monospace")
+░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░`, "font-family:monospace") */
 
 //What do these lines do??
 document.getElementById('resourcesTab').style.display = 'none';

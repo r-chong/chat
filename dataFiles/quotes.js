@@ -569,6 +569,8 @@ var quoteArray = [
   ['Remember M.N.C.W then came U.G.C.W', 'Genius Chat'],
   ['We gotta start thinking more progressively.', 'Sandy Munro'],
   ['Whatchu kno&#39s &#39sbout rolling down in the deep', 'Masked Wolf'],
+  ['Thine term, nay. Our term, yay', 'Mo'],
+  ['If one does not try, one will never know.', 'Mohammad Anwar (A wise Grade 9 student)'],
 ]
 //math.random generates a number in between 0 and 1
 //math.floor rounds the math.random
