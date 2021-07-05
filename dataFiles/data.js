@@ -32,19 +32,10 @@ var emojiData = [
 
 //Example Sticker Array (WIP for Genius Chat 4.0)
 var stickerData = [
-	['stickerChatName', 'stickerName', 'stickerFilename', 'stickerTitle'],
-	[
-		':dogeputin:',
-		'Miny Doge',
-		'doge1',
-		"<img src='Assets/dogeputinMicro.png' class='customEmoji'>",
-	],
-	[
-		':dogeputinXL',
-		'Much Big Doge',
-		'doge2',
-		"<img src='Assets/dogeputinMedium.png' class='customEmoji'>",
-	],
+	//Follow example:
+	/*['stickerChatName', 'stickerName', 'stickerTitle', 'stickerFilename',],*/
+	[':dogeputin:','Miny Doge','doge1', "<img src='Assets/dogeputinMicro.png' class='customEmoji'>",],
+	[':dogeputinXL','Much Big Doge','doge2',"<img src='Assets/dogeputinMedium.png' class='customEmoji'>",],
 ];
 
 //Dynamic emoji button creation

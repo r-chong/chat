@@ -1,13 +1,14 @@
+'use strict';
 ////////////////////
 /*VARIABLES*/
 ////////////////////
 //Context menu variables
 var mainMenuDisplayed = false;
-var mainMenuBox = null;
+var mainMenuBox = document.getElementById('mainContextMenu');
 var replyMenuDisplayed = false;
-var replyMenuBox = null;
-var mainMenuReload = document.getElementById("contextMenuChatReload")
-var mainMenuLogout = document.getElementById("contextMenuLogout")
+var replyMenuBox = document.getElementById('replyContextMenu');
+var mainMenuReload = document.getElementById('contextMenuChatReload');
+var mainMenuLogout = document.getElementById('contextMenuLogout');
 //Login Page variables
 var uiPassVisiblityEye = document.getElementById('password_visiblity');
 var uiLoginContainer = document.getElementById('loginContainer');
@@ -22,12 +23,13 @@ var uiChatReload = document.getElementById('reload');
 var uiChatSubmit = document.getElementById('chatSubmit');
 var uiLogout = document.getElementById('logout');
 var uiChatFlush = document.getElementById('chatFlush');
-var uiPageTitle = document.getElementById('pageTitle')
-var uiHideDetails = document.getElementById("detailsToggle")
-var uiChatTab = document.getElementById("chatTab")
-var uiResourcesTab = document.getElementById("resourcesTab")
-var uiSettingsTab = document.getElementById("settingsTab")
-var uiSpiritTab = document.getElementById("spiritTab")
+var uiPageTitle = document.getElementById('pageTitle');
+var uiHideDetails = document.getElementById('detailsToggle');
+var uiChatTab = document.getElementById('chatTab');
+var uiResourcesTab = document.getElementById('resourcesTab');
+var uiSettingsTab = document.getElementById('settingsTab');
+var uiSpiritTab = document.getElementById('spiritTab');
+//IMPROVEMENT: Remove 'ui' from all variables
 ////////////////////
 /*Cookie Creation*/
 ////////////////////
@@ -75,7 +77,7 @@ function check_auth(apikey) {
     //console.log("you are not logged in");
     //show loginContainer page
     uiMainContainer.classList.add('hide');
-    uiLoginUserField.focus()
+    uiLoginUserField.focus();
   } else {
     login_setup();
     getChatFromDB();
@@ -92,16 +94,16 @@ function login_setup() {
 function loginValidation() {
   //console.log(uiLoginUserField.value);
   //console.log(uiLoginPassField.value);
-  user = uiLoginUserField.value;
-  pass = uiLoginPassField.value;
+  let user = uiLoginUserField.value;
+  let pass = uiLoginPassField.value;
   getAuth(user, pass);
 }
 uiLoginButton.addEventListener('click', function () {
-  loginValidation()
+  loginValidation();
 });
 uiLoginContainer.addEventListener('keyup', function (event) {
   if (event.code === 'Enter') {
-    loginValidation()
+    loginValidation();
   }
 });
 //Login Page Password Visibility Event Listener
@@ -110,11 +112,11 @@ uiPassVisiblityEye.addEventListener('click', function () {
   if (pass_input.type == 'text') {
     pass_input.type = 'password';
     uiPassVisiblityEye.className = 'fa fa-eye';
-    uiPassVisiblityEye.setAttribute("z-index", "1")
+    uiPassVisiblityEye.setAttribute('z-index', '1');
   } else {
     pass_input.type = 'text';
     uiPassVisiblityEye.className = 'fa fa-eye-slash';
-    uiPassVisiblityEye.setAttribute("z-index", "1")
+    uiPassVisiblityEye.setAttribute('z-index', '1');
   }
 });
 ////////////////////
@@ -124,14 +126,35 @@ uiPassVisiblityEye.addEventListener('click', function () {
 ////////////////////
 /*Tabs> Tab display functions*/
 ////////////////////
-function openTab() {
+document.getElementById('chat').addEventListener('click', function (element) {
+  openTab(element);
+  setPageTitle(element.target.id);
+  //The ID is the page name
+});
+document
+  .getElementById('resources')
+  .addEventListener('click', function (element) {
+    openTab(element);
+    setPageTitle(element.target.id);
+  });
+document
+  .getElementById('settings')
+  .addEventListener('click', function (element) {
+    openTab(element);
+    setPageTitle(element.target.id);
+  });
+document.getElementById('spirit').addEventListener('click', function (element) {
+  openTab(element);
+  setPageTitle(element.target.id);
+});
+
+function openTab(element) {
   //console.log("opentab");
   //console.log(this.document.activeElement);
-  var el = this.document.activeElement;
+  var el = element.target;
   var tabname = el.id;
   //declare all variables
-  //is tab_button even needed?
-  var tabindex, tabcontent, tab_button;
+  var tabindex, tabcontent;
   //finds all tabcontent
   tabcontent = document.getElementsByClassName('tabcontent');
   //console.log('tabcontent');
@@ -146,24 +169,28 @@ function openTab() {
   //console.log(evt);
   el.className += ' active';
   el.className += ' pattern__stripes-1';
-  document.getElementById(tabname + 'Tab').style.display = 'block'; // I added ids of tabname+"Content" to each tab content to get them to be callable with their tabname
-  if (tabname == 'Chat') {
+  document.getElementById(tabname + 'Tab').style.display = 'block'; // I added ids of tabname+"Tab" to each tab content to get them to be callable with their tabname
+}
+
+function setPageTitle(tabname) {
+  let tabnameToTitleCase = titleCase(tabname);
+  //The two 'ifs' are special cases
+  if (tabname == 'chat') {
     uiPageTitle.innerHTML = 'Genius Chat';
     uiChatTextbox.focus();
-  } else if (tabname == 'Sections') {
-    uiPageTitle.innerHTML = 'Resources';
-  } else if (tabname == 'Other') {
-    uiPageTitle.innerHTML = 'Settings';
-  } else if (tabname == 'Spirit') {
+  } else if (tabname == 'spirit') {
     uiPageTitle.innerHTML = 'Spirit World';
+  } else {
+    uiPageTitle.innerHTML = tabnameToTitleCase;
   }
 }
+
 function clearActiveTabs() {
   // clear active from the tablinks
-  tab_button = document.getElementsByClassName('nav__sidebar-content');
+  var tab_button = document.getElementsByClassName('nav__sidebar-content');
   ////console.log('tablinks');
   ////console.log(tablinks);
-  for (tabindex = 0; tabindex < tab_button.length; tabindex++) {
+  for (var tabindex = 0; tabindex < tab_button.length; tabindex++) {
     //console.log(tab_button[tabindex].className);
     //tablinks[tabindex].classList.remove("active"); // alternative command
     ////console.log('here');
@@ -182,61 +209,66 @@ function clearActiveTabs() {
 //For custom context menu (do not remove)
 //Displaying a context menu itself should be a function, but can't be
 function openContextMenu(event) {
-  event.preventDefault()
+  event.preventDefault();
   if (replyMenuDisplayed == true) {
-    replyMenuBox.style.display = "none";
+    replyMenuBox.style.display = 'none';
   } else if (mainMenuDisplayed == true) {
-    mainMenuBox.style.display = "none";
+    mainMenuBox.style.display = 'none';
   }
-  if ((event.target.parentElement.className.includes("chatline")) || (event.target.parentElement.parentElement.className.includes("chatline"))) {
-    var left = arguments[0].clientX;
-    var top = arguments[0].clientY;
-    replyMenuBox = document.getElementById("replyContextMenu");
-    replyMenuBox.style.left = left + "px";
-    replyMenuBox.style.top = top + "px";
-    replyMenuBox.style.display = "block";
-    arguments[0].preventDefault();
+  var left = arguments[0].clientX;
+  var top = arguments[0].clientY;
+  let eventParentElement = event.target.parentElement.className;
+  let eventGrandParentElement =
+    event.target.parentElement.parentElement.className;
+
+  if (
+    eventParentElement.includes('chatline') ||
+    eventGrandParentElement.includes('chatline')
+  ) {
+    displayContextMenu(left, top, replyMenuBox);
     replyMenuDisplayed = true;
     let msgTxtContent = event.target.parentElement.textContent;
     let finalMsg = '<code>' + msgTxtContent + '</code>';
-    document.getElementById("replyButton").addEventListener("click", function () {
-      uiChatTextbox.value = finalMsg;
-    })
-  } else if ((event.target.parentElement.className.includes("loginpg")) || (event.target.parentElement.parentElement.className.includes("loginpg"))) {
-    var left = arguments[0].clientX;
-    var top = arguments[0].clientY;
-    mainMenuBox = document.getElementById("mainContextMenu");
-    mainMenuBox.style.left = left + "px";
-    mainMenuBox.style.top = top + "px";
-    mainMenuBox.style.display = "block";
-    arguments[0].preventDefault();
-    mainMenuDisplayed = true;
-    mainMenuReload.classList.add("hide")
-    mainMenuLogout.classList.add("hide")
+    document
+      .getElementById('replyButton')
+      .addEventListener('click', function () {
+        uiChatTextbox.value = finalMsg;
+      });
+  } else if (
+    eventParentElement.includes('loginpg') ||
+    eventGrandParentElement.includes('loginpg')
+  ) {
+    displayContextMenu(left, top, mainMenuBox);
+    mainMenuReload.classList.add('hide');
+    mainMenuLogout.classList.add('hide');
   } else {
-    var left = arguments[0].clientX;
-    var top = arguments[0].clientY;
-    mainMenuBox = document.getElementById("mainContextMenu");
-    mainMenuBox.style.left = left + "px";
-    mainMenuBox.style.top = top + "px";
-    mainMenuBox.style.display = "block";
-    arguments[0].preventDefault();
-    mainMenuDisplayed = true;
-    mainMenuReload.classList.remove("hide")
-    mainMenuLogout.classList.remove("hide")
+    displayContextMenu(left, top, mainMenuBox);
+    mainMenuReload.classList.remove('hide');
+    mainMenuLogout.classList.remove('hide');
   }
 }
-document.getElementById("body").addEventListener('contextmenu', openContextMenu, false);
-
+document
+  .getElementById('body')
+  .addEventListener('contextmenu', openContextMenu, false);
+function displayContextMenu(leftPosition, topPosition, menu) {
+  menu.style.left = leftPosition + 'px';
+  menu.style.top = topPosition + 'px';
+  menu.style.display = 'block';
+  mainMenuDisplayed = true;
+}
 //For messages
-window.addEventListener("click", function () {
-  if (replyMenuDisplayed == true) {
-    replyMenuBox.style.display = "none";
-  }
-  if (mainMenuDisplayed == true) {
-    mainMenuBox.style.display = "none";
-  }
-}, true);
+window.addEventListener(
+  'click',
+  function () {
+    if (replyMenuDisplayed == true) {
+      replyMenuBox.style.display = 'none';
+    }
+    if (mainMenuDisplayed == true) {
+      mainMenuBox.style.display = 'none';
+    }
+  },
+  true
+);
 ////////////////////
 /*Tabs > Chat Related Functions*/
 ////////////////////
@@ -271,8 +303,6 @@ uiChatReload.addEventListener('mouseover', function () {
 });
 
 uiChatReload.addEventListener('mousedown', function () {
-  //Enlarge reload doesn't do anything
-  //enlargeReload();
   uiChatReload.classList.remove('pattern__stripes-1');
   uiChatReload.classList.add('pattern__stripes-2');
 });
@@ -299,7 +329,7 @@ function hashtag() {
   //	console.log('test123');
   //var tempray = $("#mainpg #log").html();
   //console.log(tempray);
-  $('#mainpg #chatLog').html(function (_, html) {
+  $('#chatLog').html(function (_, html) {
     return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
   });
 }
@@ -330,12 +360,12 @@ function chatMessageFormatter() {
       chatMsgs[i].classList.add('chat-msg--me');
     }
     let msg_box = chatMsgs[i];
-    msg_box.addEventListener("dragend", function (event) {
+    msg_box.addEventListener('dragend', function (event) {
       let msgTxtContent = event.target.textContent;
       let finalMsg = '<code>' + msgTxtContent + '</code>';
       uiChatTextbox.value = finalMsg;
-      console.log("Jun 18, 10:44pm [YIP]: ughhhhh, replies are such a DRAG")
-    })
+      console.log('Jun 18, 10:44pm [YIP]: ughhhhh, replies are such a DRAG');
+    });
     //use else if to add specific colors based on other usernames
   }
 }
@@ -356,7 +386,7 @@ function detailsToggle() {
     }
   }
 }
-uiHideDetails.addEventListener("click", detailsToggle)
+uiHideDetails.addEventListener('click', detailsToggle);
 //Function to format user input and then send it to the DB
 function sendString() {
   //console.log("sendstring");
@@ -478,8 +508,14 @@ function sendString() {
     /\:(huh)\:/gim,
     "<img class='chat__sticker' src='Assets/huh.jpg'>"
   );
+  //Troll reese
+  let date = new Date();
+  let dayNumber = date.getDay();
+  if (dayNumber == '6') {
+    clean = oldEnglish(clean);
+  }
   var savestring = clean;
-  //Why not just use var clean? Wat? Why make another variable?
+  //IMPROVEMENT: Why not just use var clean? Wat? Why make another variable?
 
   //var savestring = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style']}); //clean that yucky stuff
   //console.log(savestring);
@@ -645,7 +681,7 @@ uiLogout.addEventListener('click', logout());
 ////////////////////
 document.getElementById('modeDefault').addEventListener('change', set_mode);
 document.getElementById('modeDark').addEventListener('change', set_mode);
-document.getElementById('modeMo').addEventListener('change', set_mode)
+document.getElementById('modeMo').addEventListener('change', set_mode);
 
 //Find which mode is set
 function findMode() {
@@ -786,6 +822,50 @@ for (let i = 0; i < perfEntries.length; i++) {
     uiChatLog.scrollTop = uiChatLog.scrollHeight;
   }
 }
+////////////////////
+/*Misc*/
+////////////////////
+//A function to turn strings into 'Title Case' (there is no default function)
+function titleCase(string) {
+  string = string.toLowerCase().split(' ');
+  for (var i = 0; i < string.length; i++) {
+    string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+  }
+  return string.join(' ');
+}
+
+//Temporary array to troll reese
+const oldEnglishWords = [
+  ['you', 'thou'],
+  ['you?', 'thou?'],
+  ['you!', 'thou!'],
+  ['MUBB', 'MUBBETH'],
+  ['are', 'art'],
+  ['have', 'hath'],
+  ['between', 'betwixt'],
+  ['here', 'hither'],
+  ['where', 'wither'],
+  ['will', 'wilt'],
+  ['when ', 'whence'],
+  ['has', 'hast'],
+  ['pog', 'jesu'],
+  ['this', 'tis'],
+  ['hello', 'good morrow to you'],
+  ['hey', 'ho'],
+  ['yourself', 'thyself'],
+];
+//Clunky function made in 30 min, make it BETTER
+function oldEnglish(string) {
+  string = string.toLowerCase().split(' ');
+  for (var i = 0; i < string.length; i++) {
+    for (var k = 0; k < oldEnglishWords.length; k++) {
+      if (string[i] == oldEnglishWords[k][0]) {
+        string[i] = oldEnglishWords[k][1];
+      }
+    }
+  }
+  return string.join(' ');
+}
 
 //Get rid of this after Sticker Array is functioning
 //Worst code I've written in my life - Mo
@@ -797,32 +877,6 @@ function getEmoji(y) {
 
 //Unused functions, code
 /*
-function findlinks2() {
-  const linkRx = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/;
-
-  $("#mainpg #log").html(function (_, html) {
-    return html.replace(linkRx);
-  }
-});
-$(document).ready(function () {
-  $(".emote").click(function () {
-    // $(this).toggleClass("pattern__stripes-2");
-    $(this).addClass('pattern__stripes-2');
-    $(this).removeClass('pattern__stripes-2');
-  });
-})
-$("#reload").mouseenter(
-  function () { $(this).addClass('pattern__stripes-1') },
-  function () { $(this).removeClass('pattern__stripes-1') }
-);
-
-function getTabIndex(tabName) { document.getElementBy }
-//this part messed it up for some reason
-var ui_chat = document.getElementById("Chat");
-ui_chat.onclick = function () {
-  //	//console.log(ui_chat);
-  openTab(ui_chat, ui_chat.value);
-};
 function testApi() {
  var xhttp = new XMLHttpRequest();
   // run this when the readstate changes
@@ -841,59 +895,16 @@ xhttp.onreadystatechange = function () {
   xhttp.open("GET", "chat.php?action=test", true);
   xhttp.send();
   //console.log('saved to db');
-]
-function enlargeReload() {
-  //document.getElementById("reload").width = "110%";
-  //var el = document.getElementById("reload");
-  //console.log(uiChatReload);
-  //el.style.width="12%";
-  //el.style.height="7.5%";
-  uiChatReload.style.backgroundColor = '#c2f5ff';
 }
-async function pauseMe() {
-  await sleep(2000);
-  //console.log("MS since start:", Date.now() - start);
-}
-function details_toggle() {
-  //console.log(toggle);
-  var element = document.getElementsByClassName('details');
-  ////console.log(object);
-  if (toggle == false) {
-    //if it is off, turn on --> remove hide
-    ////console.log(element);
-    toggle = true;
-    // Iterate through the retrieved elements and remove hidden
-    for (let i = 0; i < element.length; i++) {
-      element[i].classList.remove('hidden');
-      //console.log(element[i].className);
-    }
-  } else {
-    //if on, turn off --> add hide
-    toggle = false;
-    //console.log("nay");
-
-    // Iterate through the retrieved elements and add hidden
-    for (let i = 0; i < element.length; i++) {
-      element[i].classList.add('hidden');
-      //console.log(element[i].className);
-    }
-  }
-}
-//console.log("load");
-//run functions on startup
-//console.log(toggle);
-//$(document).ready(function(){
-$("#mainpg #log").html(function(_, html){
- return html.replace(/(\#\w+)/g, '<span class="hashtag">$1</span>');
-});
 */
 
-/* //Let this be
+//Let this be
 console.log(
   '%cWelcome to the place where all the Genius happens!',
   'color: red; font-size: 30px;'
 );
-console.log(`%c
+console.log(
+  `%c
 ░░░░░░░░░▄░░░░░░░░░░░░░░▄░░░░
 ░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌░░░
 ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░
@@ -912,15 +923,16 @@ console.log(`%c
 ░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌░░
 ░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀░░░
 ░░░░░░▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀░░░░░
-░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░`, "font-family:monospace") */
-
+░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░`,
+  'font-family:monospace'
+);
 //What do these lines do??
 document.getElementById('resourcesTab').style.display = 'none';
 document.getElementById('settingsTab').style.display = 'none';
 document.getElementById('spiritTab').style.display = 'none';
 //The rest makes sense
 var loginCookie = getCookie('logged_in');
-console.log(loginCookie)
+console.log(loginCookie);
 check_auth(loginCookie);
 scrollBottom();
 checkPreferredMode();

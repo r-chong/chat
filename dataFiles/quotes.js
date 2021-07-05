@@ -579,7 +579,9 @@ var quoteArray = [
 
 var quoteNum = quoteArray.length
 var random_number = Math.floor(Math.random() * quoteNum);
+
 console.log(random_number)
-//Leave this, needed for quote debugging. Let it be until 2021-07-16
+//Leave this, needed for quote debugging. Let it be until 2021-07-25
+
 document.getElementById('quotes').innerHTML = quoteArray[random_number][0];
 document.getElementById('author').innerHTML = '- ' + quoteArray[random_number][1];
