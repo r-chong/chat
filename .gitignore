@@ -4,3 +4,6 @@ Backups/
 DOMPurify-main/
 Other/
 tests/
+config-setup.php
+xtra-impo-code.js
+.htaccess
