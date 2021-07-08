@@ -85,9 +85,9 @@ a {color:Steelblue;}
 .radioButton {font-size:100%;}
 .dark input[type=button]  {color:#596988;}
 
-/* titleMNCW */
+/* pageTitle */
 
-body #titleMNCW {
+body #pageTitle {
 	display: block;
 	color: white;
 	font-size: 56px;
@@ -95,7 +95,7 @@ body #titleMNCW {
 	text-shadow: 0px 4px 4px #282828;
 }
 
-.dark #titleMNCW {
+.dark #pageTitle {
 	display: block;
 	color: #8492ae;
 	font-size: 56px;
@@ -103,7 +103,7 @@ body #titleMNCW {
 	text-shadow: 0px 4px 4px #282828;
 }
 
-.mo #titleMNCW {
+.mo #pageTitle {
 	display: block;
 	color: #ff69b4;
 	font-size: 56px;

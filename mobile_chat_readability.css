@@ -23,6 +23,17 @@ charcoal 3f4650
 pink ff69b4
 
 twitter blue #1da1f2
+<<<<<<< HEAD
+=======
+asana peach #FC636B
+discord blue #7289da
+android green #78C257
+.group/purpose__name-extra-details
+
+RULES:
+https://imgflip.com/i/5eh494
+border-radius: 0.3em; (Don't overdo it tho)
+>>>>>>> login_modern
 -------------------------------------------------------------------*/
 
 /*/////////////////////////////////////////////////////////////////////
@@ -30,7 +41,17 @@ twitter blue #1da1f2
 /////////////////////////////////////////////////////////////////////*/
 
 /* --- GLOBAL CLASSES --- */
+<<<<<<< HEAD
 .hidden {display:none;}
+=======
+.hidden {
+  display: none;
+}
+/*Both of these classes do the same thing, why do we have duplicates?*/
+.hide {
+  display: none;
+}
+>>>>>>> login_modern
 
 .pattern__stripes-1 {
 	/*opaque version*//* background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%); */
@@ -49,12 +70,27 @@ body .pattern__stripes-1 {background-image: linear-gradient(135deg, #8492ae 12.5
 
 
 /* --- MODES --- */
+<<<<<<< HEAD
 
 	body {
 		background-color: white;
 		color: #343a42;
 		overflow:hidden;
 	}
+=======
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: white;
+  color: #343a42;
+  overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  width: 100%;
+  height: 100%;
+}
+>>>>>>> login_modern
 
 	.dark {
 	background-color: #343a42;
@@ -78,14 +114,35 @@ body .pattern__stripes-1 {background-image: linear-gradient(135deg, #8492ae 12.5
 /*/////////////////////////////////////////////////////////////////////
 						DEFAULT BODY
 /////////////////////////////////////////////////////////////////////*/
+<<<<<<< HEAD
 
 textarea {font-size:100%;}
 a {color:Gray;}
 h1 {text-align:center;font-size:75;}
+=======
+a {
+  color: Gray;
+}
+h1 {
+  text-align: center;
+  font-size: 75;
+}
+/*I admit this goes against BEM (I think), 
+but for thors sake let it be, its needed in chat replies*/
+code {
+  background-color: #00000098;
+  color: whitesmoke;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 3px;
+  display: block;
+}
+>>>>>>> login_modern
 
 /*/////////////////////////////////////////////////////////////////////
 				USER INTERFACE STATIC ELEMENTS
 /////////////////////////////////////////////////////////////////////*/
+<<<<<<< HEAD
 #mainpg {width:70%; margin-left:12%;margin-bottom:100vh;}
 #container {width:auto;}
 
@@ -148,6 +205,68 @@ body #titleMNCW {
 	width: 25%;
 }
 
+=======
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.main-tabs__container {
+  width: 100%;
+  height: 100%;
+  margin-left: 12%;
+  overflow-x: hidden;
+}
+.tabcontent {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Header (Title + Quotes) --- */
+.page__header {
+  display: flex;
+  flex-direction: row;
+  max-height: 200px;
+}
+.page__header--title {
+  min-width: 40%;
+  font-size: 4rem;
+  text-align: center;
+  line-height: 1;
+  vertical-align: middle;
+  -webkit-text-stroke: 1px #282828;
+  text-shadow: 0px 4px 4px #282828;
+}
+body .page__header--title {
+  color: white;
+}
+.dark .page__header--title {
+  color: #8492ae;
+}
+.mo .page__header--title {
+  color: #ff69b4;
+}
+.page__header-quote-cont {
+  min-width: 50%;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 3.5%;
+}
+.page__header--quote {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 1rem;
+  line-height: 1;
+}
+.page__header--auth {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 1rem;
+  line-height: 0.4;
+}
+>>>>>>> login_modern
 /*////////////////////////////////
 		    CHAT UI
 ////////////////////////////////*/
@@ -159,6 +278,7 @@ body #titleMNCW {
 	}
 
 /* --- Chatlog --- */
+<<<<<<< HEAD
 .log_container {
 	border: 1px solid gray;
 	overflow-y:scroll;
@@ -177,6 +297,253 @@ body #titleMNCW {
 	height:29;
 	width:84.9%
 	}
+=======
+.log__container {
+  position: relative;
+  border: 1px solid gray;
+  overflow-y: scroll;
+  font-size: 1.2em;
+  width: 86%;
+  max-height: 65%;
+  /*MAX height is important*/
+  margin-right: 0px;
+  border-style: hidden;
+}
+/* --- Chat Controls --- */
+.chat__controls-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0%;
+  width: 86%;
+  max-height: 3rem;
+}
+.chat__textbox--submit-btn {
+  font-family: FontAwesome;
+  font-size: 25px;
+  height: 3rem;
+  min-width: 5%;
+  max-width: 5%;
+  float: right;
+  margin-left: -4%;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 7px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  z-index: 1;
+}
+.chat__textbox--submit-btn:hover {
+  border-radius: 7px;
+  border-top-style: groove;
+  border-right-style: groove;
+  border-left-style: groove;
+  z-index: 1;
+}
+.chat__textbox--submit-btn:active {
+  margin-top: 0.2rem;
+  height: 2.75rem;
+}
+.chat__textbox {
+  height: 3rem;
+  min-width: 100%;
+  font-size: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  margin-left: 0%;
+}
+.chat__textbox:focus {
+  outline: none;
+}
+/*/////////////////////////////////////////////////////////////////////
+					CHAT MARKUP / FORMATTING
+/////////////////////////////////////////////////////////////////////*/
+
+/* --- Default HTML tags --- */
+.log__container h1 {
+  text-align: left;
+}
+
+/* --- Custom markup --- */
+.hashtag {
+  color: #1da1f2;
+  font-weight: 900;
+} /*(dark mode inherits default)*/
+.mo .hashtag {
+  color: #0000ff;
+  font-weight: 900;
+}
+
+a {
+  color: Steelblue;
+}
+.dark a {
+  color: Steelblue;
+}
+.mo a {
+  color: purple;
+}
+
+.customEmoji {
+  display: inline;
+  margin-bottom: -4px;
+  width: 30px;
+  height: 30px;
+}
+/*/////////////////////////////////////////////////////////////////////
+					Navigation Sidebar
+/////////////////////////////////////////////////////////////////////*/
+.nav__sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 11%;
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+}
+.nav__sidebar-content {
+  color: black;
+  width: 100%;
+  height: 4rem;
+  text-decoration: none;
+  border-radius: 0.3em;
+  font-size: 20px;
+  font-weight: 30px;
+  text-shadow: 2px 2px 5px black;
+  -webkit-text-shadow: 2px #343a42;
+  margin-bottom: 2%;
+}
+.nav__reload-btn {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: 0.3em;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.nav__reload-btn:hover {
+  animation: rotate 2s;
+  animation-iteration-count: 1;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+
+/*/////////////////////////////////////////////////////////////////////
+						EMOJI TOOLBAR within Navigation Sidebar
+/////////////////////////////////////////////////////////////////////*/
+/*Dropdown Code for emoji toolbar*/
+.emote-dropdown__emoji-icon {
+  /* previously "dropbtn" */
+  color: black;
+  background-image: url('Assets/lmao.png');
+  background-size: cover;
+  padding: 1px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 25px;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  opacity: 10%;
+  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
+}
+/*When removed the code below doesn't do much.....*/
+/*remove that annoying white space around dropbtn*/
+body .emote-dropdown__emoji-icon {
+  background-color: black;
+}
+.dark .emote-dropdown__emoji-icon {
+  background-color: #596988;
+}
+.mo .emote-dropdown__emoji-icon {
+  background-color: black;
+}
+
+.emote-dropdown__emoji-icon:hover {
+  opacity: 100%;
+}
+.dropdown:hover .emote-dropdown__dropdown-content {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
+/*emotes buttons*/
+.emote-dropdown__sticker-icon {
+  color: black;
+  background-image: url('Assets/dogeputinMedium.png');
+  background-size: cover;
+  padding: 1px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 7px;
+  width: 3rem;
+  height: 3rem;
+  opacity: 10%;
+  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
+}
+.emote-dropdown__sticker-icon:hover {
+  opacity: 1;
+}
+.emote-dropdown__dropdown-content {
+  display: none;
+  position: absolute;
+  max-width: 10rem;
+  height: 4.5rem;
+  border: 2px solid;
+  border-radius: 7px;
+  overflow-y: scroll;
+  z-index: 2;
+}
+/*background-color of the dropdown/*/
+body .emote-dropdown__dropdown-content {
+  background-color: lightgrey;
+}
+.dark .emote-dropdown__dropdown-content {
+  background-color: #59698870;
+}
+.mo .emote-dropdown__dropdown-content {
+  background-color: #ffbadd;
+}
+.emote-dropdown__container {
+  display: flex;
+  flex-flow: column;
+  margin-left: 0%;
+}
+/*--*/
+/*CSS Styling to make buttons within the dropdown to look NOICE*/
+.emote {
+  /*this is a button, see .customEmote for inline emote styling*/
+  font-family: monospace;
+  font-size: 1.2rem;
+  min-width: 2.2rem;
+  min-height: 30px;
+  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  border: 1px solid #596988;
+  background-color: transparent;
+  border-radius: 7px;
+  color: black;
+  box-shadow: 1px 4px 10px black;
+}
+.emote:hover {
+  border: 1px solid #343a42;
+  color: black;
+  cursor: pointer;
+}
+.emote:active {
+  background-color: #343a42;
+}
+>>>>>>> login_modern
 
 /*////////////////////////////////
 		    TABS
@@ -195,10 +562,30 @@ body #titleMNCW {
 	font-size:100%;
 	}
 
+<<<<<<< HEAD
 .dark input[type=button] {
 	color:#596988;
 	}
 
+=======
+.dark input[type='button'] {
+  color: #596988;
+}
+/*All these should be replaced with an overarching class*/
+.page__spirit {
+  margin-left: 60px;
+  overflow-x: hidden;
+}
+.page__settings {
+  margin-left: 60px;
+  overflow-x: hidden;
+}
+.page__resources {
+  margin-left: 60px;
+  font-size: 1.5rem;
+  overflow-x: hidden;
+}
+>>>>>>> login_modern
 /*////////////////////////////////
 		SMOOTH SWITCH
 ////////////////////////////////*/
@@ -233,7 +620,7 @@ body #titleMNCW {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -278,6 +665,7 @@ a.resource-link {padding:5px;border:1px solid #343a42;border-radius:6px;color:#3
 
 /*//////////////////////////////*/
 
+<<<<<<< HEAD
 /* --- loginContainer --- */
 #loginContainer {text-align:center;margin: auto;width:27%;margin-top:5%;border:2px solid #d1d1d1; border-radius: 30px; background-color:White;padding-bottom:15px;}
 .loginInput {font-size: 60%; width: 50%; color:SlateGray;border: 2px solid #d1d1d1;border-radius: 5px; padding:0%;}
@@ -364,6 +752,132 @@ margin: auto;
 }
 .emote-dropdown__sticker-icon:hover {
   opacity: 100%;
+=======
+/* --- Login Container --- */
+.loginpg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.login-credentials__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 40%;
+  height: 100%;
+  padding: 1rem;
+}
+.login-image {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  height: 100%;
+}
+.login-credentials__title {
+  align-self: flex-start;
+}
+.loginInput {
+  width: 80%;
+  height: 3rem;
+  font-size: 1rem;
+  background-color: inherit;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  border-radius: 0;
+  margin: 0.5rem;
+  color: black;
+}
+.loginInput:focus {
+  outline: none;
+}
+.mo .loginInput {
+  color: black;
+}
+.dark .loginInput {
+  color: #8492ae;
+}
+.loginInput:-webkit-autofill {
+  border-radius: 0;
+  box-shadow: inset;
+  color: black;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+/*When autofill happens the colors are messed up, the code below fixes it*/
+.mo .loginInput:-webkit-autofill {
+  box-shadow: inset;
+  -webkit-box-shadow: 0 0 0 1000px #ff69b4 inset !important;
+}
+.dark .loginInput:-webkit-autofill {
+  /*Doesn't work....the color of the text is black for some reason*/
+  color: #8492ae;
+  box-shadow: inset;
+  -webkit-box-shadow: 0 0 0 1000px #343a42 inset !important;
+}
+.login-credentials__pass-visibility {
+  margin-left: -40px;
+  z-index: 1;
+}
+.login-credentials__submit {
+  min-height: 4%;
+  max-height: 5%;
+  width: 80%;
+  font-size: 35px;
+  background-color: inherit;
+  margin: 0.5rem;
+  border-radius: 0.3em;
+}
+.login-credentials__submit:active {
+  margin-top: 0.65rem;
+  height: 2.75rem;
+}
+.login-submit__text {
+  margin-top: 0;
+  color: black;
+}
+.dark .login-submit__text {
+  color: #8492ae;
+}
+/* --- Log out button --- */
+.settings__logout-btn {
+  padding: 10px;
+  width: 30%;
+  font-size: 95%;
+  margin-top: 10px;
+  border-radius: 0.3em;
+}
+.settings__logout-btn:active {
+  margin-top: 0.2rem;
+  height: 2.75rem;
+}
+/*--*/
+/*Quick Access is for the chat flush (and later the textbox clear)*/
+
+.quick-access {
+  max-width: 3rem;
+  min-height: 43px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 6px 6px 6px 6px;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.quick-access:hover {
+  opacity: 1;
+}
+.cookie-alert {
+  padding: 20px;
+  background-color: whitesmoke;
+  color: black;
+  position: fixed;
+  bottom: 0;
+  width: 97%;
+  z-index: 2;
+>>>>>>> login_modern
 }
 
 .emote-dropdown__dropdown-content {
@@ -396,15 +910,72 @@ border-radius: 7px;
 color: black;
 box-shadow: 1px 4px 10px black;
 }
+<<<<<<< HEAD
 .emote:hover {
 border:1px solid #343a42;
 color:black;
 cursor: pointer;
+=======
+.closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 35px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
+>>>>>>> login_modern
 }
 .emote:active {
 	background-color:#343a42;
 }
+/*Highly Experimental*/
+.chatline {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 00px 10px 10px 10px;
+  max-width: 43%;
+}
+.chat-message__name {
+  word-wrap: break-word;
+  font-size: 1.4rem;
+}
+.chat-msg--me {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px 0px 10px 10px;
+  max-width: 43%;
+  position: relative;
+  left: 50%;
+  min-height: 2rem;
+}
 
+.chatline::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.chat__sticker {
+  max-height: 200;
+  max-width: 70%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+<<<<<<< HEAD
 /*--*/
 /*CSS Styling to make Quick Access buttons look NOICE (quick access includes chat flush and chat clear)*/
 .quick-access {
@@ -430,4 +1001,64 @@ color: black;
 padding: 10px 10px;
 cursor: pointer;
 float: left; */
+=======
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(201, 201, 201);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #282828;
+}
+.mo ::-webkit-scrollbar-track {
+  background: #282828;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.3em;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f4650;
+}
+.mo ::-webkit-scrollbar-thumb {
+  background: #7f9ac0;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*--*/
+/* CSS Code for custom context menu*/
+.menu {
+  background-color: white;
+  width: 300px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: inherit;
+  padding: 3px;
+  display: none;
+  position: fixed;
+  overflow: auto;
+}
+.mo .menu {
+  background-color: #ff69b4;
+}
+.dark .menu {
+  background-color: #343a42;
+}
+.menu-item {
+  height: 20px;
+  padding: 3px;
+}
+.mo .menu-item {
+  color: black;
+}
+.menu-item:hover {
+  cursor: pointer;
+  padding: 3px;
+  border-style: groove;
+  border-radius: 0.5em;
+  border-width: 0.2em;
+>>>>>>> login_modern
 }
