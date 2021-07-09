@@ -17,6 +17,7 @@ var uiLoginUserField = document.getElementById('loginUser');
 var uiLoginPassField = document.getElementById('loginPass');
 //Tabs(Settings, Resources, Chat) variables
 var uiMainContainer = document.getElementById('container');
+var uiLockscreen = document.getElementById('lockscreen');
 var uiChatLog = document.getElementById('chatLog');
 var uiChatTextbox = document.getElementById('chatTextbox');
 var uiChatReload = document.getElementById('reload');
@@ -77,6 +78,7 @@ function check_auth(apikey) {
     //console.log("you are not logged in");
     //show loginContainer page
     uiMainContainer.classList.add('hide');
+    body.classList.add('lockscreen');
     uiLoginUserField.focus();
   } else {
     login_setup();
@@ -86,6 +88,7 @@ function check_auth(apikey) {
 function login_setup() {
   //console.log("you are logged in");
   uiMainContainer.classList.remove('hide');
+  body.classList.remove('lockscreen');
   uiLoginContainer.classList.add('hide');
   uiLogout.classList.remove('hide');
   uiChatTextbox.focus();
@@ -910,7 +913,7 @@ console.log(
 ░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐░░░
 ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐░░░
 ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐░░░
-░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌░░░ 
+░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌░░░
 ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒▌░░
 ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐░░
 ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌░

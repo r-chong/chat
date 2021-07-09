@@ -172,7 +172,7 @@ h1 {
   text-align: center;
   font-size: 75;
 }
-/*I admit this goes against BEM (I think), 
+/*I admit this goes against BEM (I think),
 but for thors sake let it be, its needed in chat replies*/
 code {
   background-color: #00000098;
@@ -651,20 +651,21 @@ a.resource-link {
   height: 100%;
 }
 .login-credentials__title {
-  align-self: flex-start;
+  align-self: center;
 }
 .loginInput {
-  width: 80%;
+  width: 60%;
   height: 3rem;
   font-size: 1rem;
   background-color: inherit;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
+  border-style: hidden;
   border-bottom-style: groove;
   border-radius: 0;
   margin: 0.5rem;
   color: black;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 .loginInput:focus {
   outline: none;
@@ -699,11 +700,14 @@ a.resource-link {
 .login-credentials__submit {
   min-height: 4%;
   max-height: 5%;
-  width: 80%;
+  width: 60%;
   font-size: 35px;
   background-color: inherit;
   margin: 0.5rem;
   border-radius: 0.3em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 .login-credentials__submit:active {
   margin-top: 0.65rem;
@@ -715,6 +719,14 @@ a.resource-link {
 }
 .dark .login-submit__text {
   color: #8492ae;
+}
+
+.lockscreen {
+    background: url(Assets/lockscreen.jpg) no-repeat center 40% fixed;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    object-fit: contain;
 }
 /* --- Log out button --- */
 .settings__logout-btn {
