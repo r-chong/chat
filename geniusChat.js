@@ -105,8 +105,9 @@ uiLoginButton.addEventListener('click', function () {
   loginValidation();
 });
 uiLoginContainer.addEventListener('keyup', function (event) {
-  if (event.code === 'Enter') {
+  if (event.code == 'Enter') {
     loginValidation();
+    console.log('pressed enter');
   }
 });
 //Login Page Password Visibility Event Listener
@@ -337,17 +338,12 @@ function hashtag() {
   });
 }
 function findlinks() {
-  //console.log("test345");
   //OLD var regex = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig
   var hrefURL = '';
   //var tempray = $("#mainpg #log").html();
   //console.log(tempray);
   $('#mainpg #chatLog').html(function (_, html) {
-    // "<a class=\"txtlink\" href=\"\">$1</a>"
-    //return html.replace(/(http)(s)/ig, "success: $1 $2");    // this works - first match, then second match
-    //return html.replace(/((?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’])))?/ig, "<a href=\"$1\">test</a>");
-    //return html.replace(/((?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’])))?/ig, "test");
-    return html.replace(
+      return html.replace(
       /(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=])*)/gi,
       '<a class="link" target="_blank" href="$1">$1</a>'
     ); // i used a different regex - and use the $1 in the quotes
@@ -359,7 +355,7 @@ function chatMessageFormatter() {
   for (let i = 0; i < chatMsgs.length; i++) {
     let username = getCookie('user');
     let msg = chatMsgs[i]['outerHTML'];
-    if (msg.includes('<span class="chat-message__name">[' + username + ']:')) {
+    if (msg.includes('<span class="chat-message__content">[' + username + ']:')) {
       chatMsgs[i].classList.add('chat-msg--me');
     }
     let msg_box = chatMsgs[i];
@@ -579,11 +575,7 @@ function getChatFromDB() {
       //responses.forEach()
 
       var formatted_chatlog = '';
-      //compiled_chatlog, mentions and YOU arent used, why not remove them
       var compiled_chatlog = '';
-      var mentions = '';
-      var You = uiLoginUserField.value;
-      //var mentionRegex = /\@/g;
 
       for (let i = 0; i < responses.length; i++) {
         formatted_chatlog =
@@ -592,7 +584,7 @@ function getChatFromDB() {
           '<span class="details">' +
           responses[i]['date'] +
           '</span>' +
-          '<span class="chat-message__name">' +
+          '<span class="chat-message__content">' +
           responses[i]['chatstring'] +
           '</span></div>';
         //Compiled_chatlog isnt used anywhere, delete it?
