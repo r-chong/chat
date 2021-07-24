@@ -353,10 +353,10 @@ function findlinks() {
 function chatMessageFormatter() {
   let chatMsgs = document.querySelectorAll('.chatline');
   for (let i = 0; i < chatMsgs.length; i++) {
-    let username = getCookie('user');
     let msg = chatMsgs[i]['outerHTML'];
-    if (msg.includes('<span class="chat-message__content">[' + username + ']:')) {
+    if (msg.includes('<span class="chat-message__content">')) {
       chatMsgs[i].classList.add('chat-msg--me');
+      //why not just work on chat-message__content? Why the new class?
     }
     let msg_box = chatMsgs[i];
     msg_box.addEventListener('dragend', function (event) {
@@ -508,6 +508,7 @@ function sendString() {
     "<img class='chat__sticker' src='Assets/huh.jpg'>"
   );
   //Troll reese
+  //lol
   let date = new Date();
   let dayNumber = date.getDay();
   if (dayNumber == '6') {
@@ -521,7 +522,7 @@ function sendString() {
   if (savestring != '') {
     var username = getCookie('user');
     // the updated save string [user] + savestring
-    savestring = '[' + username + ']:' + savestring;
+    //savestring = '[' + username + ']:' + savestring; //bookmark!!!
     // save the chat string
     saveToDB(savestring, getChatFromDB);
     // get saved chat to enter into thelog
@@ -576,16 +577,14 @@ function getChatFromDB() {
 
       var formatted_chatlog = '';
       var compiled_chatlog = '';
+      var username = getCookie('user');
 
       for (let i = 0; i < responses.length; i++) {
         formatted_chatlog =
           formatted_chatlog +
-          '<div class="chatline" draggable="true">' +
-          '<span class="details">' +
-          responses[i]['date'] +
-          '</span>' +
-          '<span class="chat-message__content">' +
-          responses[i]['chatstring'] +
+          '<div class="chatline" draggable="false">' +
+          '<span class="details">' + responses[i]['date'] + ' [' + username + ']:' + '</span>' + //date/time, username (details)
+          '<span class="chat-message__content">' + responses[i]['chatstring'] + //message content
           '</span></div>';
         //Compiled_chatlog isnt used anywhere, delete it?
         compiled_chatlog = formatted_chatlog;
@@ -921,7 +920,7 @@ console.log(
 ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▀▀░░░░░░░░`,
   'font-family:monospace'
 );
-//What do these lines do??
+//What do these lines do?? They hide the tabs at the top. BTW we should use the comments on GH cuz this is gonna clutter up fast
 document.getElementById('resourcesTab').style.display = 'none';
 document.getElementById('settingsTab').style.display = 'none';
 document.getElementById('spiritTab').style.display = 'none';
