@@ -72,7 +72,7 @@ function check_auth(apikey) {
   //return;
   var logged_in = apikey;
   if (
-    logged_in !=
+    logged_in !==
     'bf44550db31d8f59b5da10e3a00a5072a481810b0dadfc6cfcc1f948b5f170f8'
   ) {
     //console.log("you are not logged in");
@@ -227,7 +227,7 @@ function openContextMenu(event) {
 
   if (
     eventParentElement.includes('chatline') ||
-    eventGrandParentElement.includes('chatline')
+    eventGrandParentElement.includes('chat-message__content')
   ) {
     displayContextMenu(left, top, replyMenuBox);
     replyMenuDisplayed = true;
@@ -338,15 +338,12 @@ function hashtag() {
   });
 }
 function findlinks() {
-  //OLD var regex = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/ig
   var hrefURL = '';
-  //var tempray = $("#mainpg #log").html();
-  //console.log(tempray);
   $('#mainpg #chatLog').html(function (_, html) {
       return html.replace(
       /(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=])*)/gi,
       '<a class="link" target="_blank" href="$1">$1</a>'
-    ); // i used a different regex - and use the $1 in the quotes
+  ); // the $1 will be subsituted by the link
   });
 }
 //Formats chat messages to look like SMS but Geniusised
@@ -598,7 +595,6 @@ function getChatFromDB() {
       chatMessageFormatter();
     }
   };
-  //console.log(getCookie("logged_in"));
   var poststring = 'action=getchat&apikey=' + getCookie('logged_in');
   //console.log(poststring);
   xhttp.open('POST', 'chat.php', true);
@@ -668,7 +664,7 @@ function logout() {
   uiMainContainer.classList.add('hide');
   document.cookie = 'logged_in=0';
 }
-uiLogout.addEventListener('click', logout());
+uiLogout.addEventListener('click', logout);
 
 ////////////////////
 /*Tabs > Settings tab > Mode Related Functions*/
