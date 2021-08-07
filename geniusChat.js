@@ -36,7 +36,7 @@ var uiSpiritTab = document.getElementById('spiritTab');
 ////////////////////
 function setCookie(cname, cvalue, exdays) {
   //sets the cookie name, the cookie itself, and the days until expiry
-  var d = new Date(); //makes new date function
+  var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
   var expires = 'expires=' + d.toUTCString();
   document.cookie =
@@ -47,36 +47,32 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-  var name = cname + '='; //adds the equals symbol because you cant put that in brackets
-  var decodedCookie = decodeURIComponent(document.cookie); //decodes it or something
+  var name = cname + '='; //you cant put = sign in brackets
+  var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';'); //splits all cookies (divided by the semicolons)
   for (let i = 0; i < ca.length; i++) {
     //repeats as many cookies as there are
-    var c = ca[i]; //sets ca to c
+    var c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      //if cookie is found
-      return c.substring(name.length, c.length); //return value of that cookie
+      //if cookie is found, return value of cookie
+      //else return nothing
+      return c.substring(name.length, c.length);
     }
   }
-  return ''; //else return nothing
+  return '';
 }
 ////////////////////
 /*Login/Page Setup Functions*/
 ////////////////////
 function check_auth(apikey) {
-  //console.log("check_auth");
-  //console.log(logged_in);
-  //return;
   var logged_in = apikey;
   if (
     logged_in !==
     'bf44550db31d8f59b5da10e3a00a5072a481810b0dadfc6cfcc1f948b5f170f8'
   ) {
-    //console.log("you are not logged in");
-    //show loginContainer page
     uiMainContainer.classList.add('hide');
     body.classList.add('lockscreen');
     uiLoginUserField.focus();
@@ -95,8 +91,6 @@ function login_setup() {
 }
 
 function loginValidation() {
-  //console.log(uiLoginUserField.value);
-  //console.log(uiLoginPassField.value);
   let user = uiLoginUserField.value;
   let pass = uiLoginPassField.value;
   getAuth(user, pass);
@@ -105,9 +99,8 @@ uiLoginButton.addEventListener('click', function () {
   loginValidation();
 });
 uiLoginContainer.addEventListener('keyup', function (event) {
-  if (event.code == 'Enter') {
+  if (event.code === 'Enter') {
     loginValidation();
-    console.log('pressed enter');
   }
 });
 //Login Page Password Visibility Event Listener
@@ -127,9 +120,6 @@ uiPassVisiblityEye.addEventListener('click', function () {
 /*TABS*/
 ////////////////////
 
-////////////////////
-/*Tabs> Tab display functions*/
-////////////////////
 document.getElementById('chat').addEventListener('click', function (element) {
   openTab(element);
   setPageTitle(element.target.id);
@@ -153,11 +143,8 @@ document.getElementById('spirit').addEventListener('click', function (element) {
 });
 
 function openTab(element) {
-  //console.log("opentab");
-  //console.log(this.document.activeElement);
   var el = element.target;
   var tabname = el.id;
-  //declare all variables
   var tabindex, tabcontent;
   //finds all tabcontent
   tabcontent = document.getElementsByClassName('tabcontent');
@@ -194,11 +181,7 @@ function clearActiveTabs() {
   var tab_button = document.getElementsByClassName('nav__sidebar-content');
   ////console.log('tablinks');
   ////console.log(tablinks);
-  for (var tabindex = 0; tabindex < tab_button.length; tabindex++) {
-    //console.log(tab_button[tabindex].className);
-    //tablinks[tabindex].classList.remove("active"); // alternative command
-    ////console.log('here');
-    ////console.log(tablinks[tabindex].className.replace("active", ""));
+  for (var tabindex = 0; tabindex < tab_button.length; tabindex++)
     tab_button[tabindex].className = tab_button[tabindex].className.replace(
       ' active',
       ''
@@ -209,7 +192,7 @@ function clearActiveTabs() {
     ); // this one needs to be assigned back to the element
     //tablinks[tabindex].className = "";
   }
-}
+
 //For custom context menu (do not remove)
 //Displaying a context menu itself should be a function, but can't be
 function openContextMenu(event) {
@@ -387,7 +370,6 @@ uiHideDetails.addEventListener('click', detailsToggle);
 function sendString() {
   //console.log("sendstring");
   var dirty = uiChatTextbox.value;
-  //var clean = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style','img','div','video','source','input','picture','label','canvas','legend','form','button',]}); //clean that yucky stuff
   var clean = DOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
       'b',
@@ -514,24 +496,14 @@ function sendString() {
   var savestring = clean;
   //IMPROVEMENT: Why not just use var clean? Wat? Why make another variable?
 
-  //var savestring = DOMPurify.sanitize(dirty, {FORBID_TAGS: ['style']}); //clean that yucky stuff
-  //console.log(savestring);
   if (savestring != '') {
     var username = getCookie('user');
     // the updated save string [user] + savestring
     //savestring = '[' + username + ']:' + savestring; //bookmark!!!
     // save the chat string
     saveToDB(savestring, getChatFromDB);
-    // get saved chat to enter into thelog
-    // returned_log
-    //getChatFromDB();
+    // get saved chat into log
     // update the chat log
-    //var thelog = document.getElementById("log");
-    //console.log('the log 54')
-    //console.log(thelog);
-    //alert(thelog);
-    //console.log(thelog.value);
-    //console.log(thelog);
     // set the textbox to empty
     uiChatTextbox.value = '';
   }
@@ -563,14 +535,7 @@ function getChatFromDB() {
   // run this when the readstate changes
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      //document.getElementById("log").innerHTML = this.responseText; // this.responseText should be from python
-      //console.log(this.responseText);
       var responses = JSON.parse(this.responseText);
-      //console.log('js responses: ');
-      //console.log(responses);
-      //console.log(typeof(responses));
-      //console.log(responses[0][0]);
-      //responses.forEach()
 
       var formatted_chatlog = '';
       var compiled_chatlog = '';
@@ -583,7 +548,7 @@ function getChatFromDB() {
           '<span class="details">' + responses[i]['date'] + ' [' + username + ']:' + '</span>' + //date/time, username (details)
           '<span class="chat-message__content">' + responses[i]['chatstring'] + //message content
           '</span></div>';
-        //Compiled_chatlog isnt used anywhere, delete it?
+        //Compiled_chatlog isnt used anywhere, delete it? Sure
         compiled_chatlog = formatted_chatlog;
       }
       uiChatLog.innerHTML = formatted_chatlog; // this.responseText should be from python
@@ -610,12 +575,6 @@ function getAuth(user, pass) {
       // what to do if this request works
       //console.log(this.responseText);
       var responses = JSON.parse(this.responseText); //  use if response is json
-      //var responses = this.responseText;
-      //console.log('js responses: ');
-      //console.log(responses);
-      //console.log(typeof(responses));
-      //console.log(responses[0][0]);
-      //responses.forEach()
       // set cookie
       document.cookie = 'logged_in=' + responses.apikey;
       document.cookie = 'user=' + responses.user;
@@ -682,7 +641,6 @@ function findMode() {
     }
   }
   return mode;
-  //console.log(mode);
 }
 //set the body class to the appropriate mode
 //let previousMode = ["body",];
@@ -690,30 +648,22 @@ var previousMode2 = 'body';
 //Should be merged into set_mode
 function setPreferredMode() {
   var currentMode = findMode();
-  //console.log("below is active element");
-  //console.log(currentMode);
   setCookie('mode', currentMode, 365); //sets cookie
 }
 
 function checkPreferredMode() {
   var preferredMode = getCookie('mode'); //finds mode
-  //console.log(preferredMode);
   if (preferredMode != '') {
-    //if not empty
-    //alert("your preferred mode is "+preferredMode);
-    //console.log("here");
-    //console.log(preferredMode);
+    //if not empty:
     document.getElementById(preferredMode).checked = true; //set mode to preferredMode
   } else {
-    //alert("no cookie found");
+    //no cookie found.
     setCookie('mode', 'body', 365);
     //set mode to body
   }
 }
 
 function set_mode() {
-  //console.log("previousMode2 below");
-  //console.log(previousMode2);
   var mode = findMode();
   if (mode == 'modeDark') {
     var modeClass = 'dark';
@@ -736,8 +686,7 @@ function set_mode() {
     'chatSubmit',
     'logout',
   ];
-  var itemsLength = unprocessedItems.length;
-  //console.log(eleLength);
+  var itemsLength = unprocessedItems.length
   //remove class name from body
   //////////////////////////////////////////////////////////////////////////////
   //var eleBody = document.getElementById(ele);
@@ -747,28 +696,13 @@ function set_mode() {
     //adding mode to ele array
     //ele[loopClassName].className = '';
     var eleClass = document.getElementById(unprocessedItems[loopClassName]);
-    //console.log(typeof(eleClass));
     //var currentIndex = previousMode[];
-    //console.log(currentIndex);
     //where is this being used?
     var modeClassReplaced = eleClass.classList.remove(previousMode2);
-    //eleClass.className = modeClassReplaced;
-    //eleClass.className = 'tablinks ';
     eleClass.classList.add(modeClass);
-    ////console.log(eleClass.classList);
   }
   previousMode2 = modeClass;
   //add class name to body
-  //eleBody.classList.add(modeClass);
-  //eleLog.classList.add(modeClass);
-  //var loopClassList;
-  /*
-    for (loopClassList = 0; loopClassList < 6; loopClassList++) {
-      //le[loopClassList].classList.add(modeClass);
-      document.getElementById(ele[loopClassList]).add(modeClass);
-    }
-  */
-  //console.log(mode);
 }
 
 document
@@ -864,29 +798,6 @@ function getEmoji(y) {
   var x = uiChatTextbox;
   x.value += y.name;
 }
-
-//Unused functions, code
-/*
-function testApi() {
- var xhttp = new XMLHttpRequest();
-  // run this when the readstate changes
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      //document.getElementById("demo").innerHTML = this.responseText;
-      ////console.log('api response: ');
-      ////console.log(this.responseText);
-      //onSuccess();
-    }
-  };
-  var poststring = 'action=save&savestring=' + 'this is a test' + '&apikey=12';
-  xhttp.open('POST', 'chat.php', true); // post
-  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // php seems to need this
-  xhttp.send(poststring); // post
-  xhttp.open("GET", "chat.php?action=test", true);
-  xhttp.send();
-  //console.log('saved to db');
-}
-*/
 
 //Let this be
 console.log(
