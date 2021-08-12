@@ -1,0 +1,263 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Genius Chat</title>
+  <meta name="description" content="A place for Geniusists to chat.">
+  <meta name="keywords" content="Chat, Genius">
+  <meta name="author" content="U.G.C.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--Calling all external files- Creature report-->
+  <link rel="shortcut icon" type="image/x-icon" href="Assets/bigoof.png" />
+  <link rel="apple-touch-icon" href="Assets/bigoof.png">
+  <link rel="stylesheet" type="text/css" href="main_chat_readability.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js" async></script>
+  <script src="DOMPurify-main/dist/purify.min.js" async></script>
+  <script src="./javascriptFiles/asami.js" async></script>
+  <script src="./javascriptFiles/dyanmicData.js" async></script>
+  <script src="./javascriptFiles/quotes.js" async></script>
+  <script src="./javascriptFiles/tab.js" async></script>
+  <script src="./javascriptFiles/chat.js" async></script>
+  <script src="./javascriptFiles/login.js" async></script>
+</head>
+
+<body id="body">
+  <div id="container" class="main-container hide">
+    <header>
+      <div class="page__header">
+        <div class="page__header--title-cont">
+          <h1 class="page__header--title" title="RIP Master Notes Collaboration Website and U.G.C.W" id="pageTitle">
+            Genius Chat</h1>
+        </div>
+        <div class="page__header-quote-cont" id="quotes-div">
+          <blockquote class="page__header--quote" id="quotes"></blockquote>
+          <p class="page__header--auth" id="author"></p>
+        </div>
+      </div>
+    </header>
+    <!--this is the main page-->
+    <div id="navbar" class="tabcontent nav__sidebar">
+      <!--tab button that go to each page-->
+      <button class="nav__sidebar-content active pattern__stripes-1" id="chat" title="Chat"><i
+          class="material-icons nav-icon">chat</i></button>
+
+      <button class="nav__sidebar-content" id="resources" title="Resources"><i
+          class="material-icons nav-icon">folder_open</i></button>
+
+      <button class="nav__sidebar-content" id="settings" title="Settings"><i
+          class="material-icons nav-icon">settings</i></button>
+
+      <button class="nav__sidebar-content" id="spirit" title="Spirit World"><i
+          class="material-icons nav-icon">memory</i></button>
+      <!--reload button-->
+      <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_eh8qtsvg.json" id="reload"
+        background="transparent" class="nav__reload-btn" speed="0.5" hover loop>
+      </lottie-player>
+      <div class="emote-dropdown__container">
+        <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo" class="quick-access" />
+        <div class="dropdown">
+          <button class="emote-dropdown__emoji-icon" title="Emoji dropdown."></button>
+          <div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
+        </div>
+      </div>
+    </div>
+    <div id="mainpg" class="main-tabs__container">
+      <!--chat content-->
+      <div class="tabcontent" id="chatTab">
+        <div class="log__container" id="log_cont">
+          <!--Remove reaodnly attribute for HTML5-->
+          <div id="chatLog" class="log__container--chat-log" name="chatlog" readonly>
+          </div>
+        </div>
+        <div id="chatControlsContainer" class="chat__controls-container">
+          <div id="chatTextbox" class="chat__textbox" contenteditable="true" spellcheck="true"></div>
+          <button id="chatSubmit" class="chat__textbox--submit-btn"><span class="material-icons"
+              style="font-size:36px;">
+              send
+            </span></button>
+        </div>
+        <div id="suggestionBox" class="suggestions_container">
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+          <suggestion-btn></suggestion-btn>
+        </div>
+      </div>
+      <!--Resources pages-->
+      <div class="tabcontent" id="resourcesTab">
+        <section>
+          <h1>U.G.C. Content</h1>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://docs.google.com/document/d/1zulDVUmrlcDuw76puMGtcvcwjAXL3J8udLga7K980wI/edit?usp=sharing"
+            title="Made from a broken sleep schedule">Genius Chat
+            Version 4.1.0</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://docs.google.com/document/d/1o0s6VEspQCCtux_TkCuhYoz1H7ZIqLISpJwRRR9Jdmk/edit?usp=sharing">UGC
+            Document</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link" href="
+            https://drive.google.com/drive/folders/10bNWzCS8uvaInuqvoukuKJPHR4ONzsE9?usp=sharing">UGC
+            Shared Folder</a>
+        </section>
+        <section>
+          <h1>Programming</h1>
+          <a title="Let Uncle Bob teach you." rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://www.youtube.com/watch?v=7EmboKQH8lM">Clean Code Lesson 1</a>
+          <a title="#GENIUS_CHAT_DEVS" rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://github.com/r-chong/chat">Genius Chat Github Repo</a>
+          <a title="A beginners guide to the world of programming." rel="noopener noreferrer" target="_blank"
+            class="resource-link" href="https://www.w3schools.com/">W3Schools</a>
+          <a title="Trusted Web Docs by Mozilla" rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://developer.mozilla.org/en-US/">MDN Web
+            Docs</a>
+          <a title="One Leetcode a day, keeps the doctor away" rel="noopener noreferrer" target="_blank"
+            class="resource-link" href="https://leetcode.com/">Leetcode (YEET
+            CODE)</a>
+        </section>
+        <section>
+          <h1>Chess</h1>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link" href="https://lichess.org/">Lichess</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://lichess.org/training/daily">POTD</a>
+        </section>
+        <section>
+          <h1>French</h1>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://www.wordreference.com/">WordReference</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://www.duolingo.com/dictionary/fr">Duo
+            Translate</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://feeds.feedblitz.com/french-word-of-the-day&x=1">WOTD-fr</a>
+        </section>
+        <section>
+          <h1>Other</h1>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://snapdrop.net/">Snapdrop.net</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://app.myblueprint.ca/student/dashboard/activities">myBlueprint</a>
+          <a rel="noopener noreferrer" target="_blank" class="resource-link"
+            href="https://feeds.feedblitz.com/japanese-word-of-the-day&x=1">WOTD-jp</a>
+        </section>
+      </div>
+      <!--Settings page-->
+      <div class="tabcontent" id="settingsTab">
+        <section>
+          <h1 class="settings__section-title">General</h1>
+          <label class="switch">
+            <input type="checkbox" checked onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');">
+            <span class="slider"></span>
+          </label>
+          <p>Allow us to sell your data to third-parties</p>
+          <br>
+          <label class="switch" id="notificationSwitch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+          <p>Enable Notifications (WIP - Reese's Task)</p>
+          <br>
+        </section>
+        <section>
+          <!--Checkbox1 is a bad id name, make it BETTER-->
+          <h1 class="settings__section-title">Appearance</h1>
+          <label class="switch" id="checkbox1">
+            <input id="detailsToggle" type="checkbox">
+            <span class="slider"></span>
+          </label>
+          <p id="detailsToggleText">Hide chat details</p>
+          <br>
+          <label class="switch" id="contextMenuSwitch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+          <p>Disable Custom Context Menu (recommended only for debugging)</p>
+          <br>
+          <form>
+            <input checked type="radio" name="mode" class="mode__radio-button" id="modeDefault" value="Default mode">
+            <label for="modeDefault">Default Mode</label>
+
+            <input type="radio" name="mode" class="mode__radio-button" id="modeDark" value="Dark mode">
+            <label for="modeDark">Dark Mode</label>
+
+            <input type="radio" name="mode" class="mode__radio-button" id="modeMo" value="Mo(de)">
+            <label for="modeMo">Mo(de)</label>
+            <br>
+          </form>
+        </section>
+        <section>
+          <h1 class="settings__section-title">Account</h1>
+          <button class="settings__logout-btn" id="logout" title="The YIP questions your loyalty to the union...">Logout
+            <i class="material-icons">lock</i></button>
+          <button id="lichessLogin" class="settings__lichess-login">Login with Lichess
+            (WIP)</button>
+        </section>
+      </div>
+      <div class="tabcontent" id="spiritTab">
+        <h1>Jun 01, 12:09pm [YIP]: I am ahenquote launchin rockets there</h1>
+      </div>
+    </div>
+    <!--The div below closes to show the title on every page also controls mode-->
+  </div>
+  <noscript>
+    <h1>Please enable JavaScript, or use a different browser to run Genius Chat!</h1>
+  </noscript>
+  <!--Context Menu hidden until user chooses-->
+  <div id="mainContextMenu" class="menu">
+    <div id="contextMenuChatReload" onclick="getChatFromDB();" title="Reload the Chat, the YIP approves"
+      class="menu-item">Reload the Chat</div>
+    <div id="contextMenuLogout" onclick="logout();" title="THE YIP IS WATCHING YOU" class="menu-item">Logout
+      of Genius Chat</div>
+    <div onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')" title="U.G.C National Anthem"
+      class="menu-item">National Anthem</div>
+    <hr />
+    <div title="Please do CTRL + U" class="menu-item">View Page Source - CTRL + U</div>
+    <div title="Please do CTRL + Shift + I" class="menu-item">Developer Tools - CTRL + Shift + I</div>
+  </div>
+  <div id="messageContextMenu" class="menu">
+    <div id="messageReply" class="menu-item">
+      <i class="material-icons">reply</i>Reply to message
+    </div>
+    <div class="menu-item">
+      <i class="material-icons">info</i>Message information
+    </div>
+  </div>
+  <!--underneath is the login page, hidden upon login-->
+  <div id="loginContainer" class="login-credentials__container">
+    <h1 class="login-credentials__title">Genius Chat</h1>
+    <input required id="loginUser" placeholder="Username" class="login__credentials-input" type=text>
+    <span class="login__password-box">
+      <input required id="loginPass" placeholder="Password" class="login__credentials-input" type=password>
+      <i id="password_visiblity" class="material-icons login__password-visiblity">visibility</i>
+    </span>
+    <button id="loginSubmit" class="login-credentials__submit">
+      <span class="material-icons">login</span>
+    </button>
+    <button id="celebrate" class="login__celebrate">
+      <span class="material-icons">celebration</span>
+    </button>
+  </div>
+  <!--Cookie Alert-->
+  <div id="cookieAlert" class="cookie-alert__container--hidden">
+    <p class="cookie-alert__warning ">This site uses only <b>essential</b> cookies, by continuing to use this site you
+      agree to
+      our <a href="tos.html">ToS</a> and our usage of cookies.</p>
+    <span id="cookieAlertCloseBtn" class="material-icons cookie-alert__close">clear</span>
+  </div>
+  <div id="snackbar"></div>
+  <!--Snackbar text should be changed for every use-->
+</body>
+
+</html>
