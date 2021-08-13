@@ -53,17 +53,14 @@
 
       <button class="nav__sidebar-content" id="spirit" title="Spirit World"><i
           class="material-icons nav-icon">memory</i></button>
+      <div class="quick-access">
+        <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo"
+          class="quick-access--chat-flush" />
+      </div>
       <!--reload button-->
       <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_eh8qtsvg.json" id="reload"
         background="transparent" class="nav__reload-btn" speed="0.5" hover loop>
       </lottie-player>
-      <div class="emote-dropdown__container">
-        <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo" class="quick-access" />
-        <div class="dropdown">
-          <button class="emote-dropdown__emoji-icon" title="Emoji dropdown."></button>
-          <div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
-        </div>
-      </div>
     </div>
     <div id="mainpg" class="main-tabs__container">
       <!--chat content-->
@@ -74,6 +71,12 @@
           </div>
         </div>
         <div id="chatControlsContainer" class="chat__controls-container">
+          <div class="emote-dropdown__container">
+            <div class="dropdown">
+              <button class="emote-dropdown__emoji-icon" title="Emoji dropdown."></button>
+              <div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
+            </div>
+          </div>
           <div id="chatTextbox" class="chat__textbox" contenteditable="true" spellcheck="true"></div>
           <button id="chatSubmit" class="chat__textbox--submit-btn"><span class="material-icons"
               style="font-size:36px;">
