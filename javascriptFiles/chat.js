@@ -79,13 +79,11 @@ function chatMessageFormatter() {
 //Show or hide details
 function detailsToggle() {
   var element = document.getElementsByClassName('details');
-  if (uiHideDetails.checked == false) {
-    //if details off, show details
+  if (uiHideDetails.checked == false) { //if details hidden, show details  
     for (let i = 0; i < element.length; i++) {
       element[i].classList.remove('hidden');
     }
-  } else if (uiHideDetails.checked == true) {
-    //check if details off, hide details
+  } else if (uiHideDetails.checked == true) { //if details shown, hide details
     for (let i = 0; i < element.length; i++) {
       element[i].classList.add('hidden');
     }
@@ -260,14 +258,15 @@ function getChatFromDB() {
     if (this.readyState == 4 && this.status == 200) {
       var responses = JSON.parse(this.responseText);
       var formatted_chatlog = '';
-
+      // let username = getCookie('user');
       for (let i = 0; i < responses.length; i++) {
         formatted_chatlog =
           formatted_chatlog +
           '<div class="chatline">' +
           '<span class="details">' +
-          responses[i]['date'] +
-          '</span>' + //date/time
+          responses[i]['date'] + 
+          // '[' + username + ']' Add username to chat details, DO NOT REMOVE -Reese
+          '</span>' + 
           '<span class="chat-message__content">' +
           responses[i]['chatstring'] + //message content
           '</span></div > ';
