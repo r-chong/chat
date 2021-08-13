@@ -32,7 +32,7 @@ var emojiData = [
 ];
 
 //Dynamic emoji button creation
-function dyanmic_button_creation(buttonClass, injectionLocation, data) {
+function dynamic_button_creation(buttonClass, injectionLocation, data) {
   for (let i = 0; i < data.length; i++) {
     var btn = document.createElement('BUTTON');
     btn.className = buttonClass;
@@ -61,8 +61,8 @@ function dyanmic_button_creation(buttonClass, injectionLocation, data) {
 
 document.addEventListener('readystatechange', (event) => {
   if (event.target.readyState === 'interactive') {
-    dyanmic_button_creation('emote', 'emoji_dropdown', emojiData);
+    dynamic_button_creation('emote', 'emoji_dropdown', emojiData);
   } else if (event.target.readyState === 'complete') {
-    dyanmic_button_creation('emote', 'emoji_dropdown', emojiData);
+    dynamic_button_creation('emote', 'emoji_dropdown', emojiData);
   }
 });
