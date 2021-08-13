@@ -1,0 +1,986 @@
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CHAT - DESKTOP STYLESHEET
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+/*------------------------------------------------------------------
+[Table of Contents]
+
+* Desktop Stylesheet
+    + Global Themes, Patterns, & Modes
+	+ Default body
+    + UI Elements (static)
+	+ Chat UI
+	+ Tabs
+	+ Chat markup
+    + Inner Chat Markup
+	+ Emoji toolbar
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Palette]
+.mo{
+base color: #1c1b22;
+text color: #fbfbfe;
+primary accent color: #2b2a33;
+secondary accent color: #42414d;
+}
+cool grey 8492ae
+queen blue 596988
+gunmetal 343a42
+charcoal 3f4650
+pink ff69b4
+
+---brand colours-----
+twitter blue #1da1f2
+asana peach #FC636B
+discord blue #7289da
+android green #78C257
+.group/purpose__name-extra-details
+
+RULES:
+https://imgflip.com/i/5eh494
+border-radius: 0.3em; (Don't overdo it tho)
+-------------------------------------------------------------------*/
+
+/*/////////////////////////////////////////////////////////////////////
+					GLOBAL THEMES AND MODES
+/////////////////////////////////////////////////////////////////////*/
+
+/* --- GLOBAL CLASSES --- */
+.hidden {
+  display: none;
+}
+/*Both of these classes do the same thing, why do we have duplicates?*/
+.hide {
+  display: none;
+}
+
+.pattern__stripes-1 {
+  /*opaque version*/ /* background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%); */
+  /*transparent version*/
+  background-image: linear-gradient(
+    135deg,
+    #8492ae 12.5%,
+    #343a4200 12.5%,
+    #343a4200 50%,
+    #8492ae 50%,
+    #8492ae 62.5%,
+    #343a4200 62.5%,
+    #343a4200 100%
+  );
+  /*black version*/
+  background-image: linear-gradient(
+    135deg,
+    #000000 12.5%,
+    #343a4200 12.5%,
+    #343a4200 50%,
+    #000000 50%,
+    #000000 62.5%,
+    #343a4200 62.5%,
+    #343a4200 100%
+  );
+  background-size: 5.66px 5.66px;
+}
+.dark .pattern__stripes-1 {
+  background-image: linear-gradient(
+    135deg,
+    #8492ae 12.5%,
+    #343a42 12.5%,
+    #343a42 50%,
+    #8492ae 50%,
+    #8492ae 62.5%,
+    #343a42 62.5%,
+    #343a42 100%
+  );
+}
+.mo .pattern__stripes-1 {
+  background-image: linear-gradient(
+    135deg,
+    #8492ae 12.5%,
+    #343a42 12.5%,
+    #343a42 50%,
+    #8492ae 50%,
+    #8492ae 62.5%,
+    #343a42 62.5%,
+    #343a42 100%
+  );
+}
+body .pattern__stripes-1 {
+  background-image: linear-gradient(
+    135deg,
+    #8492ae 12.5%,
+    #ffffff 12.5%,
+    #ffffff 50%,
+    #8492ae 50%,
+    #8492ae 62.5%,
+    #ffffff 62.5%,
+    #ffffff 100%
+  );
+}
+
+.pattern__stripes-2 {
+  background-image: linear-gradient(
+    135deg,
+    #fafafa 12.5%,
+    #d3d3d3 12.5%,
+    #d3d3d3 50%,
+    #fafafa 50%,
+    #fafafa 62.5%,
+    #d3d3d3 62.5%,
+    #d3d3d3 100%
+  );
+  background-size: 5.66px 5.66px;
+}
+.dark .pattern__stripes-2 {
+  background-image: linear-gradient(
+    135deg,
+    #343a42 12.5%,
+    #8492ae 12.5%,
+    #8492ae 50%,
+    #343a42 50%,
+    #343a42 62.5%,
+    #8492ae 62.5%,
+    #8492ae 100%
+  );
+  background-size: 5.66px 5.66px;
+}
+
+.mo .pattern__stripes-2 {
+  background-image: linear-gradient(
+    135deg,
+    #343a42 12.5%,
+    #8492ae 12.5%,
+    #8492ae 50%,
+    #343a42 50%,
+    #343a42 62.5%,
+    #8492ae 62.5%,
+    #8492ae 100%
+  );
+  background-size: 5.66px 5.66px;
+}
+/* --- MODES --- */
+html {
+  margin: 0px;
+  width: 100%;
+}
+body {
+  background-color: white;
+  color: #343a42;
+  overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+  width: 100%;
+}
+
+.dark {
+  background-color: #343a42;
+  color: #8492ae;
+}
+
+.mo {
+  background-color: #1c1b22;
+  color: #fbfbfe;
+  border-radius: 0.3em;
+}
+
+/*/////////////////////////////////////////////////////////////////////
+						DEFAULT BODY
+/////////////////////////////////////////////////////////////////////*/
+a {
+  color: Gray;
+}
+
+/*I admit this goes against BEM (I think), 
+but for thors sake let it be, its needed in chat replies*/
+code {
+  background-color: #3f4850;
+  color: whitesmoke;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 3px;
+  display: block;
+}
+
+/*/////////////////////////////////////////////////////////////////////
+				USER INTERFACE STATIC ELEMENTS
+/////////////////////////////////////////////////////////////////////*/
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+.main-tabs__container {
+  width: 100%;
+  height: 100%;
+  margin-left: 6%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.tabcontent {
+  width: 100%;
+  height: 100%;
+  font-size: 1.15rem;
+}
+/* --- Header (Title + Quotes) --- */
+.page__header {
+  display: flex;
+  flex-direction: row;
+  max-height: 200px;
+  margin-top: 3.5;
+  text-align: center;
+  width: 100%;
+  min-height: 2rem;
+}
+.page__header--title-cont {
+  min-width: 35%;
+  -webkit-text-stroke: 1px #282828;
+  text-shadow: 0px 4px 4px #282828;
+  color: inherit;
+}
+.page__header--title {
+  font-size: 4rem;
+  padding: 0;
+  color: inherit;
+}
+.body .page__header--title {
+  color: white;
+}
+.page__header-quote-cont {
+  min-width: 65%;
+  max-width: 65%;
+  text-align: center;
+  font-size: medium;
+}
+.page__header--quote {
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+.page__header--auth {
+  font-size: 1.5rem;
+  font-weight: 100;
+  line-height: 0.4;
+}
+.suggestions_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 86%;
+  margin-top: 0.5%;
+  visibility: hidden;
+}
+/*#custom_element pog*/
+suggestion-btn {
+  display: inline-block;
+  background-color: inherit;
+  border: solid;
+  border-width: 0.1em;
+  color: inherit;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 0.3em;
+}
+.mo suggestion-btn {
+  background-color: #2b2a33;
+  border-color: #42414d;
+}
+/*////////////////////////////////
+		    CHAT UI
+////////////////////////////////*/
+
+/* --- Chatlog --- */
+.log__container {
+  position: relative;
+  border: 1px solid gray;
+  overflow-y: scroll;
+  font-size: 1.2em;
+  width: 93%;
+  max-height: 60%;
+  /*MAX height is important*/
+  margin-right: 0px;
+  border-style: hidden;
+}
+.mo .log__container {
+  border-top: 1px solid #2b2a33;
+  border-left: 1px solid #2b2a33;
+}
+/* --- Chat Controls --- */
+.chat__controls-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0%;
+  width: 93%;
+  max-height: 4rem;
+}
+.chat__textbox--submit-btn {
+  height: 4rem;
+  width: 8%;
+  float: right;
+  cursor: pointer;
+  background-color: inherit;
+  color: inherit;
+  border-radius: 7px;
+  z-index: 1;
+  border-style: none;
+}
+.chat__textbox--submit-btn:hover {
+  border-radius: 7px;
+  border-style: groove;
+}
+.chat__textbox--submit-btn:active {
+  margin-top: 0.2rem;
+  height: 3.75rem;
+}
+
+.chat__textbox {
+  min-height: 4rem;
+  height: auto;
+  width: 97%;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  margin-left: 0%;
+  overflow-y: auto;
+  word-break: break-all;
+}
+.chat__textbox:focus {
+  outline: none;
+}
+
+/*/////////////////////////////////////////////////////////////////////
+					CHAT MARKUP / FORMATTING
+/////////////////////////////////////////////////////////////////////*/
+
+/* --- Default HTML tags --- */
+.log__container h1 {
+  font-size: 75;
+  text-align: left;
+}
+
+/* --- Custom markup --- */
+chat-hashtag {
+  color: #1da1f2;
+  font-weight: 900;
+  padding: 1%;
+  margin: 0;
+  display: inline-block;
+
+  word-break: break-all;
+}
+
+a {
+  color: Steelblue;
+}
+
+.customEmoji {
+  display: inline;
+  margin-bottom: -4px;
+  width: 45px;
+  height: 45px;
+  border-radius: 0.25em;
+}
+/*/////////////////////////////////////////////////////////////////////
+					Navigation Sidebar
+/////////////////////////////////////////////////////////////////////*/
+.nav__sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+}
+.nav__sidebar-content {
+  width: 100%;
+  height: 3rem;
+  text-decoration: none;
+  font-size: 25px;
+  margin-bottom: 2%;
+  border-color: inherit;
+  border-radius: 0.3em;
+  color: inherit;
+  background-color: inherit;
+}
+.mo .nav__sidebar-content {
+  background-color: #2b2a33;
+  border-color: #42414d;
+  color: #a1a1a1;
+}
+
+.nav__reload-btn {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: 0.3em;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*/ ////////////////////////////////////////////////////////////////////
+  EMOJI TOOLBAR within Navigation Sidebar
+/////////////////////////////////////////////////////////////////////*/
+/*Dropdown Code for emoji toolbar*/
+.emote-dropdown__emoji-icon {
+  color: black;
+  background-image: url('Assets/lmao.png');
+  background-size: cover;
+  padding: 1px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 25px;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.1;
+  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
+}
+/*When removed the code below doesn't do much.....*/
+/*remove that annoying white space around dropbtn*/
+.body .emote-dropdown__emoji-icon {
+  background-color: black;
+  /*Opacity is too low and icon does not show in default mode*/
+  opacity: 0.4;
+}
+.dark .emote-dropdown__emoji-icon {
+  background-color: #596988;
+}
+.mo .emote-dropdown__emoji-icon {
+  background-color: inherit;
+}
+
+.emote-dropdown__emoji-icon:hover {
+  opacity: 100%;
+}
+.dropdown:hover .emote-dropdown__dropdown-content {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
+.emote-dropdown__dropdown-content {
+  display: none;
+  position: absolute;
+  max-width: 10rem;
+  height: 4.5rem;
+  border: 2px solid;
+  border-radius: 7px;
+  overflow-y: scroll;
+  z-index: 2;
+}
+/*background-color of the dropdown/*/
+body .emote-dropdown__dropdown-content {
+  background-color: lightgrey;
+}
+.dark .emote-dropdown__dropdown-content {
+  background-color: #59698870;
+}
+.mo .emote-dropdown__dropdown-content {
+  background-color: #ffbadd;
+}
+.emote-dropdown__container {
+  display: flex;
+  flex-flow: column;
+  margin-left: 0%;
+}
+/*--*/
+/*CSS Styling to make buttons within the dropdown to look NOICE*/
+.emote {
+  /*this is a button, see .customEmote for inline emote styling*/
+  font-family: monospace;
+  font-size: 1.2rem;
+  min-width: 2.2rem;
+  min-height: 30px;
+  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  border: 1px solid #596988;
+  background-color: transparent;
+  border-radius: 7px;
+  color: black;
+  box-shadow: 1px 4px 10px black;
+}
+.emote:hover {
+  border: 1px solid #343a42;
+  color: black;
+  cursor: pointer;
+}
+.emote:active {
+  background-color: #343a42;
+}
+
+/*////////////////////////////////
+		    TABS
+////////////////////////////////*/
+.settings__section-title {
+  font-size: 20;
+  text-align: left;
+}
+.mode__radio-button {
+  font-size: 100%;
+}
+.dark input[type='button'] {
+  color: #596988;
+}
+/*////////////////////////////////
+		SMOOTH SWITCH
+////////////////////////////////*/
+
+.switch input {
+  /*hide checkbox (html default)*/
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  /*slider container*/
+  position: relative;
+  width: 60px;
+  height: 34px;
+  float: left;
+  margin-top: 1%;
+  margin-right: 10px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.dark input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.mo input:checked + .slider {
+  background-color: #00ddff;
+}
+
+.mo input + .slider {
+  background-color: #42414d;
+}
+.mo input + .slider:hover {
+  background-color: #52525e;
+}
+.mo .slider:before {
+  background-color: black;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* --- Resource links --- */
+/*replace all .lynk with resource-link*/
+
+a.resource-link {
+  text-decoration: none;
+  min-width: 3rem;
+  min-height: 10rem;
+  padding: 5px;
+  margin: 0.1%;
+  border: 1px solid #343a42;
+  border-radius: 6px;
+  color: #343a42;
+}
+.dark a.resource-link {
+  border: 1px solid #8492ae;
+  color: #8492ae;
+}
+.mo a.resource-link {
+  border: 1px solid #42414d;
+  color: inherit;
+  background-color: inherit;
+}
+a.resource-link:hover {
+  background-color: #f0f2f4;
+  color: inherit;
+  transition: 800ms;
+}
+.dark a.resource-link:hover {
+  background-color: #8492ae;
+  color: black;
+}
+.mo a.resource-link:hover {
+  background-color: #52525e;
+}
+
+/*//////////////////////////////*/
+
+/* --- Login Container --- */
+.login-credentials__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 40%;
+  height: 100%;
+  padding-top: 15rem;
+}
+.login-credentials__title {
+  align-self: flex-start;
+  align-self: center;
+  color: white;
+}
+.login-image {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  height: 100%;
+}
+.login__credentials-input {
+  display: block;
+  width: 60%;
+  height: 3rem;
+  font-size: 1rem;
+  border-style: hidden;
+  border-bottom-style: groove;
+  border-radius: 0.3em;
+  margin: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  background-color: inherit;
+}
+.login__credentials-input:focus {
+  outline: none;
+  background-color: inherit;
+}
+/*When autofill happens the colors are messed up, the code below fixes it*/
+.login__credentials-input:-webkit-autofill {
+  color: white;
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0 0 white inset !important;
+  box-shadow: inset;
+  border-radius: 0.3em;
+}
+
+.login__password-visiblity {
+  position: absolute;
+  margin-top: 0;
+  margin-left: 75%;
+  z-index: 1;
+  cursor: pointer;
+  color: white;
+  background-color: inherit;
+  font-size: 4rem;
+}
+.login__password-visiblity:hover {
+  transition: 800ms;
+  color: #1da1f2;
+}
+.login__password-box {
+  display: flex;
+  flex-direction: row;
+}
+.login-credentials__submit {
+  display: block;
+  height: 3rem;
+  width: 60%;
+  font-size: 4rem;
+  border-radius: 0.3em;
+  margin: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: inherit;
+  color: white;
+}
+.login-credentials__submit:active {
+  margin-top: 0.45rem;
+  height: 2.75rem;
+}
+.login-credentials__submit:hover {
+  transition: 800ms;
+  color: #1da1f2;
+}
+.login__celebrate {
+  height: 3rem;
+  width: 60%;
+  font-size: 4rem;
+  border-radius: 0.3em;
+  margin: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  background-color: inherit;
+}
+.login__celebrate:hover {
+  transition: 800ms;
+  color: #1da1f2;
+}
+.lockscreen {
+  background: url(Assets/lockscreen.jpg) no-repeat center 40% fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  object-fit: contain;
+}
+/* --- Log out button --- */
+.settings__logout-btn {
+  padding: 0.1em;
+  width: 30%;
+  height: 3rem;
+  font-size: 100%;
+  border-radius: 0.3em;
+  text-align: center;
+  display: block;
+  margin-bottom: 1%;
+  background-color: inherit;
+  color: inherit;
+}
+.settings__logout-btn i {
+  font-size: 100%;
+}
+.settings__logout-btn:active {
+  height: 2.75rem;
+}
+.mo .settings__logout-btn:hover {
+  background-color: #52525e;
+}
+.settings__lichess-login {
+  padding: 0.1em;
+  width: 30%;
+  height: 3rem;
+  font-size: 100%;
+  border-radius: 0.3em;
+  text-align: center;
+  margin-bottom: 1%;
+  background-color: inherit;
+  color: inherit;
+}
+.mo .settings__lichess-login:hover {
+  background-color: #52525e;
+}
+/*--*/
+/*Quick Access is for the chat flush (and later the textbox clear)*/
+
+.quick-access {
+  max-width: 3rem;
+  min-height: 43px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 6px 6px 6px 6px;
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  cursor: pointer;
+  opacity: 0.5;
+  background-color: inherit;
+}
+.quick-access:hover {
+  opacity: 1;
+  transition: 500ms;
+}
+.cookie-alert__container {
+  width: 97.5%;
+  padding: 1%;
+  background-color: inherit;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  border-style: solid;
+  border-color: inherit;
+  border-width: 1px;
+  border-radius: 0.3em;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  transition: 900ms;
+}
+.cookie-alert__warning {
+  min-width: 90%;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.cookie-alert__close {
+  min-width: 10%;
+  color: inherit;
+  font-weight: bold;
+  font-size: 35px;
+  cursor: pointer;
+  transition: 900ms;
+  z-index: 1;
+}
+.cookie-alert__container--hidden {
+  width: 97.5%;
+  padding: 1%;
+  background-color: inherit;
+  color: inherit;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  border-style: solid;
+  border-color: inherit;
+  border-width: 1px;
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transition: 900ms;
+}
+
+.dark .cookie-alert__close {
+  color: white;
+}
+/*Highly Experimental*/
+.chatline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  border: 2.5px solid;
+  border-radius: 00px 10px 10px 10px;
+  padding: 1%;
+  margin: 10px 0;
+  max-width: 47.3%;
+  min-height: 1.5rem;
+  left: 0.5%;
+}
+.body .chatline {
+  background-color: #f0f2f4;
+}
+.mo .chatline {
+  background-color: #2b2a33;
+  border-color: #42414d;
+}
+.chat-message__content {
+  font-size: 1.4rem;
+}
+.chat-msg--me {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  border: 2px solid;
+  border-radius: 0.3em 0px 0.3em 0.3em;
+  padding: 1%;
+  margin: 10px 0;
+  max-width: 47.3%;
+  min-height: 1.5rem;
+  left: 49.5%;
+}
+
+.chatline::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.details {
+  font-size: 1.2rem;
+  padding-bottom: 1%;
+}
+
+.chat__sticker {
+  min-height: 90;
+  max-height: 200;
+  min-width: 30%;
+  max-width: 70%;
+  border-radius: 0.25em;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(201, 201, 201);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #282828;
+}
+.mo ::-webkit-scrollbar-track {
+  background: #282828;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.3em;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f4650;
+}
+.mo ::-webkit-scrollbar-thumb {
+  background: black;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*--*/
+/* CSS Code for custom context menu*/
+.menu {
+  background-color: white;
+  width: 300px;
+  border-style: solid;
+  border-radius: 0.3em;
+  padding: 1%;
+  display: none;
+  position: fixed;
+  overflow: auto;
+  transition: 50ms;
+  z-index: 1;
+}
+.mo .menu {
+  background-color: #2b2a33;
+  border-color: #42414d;
+}
+.dark .menu {
+  background-color: #343a42;
+}
+.menu-item {
+  height: 10%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mo .menu-item {
+  color: inherit;
+}
+.menu-item:hover {
+  cursor: pointer;
+  background-color: #f0f2f4;
+  transition: 500ms;
+}
+.dark .menu-item:hover {
+  background-color: #3f4650;
+}
+.mo .menu-item:hover {
+  background-color: #42414d;
+}
+.material-icons {
+  padding: 2%;
+}
