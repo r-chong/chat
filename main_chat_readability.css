@@ -163,14 +163,15 @@ body .pattern__stripes-1 {
 html {
   margin: 0px;
   width: 100%;
+  font-family: 'Times New Roman', Times, serif;
 }
 body {
   background-color: white;
   color: #343a42;
   overflow: hidden;
-  font-family: "Times New Roman", Times, serif;
   margin: 0px;
   width: 100%;
+  border-radius: 0.3em;
 }
 
 .dark {
@@ -181,7 +182,8 @@ body {
 .mo {
   background-color: #1c1b22;
   color: #fbfbfe;
-  border-radius: 0.3em;
+  border-color: #2b2a33;
+  /*   secondary accent color: #42414d; */
 }
 
 /*/////////////////////////////////////////////////////////////////////
@@ -198,7 +200,7 @@ code {
   color: whitesmoke;
   font-size: 1em;
   padding: 0.5em;
-  border-radius: 3px;
+  border-radius: 1rem;
   display: block;
 }
 
@@ -428,86 +430,82 @@ a {
 /////////////////////////////////////////////////////////////////////*/
 /*Dropdown Code for emoji toolbar*/
 .emote-dropdown__emoji-icon {
-  color: black;
-  background-image: url("Assets/lmao.png");
+  background-image: url('Assets/lmao.png');
   background-size: cover;
   padding: 1px;
   font-size: 16px;
   border-style: solid;
   border-width: 1px;
   border-radius: 25px;
-  text-align: center;
+  border-color: transparent;
   width: 3rem;
   height: 3rem;
   opacity: 0.1;
-  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
+  cursor: pointer;
 }
-/*When removed the code below doesn't do much.....*/
-/*remove that annoying white space around dropbtn*/
+
 .body .emote-dropdown__emoji-icon {
-  background-color: black;
   /*Opacity is too low and icon does not show in default mode*/
   opacity: 0.4;
 }
-.dark .emote-dropdown__emoji-icon {
-  background-color: #596988;
-}
-.mo .emote-dropdown__emoji-icon {
-  background-color: inherit;
-}
 
 .emote-dropdown__emoji-icon:hover {
-  opacity: 100%;
+  opacity: 1;
 }
-.dropdown:hover .emote-dropdown__dropdown-content {
+
+.emote-dropdown__container:hover .emote-dropdown__dropdown-content {
   display: inline-block;
   width: 100%;
   margin: auto;
 }
 
+.emote-dropdown__container:hover .emote-dropdown__emoji-icon {
+  opacity: 1;
+}
+
 .emote-dropdown__dropdown-content {
   display: none;
   position: absolute;
-  max-width: 10rem;
+  max-width: 15rem;
   height: 4.5rem;
-  border: 2px solid;
-  border-radius: 7px;
+  border: 2px solid black;
+  border-radius: 0.3em;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: 1;
+  background-color: inherit;
 }
-/*background-color of the dropdown/*/
-body .emote-dropdown__dropdown-content {
-  background-color: lightgrey;
+.body .emote-dropdown__dropdown-content {
+  background-color: lightgray;
 }
 .dark .emote-dropdown__dropdown-content {
-  background-color: #59698870;
+  background-color: #596988;
 }
+
 .mo .emote-dropdown__dropdown-content {
-  background-color: #ffbadd;
+  background-color: #2b2a33;
 }
 .emote-dropdown__container {
   display: flex;
   flex-flow: column;
   margin-left: 0%;
 }
-/*--*/
 /*CSS Styling to make buttons within the dropdown to look NOICE*/
 .emote {
   /*this is a button, see .customEmote for inline emote styling*/
   font-family: monospace;
   font-size: 1.2rem;
-  min-width: 2.2rem;
+  min-width: 2.4rem;
   min-height: 30px;
-  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
   border: 1px solid #596988;
-  background-color: transparent;
-  border-radius: 7px;
-  color: black;
+  border-radius: 0.3em;
+  color: inherit;
+  background-color: inherit;
   box-shadow: 1px 4px 10px black;
 }
 .emote:hover {
-  border: 1px solid #343a42;
-  color: black;
+  border-color: #343a42;
   cursor: pointer;
 }
 .emote:active {
@@ -524,7 +522,7 @@ body .emote-dropdown__dropdown-content {
 .mode__radio-button {
   font-size: 100%;
 }
-.dark input[type="button"] {
+.dark input[type='button'] {
   color: #596988;
 }
 /*////////////////////////////////
@@ -563,7 +561,7 @@ body .emote-dropdown__dropdown-content {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -639,37 +637,43 @@ a.resource-link:hover {
 /*//////////////////////////////*/
 
 /* --- Login Container --- */
+.lockscreen {
+  background: url(Assets/marsLockscreen.jpeg) no-repeat center 40% fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  object-fit: contain;
+}
+
 .login-credentials__container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  min-width: 40%;
-  height: 100%;
-  padding-top: 15rem;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  margin-top: 15%;
+  color: #fbfbfe;
+  background-color: #1c1b22;
+  border-radius: inherit;
+  z-index: 1;
 }
+
 .login-credentials__title {
-  align-self: flex-start;
   align-self: center;
-  color: white;
+  color: inherit;
 }
-.login-image {
-  display: flex;
-  flex-direction: column;
-  min-width: 30%;
-  height: 100%;
-}
+
 .login__credentials-input {
   display: block;
-  width: 60%;
+  width: 70%;
   height: 3rem;
   font-size: 1rem;
   border-style: hidden;
-  border-bottom-style: groove;
+  border-bottom: #42414d solid;
   border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  color: white;
+  margin: auto;
+  color: inherit;
   background-color: inherit;
 }
 .login__credentials-input:focus {
@@ -685,66 +689,62 @@ a.resource-link:hover {
   border-radius: 0.3em;
 }
 
+.login__password-box {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: auto;
+}
+
+.login__password {
+  width: 100%;
+}
+
 .login__password-visiblity {
-  position: absolute;
-  margin-top: 0;
-  margin-left: 75%;
-  z-index: 1;
+  width: 2%;
+  align-self: center;
   cursor: pointer;
-  color: white;
+  color: inherit;
   background-color: inherit;
   font-size: 4rem;
 }
+
 .login__password-visiblity:hover {
   transition: 800ms;
   color: #1da1f2;
 }
-.login__password-box {
-  display: flex;
-  flex-direction: row;
-}
+
 .login-credentials__submit {
   display: block;
   height: 3rem;
-  width: 60%;
+  width: 70%;
   font-size: 4rem;
   border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
+  margin: auto;
   background-color: inherit;
-  color: white;
+  color: inherit;
 }
-.login-credentials__submit:active {
-  margin-top: 0.45rem;
-  height: 2.75rem;
-}
+
 .login-credentials__submit:hover {
   transition: 800ms;
   color: #1da1f2;
 }
+
 .login__celebrate {
   height: 3rem;
-  width: 60%;
+  width: 70%;
   font-size: 4rem;
   border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  color: white;
+  margin: auto;
+  color: inherit;
   background-color: inherit;
 }
+
 .login__celebrate:hover {
   transition: 800ms;
   color: #1da1f2;
 }
-.lockscreen {
-  background: url(Assets/lockscreen.jpg) no-repeat center 40% fixed;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  object-fit: contain;
-}
+
 /* --- Log out button --- */
 .settings__logout-btn {
   padding: 0.1em;
@@ -814,17 +814,13 @@ a.resource-link:hover {
   transition: 500ms;
 }
 .cookie-alert__container {
-  width: 97.5%;
+  width: 100%;
   padding: 1%;
-  background-color: inherit;
   color: white;
+  background-color: #282828;
   position: fixed;
   bottom: 0;
   z-index: 1;
-  border-style: solid;
-  border-color: inherit;
-  border-width: 1px;
-  border-radius: 0.3em;
   opacity: 1;
   display: flex;
   flex-direction: row;
@@ -834,6 +830,7 @@ a.resource-link:hover {
   min-width: 90%;
   font-size: 1.25rem;
   text-align: center;
+  align-self: center;
 }
 .cookie-alert__close {
   min-width: 10%;
@@ -843,6 +840,7 @@ a.resource-link:hover {
   cursor: pointer;
   transition: 900ms;
   z-index: 1;
+  align-self: center;
 }
 .cookie-alert__container--hidden {
   width: 97.5%;
@@ -862,10 +860,6 @@ a.resource-link:hover {
   transition: 900ms;
 }
 
-.dark .cookie-alert__close {
-  color: white;
-}
-/*Highly Experimental*/
 .chatline {
   position: relative;
   display: flex;
@@ -904,7 +898,7 @@ a.resource-link:hover {
 }
 
 .chatline::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }

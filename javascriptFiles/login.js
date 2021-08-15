@@ -91,10 +91,6 @@ function passwordVisiblity() {
 ////////////////////
 /*Login/Page Setup Functions > Cookie Alert*/
 ////////////////////
-function displayPassVisiblity() {
-  uiPassVisiblityEye.setAttribute('z-index', '1');
-}
-
 function hideCookieAlert() {
   cookieAlert.style.display = 'none';
 }
@@ -274,8 +270,6 @@ function executeLoginFuncs() {
 
   //Login page event listeners
   loginCelebrateBtn.addEventListener('click', confettiPicker);
-  uiLoginUserField.addEventListener('change', displayPassVisiblity);
-  uiLoginPassField.addEventListener('change', displayPassVisiblity);
   uiPassVisiblityEye.addEventListener('click', passwordVisiblity);
   uiLoginButton.addEventListener('click', loginValidation);
   uiLoginContainer.addEventListener('keyup', loginKeyEnter);

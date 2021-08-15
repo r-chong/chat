@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://goosenews.ca/chat/ [L,R=301]

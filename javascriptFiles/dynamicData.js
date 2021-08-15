@@ -4,6 +4,7 @@ Data within this file can be accessed within other JS files (kinda cool)
 */
 let chatTextbox = document.getElementById('chatTextbox');
 var emojiData = [
+  ['lol', '&#128514;'],
   ['Rolling on Floor Laughing', '&#129315;'],
   ['Sunglasses, developed by Mo', '&#128526;'],
   ['Loudly crying', '&#128557;'],
@@ -11,8 +12,8 @@ var emojiData = [
   ['Unamused', '&#128530;'],
   ['Smirking', '&#128527;'],
   ["Sleeping, RIP Mo's sleep", '&#128564;'],
-  ['Mad', '&#128548;'],
-  ['Madder', '&#128544;'],
+  ['Mad', '&#128544;'],
+  ['Madder', '&#128548;'],
   ['MADDEST', '&#128545;'],
   ['MAD AS AHEN QUOTE', '&#129324;'],
   ['The YIP have arrived.', '&#129488;'],

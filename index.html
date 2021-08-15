@@ -15,14 +15,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async></script>
+  <!-- Remove confetti after 2021-09-01 from all scripts-->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js" async></script>
+  <script src="./javascriptFiles/login.js" async></script>
   <script src="DOMPurify-main/dist/purify.min.js" async></script>
   <script src="./javascriptFiles/asami.js" async></script>
   <script src="./javascriptFiles/dynamicData.js" async></script>
   <script src="./javascriptFiles/quotes.js" async></script>
   <script src="./javascriptFiles/tab.js" async></script>
   <script src="./javascriptFiles/chat.js" async></script>
-  <script src="./javascriptFiles/login.js" async></script>
 </head>
 
 <body id="body">
@@ -72,10 +73,12 @@
         </div>
         <div id="chatControlsContainer" class="chat__controls-container">
           <div class="emote-dropdown__container">
-            <div class="dropdown">
-              <button class="emote-dropdown__emoji-icon" title="Emoji dropdown."></button>
+
+            <div>
+              <button class="emote-dropdown__emoji-icon" title="Emoji dropdown"></button>
               <div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
             </div>
+
           </div>
           <div id="chatTextbox" class="chat__textbox" contenteditable="true" spellcheck="true"></div>
           <button id="chatSubmit" class="chat__textbox--submit-btn"><span class="material-icons"
@@ -241,11 +244,14 @@
   <!--underneath is the login page, hidden upon login-->
   <div id="loginContainer" class="login-credentials__container">
     <h1 class="login-credentials__title">Genius Chat</h1>
+
     <input required id="loginUser" placeholder="Username" class="login__credentials-input" type=text>
-    <span class="login__password-box">
-      <input required id="loginPass" placeholder="Password" class="login__credentials-input" type=password>
+    <div class="login__password-box">
+      <input required id="loginPass" placeholder="Password" class="login__credentials-input login__password"
+        type=password>
       <i id="password_visiblity" class="material-icons login__password-visiblity">visibility</i>
-    </span>
+    </div>
+
     <button id="loginSubmit" class="login-credentials__submit">
       <span class="material-icons">login</span>
     </button>
