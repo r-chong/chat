@@ -1,36 +1,36 @@
-'use strict';
+"use strict";
 ////////////////////
 /*General/Tabs >> VARIABLES*/
 ////////////////////
 //Context menu related variables
 let disableContextMenu = false;
-let contextMenuSwitch = document.getElementById('contextMenuSwitch');
-let mainMenuBox = document.getElementById('mainContextMenu');
-let mainMenuReload = document.getElementById('contextMenuChatReload');
-let mainMenuLogout = document.getElementById('contextMenuLogout');
-let messageMenuBox = document.getElementById('messageContextMenu');
-let messageReply = document.getElementById('messageReply');
+let contextMenuSwitch = document.getElementById("contextMenuSwitch");
+let mainMenuBox = document.getElementById("mainContextMenu");
+let mainMenuReload = document.getElementById("contextMenuChatReload");
+let mainMenuLogout = document.getElementById("contextMenuLogout");
+let messageMenuBox = document.getElementById("messageContextMenu");
+let messageReply = document.getElementById("messageReply");
 let msgTxtContent;
 //Navigation bar related variables
-let navbar = document.getElementById('navbar');
-let navbarChat = document.getElementById('chat');
-let navbarResources = document.getElementById('resources');
-let navbarSettings = document.getElementById('settings');
-let navbarSpiritWorld = document.getElementById('spirit');
-let navbarChatReload = document.getElementById('reload');
+let navbar = document.getElementById("navbar");
+let navbarChat = document.getElementById("chat");
+let navbarResources = document.getElementById("resources");
+let navbarSettings = document.getElementById("settings");
+let navbarSpiritWorld = document.getElementById("spirit");
+let navbarChatReload = document.getElementById("reload");
 //Tabs(Settings, Resources, Chat) variables
-let previousMode2 = 'body';
-let uiMainContainer = document.getElementById('container');
-let uiLogout = document.getElementById('logout');
-let uiChatFlush = document.getElementById('chatFlush');
-let uiPageTitle = document.getElementById('pageTitle');
-let uiChatTab = document.getElementById('chatTab');
-let uiResourcesTab = document.getElementById('resourcesTab');
-let uiSettingsTab = document.getElementById('settingsTab');
-let uiSpiritTab = document.getElementById('spiritTab');
-let cookieAlertCloseBtn = document.getElementById('cookieAlertCloseBtn');
-let suggestionBox = document.getElementById('suggestionBox');
-let notificationSwitch = document.getElementById('notificationSwitch');
+let previousMode2 = "body";
+let uiMainContainer = document.getElementById("container");
+let uiLogout = document.getElementById("logout");
+let uiChatFlush = document.getElementById("chatFlush");
+let uiPageTitle = document.getElementById("pageTitle");
+let uiChatTab = document.getElementById("chatTab");
+let uiResourcesTab = document.getElementById("resourcesTab");
+let uiSettingsTab = document.getElementById("settingsTab");
+let uiSpiritTab = document.getElementById("spiritTab");
+let cookieAlertCloseBtn = document.getElementById("cookieAlertCloseBtn");
+let suggestionBox = document.getElementById("suggestionBox");
+let notificationSwitch = document.getElementById("notificationSwitch");
 //IMPROVEMENT: Remove 'ui' from all variables make this BETTER
 
 ////////////////////
@@ -40,28 +40,27 @@ function setCookie(cname, cvalue, exdays) {
   //sets the cookie name, the cookie itself, and the days until expiry
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-  var expires = 'expires=' + d.toUTCString();
+  var expires = "expires=" + d.toUTCString();
   document.cookie =
-    cname + '=' + cvalue + ';' + expires + ';SameSite=None;Secure;path=/';
+    cname + "=" + cvalue + ";" + expires + ";SameSite=None;Secure;path=/";
 }
 
 function getCookie(cname) {
-  var name = cname + '='; //you cant put = sign in brackets
+  //function runs thru & splits all cookies by the semicolons.
+  //if cookie is found, return value of cookie
+  var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';'); //splits all cookies (divided by the semicolons)
+  var ca = decodedCookie.split(";");
   for (let i = 0; i < ca.length; i++) {
-    //repeats as many cookies as there are
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      //if cookie is found, return value of cookie
-      //else return nothing
       return c.substring(name.length, c.length);
     }
   }
-  return '';
+  return "";
 }
 
 ////////////////////
@@ -69,10 +68,10 @@ function getCookie(cname) {
 ////////////////////
 function chatFlush() {
   let chatFlushWarning =
-    'You are about to trigger a chat flush.\nDo NOT use the chat for 2.5 seconds.';
+    "You are about to trigger a chat flush.\nDo NOT use the chat for 2.5 seconds.";
   if (confirm(chatFlushWarning)) {
     for (let i = 0; i < 100; i++) {
-      saveToDB('-', getChatFromDB);
+      saveToDB("-", getChatFromDB);
     }
   }
   scrollBottom();
@@ -80,7 +79,7 @@ function chatFlush() {
 
 function navBtnClickHandler(element) {
   let tabButtonParent = element.target.parentElement;
-  if (element.target.id == '') {
+  if (element.target.id == "") {
     openTab(tabButtonParent, tabButtonParent.id);
     setPageTitle(tabButtonParent.id);
   } else {
@@ -93,29 +92,29 @@ function openTab(element, elementId) {
   //declare all variables
   let tabindex, tabcontent;
   //gets all tabcontent
-  tabcontent = document.getElementsByClassName('tabcontent');
+  tabcontent = document.getElementsByClassName("tabcontent");
   for (tabindex = 0; tabindex < tabcontent.length; tabindex++) {
-    tabcontent[tabindex].style.display = 'none';
+    tabcontent[tabindex].style.display = "none";
     // making it so the tabcontent is not displayed
   }
   clearActiveTabs();
   //display the tabcontent that is selected
-  tabcontent[0].style.display = 'block';
-  element.className += ' active';
-  element.className += ' pattern__stripes-1';
+  tabcontent[0].style.display = "block";
+  element.className += " active";
+  element.className += " ui-hover";
 
-  document.getElementById(elementId + 'Tab').style.display = 'block';
+  document.getElementById(elementId + "Tab").style.display = "block";
   //I added ids of elementId+"Tab" to each tab content to get them to be callable with their elementId
 }
 
 function setPageTitle(tabname) {
   let tabnameToTitleCase = titleCase(tabname);
   //The two 'ifs' are special cases
-  if (tabname == 'chat') {
-    uiPageTitle.innerHTML = 'Genius Chat';
+  if (tabname == "chat") {
+    uiPageTitle.innerHTML = "Genius Chat";
     uiChatTextbox.focus();
-  } else if (tabname == 'spirit') {
-    uiPageTitle.innerHTML = 'Spirit World';
+  } else if (tabname == "spirit") {
+    uiPageTitle.innerHTML = "Spirit World";
   } else {
     uiPageTitle.innerHTML = tabnameToTitleCase;
   }
@@ -123,16 +122,16 @@ function setPageTitle(tabname) {
 
 function clearActiveTabs() {
   // clear active from the tablinks
-  let tab_button = document.getElementsByClassName('nav__sidebar-content');
+  let tab_button = document.getElementsByClassName("nav__sidebar-content");
 
   for (let tabindex = 0; tabindex < tab_button.length; tabindex++) {
     tab_button[tabindex].className = tab_button[tabindex].className.replace(
-      ' active',
-      ''
+      " active",
+      ""
     ); // this one needs to be assigned back to the element
     tab_button[tabindex].className = tab_button[tabindex].className.replace(
-      ' pattern__stripes-1',
-      ''
+      " ui-hover",
+      ""
     ); // this one needs to be assigned back to the element
     //tablinks[tabindex].className = "";
   }
@@ -146,16 +145,16 @@ function openContextMenu(event) {
   let grandParentEle = event.target.parentElement.parentElement.className;
   let contextMenuConditions =
     disableContextMenu === false &&
-    parentEle.includes('chat__controls-container') === false;
+    parentEle.includes("chat__controls-container") === false;
 
   const contextMenu = {
     event: event,
     left: arguments[0].clientX,
     top: arguments[0].clientY,
     isLoginPage:
-      parentEle.includes('loginpg') || grandParentEle.includes('loginpg'),
+      parentEle.includes("loginpg") || grandParentEle.includes("loginpg"),
     isChatMessage:
-      parentEle.includes('chatline') || grandParentEle.includes('chatline'),
+      parentEle.includes("chatline") || grandParentEle.includes("chatline"),
   };
   hideContextMenu();
   if (contextMenuConditions) {
@@ -165,8 +164,8 @@ function openContextMenu(event) {
 }
 
 function replyToMessage(message) {
-  msgTxtContent = '<code>' + message + '</code>';
-  uiChatTextbox.innerText = '↪️';
+  msgTxtContent = "<code>" + message + "</code>";
+  uiChatTextbox.innerText = "↪️";
 }
 
 function chooseContextMenu({ event, left, top, isLoginPage, isChatMessage }) {
@@ -177,7 +176,7 @@ function chooseContextMenu({ event, left, top, isLoginPage, isChatMessage }) {
     //Display chat message context menu
     displayContextMenu(left, top, messageMenuBox, false);
     let message = event.target.parentElement.textContent;
-    messageReply.addEventListener('click', () => replyToMessage(message));
+    messageReply.addEventListener("click", () => replyToMessage(message));
   } else {
     //Display regular context menu
     displayContextMenu(left, top, mainMenuBox, false);
@@ -190,21 +189,21 @@ function displayContextMenu(
   menu,
   hideSensitiveButtons
 ) {
-  menu.style.left = leftPosition + 'px';
-  menu.style.top = topPosition + 'px';
-  menu.style.display = 'block';
+  menu.style.left = leftPosition + "px";
+  menu.style.top = topPosition + "px";
+  menu.style.display = "block";
   if (hideSensitiveButtons === true) {
-    mainMenuReload.classList.add('hide');
-    mainMenuLogout.classList.add('hide');
+    mainMenuReload.classList.add("hide");
+    mainMenuLogout.classList.add("hide");
   } else {
-    mainMenuReload.classList.remove('hide');
-    mainMenuLogout.classList.remove('hide');
+    mainMenuReload.classList.remove("hide");
+    mainMenuLogout.classList.remove("hide");
   }
 }
 
 function hideContextMenu() {
-  mainMenuBox.style.display = 'none';
-  messageMenuBox.style.display = 'none';
+  mainMenuBox.style.display = "none";
+  messageMenuBox.style.display = "none";
 }
 
 function setContextMenuState(event) {
@@ -216,11 +215,11 @@ function setContextMenuState(event) {
 /*Tabs > Settings tab*/
 ////////////////////
 function logout() {
-  uiLogout.classList.add('hide');
-  uiLoginContainer.classList.remove('hide');
-  uiMainContainer.classList.add('hide');
-  body.classList.add('lockscreen');
-  document.cookie = 'logged_in=0';
+  uiLogout.classList.add("hide");
+  uiLoginContainer.classList.remove("hide");
+  uiMainContainer.classList.add("hide");
+  body.classList.add("lockscreen");
+  document.cookie = "logged_in=0";
 }
 
 ////////////////////
@@ -228,7 +227,7 @@ function logout() {
 ////////////////////
 //Find which mode is set
 function findMode() {
-  let radioButtons = document.getElementsByClassName('mode__radio-button');
+  let radioButtons = document.getElementsByClassName("mode__radio-button");
   for (let i = 0; i < radioButtons.length; i++) {
     if (radioButtons[i].checked) {
       var mode = radioButtons[i].id;
@@ -240,17 +239,17 @@ function findMode() {
 //Should be merged into set_mode
 function setModeCookie() {
   var currentMode = findMode();
-  setCookie('mode', currentMode, 365); //sets cookie
+  setCookie("mode", currentMode, 365); //sets cookie
 }
 
 function checkPreferredMode() {
-  var preferredMode = getCookie('mode'); //finds mode
-  if (preferredMode != '') {
+  var preferredMode = getCookie("mode"); //finds mode
+  if (preferredMode != "") {
     //if not empty:
     document.getElementById(preferredMode).checked = true; //set mode to preferredMode
   } else {
     //if there is no cookie
-    setCookie('mode', 'body', 365);
+    setCookie("mode", "body", 365);
     //set mode to body
   }
 }
@@ -258,40 +257,40 @@ function checkPreferredMode() {
 function set_mode() {
   var mode = findMode();
   var modeClass;
-  if (mode == 'modeDark') {
-    modeClass = 'dark';
-  } else if (mode == 'modeMo') {
-    modeClass = 'mo';
-  } else if (mode == 'modeDefault') {
-    modeClass = 'body';
+  if (mode == "modeDark") {
+    modeClass = "dark";
+  } else if (mode == "modeMo") {
+    modeClass = "mo";
+  } else if (mode == "modeDefault") {
+    modeClass = "body";
   }
   setModeCookie();
   //Change mode of body (all other elements will inherit)
-  document.getElementById('body').classList.remove(previousMode2);
-  document.getElementById('body').classList.add(modeClass);
+  document.getElementById("body").classList.remove(previousMode2);
+  document.getElementById("body").classList.add(modeClass);
   previousMode2 = modeClass;
 }
 
 function chatNotifier() {
-  if (!('Notification' in window)) {
-    alert('Never gonna give you up...never gonna let you down!');
-  } else if (Notification.permission === 'granted') {
+  if (!("Notification" in window)) {
+    alert("Never gonna give you up...never gonna let you down!");
+  } else if (Notification.permission === "granted") {
     var notification = new Notification(
-      'Never gonna give you up, never gonna let you down!'
+      "Never gonna give you up, never gonna let you down!"
     );
-  } else if (Notification.permission !== 'denied') {
+  } else if (Notification.permission !== "denied") {
     //Ask for permission
     Notification.requestPermission().then(function (permission) {
-      if (permission === 'granted') {
+      if (permission === "granted") {
         var notification = new Notification(
-          'Never gonna give you up...never gonna let you down!'
+          "Never gonna give you up...never gonna let you down!"
         );
-      } else if (permission === 'denied') {
-        alert('Never gonna give you up...never gonna let you down!');
+      } else if (permission === "denied") {
+        alert("Never gonna give you up...never gonna let you down!");
       }
     });
   } else {
-    alert('Never gonna give you up...never gonna let you down!');
+    alert("Never gonna give you up...never gonna let you down!");
   }
 }
 
@@ -299,57 +298,55 @@ function chatNotifier() {
 /*Misc*/
 ////////////////////
 function titleCase(string) {
-  string = string.toLowerCase().split(' ');
+  string = string.toLowerCase().split(" ");
   for (let i = 0; i < string.length; i++) {
     string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
   }
-  return string.join(' ');
+  return string.join(" ");
 }
 
 function executeTabFuncs() {
   //Whole document/window event listeners
-  document.addEventListener('contextmenu', openContextMenu, false);
-  window.addEventListener('click', hideContextMenu);
+  document.addEventListener("contextmenu", openContextMenu, false);
+  window.addEventListener("click", hideContextMenu);
 
   //Navigation bar event listeners
-  navbarChatReload.addEventListener('mousedown', function () {
-    navbarChatReload.classList.remove('pattern__stripes-1');
-    navbarChatReload.classList.add('pattern__stripes-2');
+  navbarChatReload.addEventListener("mousedown", function () {
+    // navbarChatReload.classList.remove("ui-hover");
+    // navbarChatReload.classList.add("ui-hover");
   });
-  navbarChatReload.addEventListener('mouseup', function () {
-    navbarChatReload.style.backgroundColor = 'initial';
-    navbarChatReload.classList.remove('pattern__stripes-2');
+  navbarChatReload.addEventListener("mouseup", function () {
+    // navbarChatReload.classList.remove("ui-hover");
   });
-  navbarChatReload.addEventListener('mouseleave', function () {
-    navbarChatReload.style.backgroundColor = 'initial';
-    navbarChatReload.classList.remove('pattern__stripes-1');
+  navbarChatReload.addEventListener("mouseleave", function () {
+    navbarChatReload.classList.remove("ui-hover");
   });
-  navbarChatReload.addEventListener('mouseenter', function () {
-    navbarChatReload.classList.add('pattern__stripes-1');
+  navbarChatReload.addEventListener("mouseenter", function () {
+    navbarChatReload.classList.add("ui-hover");
     getChatFromDB();
   });
-  navbarChatReload.addEventListener('click', getChatFromDB);
-  navbarChat.addEventListener('click', navBtnClickHandler);
-  navbarResources.addEventListener('click', navBtnClickHandler);
-  navbarSettings.addEventListener('click', navBtnClickHandler);
-  navbarSpiritWorld.addEventListener('click', navBtnClickHandler);
-  uiChatFlush.addEventListener('click', chatFlush);
+  navbarChatReload.addEventListener("click", getChatFromDB);
+  navbarChat.addEventListener("click", navBtnClickHandler);
+  navbarResources.addEventListener("click", navBtnClickHandler);
+  navbarSettings.addEventListener("click", navBtnClickHandler);
+  navbarSpiritWorld.addEventListener("click", navBtnClickHandler);
+  uiChatFlush.addEventListener("click", chatFlush);
 
   //Settings page event listener
-  contextMenuSwitch.addEventListener('click', setContextMenuState);
-  uiLogout.addEventListener('click', logout);
-  notificationSwitch.addEventListener('click', chatNotifier);
+  contextMenuSwitch.addEventListener("click", setContextMenuState);
+  uiLogout.addEventListener("click", logout);
+  notificationSwitch.addEventListener("click", chatNotifier);
 
   //Mode event listeners
-  document.getElementById('modeDefault').addEventListener('change', set_mode);
-  document.getElementById('modeDark').addEventListener('change', set_mode);
-  document.getElementById('modeMo').addEventListener('change', set_mode);
+  document.getElementById("modeDefault").addEventListener("change", set_mode);
+  document.getElementById("modeDark").addEventListener("change", set_mode);
+  document.getElementById("modeMo").addEventListener("change", set_mode);
 }
 
-document.addEventListener('readystatechange', (event) => {
-  if (event.target.readyState === 'interactive') {
+document.addEventListener("readystatechange", (event) => {
+  if (event.target.readyState === "interactive") {
     executeTabFuncs();
-  } else if (event.target.readyState === 'complete') {
+  } else if (event.target.readyState === "complete") {
     executeTabFuncs();
   }
 });
