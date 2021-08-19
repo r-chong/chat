@@ -564,15 +564,14 @@ var quoteArray = [
   ['How far that little candle throws his beams!', '(The Merchant of Venice)'],
   ['How poor are they that have not patience? What wound did ever heal but by degrees?', '(Othello)'],
   ['And oftentimes excusing of a fault doth make the fault the worse by the excuse.', '(King John)'],
-  ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'Genius Chat Developers'],
   ['We&#39;ve gone plaid speed.', 'Elon Musk'],
   ['Remember M.N.C.W then came U.G.C.W', 'Genius Chat'],
   ['We gotta start thinking more progressively.', 'Sandy Munro'],
-  ['Whatchu kno&#39s &#39sbout rolling down in the deep', 'Masked Wolf'],
   ['Thine term, nay. Our term, yay', 'Mo'],
   ['If one does not try, one will never know.', 'Mohammad Anwar (A wise Grade 9 student)'],
-  ['There\'s only one way to find out', 'Kowalski [Penguins of Madascar: The Movie]'],
-  ['So, becuase you failed once you are running away?', 'Private [Penguins of Madascar: The Movie]'],
+  ['There\'s only one way to find out', 'Kowalski, Penguins of Madagascar'],
+  ['Kowalski, analysis.','Skipper, Penguins of Madagascar']
+  ['So, because you failed once you are running away?', 'Private, Penguins of Madagascar'],
   ['The Space Shuttle Era ended, but 9 years later, after a decade of innovation, the Crew Dragon Era began. Outdated technologies must go, and better technologies must come.', 'An amateur space lover'],
   ['ULA stopped innovation, SpaceX destroyed them; Those who stop innovation, will always lose.', 'Genius Guy'],
   ['Perfection and power are overrated.', 'Uncle Iroh'],
@@ -581,7 +580,8 @@ var quoteArray = [
   ['I am a morning person. As in, I wake up early and do nothing.', 'Reese Chong'],
   ['Drink cactus juice, it\'ll quench ya, its the quenchiest', 'Sokka'],
   ['The only way to go fast, is to go well.', 'Uncle Bob (Clean Code)'],
-  ['You\'re not done when it works, you\'re done when it\'s right.','Uncle Bob (Clean Code)']
+  ['You\'re not done when it works, you\'re done when it\'s right.','Uncle Bob (Clean Code)'],
+  ['You had a 1 in $x chance of seeing this quote.'.replace('$x', quoteNum), 'Genius Chat Developers']
 ]
 //math.random generates a number in between 0 and 1
 //math.floor rounds the math.random

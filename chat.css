@@ -163,7 +163,7 @@ body .pattern__stripes-1 {
 html {
   margin: 0px;
   width: 100%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 body {
   background-color: white;
@@ -430,7 +430,7 @@ a {
 /////////////////////////////////////////////////////////////////////*/
 /*Dropdown Code for emoji toolbar*/
 .emote-dropdown__emoji-icon {
-  background-image: url('Assets/lmao.png');
+  background-image: url("Assets/lmao.png");
   background-size: cover;
   padding: 1px;
   font-size: 16px;
@@ -522,7 +522,7 @@ a {
 .mode__radio-button {
   font-size: 100%;
 }
-.dark input[type='button'] {
+.dark input[type="button"] {
   color: #596988;
 }
 /*////////////////////////////////
@@ -561,7 +561,7 @@ a {
 
 .slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 26px;
   width: 26px;
   left: 4px;
@@ -898,7 +898,7 @@ a.resource-link:hover {
 }
 
 .chatline::after {
-  content: '';
+  content: "";
   clear: both;
   display: table;
 }
