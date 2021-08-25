@@ -310,20 +310,12 @@ function executeTabFuncs() {
   document.addEventListener("contextmenu", openContextMenu, false);
   window.addEventListener("click", hideContextMenu);
 
-  //Navigation bar event listeners
-  navbarChatReload.addEventListener("mousedown", function () {
-    // navbarChatReload.classList.remove("ui-hover");
-    // navbarChatReload.classList.add("ui-hover");
-  });
-  navbarChatReload.addEventListener("mouseup", function () {
-    // navbarChatReload.classList.remove("ui-hover");
+  navbarChatReload.addEventListener("mouseenter", function () {
+    navbarChatReload.classList.add("active");
+    getChatFromDB();
   });
   navbarChatReload.addEventListener("mouseleave", function () {
-    navbarChatReload.classList.remove("ui-hover");
-  });
-  navbarChatReload.addEventListener("mouseenter", function () {
-    navbarChatReload.classList.add("ui-hover");
-    getChatFromDB();
+    navbarChatReload.classList.remove("active");
   });
   navbarChatReload.addEventListener("click", getChatFromDB);
   navbarChat.addEventListener("click", navBtnClickHandler);
