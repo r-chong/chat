@@ -108,16 +108,24 @@ function sendString() {
   clean = clean.replace(/\↪️/g, msgTxtContent);
   //Custom Emojis (stickers)
   clean = clean.replace(
-    /\:(dogeputin)\:/gim,
+    /\:(dogeputinmini)\:/gim,
     "<img src='Assets/dogeputinMicro.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    /\:(dogeputinXL)\:/gim,
+    /\:(dogeputin)\:/gim,
     "<img src='Assets/dogeputinMedium.png' class='customEmoji'>"
+  );
+  clean = clean.replace(
+    /\:(dogeputinmax)\:/gim,
+    "<img src='Assets/dogeputinXL.png' class='customEmoji'>"
   );
   clean = clean.replace(
     /\:(lmao)\:/gi,
     "<img src='Assets/lmao.png' class='customEmoji'>"
+  );
+  clean = clean.replace(
+    /\:(pwease)\:/gi,
+    "<img src='Assets/pwease.png' class='customEmoji'>"
   );
   clean = clean.replace(
     /\:(thonk)\:/gim,
