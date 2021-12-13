@@ -10,21 +10,20 @@ let uiLoginPassField = document.getElementById('loginPass');
 let loginCelebrateBtn = document.getElementById('celebrate');
 let confettiNum = Math.floor(Math.random() * 4);
 let oldConfettiNum = confettiNum;
-let uiLockscreen = document.getElementById('lockscreen');
 let cookieAlert = document.getElementById('cookieAlert');
-
+let loginModal = document.getElementById('loginModal');
 ////////////////////
 /*Login/Page Setup Functions*/
 ////////////////////
 
-function check_auth(apikey) {
+function checkAuth(apikey) {
   var logged_in = apikey;
   if (
     logged_in !==
     'bf44550db31d8f59b5da10e3a00a5072a481810b0dadfc6cfcc1f948b5f170f8'
   ) {
-    uiMainContainer.classList.add('hide');
-    body.classList.add('lockscreen');
+    uiMainContainer.classList.add('hide'); //security measure
+    loginModal.style.display = 'block';
     uiLoginUserField.focus();
   } else {
     login_setup();
@@ -42,7 +41,7 @@ function getAuth(user, pass) {
       // set cookie
       document.cookie = 'logged_in=' + responses.apikey;
       document.cookie = 'user=' + responses.user;
-      check_auth(responses.apikey);
+      checkAuth(responses.apikey);
       // change hide settings
       // load chat
       // to streamline, make this into a callable function
@@ -57,9 +56,9 @@ function getAuth(user, pass) {
 
 function login_setup() {
   //console.log("you are logged in");
+  loginModal.style.display = 'none';
   uiMainContainer.classList.remove('hide');
   body.classList.remove('lockscreen');
-  uiLoginContainer.classList.add('hide');
   uiLogout.classList.remove('hide');
   uiChatTextbox.focus();
 }
@@ -261,10 +260,10 @@ function executeLoginFuncs() {
       console.trace();
     }
   }
-  check_auth(loginCookie);
+  checkAuth(loginCookie);
   scrollBottom();
-  checkPreferredMode();
-  set_mode();
+  setModeSwitchState();
+  setPageMode();
   cannonConfeti();
   displayCookieAlert();
 

@@ -1,18 +1,18 @@
 var quoteArray = [
-  ['I know you&#39;re not supposed to cry over spilled tea,<br>But it&#39;s just so sad!', 'Uncle Iroh'],
+  ['I know you&#39;re not supposed to cry over spilled tea, But it&#39;s just so sad!', 'Uncle Iroh'],
   ['Sick of tea? That&#39;s like being sick of breathing!', 'Uncle Iroh'],
   ['Life happens wherever you are, whether you make it or not.', 'Uncle Iroh'],
-  ['Prince Zuko, pride is not the opposite of shame, but it&#39;s source.<br>True humility is the only antidote to shame.', 'Uncle Iroh'],
-  ['Sometimes life is like this dark tunnel,<br>You can&#39;t always see the light at the end of the tunnel,<Br>But if you just keep moving, you will come to a better place.', 'Uncle Iroh'],
-  ['It&#39s important to draw wisdom from many different places...<br>If we take it from only one place it becomes rigid and stale.', 'Uncle Iroh'],
-  ['Good times become good memories,<br>But bad times make good lessons.', 'Uncle Iroh'],
+  ['Prince Zuko, pride is not the opposite of shame, but it&#39;s source. True humility is the only antidote to shame.', 'Uncle Iroh'],
+  ['Sometimes life is like this dark tunnel, You can&#39;t always see the light at the end of the tunnel, But if you just keep moving, you will come to a better place.', 'Uncle Iroh'],
+  ['It&#39s important to draw wisdom from many different places... If we take it from only one place it becomes rigid and stale.', 'Uncle Iroh'],
+  ['Good times become good memories, But bad times make good lessons.', 'Uncle Iroh'],
   ['Failure is only the opportunity to begin again.', 'Uncle Iroh'],
-  ['In the darkest of times, hope is something you give yourself. <br> That is the meaning of inner strength', 'Uncle Iroh'],
-  ['While it is always best to believe in oneself,<br>A little help from others can be a great blessing.', 'Uncle Iroh'],
+  ['In the darkest of times, hope is something you give yourself.   That is the meaning of inner strength', 'Uncle Iroh'],
+  ['While it is always best to believe in oneself, A little help from others can be a great blessing.', 'Uncle Iroh'],
   ['Sharing tea with a fascinating stranger is one of life&#39s true delights.', 'Uncle Iroh'],
-  ['Destiny is a funny thing.<br>You never know how things are going to work out.<br>But if you keep an open mind and an open heart, I promise you will find your own destiny someday.', 'Uncle Iroh'],
-  ['SECRET TUNNELLLLLLLLLLLL<br>SECRET TUNNELLLLLLLLLLLL<br>THROUGH THE MOUNTAINS<br>Secret, Secret, Secret TUNNELLLL', 'Travelling Nomad, ATLA']
-  ['Where in the world is Carmen<br>Sandiego?', 'Unknown'],
+  ['Destiny is a funny thing. You never know how things are going to work out. But if you keep an open mind and an open heart, I promise you will find your own destiny someday.', 'Uncle Iroh'],
+  ['SECRET TUNNELLLLLLLLLLLL SECRET TUNNELLLLLLLLLLLL THROUGH THE MOUNTAINS Secret, Secret, Secret TUNNELLLL', 'Travelling Nomad, ATLA']
+  ['Where in the world is Carmen Sandiego?', 'Unknown'],
   ['The three chief virtues of a programmer are: Laziness, Impatience and Hubris.', 'Larry Wall',],
   ['Persistence is very important. You should not give up unless you are forced to give up.', 'Elon Musk',],
   ['I would like to die on Mars. Just not on impact.', 'Elon Musk',],
@@ -35,10 +35,10 @@ var quoteArray = [
   ['If you don&#39;t innovate, you will fall behind.', 'Genius Guy'],
   ['It is better to remain silent and be thought a fool, than to speak and remove all doubt.', 'Maurice Switzer (paraphrased)',],
   ['When all else is lost, the future still remains.', 'Christian Nestell Bovee',],
-  ['There are basically two types of people.<br>People who accomplish things, and people who claim to have accomplished things.<br>The first group is less crowded.', 'Mark Twain',],
-  ['I am a servant of the Secret Fire, wielder of the flame of Anwar.<br>YOU SHALL NOT PASS', 'Mo',],
+  ['There are basically two types of people. People who accomplish things, and people who claim to have accomplished things. The first group is less crowded.', 'Mark Twain',],
+  ['I am a servant of the Secret Fire, wielder of the flame of Anwar. YOU SHALL NOT PASS', 'Mo',],
   ['You must do the things you think you cannot do.', 'Eleanor Roosevelt',],
-  ['Start by doing what&#39;s necessary, then do what&#39;s possible;<br>and suddenly you are doing the impossible.', 'Francis of Assisi',],
+  ['Start by doing what&#39;s necessary, then do what&#39;s possible; and suddenly you are doing the impossible.', 'Francis of Assisi',],
   ['No act of kindness, no matter how small, is ever wasted.', 'Aesop'],
   ['Clouds come floating into my life, no longer to carry rain or usher storm, but to add color to my sunset sky.', 'Rabindranath Tagore',],
   ['What&#39;s another word for Thesaurus?', 'Steven Wright',],
@@ -49,7 +49,7 @@ var quoteArray = [
   ['You are now hacked', 'Hacker',],
   ['I&#39;m not sure, I&#39;m getting back into the coding mindset though that&#39;s for sure.', 'Reese Chong'],
   ['The more you have on your plate, the worse It&#39;be if you drop it.']
-  ['Politics can never be conquered, leave them to others.<br>You can win one election, rig the other ones.<br>But some day, your form of government will fall.', 'Mo'],
+  ['Politics can never be conquered, leave them to others. You can win one election, rig the other ones. But some day, your form of government will fall.', 'Mo'],
   ['Quote printer go brrrr', 'Mo'],
   ['The journey of a thousand miles begins with one step.', 'Lao Tzu'],
   ['He is no fool who gives what he cannot keep to gain what he cannot lose.', 'Jim Elliot'],
@@ -63,15 +63,15 @@ var quoteArray = [
   ['We must be willing to let go of the life we have planned, so as to have the life that is waiting for us.', 'E. M. Forster'],
   ['Not me', 'Neha'],
   ['Why not do both?', 'Reese'],
-  ['Fluent, eh?<br>Me, I just dabble in languages.', 'Reese'],
+  ['Fluent, eh? Me, I just dabble in languages.', 'Reese'],
   ['Bingo', 'Bonk Meowlhead'],
   ['BWAHAHAHA', 'Neha'],
-  ['If you get up in the morning and think the future is going to be better, it is a bright day.<br> Otherwise, it&#39;s not.', 'Elon Musk'],
+  ['If you get up in the morning and think the future is going to be better, it is a bright day.  Otherwise, it&#39;s not.', 'Elon Musk'],
   ['Some people don&#39;t like change, but you need to embrace change if the alternative is disaster.', 'Elon Musk'],
-  ['If your friend has never agreed with you, <br>never taken your side,<br>always used you, <br>ditch them, they are a bad friend.', 'Unknown'],
+  ['If your friend has never agreed with you,  never taken your side, always used you,  ditch them, they are a bad friend.', 'Unknown'],
   ['No u', 'Mo'],
-  ['If something&#39;s important enough, you should try.<br>-Even if - the probable outcome is failure.', 'Elon Musk'],
-  ['Don&#39;t write thirty quantitative sentences....<br>Only to get the same mark as the friend who wrote one qualitative sentence.', 'Mohammad A.'],
+  ['If something&#39;s important enough, you should try. -Even if - the probable outcome is failure.', 'Elon Musk'],
+  ['Don&#39;t write thirty quantitative sentences.... Only to get the same mark as the friend who wrote one qualitative sentence.', 'Mohammad A.'],
   ['Patience is a virtue, and I&#39;m learning patience. It&#39;s a tough lesson.', 'Elon Musk'],
   ['Any product that needs a manual to work is broken.', 'Elon Musk'],
   ['Life is too short for long-term grudges.', 'Elon Musk'],
@@ -81,7 +81,7 @@ var quoteArray = [
   ['Never give in and never give up.', 'Hubert H. Humphrey'],
   ['Life is 10% what happens to you and 90% how you react to it.', 'Charles R. Swindoll'],
   ['Believe It!', 'Naruto'],
-  ['Those Who Break The Rules Are Scum<br>But, Those Who Abandon Their Friends Are Worse Than Scum.', 'Obito Uchiha'],
+  ['Those Who Break The Rules Are Scum But, Those Who Abandon Their Friends Are Worse Than Scum.', 'Obito Uchiha'],
   ['Someone who can&#39;t sacrifice anything, can&#39;t ever change anything.', 'Armin Arlert AOT'],
   ['If you don&#39;t want to die...think', 'Levi Ackerman AOT'],
   ['Endure it! Don&#39;t let go yet!-', 'Armin Arlert AOT'],
@@ -92,7 +92,7 @@ var quoteArray = [
   ['The only true wisdom is in knowing you know nothing.', 'Socrates'],
   ['Every new beginning comes from some other beginning&#39;s end.', 'Seneca'],
   ['Every day is a new day, and you&#39;ll never be able to find happiness if you don&#39;t move on.', 'Carrie Underwood'],
-  ['Don&#39;t write thirty quantitative paragraphs...<br>Only to get the same mark as the friend who wrote one qualitative paragraph.', 'Mohammad A.'],
+  ['Don&#39;t write thirty quantitative paragraphs... Only to get the same mark as the friend who wrote one qualitative paragraph.', 'Mohammad A.'],
   ['Some cause happiness wherever they go; others whenever they go.', 'Oscar Wilde'],
   ['It is during our darkest moments that we must focus to see the light.', 'Aristotle Onassis'],
   ['We know what we are, but know not what we may be.', 'William Shakespeare'],
@@ -109,7 +109,7 @@ var quoteArray = [
   ['A year from now, you may wish you had started today', 'Karen Lamb'],
   ['Buh bye', 'Mo, 12:09 AM, 2021/01/27, Genius Chat'],
   ['woo poggers', 'Unknown author (Maybe Archimedes?)'],
-  ['Eh? Why make an ahen quote chat when we got Genius Chat. <br> Genius Chat is THE POG', 'Mo'],
+  ['Eh? Why make an ahen quote chat when we got Genius Chat.   Genius Chat is THE POG', 'Mo'],
   ['To get the best people we try to make awesome offices', 'Unknown author'],
   ['I spent two hours in shopify js, all I needed was 3 lines of CSS', 'Reese Chong'],
   ['If you know the enemy and know yourself, you need not fear the results of a hundred battles.', 'Sun Tzu'],
@@ -259,7 +259,7 @@ var quoteArray = [
   ['A will finds a way.', 'Orison Swett Marden'],
   ['The Natural Order Is Disorder.', 'Zaheer, LoK'],
   ['Accept What Happened To You. Don&#39;t Fear What Might Have Been.', 'Zaheer, LoK'],
-  ['When you base your expectations only on what you see<br>you blind yourself to the possibilities of a new reality.</br>', 'Zaheer, LoK'],
+  ['When you base your expectations only on what you see you blind yourself to the possibilities of a new reality.</br>', 'Zaheer, LoK'],
   ['Nature is constantly changing - like the wind.', 'Zaheer, LoK'],
   ['Once change begins, it cannot be stopped.', 'Zaheer, LoK'],
   ['If you have curiosity, perseverance and an idea, fight, and make thine idea a reality', 'U.G.C Proverb'],
@@ -575,7 +575,7 @@ var quoteArray = [
   ['The Space Shuttle Era ended, but 9 years later, after a decade of innovation, the Crew Dragon Era began. Outdated technologies must go, and better technologies must come.', 'An amateur space lover'],
   ['ULA stopped innovation, SpaceX destroyed them; Those who stop innovation, will always lose.', 'Genius Guy'],
   ['Perfection and power are overrated.', 'Uncle Iroh'],
-  ['I\'m begging you Prince Zuko! Its time for you to look inward and begin asking yourself the big questions.<br>Who are <b>you</b>? And what do <b>you</b> want?', 'Uncle Iroh '],
+  ['I\'m begging you Prince Zuko! Its time for you to look inward and begin asking yourself the big questions. Who are <b>you</b>? And what do <b>you</b> want?', 'Uncle Iroh '],
   ['Instead of seeing what they want you to see, you\'ve got to open your brain to the possibilities.','Kid Bumi (future King)'],
   ['I am a morning person. As in, I wake up early and do nothing.', 'Reese Chong'],
   ['Drink cactus juice, it\'ll quench ya, its the quenchiest', 'Sokka'],
@@ -588,17 +588,3 @@ var quoteArray = [
 //multiply by # of quotes
 //use \ instead of  &#39
 var quoteNum = quoteArray.length
-var random_number = Math.floor(Math.random() * quoteNum);
-function generateQuote() {
-  console.log(random_number)
-  document.getElementById('quotes').innerHTML = quoteArray[random_number][0];
-  document.getElementById('author').innerHTML = '- ' + quoteArray[random_number][1];
-}
-
-document.addEventListener('readystatechange', (event) => {
-  if (event.target.readyState === 'interactive') {
-    generateQuote()
-  } else if (event.target.readyState === 'complete') {
-    generateQuote()
-  }
-});
