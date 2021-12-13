@@ -68,6 +68,7 @@ html {
   margin: 0px;
   width: 100%;
   font-family: 'Times New Roman', Times, serif;
+  scroll-behavior: smooth;
 }
 body {
   background-color: white;
@@ -112,8 +113,10 @@ code {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  overflow-y: visible;
+  overflow-y: hidden;
   overflow-x: hidden;
+  margin-top: 0.5%;
+  scrollbar-width: thin; /*Scrollbar width is for firefox*/
 }
 .main-tabs__container {
   flex: 85%;
@@ -121,24 +124,14 @@ code {
   height: 100%;
 }
 
-/* --- Header (Title + Quotes) --- */
-.page__header {
+/* --- Page Title --- */
+.page-title {
   text-align: center;
-  width: 100%;
-  margin: 1rem;
-  width: 100%;
-  height: 2rem;
   vertical-align: middle;
-}
-
-.page__header--title {
   font-size: 2rem;
   color: inherit;
 }
 
-.body .page__header--title {
-  color: white;
-}
 .tabcontent {
   font: 100;
   margin: 0.5%;
@@ -155,30 +148,32 @@ code {
 /* --- Chatlog --- */
 .log__container {
   position: relative;
-  border: 1px solid gray;
+  border: 1px solid #2b2a33;
+  border-radius: 0.5%;
   overflow-y: scroll;
   font-size: 1.2em;
-  width: 93%;
-  max-height: 60%;
-  /*MAX height is important*/
-  margin-right: 0px;
-  border-style: hidden;
+  width: 100%;
+  height: 79%;
+  scrollbar-color: #888 rgb(201, 201, 201);
+  scrollbar-width: thin;
+  /*Scrollbar width is for firefox*/
 }
 .dark .log__container {
-  border-top: 1px solid #2b2a33;
-  border-left: 1px solid #2b2a33;
+  scrollbar-color: black #282828;
 }
+
 /* --- Chat Controls --- */
 .chat__controls-container {
   display: flex;
   flex-direction: row;
-  margin-left: 0%;
-  width: 93%;
+  justify-content: space-between;
+  width: 100%;
   max-height: 4rem;
 }
 .chat__textbox--submit-btn {
   height: 4rem;
-  width: 8%;
+  flex: 5%;
+  width: 5%;
   float: right;
   cursor: pointer;
   background-color: inherit;
@@ -199,7 +194,8 @@ code {
 .chat__textbox {
   min-height: 4rem;
   height: auto;
-  width: 97%;
+  flex: 70%;
+  width: 70%;
   font-size: 1.5rem;
   border: 1px solid black;
   border-top-style: hidden;
@@ -213,6 +209,18 @@ code {
   outline: none;
 }
 
+.scroll-bottom {
+  display: none;
+  flex: 3%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: indigo;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
 /*/////////////////////////////////////////////////////////////////////
 					CHAT MARKUP / FORMATTING
 /////////////////////////////////////////////////////////////////////*/
@@ -295,13 +303,8 @@ EMOJI TOOLBAR within Navigation Sidebar
   border-color: transparent;
   width: 3rem;
   height: 3rem;
-  opacity: 0.1;
-  cursor: pointer;
-}
-
-.body .emote-dropdown__emoji-icon {
-  /*Opacity is too low and icon does not show in default mode*/
   opacity: 0.4;
+  cursor: pointer;
 }
 
 .emote-dropdown__emoji-icon:hover {
@@ -310,10 +313,16 @@ EMOJI TOOLBAR within Navigation Sidebar
 
 .emote-dropdown__container:hover .emote-dropdown__dropdown-content {
   display: inline-block;
-  width: 100%;
   margin: auto;
+  flex: 5%;
+  scrollbar-color: #888 rgb(201, 201, 201);
+  scrollbar-width: thin;
+  /*Scrollbar width is for firefox*/
 }
 
+.dark .emote-dropdown__container:hover .emote-dropdown__dropdown-content {
+  scrollbar-color: black #282828;
+}
 .emote-dropdown__container:hover .emote-dropdown__emoji-icon {
   opacity: 1;
 }
@@ -327,9 +336,6 @@ EMOJI TOOLBAR within Navigation Sidebar
   border-radius: 0.3em;
   overflow-y: scroll;
   z-index: 1;
-  background-color: inherit;
-}
-.body .emote-dropdown__dropdown-content {
   background-color: lightgray;
 }
 
@@ -587,22 +593,6 @@ a.resource-link:hover {
   color: #1da1f2;
 }
 
-.login__celebrate {
-  align-self: center;
-  height: 3rem;
-  width: 70%;
-  font-size: 4rem;
-  border-radius: 0.3em;
-  color: inherit;
-  background-color: inherit;
-  margin-top: 3%;
-}
-
-.login__celebrate:hover {
-  transition: 800ms;
-  color: #1da1f2;
-}
-
 /* --- Log out button --- */
 .settings__logout-btn {
   padding: 0.1em;
@@ -730,10 +720,9 @@ a.resource-link:hover {
   max-width: 47.3%;
   min-height: 1.5rem;
   left: 0.5%;
+  background-color: #c6d6e6;
 }
-.body .chatline {
-  background-color: #f0f2f4;
-}
+
 .dark .chatline {
   background-color: #2b2a33;
   border-color: #42414d;
@@ -776,7 +765,9 @@ a.resource-link:hover {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  scrollbar-width: thin;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgb(201, 201, 201);
@@ -839,4 +830,27 @@ a.resource-link:hover {
 }
 .material-icons {
   align-self: center;
+}
+.asami-quote__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 10%;
+  max-width: 20em;
+  align-self: center;
+  justify-content: center;
+}
+
+.asami-quote {
+  flex: 65%;
+  align-self: center;
+  justify-content: center;
+  font-size: 16;
+}
+
+.asami-image {
+  flex: 35%;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
 }

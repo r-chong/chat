@@ -4,10 +4,10 @@
 ////////////////////
 let uiChatTextbox = document.getElementById('chatTextbox');
 let uiChatSubmit = document.getElementById('chatSubmit');
-let chatLogContainer = document.getElementById('log_cont');
 let chatControlsContainer = document.getElementById('chatControlsContainer');
 let uiHideDetails = document.getElementById('detailsToggle');
 let uiChatLog = document.getElementById('chatLog');
+let scrollBottomButton = document.getElementById('scrollBottom');
 
 function textboxKeyup(event) {
   if (event.key === 'Enter') {
@@ -19,7 +19,15 @@ function textboxKeyup(event) {
 
 //Functions used to display chat correctly
 function scrollBottom() {
-  chatLogContainer.scrollTop = chatLogContainer.scrollHeight;
+  uiChatLog.scrollTop = uiChatLog.scrollHeight;
+}
+
+function scrollFunction(event) {
+  if (event.target.scrollTop < 6900) {
+    scrollBottomButton.style.display = 'block';
+  } else {
+    scrollBottomButton.style.display = 'none';
+  }
 }
 
 function replaceHashtags(impureString) {
@@ -209,13 +217,21 @@ function sendString() {
   var random_number = Math.floor(Math.random() * quoteNum);
   var generated_quote = quoteArray[random_number][0];
   var generated_quote_authour = quoteArray[random_number][1];
-  console.log(generated_quote + ' - ' + generated_quote_authour);
-  clean = clean.replace(
-    /\:(quote)\:/gim,
-    generated_quote + ' - ' + generated_quote_authour
-  );
+  var asami_quote =
+    `
+  <div class="asami-quote__container">
+      <div class="asami-quote">` +
+    generated_quote +
+    ` - ` +
+    generated_quote_authour +
+    `</div>
+      <img class="asami-image" src="Assets/Asami_Sato.png" width="100" height="100">
+  </div>`;
+  document.getElementById('spiritQuote').innerHTML = asami_quote;
+
   clean = replaceLinks(clean);
   clean = replaceHashtags(clean);
+  //clean = clean.replace(/\:(quote)\:/gi, asami_quote);
   var savestring = clean;
   //IMPROVEMENT: Why not just use var clean? Wat? Why make another variable?
   if (savestring != '') {
@@ -272,9 +288,9 @@ function getChatFromDB() {
           '</span></div > ';
       }
       uiChatLog.innerHTML = formatted_chatlog;
-      scrollBottom();
       detailsToggle();
       chatMessageFormatter();
+      scrollBottom();
     }
   };
   var poststring = 'action=getchat&apikey=' + getCookie('logged_in');
@@ -291,6 +307,9 @@ function executeChatFuncs() {
   });
   uiChatTextbox.addEventListener('keyup', textboxKeyup);
   uiHideDetails.addEventListener('click', detailsToggle);
+  scrollBottomButton.addEventListener('click', scrollBottom);
+  uiChatLog.addEventListener('scroll', scrollFunction);
+  scrollBottom();
 }
 
 document.addEventListener('readystatechange', (event) => {

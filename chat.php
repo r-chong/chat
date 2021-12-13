@@ -57,7 +57,16 @@ if ($action == 'getchat')
 
 }
 
+function save_quote($db, $chatstring)
+{
+	//2020-07-19 23:43:08
+	$date = date("M d, h:ia");
+	$sql = "INSERT INTO chatlog (chatstring, note, `date`) VALUE (\"This worked? - Mo\", '', \"$date\")";
+	$result = mysqli_query ($db, $sql);
+	echo $sql;
+	//return $result;
 
+}
 
 
 

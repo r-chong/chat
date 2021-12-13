@@ -13,11 +13,10 @@
   <link rel="apple-touch-icon" href="Assets/bigoof.png">
   <link rel="stylesheet" type="text/css" href="chat.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="javascriptFiles/quotes.js"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async></script>
-  <!-- Remove confetti after 2021-09-01 from all scripts-->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js" async></script>
   <script src="./javascriptFiles/login.js" async></script>
+  <script src="javascriptFiles/quotes.js" async></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js" async></script>
   <script src="DOMPurify-main/dist/purify.min.js" async></script>
   <script src="./javascriptFiles/dynamicData.js" async></script>
   <script src="./javascriptFiles/tab.js" async></script>
@@ -25,17 +24,13 @@
 </head>
 
 <body id="body">
-  <header>
-    <div class="page__header">
-      <h1 class="page__header--title" title="RIP Master Notes Collaboration Website and U.G.C.W" id="pageTitle">
-        Genius Chat</h1>
-    </div>
-  </header>
 
   <div id="container" class="main-container hide">
     <!--this is the main page-->
 
     <div id="navbar" class="tabcontent nav__sidebar">
+      <h1 class="page-title" title="RIP Master Notes Collaboration Website and U.G.C.W" id="pageTitle">
+        Genius Chat</h1>
       <!--tab button that go to each page-->
       <button class="nav__sidebar-content active ui-hover" id="chat" title="Chat"><i
           class="material-icons nav-icon">chat</i></button>
@@ -48,6 +43,9 @@
 
       <button class="nav__sidebar-content" id="spirit" title="Spirit World"><i
           class="material-icons nav-icon">memory</i></button>
+      <button class="nav__sidebar-content" id="celebrate">
+        <span class="material-icons nav-icon">celebration</span>
+      </button>
       <div class="quick-access">
         <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo"
           class="quick-access--chat-flush" />
@@ -57,28 +55,29 @@
         background="transparent" class="nav__reload-btn" speed="0.5" hover loop>
       </lottie-player>
     </div>
+
     <div id="mainpg" class="main-tabs__container">
       <!--chat content-->
       <div class="tabcontent" id="chatTab">
-        <div class="log__container" id="log_cont">
-          <!--Remove reaodnly attribute for HTML5-->
-          <div id="chatLog" class="log__container--chat-log" name="chatlog" readonly>
-          </div>
+        <div id="chatLog" class="log__container" name="chatlog" readonly>
+
         </div>
         <div id="chatControlsContainer" class="chat__controls-container">
           <div class="emote-dropdown__container">
-
             <div>
               <button class="emote-dropdown__emoji-icon" title="Emoji dropdown"></button>
               <div id="emoji_dropdown" class="emote-dropdown__dropdown-content"></div>
             </div>
-
           </div>
           <div id="chatTextbox" class="chat__textbox" contenteditable="true" spellcheck="true"></div>
           <button id="chatSubmit" class="chat__textbox--submit-btn"><span class="material-icons"
               style="font-size:36px;">
               send
-            </span></button>
+            </span>
+          </button>
+          <button class="scroll-bottom" id="scrollBottom">
+            <span class="material-icons nav-icon">keyboard_arrow_down</span>
+          </button>
         </div>
       </div>
       <!--Resources pages-->
@@ -196,7 +195,7 @@
         </section>
       </div>
       <div class="tabcontent hide" id="spiritTab">
-        <h1>Jun 01, 12:09pm [YIP]: I am ahenquote launchin rockets there</h1>
+        <div id="spiritQuote"></div>
       </div>
     </div>
 
@@ -239,9 +238,6 @@
 
       <button id="loginSubmit" class="login-credentials__submit">
         <span class="material-icons">login</span>
-      </button>
-      <button id="celebrate" class="login__celebrate">
-        <span class="material-icons">celebration</span>
       </button>
     </div>
   </div>

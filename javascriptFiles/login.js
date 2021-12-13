@@ -58,8 +58,6 @@ function login_setup() {
   //console.log("you are logged in");
   loginModal.style.display = 'none';
   uiMainContainer.classList.remove('hide');
-  body.classList.remove('lockscreen');
-  uiLogout.classList.remove('hide');
   uiChatTextbox.focus();
 }
 
@@ -122,7 +120,7 @@ Genius Chat: Yes.
  */
 function basicConfetti() {
   confetti({
-    particleCount: 5000,
+    particleCount: 2000,
     spread: 10000,
   });
 }
@@ -261,10 +259,8 @@ function executeLoginFuncs() {
     }
   }
   checkAuth(loginCookie);
-  scrollBottom();
   setModeSwitchState();
   setPageMode();
-  cannonConfeti();
   displayCookieAlert();
 
   //Login page event listeners
