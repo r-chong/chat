@@ -110,7 +110,6 @@ code {
 .main-container {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
   width: 100%;
   height: 100%;
   overflow-y: hidden;
@@ -121,6 +120,9 @@ code {
 @media only screen and (max-width: 800px) {
   .main-container {
     flex-direction: column;
+  }
+  .main-tabs__container {
+    height: 40%;
   }
 }
 .main-tabs__container {
@@ -133,7 +135,7 @@ code {
 .page-title {
   text-align: center;
   vertical-align: middle;
-  font-size: 2rem;
+  font-size: 2.1rem;
   color: inherit;
 }
 
@@ -168,7 +170,7 @@ code {
 }
 @media only screen and (max-width: 800px) {
   .log__container {
-    height: 50%;
+    height: 40%;
   }
 }
 /* --- Chat Controls --- */
@@ -272,12 +274,14 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 1%;
 }
 .nav__sidebar-content {
   width: 100%;
   height: 3rem;
   text-decoration: none;
   font-size: 25px;
+  margin: 1%;
   margin-bottom: 2%;
   border-color: inherit;
   border-radius: 0.3em;
@@ -293,6 +297,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    height: 30%;
   }
   .nav__sidebar-content {
     width: 48%;
@@ -304,9 +309,6 @@ a {
   .quick-access--chat-flush {
     width: 48%;
   }
-  .nav__reload-btn {
-    margin-bottom: auto;
-  }
 }
 .nav__reload-btn {
   width: 100%;
@@ -317,7 +319,7 @@ a {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin-bottom: 15%;
+  margin-bottom: 2%;
 }
 /*/ ////////////////////////////////////////////////////////////////////
 EMOJI TOOLBAR within Navigation Sidebar
