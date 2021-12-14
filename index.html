@@ -28,32 +28,34 @@
   <div id="container" class="main-container hide">
     <!--this is the main page-->
 
-    <div id="navbar" class="tabcontent nav__sidebar">
+    <div>
       <h1 class="page-title" title="RIP Master Notes Collaboration Website and U.G.C.W" id="pageTitle">
         Genius Chat</h1>
       <!--tab button that go to each page-->
-      <button class="nav__sidebar-content active ui-hover" id="chat" title="Chat"><i
-          class="material-icons nav-icon">chat</i></button>
+      <div id="navbar" class="tabcontent nav__sidebar">
+        <button class="nav__sidebar-content active ui-hover" id="chat" title="Chat"><i
+            class="material-icons nav-icon">chat</i></button>
 
-      <button class="nav__sidebar-content" id="resources" title="Resources"><i
-          class="material-icons nav-icon">folder_open</i></button>
+        <button class="nav__sidebar-content" id="resources" title="Resources"><i
+            class="material-icons nav-icon">folder_open</i></button>
 
-      <button class="nav__sidebar-content" id="settings" title="Settings"><i
-          class="material-icons nav-icon">settings</i></button>
+        <button class="nav__sidebar-content" id="settings" title="Settings"><i
+            class="material-icons nav-icon">settings</i></button>
 
-      <button class="nav__sidebar-content" id="spirit" title="Spirit World"><i
-          class="material-icons nav-icon">memory</i></button>
-      <button class="nav__sidebar-content" id="celebrate">
-        <span class="material-icons nav-icon">celebration</span>
-      </button>
-      <div class="quick-access">
-        <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo"
-          class="quick-access--chat-flush" />
+        <button class="nav__sidebar-content" id="spirit" title="Spirit World"><i
+            class="material-icons nav-icon">memory</i></button>
+        <button class="nav__sidebar-content" id="celebrate">
+          <span class="material-icons nav-icon">celebration</span>
+        </button>
+        <div class="nav__sidebar-content quick-access">
+          <input type="button" id="chatFlush" value="&#128701;" title="Flush the chat, idea of Mo"
+            class="quick-access--chat-flush" />
+        </div>
+        <!--reload button-->
+        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_eh8qtsvg.json" id="reload"
+          background="transparent" class="nav__reload-btn" speed="0.5" hover loop>
+        </lottie-player>
       </div>
-      <!--reload button-->
-      <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_eh8qtsvg.json" id="reload"
-        background="transparent" class="nav__reload-btn" speed="0.5" hover loop>
-      </lottie-player>
     </div>
 
     <div id="mainpg" class="main-tabs__container">

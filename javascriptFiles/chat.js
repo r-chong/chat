@@ -228,10 +228,13 @@ function sendString() {
       <img class="asami-image" src="Assets/Asami_Sato.png" width="100" height="100">
   </div>`;
   document.getElementById('spiritQuote').innerHTML = asami_quote;
-
+  console.log(asami_quote);
   clean = replaceLinks(clean);
   clean = replaceHashtags(clean);
-  //clean = clean.replace(/\:(quote)\:/gi, asami_quote);
+  if (clean.includes(':quote:')) {
+    clean = '[mo]: GGGGGGGGGGGGGGGGGG';
+  }
+  console.log(clean);
   var savestring = clean;
   //IMPROVEMENT: Why not just use var clean? Wat? Why make another variable?
   if (savestring != '') {
@@ -308,7 +311,14 @@ function executeChatFuncs() {
   uiChatTextbox.addEventListener('keyup', textboxKeyup);
   uiHideDetails.addEventListener('click', detailsToggle);
   scrollBottomButton.addEventListener('click', scrollBottom);
-  uiChatLog.addEventListener('scroll', scrollFunction);
+
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 760px)'
+  ).matches;
+
+  if (!isMobile) {
+    uiChatLog.addEventListener('scroll', scrollFunction);
+  }
   scrollBottom();
 }
 

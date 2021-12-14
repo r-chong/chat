@@ -118,6 +118,11 @@ code {
   margin-top: 0.5%;
   scrollbar-width: thin; /*Scrollbar width is for firefox*/
 }
+@media only screen and (max-width: 800px) {
+  .main-container {
+    flex-direction: column;
+  }
+}
 .main-tabs__container {
   flex: 85%;
   width: 100%;
@@ -161,11 +166,16 @@ code {
 .dark .log__container {
   scrollbar-color: black #282828;
 }
-
+@media only screen and (max-width: 800px) {
+  .log__container {
+    height: 50%;
+  }
+}
 /* --- Chat Controls --- */
 .chat__controls-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   max-height: 4rem;
@@ -221,6 +231,7 @@ code {
   padding: 15px;
   border-radius: 4px;
 }
+
 /*/////////////////////////////////////////////////////////////////////
 					CHAT MARKUP / FORMATTING
 /////////////////////////////////////////////////////////////////////*/
@@ -277,7 +288,26 @@ a {
   border-color: #42414d;
   color: #a1a1a1;
 }
-
+@media only screen and (max-width: 800px) {
+  .nav__sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .nav__sidebar-content {
+    width: 48%;
+    margin-bottom: 1%;
+  }
+  .quick-access {
+    width: 48%;
+  }
+  .quick-access--chat-flush {
+    width: 48%;
+  }
+  .nav__reload-btn {
+    margin-bottom: auto;
+  }
+}
 .nav__reload-btn {
   width: 100%;
   height: 4.5rem;
@@ -287,6 +317,7 @@ a {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-bottom: 15%;
 }
 /*/ ////////////////////////////////////////////////////////////////////
 EMOJI TOOLBAR within Navigation Sidebar
@@ -633,14 +664,9 @@ a.resource-link:hover {
 /*Quick Access is for the chat flush (and later the textbox clear)*/
 
 .quick-access {
-  width: 100%;
-  min-height: 43px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  text-align: center;
   cursor: pointer;
   opacity: 0.5;
-  background-color: inherit;
+  background-color: none;
 }
 .quick-access--chat-flush {
   width: 100%;
