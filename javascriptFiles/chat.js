@@ -23,10 +23,16 @@ function scrollBottom() {
 }
 
 function scrollFunction(event) {
-  if (event.target.scrollTop < 6900) {
-    scrollBottomButton.style.display = 'block';
-  } else {
-    scrollBottomButton.style.display = 'none';
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 760px)'
+  ).matches;
+
+  if (!isMobile) {
+    if (event.target.scrollTop < 7300) {
+      scrollBottomButton.style.display = 'block';
+    } else {
+      scrollBottomButton.style.display = 'none';
+    }
   }
 }
 
@@ -312,13 +318,8 @@ function executeChatFuncs() {
   uiHideDetails.addEventListener('click', detailsToggle);
   scrollBottomButton.addEventListener('click', scrollBottom);
 
-  const isMobile = window.matchMedia(
-    'only screen and (max-width: 760px)'
-  ).matches;
+  uiChatLog.addEventListener('scroll', scrollFunction);
 
-  if (!isMobile) {
-    uiChatLog.addEventListener('scroll', scrollFunction);
-  }
   scrollBottom();
 }
 

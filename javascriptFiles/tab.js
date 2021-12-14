@@ -216,11 +216,8 @@ function setContextMenuState(event) {
 ////////////////////
 function logout() {
   let loginModal = document.getElementById('loginModal');
-  console.log('g');
   loginModal.style.display = 'block';
-  console.log(loginModal.style.display);
   uiMainContainer.classList.add('hide');
-
   document.cookie = 'logged_in=0';
 }
 
@@ -251,7 +248,6 @@ function changeMode(event) {
 
 function setModeSwitchState() {
   var preferredMode = getCookie('mode');
-  console.log(preferredMode);
   if (preferredMode === 'dark') {
     modeSwitch.checked = true;
   } else {
