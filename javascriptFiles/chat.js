@@ -139,7 +139,7 @@ function sendString() {
   );
   clean = clean.replace(
     /\:(pwease)\:/gi,
-    "<img src='Assets/pwease.png' class='customEmoji'>"
+    "<img src='Assets/pwease.jpg' class='pwease'>"
   );
   clean = clean.replace(
     /\:(thonk)\:/gim,
@@ -219,7 +219,7 @@ function sendString() {
     /\:(dance)\:/gim,
     "<img class='chat__sticker' src='Assets/gifs/dance.gif'>"
   );
-  //Random quote
+  //Random quoe
   var random_number = Math.floor(Math.random() * quoteNum);
   var generated_quote = quoteArray[random_number][0];
   var generated_quote_authour = quoteArray[random_number][1];

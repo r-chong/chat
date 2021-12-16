@@ -266,6 +266,15 @@ a {
   height: 45px;
   border-radius: 0.25em;
 }
+
+.pwease {
+  display: inline;
+  margin-bottom: -4px;
+  width: 90px;
+  height: auto;
+  border-radius: 0.25em;
+}
+
 /*/////////////////////////////////////////////////////////////////////
 					Navigation Sidebar
 /////////////////////////////////////////////////////////////////////*/
