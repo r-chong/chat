@@ -219,6 +219,10 @@ function sendString() {
     /\:(dance)\:/gim,
     "<img class='chat__sticker' src='Assets/gifs/dance.gif'>"
   );
+  clean = clean.replace(
+    /\:(fly)\:/gim,
+    "<img class='chat__sticker' src='Assets/gifs/fly.gif'>"
+  );
   //Random quoe
   var random_number = Math.floor(Math.random() * quoteNum);
   var generated_quote = quoteArray[random_number][0];
