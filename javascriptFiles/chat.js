@@ -130,6 +130,14 @@ function sendString() {
     "<img src='Assets/dogeputinMedium.png' class='customEmoji'>"
   );
   clean = clean.replace(
+    /\:(sad)\:/gim,
+    "<img src='Assets/linusSad.jpg' class='chat__sticker'>"
+  );
+  clean = clean.replace(
+    /\:(sadder)\:/gim,
+    "<img src='Assets/reallySad.jpg' class='chat__sticker' >"
+  );
+  clean = clean.replace(
     /\:(dogeputinmax)\:/gim,
     "<img src='Assets/dogeputinXL.png' class='customEmoji'>"
   );
