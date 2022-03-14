@@ -1,6 +1,10 @@
 # Genius Chat v4.1.0
 
-Genius Chat is a website, for Geniuses, and members of the Union of Genius Collaborators to socialize and share their complex thoughts. From developers to ordinary geniuses all UGC members are welcome to use Genius Chat.
+Genius Chat is a website originally created as a place for my friends and I to communicate after school on a platform that everybody could access -no social media required. 
+
+Two years after its creation, the website has received 158 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! 
+
+We are currently in the midst of planning a completely revamped chat website, from scratch! Check it out at https://github.com/r-chong/Ultimate-Chat
 
 > Jun 01, 12:09pm [YIP]: I am ahenquote launchin rockets here 🚀🚀🚀
 
