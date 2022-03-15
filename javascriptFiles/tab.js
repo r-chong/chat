@@ -19,7 +19,6 @@ let navbarSettings = document.getElementById('settings');
 let navbarSpiritWorld = document.getElementById('spirit');
 let navbarChatReload = document.getElementById('reload');
 //Tabs(Settings, Resources, Chat) variables
-let previousMode2 = 'body';
 let uiMainContainer = document.getElementById('container');
 let uiLogout = document.getElementById('logout');
 let uiChatFlush = document.getElementById('chatFlush');
@@ -29,8 +28,9 @@ let uiResourcesTab = document.getElementById('resourcesTab');
 let uiSettingsTab = document.getElementById('settingsTab');
 let uiSpiritTab = document.getElementById('spiritTab');
 let cookieAlertCloseBtn = document.getElementById('cookieAlertCloseBtn');
-let suggestionBox = document.getElementById('suggestionBox');
 let notificationSwitch = document.getElementById('notificationSwitch');
+let modeSwitch = document.getElementById('modeSwitch');
+
 //IMPROVEMENT: Remove 'ui' from all variables make this BETTER
 
 ////////////////////
@@ -46,18 +46,17 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function getCookie(cname) {
-  var name = cname + '='; //you cant put = sign in brackets
+  //function runs thru & splits all cookies by the semicolons.
+  //if cookie is found, return value of cookie
+  var name = cname + '=';
   var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';'); //splits all cookies (divided by the semicolons)
+  var ca = decodedCookie.split(';');
   for (let i = 0; i < ca.length; i++) {
-    //repeats as many cookies as there are
     var c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      //if cookie is found, return value of cookie
-      //else return nothing
       return c.substring(name.length, c.length);
     }
   }
@@ -102,7 +101,7 @@ function openTab(element, elementId) {
   //display the tabcontent that is selected
   tabcontent[0].style.display = 'block';
   element.className += ' active';
-  element.className += ' pattern__stripes-1';
+  element.className += ' ui-hover';
 
   document.getElementById(elementId + 'Tab').style.display = 'block';
   //I added ids of elementId+"Tab" to each tab content to get them to be callable with their elementId
@@ -131,7 +130,7 @@ function clearActiveTabs() {
       ''
     ); // this one needs to be assigned back to the element
     tab_button[tabindex].className = tab_button[tabindex].className.replace(
-      ' pattern__stripes-1',
+      ' ui-hover',
       ''
     ); // this one needs to be assigned back to the element
     //tablinks[tabindex].className = "";
@@ -216,10 +215,9 @@ function setContextMenuState(event) {
 /*Tabs > Settings tab*/
 ////////////////////
 function logout() {
-  uiLogout.classList.add('hide');
-  uiLoginContainer.classList.remove('hide');
+  let loginModal = document.getElementById('loginModal');
+  loginModal.style.display = 'block';
   uiMainContainer.classList.add('hide');
-  body.classList.add('lockscreen');
   document.cookie = 'logged_in=0';
 }
 
@@ -227,49 +225,43 @@ function logout() {
 /*Tabs > Settings tab > Mode Related Functions*/
 ////////////////////
 //Find which mode is set
-function findMode() {
-  let radioButtons = document.getElementsByClassName('mode__radio-button');
-  for (let i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked) {
-      var mode = radioButtons[i].id;
-    }
+function findMode(element) {
+  let mode;
+  if (element.checked) {
+    mode = 'dark';
+  } else {
+    mode = 'body';
   }
   return mode;
 }
 
-//Should be merged into set_mode
-function setModeCookie() {
-  var currentMode = findMode();
-  setCookie('mode', currentMode, 365); //sets cookie
-}
-
-function checkPreferredMode() {
-  var preferredMode = getCookie('mode'); //finds mode
-  if (preferredMode != '') {
-    //if not empty:
-    document.getElementById(preferredMode).checked = true; //set mode to preferredMode
-  } else {
-    //if there is no cookie
-    setCookie('mode', 'body', 365);
-    //set mode to body
-  }
-}
-
-function set_mode() {
-  var mode = findMode();
-  var modeClass;
-  if (mode == 'modeDark') {
-    modeClass = 'dark';
-  } else if (mode == 'modeMo') {
-    modeClass = 'mo';
-  } else if (mode == 'modeDefault') {
-    modeClass = 'body';
-  }
-  setModeCookie();
+function changeMode(event) {
+  let mode = findMode(event.target);
   //Change mode of body (all other elements will inherit)
-  document.getElementById('body').classList.remove(previousMode2);
-  document.getElementById('body').classList.add(modeClass);
-  previousMode2 = modeClass;
+  setCookie('mode', mode, 365);
+  if (mode === 'dark') {
+    document.body.classList.add(mode);
+  } else {
+    document.body.classList.remove('dark');
+  }
+}
+
+function setModeSwitchState() {
+  var preferredMode = getCookie('mode');
+  if (preferredMode === 'dark') {
+    modeSwitch.checked = true;
+  } else {
+    modeSwitch.checked = false;
+  }
+}
+
+function setPageMode() {
+  let mode = getCookie('mode');
+  if (mode === 'dark') {
+    document.body.classList.add(mode);
+  } else {
+    setCookie('mode', 'body', 365);
+  }
 }
 
 function chatNotifier() {
@@ -311,22 +303,12 @@ function executeTabFuncs() {
   document.addEventListener('contextmenu', openContextMenu, false);
   window.addEventListener('click', hideContextMenu);
 
-  //Navigation bar event listeners
-  navbarChatReload.addEventListener('mousedown', function () {
-    navbarChatReload.classList.remove('pattern__stripes-1');
-    navbarChatReload.classList.add('pattern__stripes-2');
-  });
-  navbarChatReload.addEventListener('mouseup', function () {
-    navbarChatReload.style.backgroundColor = 'initial';
-    navbarChatReload.classList.remove('pattern__stripes-2');
+  navbarChatReload.addEventListener('mouseenter', function () {
+    navbarChatReload.classList.add('active');
+    getChatFromDB();
   });
   navbarChatReload.addEventListener('mouseleave', function () {
-    navbarChatReload.style.backgroundColor = 'initial';
-    navbarChatReload.classList.remove('pattern__stripes-1');
-  });
-  navbarChatReload.addEventListener('mouseenter', function () {
-    navbarChatReload.classList.add('pattern__stripes-1');
-    getChatFromDB();
+    navbarChatReload.classList.remove('active');
   });
   navbarChatReload.addEventListener('click', getChatFromDB);
   navbarChat.addEventListener('click', navBtnClickHandler);
@@ -341,9 +323,8 @@ function executeTabFuncs() {
   notificationSwitch.addEventListener('click', chatNotifier);
 
   //Mode event listeners
-  document.getElementById('modeDefault').addEventListener('change', set_mode);
-  document.getElementById('modeDark').addEventListener('change', set_mode);
-  document.getElementById('modeMo').addEventListener('change', set_mode);
+  modeSwitch.addEventListener('change', changeMode);
+  scrollBottom();
 }
 
 document.addEventListener('readystatechange', (event) => {

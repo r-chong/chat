@@ -1,51 +1,46 @@
-"use strict";
+'use strict';
 ////////////////////
 /*Chat >> VARIABLES*/
 ////////////////////
-let uiChatTextbox = document.getElementById("chatTextbox");
-let uiChatSubmit = document.getElementById("chatSubmit");
-let chatLogContainer = document.getElementById("log_cont");
-let chatControlsContainer = document.getElementById("chatControlsContainer");
-let uiHideDetails = document.getElementById("detailsToggle");
-let uiChatLog = document.getElementById("chatLog");
-let map = { Control: false, b: false, i: false, z: false };
+let uiChatTextbox = document.getElementById('chatTextbox');
+let uiChatSubmit = document.getElementById('chatSubmit');
+let chatControlsContainer = document.getElementById('chatControlsContainer');
+let uiHideDetails = document.getElementById('detailsToggle');
+let uiChatLog = document.getElementById('chatLog');
+let scrollBottomButton = document.getElementById('scrollBottom');
 
 function textboxKeyup(event) {
-  if (event.key === "Enter") {
+  if (event.key === 'Enter') {
     event.preventDefault();
     sendString();
     uiChatSubmit.click();
-  } else if (event.key in map) {
-    //this statement makes the CTRL + B/I/U detectable
-    map[event.key] = false;
-  }
-}
-
-function textboxKeydown(event) {
-  if (event.key in map) {
-    map[event.key] = true;
-    if (map["Control"] && map["b"]) {
-      uiChatTextbox.innerText += "<b></b>";
-      let valueOfTextbox = uiChatTextbox.innerText.length;
-      uiChatTextbox.setSelectionRange(valueOfTextbox - 4, valueOfTextbox - 4);
-    } else if (map["Control"] && map["i"]) {
-      uiChatTextbox.innerText += "<i></i>";
-      let valueOfTextbox = uiChatTextbox.innerText.length;
-      uiChatTextbox.setSelectionRange(valueOfTextbox - 4, valueOfTextbox - 4);
-    }
   }
 }
 
 //Functions used to display chat correctly
 function scrollBottom() {
-  chatLogContainer.scrollTop = chatLogContainer.scrollHeight;
+  uiChatLog.scrollTop = uiChatLog.scrollHeight;
+}
+
+function scrollFunction(event) {
+  const isMobile = window.matchMedia(
+    'only screen and (max-width: 760px)'
+  ).matches;
+
+  if (!isMobile) {
+    if (event.target.scrollTop < 7300) {
+      scrollBottomButton.style.display = 'block';
+    } else {
+      scrollBottomButton.style.display = 'none';
+    }
+  }
 }
 
 function replaceHashtags(impureString) {
   let cleanString = impureString.replace(
     /(\#\w+)/g,
     function (unformattedText) {
-      return "<chat-hashtag>" + unformattedText + "</chat-hashtag>";
+      return '<chat-hashtag>' + unformattedText + '</chat-hashtag>';
     }
   );
   return cleanString;
@@ -55,7 +50,7 @@ function replaceLinks(impureString) {
   let cleanString = impureString.replace(
     /(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=])*)/gi,
     function (url) {
-      return "<a" + " target='_blank'" + " href='" + url + "'>" + url + "</a>";
+      return '<a' + " target='_blank'" + " href='" + url + "'>" + url + '</a>';
     }
   );
   return cleanString;
@@ -63,14 +58,14 @@ function replaceLinks(impureString) {
 
 //Formats chat messages to look like SMS but Geniusised
 function chatMessageFormatter() {
-  let chatMsgs = document.querySelectorAll(".chatline");
+  let chatMsgs = document.querySelectorAll('.chatline');
   for (let i = 0; i < chatMsgs.length; i++) {
-    let username = getCookie("user");
-    let msg = chatMsgs[i]["outerHTML"];
+    let username = getCookie('user');
+    let msg = chatMsgs[i]['outerHTML'];
     if (
-      msg.includes('<span class="chat-message__content">[' + username + "]:")
+      msg.includes('<span class="chat-message__content">[' + username + ']:')
     ) {
-      chatMsgs[i].classList.add("chat-msg--me");
+      chatMsgs[i].classList.add('chat-msg--me');
     }
     //use else if to add specific colors based on other usernames make it BETTER
   }
@@ -78,16 +73,16 @@ function chatMessageFormatter() {
 
 //Show or hide details
 function detailsToggle() {
-  var element = document.getElementsByClassName("details");
+  var element = document.getElementsByClassName('details');
   if (uiHideDetails.checked == false) {
     //if details hidden, show details
     for (let i = 0; i < element.length; i++) {
-      element[i].classList.remove("hidden");
+      element[i].classList.remove('hidden');
     }
   } else if (uiHideDetails.checked == true) {
     //if details shown, hide details
     for (let i = 0; i < element.length; i++) {
-      element[i].classList.add("hidden");
+      element[i].classList.add('hidden');
     }
   }
 }
@@ -96,47 +91,63 @@ function sendString() {
   var dirty = uiChatTextbox.innerText;
   var clean = DOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
-      "b",
-      "em",
-      "mark",
-      "del",
-      "a",
-      "ins",
-      "code",
-      "sup",
-      "sub",
-      "progress",
-      "ol",
-      "ul",
-      "li",
-      "h1",
-      "h2",
-      "h3",
+      'b',
+      'em',
+      'mark',
+      'del',
+      'a',
+      'ins',
+      'code',
+      'sup',
+      'sub',
+      'progress',
+      'ol',
+      'ul',
+      'li',
+      'h1',
+      'h2',
+      'h3',
     ],
-    FORBID_ATTR: ["style", "class", "id", "href", "src", "onclick"],
+    FORBID_ATTR: ['style', 'class', 'id', 'href', 'src', 'onclick'],
   }); //clean that yucky stuff
-  clean = clean.replace(/\_\_(.*)\_\_/gim, "<em>$1</em>");
-  clean = clean.replace(/\-\-(.*)\-\-/gim, "<del>$1</del>");
-  clean = clean.replace(/\*\*(.*)\*\*/gim, "<b>$1</b>");
-  clean = clean.replace(/\!\!(.*)\!\!/gim, "<h1>$1</h1>");
-  clean = clean.replace(/\+/g, "%2b");
+  clean = clean.replace(/\_\_(.*)\_\_/gim, '<em>$1</em>');
+  clean = clean.replace(/\-\-(.*)\-\-/gim, '<del>$1</del>');
+  clean = clean.replace(/\*\*(.*)\*\*/gim, '<b>$1</b>');
+  clean = clean.replace(/\!\!(.*)\!\!/gim, '<h1>$1</h1>');
+  clean = clean.replace(/\+/g, '%2b');
   clean = clean.replace(/\"/g, '\\"');
-  clean = clean.replace(/\&/g, "%26");
-  clean = clean.replace(/\:-/g, "−");
+  clean = clean.replace(/\&/g, '%26');
+  clean = clean.replace(/\:-/g, '−');
   //Replaces the reply placeholder
   clean = clean.replace(/\↪️/g, msgTxtContent);
   //Custom Emojis (stickers)
   clean = clean.replace(
-    /\:(dogeputin)\:/gim,
+    /\:(dogeputinmini)\:/gim,
     "<img src='Assets/dogeputinMicro.png' class='customEmoji'>"
   );
   clean = clean.replace(
-    /\:(dogeputinXL)\:/gim,
+    /\:(dogeputin)\:/gim,
     "<img src='Assets/dogeputinMedium.png' class='customEmoji'>"
+  );
+  clean = clean.replace(
+    /\:(sad)\:/gim,
+    "<img src='Assets/linusSad.jpg' class='chat__sticker'>"
+  );
+  clean = clean.replace(
+    /\:(sadder)\:/gim,
+    "<img src='Assets/reallySad.jpg' class='chat__sticker' >"
+  );
+  clean = clean.replace(
+    /\:(dogeputinmax)\:/gim,
+    "<img src='Assets/dogeputinXL.png' class='customEmoji'>"
   );
   clean = clean.replace(
     /\:(lmao)\:/gi,
     "<img src='Assets/lmao.png' class='customEmoji'>"
+  );
+  clean = clean.replace(
+    /\:(pwease)\:/gi,
+    "<img src='Assets/pwease.jpg' class='pwease'>"
   );
   clean = clean.replace(
     /\:(thonk)\:/gim,
@@ -216,20 +227,44 @@ function sendString() {
     /\:(dance)\:/gim,
     "<img class='chat__sticker' src='Assets/gifs/dance.gif'>"
   );
+  clean = clean.replace(
+    /\:(fly)\:/gim,
+    "<img class='chat__sticker' src='Assets/gifs/fly.gif'>"
+  );
+  //Random quoe
+  var random_number = Math.floor(Math.random() * quoteNum);
+  var generated_quote = quoteArray[random_number][0];
+  var generated_quote_authour = quoteArray[random_number][1];
+  var asami_quote =
+    `
+  <div class="asami-quote__container">
+      <div class="asami-quote">` +
+    generated_quote +
+    ` - ` +
+    generated_quote_authour +
+    `</div>
+      <img class="asami-image" src="Assets/Asami_Sato.png" width="100" height="100">
+  </div>`;
+  document.getElementById('spiritQuote').innerHTML = asami_quote;
+  console.log(asami_quote);
   clean = replaceLinks(clean);
   clean = replaceHashtags(clean);
+  if (clean.includes(':quote:')) {
+    clean = '[mo]: GGGGGGGGGGGGGGGGGG';
+  }
+  console.log(clean);
   var savestring = clean;
   //IMPROVEMENT: Why not just use var clean? Wat? Why make another variable?
-  if (savestring != "") {
-    var username = getCookie("user");
+  if (savestring != '') {
+    var username = getCookie('user');
     // the updated save string [user] + savestring
 
-    savestring = "[" + username + "]: " + savestring;
+    savestring = '[' + username + ']: ' + savestring;
 
     // save the chat string
     saveToDB(savestring, getChatFromDB);
     // set the textbox to empty
-    uiChatTextbox.innerText = "";
+    uiChatTextbox.innerText = '';
   }
   chatMessageFormatter();
   scrollBottom();
@@ -245,10 +280,10 @@ function saveToDB(savestring, onSuccess) {
       onSuccess();
     }
   };
-  var apikey = getCookie("logged_in");
-  var poststring = "action=save&savestring=" + savestring + "&apikey=" + apikey;
-  xhttp.open("POST", "chat.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
+  var apikey = getCookie('logged_in');
+  var poststring = 'action=save&savestring=' + savestring + '&apikey=' + apikey;
+  xhttp.open('POST', 'chat.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // php seems to need this
   xhttp.send(poststring);
 }
 
@@ -259,47 +294,51 @@ function getChatFromDB() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var responses = JSON.parse(this.responseText);
-      var formatted_chatlog = "";
+      var formatted_chatlog = '';
       // let username = getCookie('user');
       for (let i = 0; i < responses.length; i++) {
         formatted_chatlog =
           formatted_chatlog +
           '<div class="chatline">' +
           '<span class="details">' +
-          responses[i]["date"] +
+          responses[i]['date'] +
           // '[' + username + ']' Add username to chat details, DO NOT REMOVE -Reese
-          "</span>" +
+          '</span>' +
           '<span class="chat-message__content">' +
-          responses[i]["chatstring"] + //message content
-          "</span></div > ";
+          responses[i]['chatstring'] + //message content
+          '</span></div > ';
       }
       uiChatLog.innerHTML = formatted_chatlog;
-      scrollBottom();
       detailsToggle();
       chatMessageFormatter();
+      scrollBottom();
     }
   };
-  var poststring = "action=getchat&apikey=" + getCookie("logged_in");
-  xhttp.open("POST", "chat.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // php seems to need this
+  var poststring = 'action=getchat&apikey=' + getCookie('logged_in');
+  xhttp.open('POST', 'chat.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // php seems to need this
   xhttp.send(poststring);
 }
 
 function executeChatFuncs() {
-  uiChatSubmit.addEventListener("click", function () {
+  uiChatSubmit.addEventListener('click', function () {
     sendString();
     getChatFromDB();
     uiChatTextbox.focus();
   });
-  uiChatTextbox.addEventListener("keydown", textboxKeydown);
-  uiChatTextbox.addEventListener("keyup", textboxKeyup);
-  uiHideDetails.addEventListener("click", detailsToggle);
+  uiChatTextbox.addEventListener('keyup', textboxKeyup);
+  uiHideDetails.addEventListener('click', detailsToggle);
+  scrollBottomButton.addEventListener('click', scrollBottom);
+
+  uiChatLog.addEventListener('scroll', scrollFunction);
+
+  scrollBottom();
 }
 
-document.addEventListener("readystatechange", (event) => {
-  if (event.target.readyState === "loaded") {
+document.addEventListener('readystatechange', (event) => {
+  if (event.target.readyState === 'loaded') {
     executeChatFuncs();
-  } else if (event.target.readyState === "complete") {
+  } else if (event.target.readyState === 'complete') {
     executeChatFuncs();
   }
 });

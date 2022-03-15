@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------
 [Palette]
-.mo{
+.dark{
 base color: #1c1b22;
 text color: #fbfbfe;
 primary accent color: #2b2a33;
@@ -56,132 +56,34 @@ border-radius: 0.3em; (Don't overdo it tho)
   display: none;
 }
 
-.pattern__stripes-1 {
-  /*opaque version*/ /* background-image: linear-gradient(135deg, #8492ae 12.50%, #343a42 12.50%, #343a42 50%, #8492ae 50%, #8492ae 62.50%, #343a42 62.50%, #343a42 100%); */
-  /*transparent version*/
-  background-image: linear-gradient(
-    135deg,
-    #8492ae 12.5%,
-    #343a4200 12.5%,
-    #343a4200 50%,
-    #8492ae 50%,
-    #8492ae 62.5%,
-    #343a4200 62.5%,
-    #343a4200 100%
-  );
-  /*black version*/
-  background-image: linear-gradient(
-    135deg,
-    #000000 12.5%,
-    #343a4200 12.5%,
-    #343a4200 50%,
-    #000000 50%,
-    #000000 62.5%,
-    #343a4200 62.5%,
-    #343a4200 100%
-  );
-  background-size: 5.66px 5.66px;
-}
-.dark .pattern__stripes-1 {
-  background-image: linear-gradient(
-    135deg,
-    #8492ae 12.5%,
-    #343a42 12.5%,
-    #343a42 50%,
-    #8492ae 50%,
-    #8492ae 62.5%,
-    #343a42 62.5%,
-    #343a42 100%
-  );
-}
-.mo .pattern__stripes-1 {
-  background-image: linear-gradient(
-    135deg,
-    #8492ae 12.5%,
-    #343a42 12.5%,
-    #343a42 50%,
-    #8492ae 50%,
-    #8492ae 62.5%,
-    #343a42 62.5%,
-    #343a42 100%
-  );
-}
-body .pattern__stripes-1 {
-  background-image: linear-gradient(
-    135deg,
-    #8492ae 12.5%,
-    #ffffff 12.5%,
-    #ffffff 50%,
-    #8492ae 50%,
-    #8492ae 62.5%,
-    #ffffff 62.5%,
-    #ffffff 100%
-  );
+.active {
+  box-sizing: border-box;
+  transition-timing-function: ease-in;
+  transition-duration: 0.15s;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
-.pattern__stripes-2 {
-  background-image: linear-gradient(
-    135deg,
-    #fafafa 12.5%,
-    #d3d3d3 12.5%,
-    #d3d3d3 50%,
-    #fafafa 50%,
-    #fafafa 62.5%,
-    #d3d3d3 62.5%,
-    #d3d3d3 100%
-  );
-  background-size: 5.66px 5.66px;
-}
-.dark .pattern__stripes-2 {
-  background-image: linear-gradient(
-    135deg,
-    #343a42 12.5%,
-    #8492ae 12.5%,
-    #8492ae 50%,
-    #343a42 50%,
-    #343a42 62.5%,
-    #8492ae 62.5%,
-    #8492ae 100%
-  );
-  background-size: 5.66px 5.66px;
-}
-
-.mo .pattern__stripes-2 {
-  background-image: linear-gradient(
-    135deg,
-    #343a42 12.5%,
-    #8492ae 12.5%,
-    #8492ae 50%,
-    #343a42 50%,
-    #343a42 62.5%,
-    #8492ae 62.5%,
-    #8492ae 100%
-  );
-  background-size: 5.66px 5.66px;
-}
 /* --- MODES --- */
 html {
   margin: 0px;
   width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  scroll-behavior: smooth;
 }
 body {
   background-color: white;
   color: #343a42;
   overflow: hidden;
-  font-family: "Times New Roman", Times, serif;
   margin: 0px;
   width: 100%;
+  border-radius: 0.3em;
 }
 
 .dark {
-  background-color: #343a42;
-  color: #8492ae;
-}
-
-.mo {
   background-color: #1c1b22;
   color: #fbfbfe;
-  border-radius: 0.3em;
+  border-color: #2b2a33;
+  /*   secondary accent color: #42414d; */
 }
 
 /*/////////////////////////////////////////////////////////////////////
@@ -198,7 +100,7 @@ code {
   color: whitesmoke;
   font-size: 1em;
   padding: 0.5em;
-  border-radius: 3px;
+  border-radius: 1rem;
   display: block;
 }
 
@@ -206,87 +108,45 @@ code {
 				USER INTERFACE STATIC ELEMENTS
 /////////////////////////////////////////////////////////////////////*/
 .main-container {
-  position: relative;
+  display: flex;
+  flex-flow: row;
   width: 100%;
   height: 100%;
-  overflow-y: visible;
+  overflow-y: hidden;
   overflow-x: hidden;
+  margin-top: 0.5%;
+  scrollbar-width: thin; /*Scrollbar width is for firefox*/
+}
+@media only screen and (max-width: 800px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .main-tabs__container {
+    height: 40%;
+  }
 }
 .main-tabs__container {
+  flex: 85%;
   width: 100%;
   height: 100%;
-  margin-left: 6%;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
+
+/* --- Page Title --- */
+.page-title {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 2.1rem;
+  color: inherit;
+}
+
 .tabcontent {
-  width: 100%;
-  height: 100%;
-  font-size: 1.15rem;
+  font: 100;
+  margin: 0.5%;
 }
-/* --- Header (Title + Quotes) --- */
-.page__header {
+
+.settings__page {
   display: flex;
-  flex-direction: row;
-  max-height: 200px;
-  margin-top: 3.5;
-  text-align: center;
-  width: 100%;
-  min-height: 2rem;
-}
-.page__header--title-cont {
-  min-width: 35%;
-  -webkit-text-stroke: 1px #282828;
-  text-shadow: 0px 4px 4px #282828;
-  color: inherit;
-}
-.page__header--title {
-  font-size: 4rem;
-  padding: 0;
-  color: inherit;
-}
-.body .page__header--title {
-  color: white;
-}
-.page__header-quote-cont {
-  min-width: 65%;
-  max-width: 65%;
-  text-align: center;
-  font-size: medium;
-}
-.page__header--quote {
-  font-size: 1.8rem;
-  font-weight: 100;
-}
-.page__header--auth {
-  font-size: 1.5rem;
-  font-weight: 100;
-  line-height: 0.4;
-}
-.suggestions_container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 86%;
-  margin-top: 0.5%;
-  visibility: hidden;
-}
-/*#custom_element pog*/
-suggestion-btn {
-  display: inline-block;
-  background-color: inherit;
-  border: solid;
-  border-width: 0.1em;
-  color: inherit;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 0.3em;
-}
-.mo suggestion-btn {
-  background-color: #2b2a33;
-  border-color: #42414d;
+  flex-direction: column;
 }
 /*////////////////////////////////
 		    CHAT UI
@@ -295,30 +155,37 @@ suggestion-btn {
 /* --- Chatlog --- */
 .log__container {
   position: relative;
-  border: 1px solid gray;
+  border: 1px solid #2b2a33;
+  border-radius: 0.5%;
   overflow-y: scroll;
   font-size: 1.2em;
-  width: 93%;
-  max-height: 60%;
-  /*MAX height is important*/
-  margin-right: 0px;
-  border-style: hidden;
+  width: 100%;
+  height: 79%;
+  scrollbar-color: #888 rgb(201, 201, 201);
+  scrollbar-width: thin;
+  /*Scrollbar width is for firefox*/
 }
-.mo .log__container {
-  border-top: 1px solid #2b2a33;
-  border-left: 1px solid #2b2a33;
+.dark .log__container {
+  scrollbar-color: black #282828;
+}
+@media only screen and (max-width: 800px) {
+  .log__container {
+    height: 40%;
+  }
 }
 /* --- Chat Controls --- */
 .chat__controls-container {
   display: flex;
   flex-direction: row;
-  margin-left: 0%;
-  width: 93%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
   max-height: 4rem;
 }
 .chat__textbox--submit-btn {
   height: 4rem;
-  width: 8%;
+  flex: 5%;
+  width: 5%;
   float: right;
   cursor: pointer;
   background-color: inherit;
@@ -339,7 +206,8 @@ suggestion-btn {
 .chat__textbox {
   min-height: 4rem;
   height: auto;
-  width: 97%;
+  flex: 70%;
+  width: 70%;
   font-size: 1.5rem;
   border: 1px solid black;
   border-top-style: hidden;
@@ -351,6 +219,19 @@ suggestion-btn {
 }
 .chat__textbox:focus {
   outline: none;
+}
+
+.scroll-bottom {
+  display: none;
+  flex: 3%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: indigo;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 /*/////////////////////////////////////////////////////////////////////
@@ -385,34 +266,59 @@ a {
   height: 45px;
   border-radius: 0.25em;
 }
+
+.pwease {
+  display: inline;
+  margin-bottom: -4px;
+  width: 90px;
+  height: auto;
+  border-radius: 0.25em;
+}
+
 /*/////////////////////////////////////////////////////////////////////
 					Navigation Sidebar
 /////////////////////////////////////////////////////////////////////*/
 .nav__sidebar {
+  flex: 10%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 5%;
-  position: absolute;
-  z-index: 1;
-  overflow-x: hidden;
+  margin-top: 1%;
 }
 .nav__sidebar-content {
   width: 100%;
   height: 3rem;
   text-decoration: none;
   font-size: 25px;
+  margin: 1%;
   margin-bottom: 2%;
   border-color: inherit;
   border-radius: 0.3em;
   color: inherit;
-  background-color: inherit;
 }
-.mo .nav__sidebar-content {
+.dark .nav__sidebar-content {
   background-color: #2b2a33;
   border-color: #42414d;
   color: #a1a1a1;
 }
-
+@media only screen and (max-width: 800px) {
+  .nav__sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 30%;
+  }
+  .nav__sidebar-content {
+    width: 48%;
+    margin-bottom: 1%;
+  }
+  .quick-access {
+    width: 48%;
+  }
+  .quick-access--chat-flush {
+    width: 48%;
+  }
+}
 .nav__reload-btn {
   width: 100%;
   height: 4.5rem;
@@ -422,92 +328,84 @@ a {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  margin-bottom: 2%;
 }
 /*/ ////////////////////////////////////////////////////////////////////
-  EMOJI TOOLBAR within Navigation Sidebar
+EMOJI TOOLBAR within Navigation Sidebar
 /////////////////////////////////////////////////////////////////////*/
 /*Dropdown Code for emoji toolbar*/
 .emote-dropdown__emoji-icon {
-  color: black;
-  background-image: url("Assets/lmao.png");
+  background-image: url('Assets/lmao.png');
   background-size: cover;
   padding: 1px;
   font-size: 16px;
   border-style: solid;
   border-width: 1px;
   border-radius: 25px;
-  text-align: center;
+  border-color: transparent;
   width: 3rem;
   height: 3rem;
-  opacity: 0.1;
-  cursor: pointer; /*I know that this should be in an overarching class, too lazy to change rn*/
-}
-/*When removed the code below doesn't do much.....*/
-/*remove that annoying white space around dropbtn*/
-.body .emote-dropdown__emoji-icon {
-  background-color: black;
-  /*Opacity is too low and icon does not show in default mode*/
   opacity: 0.4;
-}
-.dark .emote-dropdown__emoji-icon {
-  background-color: #596988;
-}
-.mo .emote-dropdown__emoji-icon {
-  background-color: inherit;
+  cursor: pointer;
 }
 
 .emote-dropdown__emoji-icon:hover {
-  opacity: 100%;
+  opacity: 1;
 }
-.dropdown:hover .emote-dropdown__dropdown-content {
+
+.emote-dropdown__container:hover .emote-dropdown__dropdown-content {
   display: inline-block;
-  width: 100%;
   margin: auto;
+  flex: 5%;
+  scrollbar-color: #888 rgb(201, 201, 201);
+  scrollbar-width: thin;
+  /*Scrollbar width is for firefox*/
+}
+
+.dark .emote-dropdown__container:hover .emote-dropdown__dropdown-content {
+  scrollbar-color: black #282828;
+}
+.emote-dropdown__container:hover .emote-dropdown__emoji-icon {
+  opacity: 1;
 }
 
 .emote-dropdown__dropdown-content {
   display: none;
   position: absolute;
-  max-width: 10rem;
+  max-width: 15rem;
   height: 4.5rem;
-  border: 2px solid;
-  border-radius: 7px;
+  border: 2px solid black;
+  border-radius: 0.3em;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: 1;
+  background-color: lightgray;
 }
-/*background-color of the dropdown/*/
-body .emote-dropdown__dropdown-content {
-  background-color: lightgrey;
-}
+
 .dark .emote-dropdown__dropdown-content {
-  background-color: #59698870;
-}
-.mo .emote-dropdown__dropdown-content {
-  background-color: #ffbadd;
+  background-color: #2b2a33;
 }
 .emote-dropdown__container {
   display: flex;
   flex-flow: column;
   margin-left: 0%;
 }
-/*--*/
 /*CSS Styling to make buttons within the dropdown to look NOICE*/
 .emote {
   /*this is a button, see .customEmote for inline emote styling*/
   font-family: monospace;
   font-size: 1.2rem;
-  min-width: 2.2rem;
+  min-width: 2.4rem;
   min-height: 30px;
-  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
   border: 1px solid #596988;
-  background-color: transparent;
-  border-radius: 7px;
-  color: black;
+  border-radius: 0.3em;
+  color: inherit;
+  background-color: inherit;
   box-shadow: 1px 4px 10px black;
 }
 .emote:hover {
-  border: 1px solid #343a42;
-  color: black;
+  border-color: #343a42;
   cursor: pointer;
 }
 .emote:active {
@@ -524,11 +422,9 @@ body .emote-dropdown__dropdown-content {
 .mode__radio-button {
   font-size: 100%;
 }
-.dark input[type="button"] {
-  color: #596988;
-}
-/*////////////////////////////////
-		SMOOTH SWITCH
+
+/*/ ///////////////////////////////
+SMOOTH SWITCH
 ////////////////////////////////*/
 
 .switch input {
@@ -537,7 +433,10 @@ body .emote-dropdown__dropdown-content {
   width: 0;
   height: 0;
 }
-
+.switch__container {
+  display: flex;
+  flex-direction: row;
+}
 .switch {
   /*slider container*/
   position: relative;
@@ -563,7 +462,7 @@ body .emote-dropdown__dropdown-content {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -579,20 +478,16 @@ input:checked + .slider {
 }
 
 .dark input:checked + .slider {
-  background-color: #4caf50;
-}
-
-.mo input:checked + .slider {
   background-color: #00ddff;
 }
 
-.mo input + .slider {
+.dark input + .slider {
   background-color: #42414d;
 }
-.mo input + .slider:hover {
+.dark input + .slider:hover {
   background-color: #52525e;
 }
-.mo .slider:before {
+.dark .slider:before {
   background-color: black;
 }
 input:checked + .slider:before {
@@ -602,23 +497,26 @@ input:checked + .slider:before {
 }
 
 /* --- Resource links --- */
-/*replace all .lynk with resource-link*/
-
+.resource-link__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.resource-link {
+  padding: 0.6%;
+  margin: 0.5%;
+}
 a.resource-link {
   text-decoration: none;
-  min-width: 3rem;
-  min-height: 10rem;
-  padding: 5px;
-  margin: 0.1%;
+  min-width: 2rem;
+  min-height: 1rem;
   border: 1px solid #343a42;
   border-radius: 6px;
   color: #343a42;
+  text-align: center;
 }
+
 .dark a.resource-link {
-  border: 1px solid #8492ae;
-  color: #8492ae;
-}
-.mo a.resource-link {
   border: 1px solid #42414d;
   color: inherit;
   background-color: inherit;
@@ -628,49 +526,56 @@ a.resource-link:hover {
   color: inherit;
   transition: 800ms;
 }
+
 .dark a.resource-link:hover {
-  background-color: #8492ae;
-  color: black;
-}
-.mo a.resource-link:hover {
   background-color: #52525e;
 }
 
 /*//////////////////////////////*/
 
 /* --- Login Container --- */
+.login__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: none;
+  background-color: inherit;
+}
+
 .login-credentials__container {
   display: flex;
+  background-color: inherit;
   flex-direction: column;
   flex-wrap: wrap;
-  min-width: 40%;
+  width: 100%;
   height: 100%;
-  padding-top: 15rem;
+  color: inherit;
+  z-index: 1;
 }
+
 .login-credentials__title {
-  align-self: flex-start;
   align-self: center;
-  color: white;
+  color: inherit;
 }
-.login-image {
-  display: flex;
-  flex-direction: column;
-  min-width: 30%;
-  height: 100%;
-}
+
 .login__credentials-input {
-  display: block;
-  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  width: 70%;
   height: 3rem;
   font-size: 1rem;
   border-style: hidden;
-  border-bottom-style: groove;
+  border-bottom: #42414d solid;
   border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  color: white;
+  color: inherit;
   background-color: inherit;
+  margin-top: 3%;
 }
 .login__credentials-input:focus {
   outline: none;
@@ -678,73 +583,58 @@ a.resource-link:hover {
 }
 /*When autofill happens the colors are messed up, the code below fixes it*/
 .login__credentials-input:-webkit-autofill {
-  color: white;
-  -webkit-text-fill-color: white !important;
-  -webkit-box-shadow: 0 0 0 0 white inset !important;
+  color: inherit;
+  -webkit-text-fill-color: inherit !important;
+  -webkit-box-shadow: 0 0 0 0 inherit inset !important;
   box-shadow: inset;
   border-radius: 0.3em;
 }
 
+.login__password-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  width: 70%;
+  margin-top: 3%;
+}
+
+.login__password {
+  width: 100%;
+}
+
 .login__password-visiblity {
-  position: absolute;
-  margin-top: 0;
-  margin-left: 75%;
-  z-index: 1;
+  width: 2%;
+  align-self: center;
   cursor: pointer;
-  color: white;
+  color: inherit;
   background-color: inherit;
   font-size: 4rem;
 }
+
 .login__password-visiblity:hover {
   transition: 800ms;
   color: #1da1f2;
 }
-.login__password-box {
-  display: flex;
-  flex-direction: row;
-}
+
 .login-credentials__submit {
+  align-self: center;
   display: block;
   height: 3rem;
-  width: 60%;
+  width: 70%;
   font-size: 4rem;
   border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
   background-color: inherit;
-  color: white;
+  color: inherit;
+  margin-top: 3%;
 }
-.login-credentials__submit:active {
-  margin-top: 0.45rem;
-  height: 2.75rem;
-}
+
 .login-credentials__submit:hover {
   transition: 800ms;
   color: #1da1f2;
 }
-.login__celebrate {
-  height: 3rem;
-  width: 60%;
-  font-size: 4rem;
-  border-radius: 0.3em;
-  margin: 0.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  color: white;
-  background-color: inherit;
-}
-.login__celebrate:hover {
-  transition: 800ms;
-  color: #1da1f2;
-}
-.lockscreen {
-  background: url(Assets/lockscreen.jpg) no-repeat center 40% fixed;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  object-fit: contain;
-}
+
 /* --- Log out button --- */
 .settings__logout-btn {
   padding: 0.1em;
@@ -764,7 +654,7 @@ a.resource-link:hover {
 .settings__logout-btn:active {
   height: 2.75rem;
 }
-.mo .settings__logout-btn:hover {
+.dark .settings__logout-btn:hover {
   background-color: #52525e;
 }
 .settings__lichess-login {
@@ -778,21 +668,16 @@ a.resource-link:hover {
   background-color: inherit;
   color: inherit;
 }
-.mo .settings__lichess-login:hover {
+.dark .settings__lichess-login:hover {
   background-color: #52525e;
 }
 /*--*/
 /*Quick Access is for the chat flush (and later the textbox clear)*/
 
 .quick-access {
-  width: 100%;
-  min-height: 43px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  text-align: center;
   cursor: pointer;
   opacity: 0.5;
-  background-color: inherit;
+  background-color: none;
 }
 .quick-access--chat-flush {
   width: 100%;
@@ -814,17 +699,13 @@ a.resource-link:hover {
   transition: 500ms;
 }
 .cookie-alert__container {
-  width: 97.5%;
+  width: 100%;
   padding: 1%;
-  background-color: inherit;
   color: white;
+  background-color: #282828;
   position: fixed;
   bottom: 0;
   z-index: 1;
-  border-style: solid;
-  border-color: inherit;
-  border-width: 1px;
-  border-radius: 0.3em;
   opacity: 1;
   display: flex;
   flex-direction: row;
@@ -834,6 +715,7 @@ a.resource-link:hover {
   min-width: 90%;
   font-size: 1.25rem;
   text-align: center;
+  align-self: center;
 }
 .cookie-alert__close {
   min-width: 10%;
@@ -843,6 +725,7 @@ a.resource-link:hover {
   cursor: pointer;
   transition: 900ms;
   z-index: 1;
+  align-self: center;
 }
 .cookie-alert__container--hidden {
   width: 97.5%;
@@ -862,10 +745,6 @@ a.resource-link:hover {
   transition: 900ms;
 }
 
-.dark .cookie-alert__close {
-  color: white;
-}
-/*Highly Experimental*/
 .chatline {
   position: relative;
   display: flex;
@@ -878,11 +757,10 @@ a.resource-link:hover {
   max-width: 47.3%;
   min-height: 1.5rem;
   left: 0.5%;
+  background-color: #c6d6e6;
 }
-.body .chatline {
-  background-color: #f0f2f4;
-}
-.mo .chatline {
+
+.dark .chatline {
   background-color: #2b2a33;
   border-color: #42414d;
 }
@@ -904,7 +782,7 @@ a.resource-link:hover {
 }
 
 .chatline::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -924,15 +802,15 @@ a.resource-link:hover {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  scrollbar-width: thin;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgb(201, 201, 201);
 }
+
 .dark ::-webkit-scrollbar-track {
-  background: #282828;
-}
-.mo ::-webkit-scrollbar-track {
   background: #282828;
 }
 
@@ -941,10 +819,8 @@ a.resource-link:hover {
   background: #888;
   border-radius: 0.3em;
 }
+
 .dark ::-webkit-scrollbar-thumb {
-  background: #3f4650;
-}
-.mo ::-webkit-scrollbar-thumb {
   background: black;
 }
 /* Handle on hover */
@@ -965,13 +841,11 @@ a.resource-link:hover {
   transition: 50ms;
   z-index: 1;
 }
-.mo .menu {
+.dark .menu {
   background-color: #2b2a33;
   border-color: #42414d;
 }
-.dark .menu {
-  background-color: #343a42;
-}
+
 .menu-item {
   height: 10%;
   padding: 2%;
@@ -979,7 +853,7 @@ a.resource-link:hover {
   align-items: center;
   justify-content: center;
 }
-.mo .menu-item {
+.dark .menu-item {
   color: inherit;
 }
 .menu-item:hover {
@@ -987,12 +861,33 @@ a.resource-link:hover {
   background-color: #f0f2f4;
   transition: 500ms;
 }
+
 .dark .menu-item:hover {
-  background-color: #3f4650;
-}
-.mo .menu-item:hover {
   background-color: #42414d;
 }
 .material-icons {
-  padding: 2%;
+  align-self: center;
+}
+.asami-quote__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 10%;
+  max-width: 20em;
+  align-self: center;
+  justify-content: center;
+}
+
+.asami-quote {
+  flex: 65%;
+  align-self: center;
+  justify-content: center;
+  font-size: 16;
+}
+
+.asami-image {
+  flex: 35%;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
 }
