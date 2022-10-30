@@ -25,8 +25,10 @@ But the chat had to go on. So I enlisted the help of my dad's server, and recrui
 - multi-tab system for quick links
 - working mobile integration
 - fun quotes generator
+- inline emotes and gifs
 - chat emptying system for "sus" messages
 - "system commands" not associated with any users
+- and much more...
 
 ## Two years after its creation... 
 The website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
