@@ -14,6 +14,19 @@ This led me to learning JavaScript (my beloved!). With the help of the internet,
 But the chat had to go on. So I enlisted the help of my dad's server, and recruited my friend `@mh-anwar`, and we got to work. As you browse this repository's version history, you will see that as our chat website grew, so did our coding skills.
 
 ## FINAL FEATURES:
+- Secure login system with API key
+- Dark mode and accessibility mode for my colourblind friend
+- Message replies! (Before Discord)
+- Built-in markdown using regular expressions
+		- Hashtags are shown as blue
+		- Links are automatically detected
+		- HTML tag support ("strong","em","mark","ins",etc)
+- All inputs cleaned using DOMpurify to prevent cross-site scripting (XXS)
+- multi-tab system for quick links
+- working mobile integration
+- fun quotes generator
+- chat emptying system for "sus" messages
+- "system commands" not associated with any users
 
 ## Two years after its creation... 
 The website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
