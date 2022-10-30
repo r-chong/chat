@@ -2,7 +2,7 @@
 
 Genius Chat is a website that was originally created as a place for my friends and I to communicate after school, on a platform that everybody could access -no social media required! 
 
-I started by coding the website in JavaScript, HTML, and CSS. But when I pressed the buttons... nothing happened! It was at that moment that I learned what was really under the hood of a website. I needed something called a database, and a hosting platform, and a way to log changes (Why is it named Git, anyway?!) 
+I started by coding the website in JavaScript, HTML, and CSS. But when I closed the page... nothing saved! It was at that moment that I learned what was really under the hood of a website. I needed something called a database, and a hosting platform, and a way to log changes (Why is it named Git, anyway?!) 
 
 But the chat had to be made. So I enlisted the help of my dad's server, and recruited my friend @mh-anwar, who had.. personal stake in the development in the website. It was quite time consuming, but we learned so much! As you browse this repository's version history, you will see that as our chat website grew, so did our coding skills.
 
