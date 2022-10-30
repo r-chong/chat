@@ -1,6 +1,6 @@
 # Genius Chat v5.0.0
 
-Genius Chat is a website originally created as a place for my friends and I to communicate after school on a platform that everybody could access -no social media required. 
+Genius Chat is a website that was originally created as a place for my friends and I to communicate after school on a platform that everybody could access -no social media required. 
 
 Two years after its creation, the website has received 158 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! 
 
