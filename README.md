@@ -13,7 +13,7 @@ When I first started working on this project, I had very little experience with 
 
 I quickly turned to the internet for help and taught myself JavaScript. It was a challenging process, but with persistence and determination, I was able to create a functioning chat platform. 
 
-After I had the basic functionality of the chat working, I enlisted the help of my friend `@mh-anwar` to set up a hosting platform and a database to store messages. This allowed the chat to be accessible to users at any time and allowed messages to be saved even after the page was closed.
+After I had the basic functionality of the chat working, I enlisted the help of my friend `@mh-anwar` to create new features, while enlisting my dad's server and database to store our chat messages. This allowed the site to be accessible to users at any time and allowed messages to be saved even after the page was closed.
 
 # Fast-forward to 2022...
 Two years later, the website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
