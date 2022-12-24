@@ -1,11 +1,11 @@
+# Genius Chat v5.0.0
+
 <p align="center">
 	<img width="49%" src="https://user-images.githubusercontent.com/75395781/209412352-75deb94d-9632-47b6-a940-ebe8ef7e854e.png">
 	<img width="49%" src="https://user-images.githubusercontent.com/75395781/209412352-75deb94d-9632-47b6-a940-ebe8ef7e854e.png">
 </p>
 
-# Genius Chat v5.0.0
-
-Genius Chat is a website that was originally created as a place for my friends and I to communicate after school, on a platform that everybody could access -no social media required! 
+Genius Chat is a website that was originally created as a place for my friends and I to communicate after school, on a platform that everybody could access -no social media required!
 
 # GC: The lore 
 *CIRCA 2020...*
