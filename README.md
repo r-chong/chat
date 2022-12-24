@@ -1,24 +1,27 @@
+<p align="center">
+	<img width="49%" src="https://user-images.githubusercontent.com/75395781/209412352-75deb94d-9632-47b6-a940-ebe8ef7e854e.png">
+	<img width="49%" src="https://user-images.githubusercontent.com/75395781/209412352-75deb94d-9632-47b6-a940-ebe8ef7e854e.png">
+</p>
+
 # Genius Chat v5.0.0
 
 Genius Chat is a website that was originally created as a place for my friends and I to communicate after school, on a platform that everybody could access -no social media required! 
 
-<p align="center">
-	<img width="50%" src="https://user-images.githubusercontent.com/75395781/209412352-75deb94d-9632-47b6-a940-ebe8ef7e854e.png">
-</p>
-
-
-## GC: The lore 
+# GC: The lore 
 *CIRCA 2020...*
 
 <img align="right" src="https://user-images.githubusercontent.com/75395781/198900837-10d6405e-2f2e-418c-8148-d36e72031133.png">
 
-I remember starting to code the website in plain HTML and CSS. If you look to the right of this text, I had barely created half of that at the time. Of course, HTML and CSS together are not much more than a selectable image, and so I had to look to using other tools...
+When I first started working on this project, I had very little experience with web development. I remember starting out with just HTML and CSS, creating the basic layout and style of the site. However, I quickly realized that I needed to learn more in order to add the functionality I wanted, like a message submission system and real-time communication.
 
-This led me to learning JavaScript. With the help of the internet, I managed to create a rudimentary message submitting system and moving parts, but when I closed the page, well... nothing saved! It was at that moment that I learned what was really under the hood of a website. I needed something called a database, and a hosting platform, and a way to log changes (Why is it named Git, anyway?!)<br/>
+I quickly turned to the internet for help and taught myself JavaScript. It was a challenging process, but with persistence and determination, I was able to create a functioning chat platform. 
 
-But the chat had to go on. I enlisted the help of my dad's server and recruited my friend `@mh-anwar`, and we quickly got to work.
+After I had the basic functionality of the chat working, I enlisted the help of my friend `@mh-anwar` to set up a hosting platform and a database to store messages. This allowed the chat to be accessible to users at any time and allowed messages to be saved even after the page was closed.
 
-## FINAL FEATURES:
+# Fast-forward to 2022...
+Two years later, the website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
+
+# FINAL FEATURES:
 - Secure login system with API key
 - Dark mode and accessibility mode for my colourblind friend
 - Message replies! (Before Discord)
@@ -35,10 +38,7 @@ But the chat had to go on. I enlisted the help of my dad's server and recruited 
 - "system commands" not associated with any users
 - and much more...
 
-## Today...
-Two years after its creation, The website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
-
-## Tomorrow...
+# Tomorrow...
 We are currently in the midst of planning a completely revamped chat website that follows proper coding conventions and updated libraries from the very start.
 Check out the repository [here!](https://github.com/r-chong/Ultimate-Chat)
 
