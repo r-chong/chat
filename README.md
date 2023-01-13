@@ -9,11 +9,11 @@ Genius Chat is a website that I created in eighth grade as a way for my friends 
 
 <img align="right" src="https://user-images.githubusercontent.com/75395781/198900837-10d6405e-2f2e-418c-8148-d36e72031133.png">
 
-When I first started working on this project, I had very little experience with web development. I remember starting out with just HTML and CSS, creating the basic layout and style of the site. However, I quickly realized that I needed to learn more in order to add the functionality I wanted, like a message submission system and real-time communication.
+When I first started working on this project, I had very little experience with web development. I remember starting out with just HTML and CSS, creating the basic layout and style of the site. However, I quickly realized that I needed to learn more in order to add the functionality my friends wanted, like a message submission system and real-time communication.
 
-I quickly turned to the internet for help and taught myself JavaScript. It was a challenging process, but with persistence and determination, I was able to create a functioning chat platform. 
+I quickly turned to the internet for help and started to learn JavaScript. It was a challenging process, but with persistence and determination, I was able to create a functioning chat platform. 
 
-After I had the basic functionality of the chat working, I enlisted the help of my friend `@mh-anwar` to create new features, while enlisting my dad's server and database to store our chat messages. This allowed the site to be accessible to users at any time and allowed messages to be saved even after the page was closed.
+After I had the basic functionality of the chat working, I enlisted the help of my friend (and fellow user) `@mh-anwar` so that we could work together to roll out features faster and more efficiently. I also enlisted my dad's server and database to store our chat messages on the web. This allowed the site to be accessible to users at any time and allowed messages to be saved even after the page was closed.
 
 # Fast-forward to 2022...
 Two years later, the website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
