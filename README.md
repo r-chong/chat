@@ -15,8 +15,8 @@ I quickly turned to the internet for help and started to learn JavaScript. It wa
 
 After I had the basic functionality of the chat working, I enlisted the help of my friend (and fellow user) `@mh-anwar` so that we could work together to roll out features faster and more efficiently. I also enlisted my dad's server and database to store our chat messages on the web. This allowed the site to be accessible to users at any time and allowed messages to be saved even after the page was closed.
 
-# Fast-forward to 2022...
-Two years later, the website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
+# Fast-forward to 2023...
+Three years later, the website has received over 160 commits and broadcasted over 80,000 messages. This doesn't even include the code that I had created before uploading to GitHub! Although you might not call it Discord (we argue that it's better), I can honestly say that this chat platform taught me so much about web development and programming in general, and I know that I 100% want to spend the rest of my life in the amazing industry of CS.
 
 # FINAL FEATURES:
 - Secure login system with API key
