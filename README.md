@@ -4,6 +4,12 @@
 
 Genius Chat is a website that I created in grade 8 as a way for my friends and I to communicate with each other after school. It was designed to be a platform that everyone could access -no social media required!
 
+### [WORKING DEMO](http://chat.reesechong.com/)
+```
+Username: public
+Password: github
+```
+
 # GC: The lore 
 *CIRCA 2020...*
 
