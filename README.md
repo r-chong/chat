@@ -1,14 +1,14 @@
+# [WORKING DEMO](http://chat.reesechong.com/)
+```
+Username: public
+Password: github
+```
+
 # Genius Chat v5.0.0
 
 ![Banner](https://user-images.githubusercontent.com/75395781/209419223-8b6ee551-701c-4ec6-b1e5-163b026c2fe5.png)
 
 Genius Chat is a website that I created in grade 8 as a way for my friends and I to communicate with each other after school. It was designed to be a platform that everyone could access -no social media required!
-
-### [WORKING DEMO](http://chat.reesechong.com/)
-```
-Username: public
-Password: github
-```
 
 # GC: The lore 
 *CIRCA 2020...*
