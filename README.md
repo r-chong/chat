@@ -1,8 +1,4 @@
 # [WORKING DEMO](http://chat.reesechong.com/)
-```
-Username: public
-Password: github
-```
 
 # Genius Chat v5.0.0
 
